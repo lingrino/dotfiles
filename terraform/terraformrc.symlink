@@ -1,0 +1,2 @@
+# https://www.terraform.io/docs/configuration/providers.html#provider-plugin-cache
+plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"

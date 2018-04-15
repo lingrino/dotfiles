@@ -1,0 +1,4 @@
+[defaults]
+forks = 30
+host_key_checking = False
+retry_files_enabled = False

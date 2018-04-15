@@ -1,0 +1,16 @@
+.DS_Store
+*~
+*.swp
+*.ignore
+*.pem
+*.priv
+*.pyc
+*.retry
+*.sav
+*.key
+*.crt
+*.war
+*.bak
+**/.terraform/*
+*.tfstate*
+*NOT_IN_GIT

@@ -1,0 +1,5 @@
+# Disable known_hosts functionality
+# Careful with this in untrusted environments
+LogLevel QUIET
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/null

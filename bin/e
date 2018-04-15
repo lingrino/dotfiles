@@ -1,0 +1,3 @@
+#!/bin/sh
+# Quick shortcut to an editor.
+exec "$EDITOR" "${1:-.}"
