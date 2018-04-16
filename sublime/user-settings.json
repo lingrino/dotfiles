@@ -1,0 +1,32 @@
+{
+    "always_show_minimap_viewport": false,
+    "bold_folder_labels": true,
+    "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+    "ensure_newline_at_eof_on_save": true,
+    "folder_exclude_patterns": [
+        ".svn",
+        ".git",
+        ".hg",
+        ".terraform",
+        "CVS"
+    ],
+    "font_face": "Consolas",
+    "font_size": 14,
+    "highlight_modified_tabs": true,
+    "ignored_packages": [
+        "Vintage"
+    ],
+    "indent_to_bracket": true,
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "material_theme_compact_sidebar": true,
+    "material_theme_contrast_fileicon": true,
+    "material_theme_contrast_mode": true,
+    "material_theme_small_statusbar": true,
+    "material_theme_small_tab": true,
+    "tab_size": 2,
+    "theme": "Default.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": false
+}
