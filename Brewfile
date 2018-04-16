@@ -5,6 +5,7 @@ tap "caskroom/versions"
 
 brew 'ack'
 brew 'coreutils'
+brew 'ctags'
 brew 'git'
 brew 'go'
 brew 'grc'

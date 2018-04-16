@@ -11,6 +11,7 @@
 *.crt
 *.war
 *.bak
+*.vscode
 **/.terraform/*
 *.tfstate*
 *NOT_IN_GIT
