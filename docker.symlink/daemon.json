@@ -1,6 +1,6 @@
 {
+  "max-concurrent-uploads" : 10,
   "debug" : true,
   "experimental" : true,
-  "max-concurrent-downloads": 10,
-  "max-concurrent-uploads": 10
+  "max-concurrent-downloads" : 10
 }

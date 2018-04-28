@@ -14,9 +14,7 @@ alias vl='vault list'
 alias vr='vault read -field=value'
 
 # Write a value to vault
-vw () {
-  vault write "$1" value="$2"
-}
+alias vw='vault write'
 
 # Use after update to v2
 # https://www.vaultproject.io/docs/secrets/kv/kv-v2.html
