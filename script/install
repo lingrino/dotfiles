@@ -9,6 +9,7 @@ cd "$(dirname $0)"/..
 echo "Enforcing Brewfile"
 brew bundle
 brew bundle cleanup --force
+brew upgrade
 brew cleanup
 brew prune
 brew doctor

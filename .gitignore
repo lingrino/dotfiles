@@ -10,3 +10,6 @@ docker.symlink/config.json
 # Keep ssh config file, but nothing else
 ssh.symlink/*
 !ssh.symlink/config
+
+# docker artifact
+docker.symlink/.buildNodeID

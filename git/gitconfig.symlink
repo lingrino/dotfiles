@@ -4,6 +4,8 @@
 [hub]
         protocol = https
 [alias]
+        ps = push
+        pl = pull
         co = checkout
 [color]
         diff = auto
