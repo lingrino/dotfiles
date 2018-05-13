@@ -13,3 +13,4 @@ ssh.symlink/*
 
 # docker artifact
 docker.symlink/.buildNodeID
+*.vscode

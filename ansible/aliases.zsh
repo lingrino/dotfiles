@@ -1,2 +1,2 @@
 # Shorten ansible
-alias a='ansible-playbook'
+alias ans='ansible-playbook'

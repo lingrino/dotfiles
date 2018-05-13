@@ -11,13 +11,7 @@ alias vd='vault delete'
 alias vl='vault list'
 
 # Read a value from vault
-alias vr='vault read -field=value'
+alias vr='vault read'
 
 # Write a value to vault
 alias vw='vault write'
-
-# Use after update to v2
-# https://www.vaultproject.io/docs/secrets/kv/kv-v2.html
-vp () {
-  vault kv put "$1" value="$2"
-}

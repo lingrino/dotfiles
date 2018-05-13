@@ -4,10 +4,11 @@ tap "caskroom/cask"
 tap "caskroom/versions"
 
 brew 'ack'
-brew 'autojump'
 brew 'coreutils'
 brew 'ctags'
 brew 'dep'
+brew 'fasd'
+brew 'fd'
 brew 'fzf'
 brew 'git'
 brew 'go'
