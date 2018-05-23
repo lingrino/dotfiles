@@ -14,7 +14,6 @@ epc () {
 
 # Assumes the admin role using my creds
 # ara -> assume role admin
-source $(which assume-role)
 ara () {
     CREDS=$(aws sts assume-role \
         --role-arn arn:aws:iam::281050604782:role/admin \
