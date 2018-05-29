@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
-tap "caskroom/cask"
-tap "caskroom/versions"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
 
 brew 'ack'
 brew 'coreutils'
@@ -38,13 +38,13 @@ brew 'zsh-completions'
 
 cask 'alfred'
 cask 'docker'
-cask 'caskroom/versions/google-chrome-beta'
+cask 'homebrew/cask-versions/google-chrome-beta'
 cask 'hipchat'
-cask 'caskroom/versions/iterm2-beta'
+cask 'homebrew/cask-versions/iterm2-beta'
 cask 'java'
-cask 'caskroom/versions/skype-preview'
-cask 'caskroom/versions/slack-beta'
+cask 'homebrew/cask-versions/skype-preview'
+cask 'homebrew/cask-versions/slack-beta'
 cask 'spotify'
 cask 'sublime-text'
-cask 'caskroom/versions/visual-studio-code-insiders'
+cask 'homebrew/cask-versions/visual-studio-code-insiders'
 cask 'vlc'
