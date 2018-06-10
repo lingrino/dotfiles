@@ -4,8 +4,8 @@ epc () {
     unset AWS_ACCESS_KEY_ID
     unset AWS_SECRET_ACCESS_KEY
     unset AWS_SESSION_TOKEN
-    export AWS_ACCESS_KEY_ID=$(lpass show -u 2273816752644614863)
-    export AWS_SECRET_ACCESS_KEY=$(lpass show -p 2273816752644614863)
+    export AWS_ACCESS_KEY_ID=$(op get item llwcsrn5mzdm3nwyobkm7injaa | jq -r '.details.sections[] | select(.fields) | select(.fields[].t == "AWS_ACCESS_KEY_ID") | .fields[] | select(.t == "AWS_ACCESS_KEY_ID") | .v')
+    export AWS_SECRET_ACCESS_KEY=$(op get item llwcsrn5mzdm3nwyobkm7injaa | jq -r '.details.sections[] | select(.fields) | select(.fields[].t == "AWS_SECRET_ACCESS_KEY") | .fields[] | select(.t == "AWS_SECRET_ACCESS_KEY") | .v')
     CREDS=$(aws sts get-session-token --serial-number arn:aws:iam::281050604782:mfa/sean --token-code $1)
     export AWS_ACCESS_KEY_ID=$(echo "$CREDS" | jq -r .Credentials.AccessKeyId)
     export AWS_SECRET_ACCESS_KEY=$(echo "$CREDS" | jq -r .Credentials.SecretAccessKey)

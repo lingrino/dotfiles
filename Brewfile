@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
 
 brew 'ack'
 brew 'coreutils'
@@ -15,12 +15,10 @@ brew 'go'
 brew 'goreleaser'
 brew 'grc'
 brew 'hub'
-brew 'hugo'
 brew 'jq'
 brew 'kops'
 brew 'kubernetes-cli'
 brew 'libgit2'
-brew 'lastpass-cli'
 brew 'nmap'
 brew 'node'
 brew 'npm'
@@ -38,6 +36,8 @@ brew 'wget'
 brew 'zsh'
 brew 'zsh-completions'
 
+cask '1password'
+cask '1password-cli'
 cask 'alfred'
 cask 'docker'
 cask 'homebrew/cask-versions/google-chrome-beta'
