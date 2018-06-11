@@ -1,0 +1,25 @@
+- name: Only use UTF-8 in Terminal.app
+  osx_defaults:
+    state: present
+    domain: com.apple.terminal
+    key: StringEncodings
+    type: array
+    value:
+      - "4"
+
+# See: https://security.stackexchange.com/a/47786/8918
+- name: Enable Secure Keyboard Entry in Terminal.app
+  osx_defaults:
+    state: present
+    domain: com.apple.terminal
+    key: SecureKeyboardEntry
+    type: bool
+    value: true
+
+- name: Disable line marks in Terminal.app
+  osx_defaults:
+    state: present
+    domain: com.apple.terminal
+    key: ShowLineMarks
+    type: int
+    value: 0

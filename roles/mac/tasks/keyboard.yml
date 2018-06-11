@@ -1,0 +1,39 @@
+- name: Use press-and-hold to repeat key
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false
+
+- name: Set a fast key repeat
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: int
+    value: 2
+
+- name: Set a fast initial key repeat
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    type: int
+    value: 12
+
+- name: Enable full keyboard access in all dialogs
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleKeyboardUIMode
+    type: int
+    value: 3
+
+- name: Disable automatic capitalization
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: NSAutomaticCapitalizationEnabled
+    type: bool
+    value: true

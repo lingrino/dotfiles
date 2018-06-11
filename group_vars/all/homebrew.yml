@@ -1,0 +1,54 @@
+taps:
+  - homebrew/cask
+  - homebrew/cask-versions
+
+brews:
+  - ack
+  - coreutils
+  - ctags
+  - dep
+  - fasd
+  - fd
+  - fzf
+  - git
+  - go
+  - goreleaser
+  - grc
+  - hub
+  - jq
+  - kops
+  - kubernetes-cli
+  - libgit2
+  - m-cli
+  - nmap
+  - node
+  - npm
+  - openssl
+  - readline
+  - packer
+  - postgresql
+  - python
+  - shellcheck
+  - terraform
+  - unrar
+  - vault
+  - watch
+  - wget
+  - zsh
+  - zsh-completions
+
+casks:
+  - 1password
+  - 1password-cli
+  - alfred
+  - docker
+  - homebrew/cask-versions/google-chrome-beta
+  - hipchat
+  - homebrew/cask-versions/iterm2-beta
+  - java
+  - homebrew/cask-versions/skype-preview
+  - homebrew/cask-versions/slack-beta
+  - spotify
+  - sublime-text
+  - homebrew/cask-versions/visual-studio-code-insiders
+  - vlc

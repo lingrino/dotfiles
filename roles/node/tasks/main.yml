@@ -1,0 +1,28 @@
+- name: Make the npm global modules folder
+  file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/.npm-global-modules"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+  register: R_node_modules_dir
+
+- name: Add the npmrc file
+  template:
+    src: npmrc
+    dest: "{{ ansible_env.HOME }}/.npmrc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Template path.zsh into zsh/path.zsh
+  template:
+    src: path.zsh
+    dest: "{{ role_path }}/zsh/path.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Install all node packages
+  npm:
+    name: "{{ item }}"
+    state: latest
+    global: true
+  loop: "{{ npm_global_packages }}"

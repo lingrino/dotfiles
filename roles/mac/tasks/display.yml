@@ -1,0 +1,89 @@
+- name: Enable font smoothing
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleFontSmoothing
+    type: int
+    value: 1
+
+- name: Turn off transparency
+  osx_defaults:
+    state: present
+    domain: com.apple.universalaccess
+    key: reduceTransparency
+    type: bool
+    value: true
+
+- name: Always show scrollbars
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleShowScrollBars
+    type: string
+    value: "Always"
+
+- name: Save to disk by default
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: NSDocumentSaveNewDocumentsToCloud
+    type: bool
+    value: false
+
+- name: Expand save panel by default
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: "{{ item }}"
+    type: bool
+    value: true
+  loop:
+    - NSNavPanelExpandedStateForSaveMode
+    - NSNavPanelExpandedStateForSaveMode2
+
+- name: Expand print panel by default
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: "{{ item }}"
+    type: bool
+    value: true
+  loop:
+    - PMPrintingExpandedStateForPrint
+    - PMPrintingExpandedStateForPrint2
+
+- name: Allow scroll-to-zoom when holding control
+  osx_defaults:
+    state: present
+    domain: com.apple.universalaccess
+    key: closeViewScrollWheelToggle
+    type: bool
+    value: true
+
+- name: Allow scroll-to-zoom to use max zoom
+  osx_defaults:
+    state: present
+    domain: com.apple.universalaccess
+    key: HIDScrollZoomModifierMask
+    type: int
+    value: 262144
+
+- name: Follow keyboard when using scroll-to-zoom
+  osx_defaults:
+    state: present
+    domain: com.apple.universalaccess
+    key: closeViewZoomFollowsFocus
+    type: bool
+    value: true
+
+- name: Enable HiDPI display modes
+  osx_defaults:
+    state: present
+    domain: /Library/Preferences/com.apple.windowserver
+    key: DisplayResolutionEnabled
+    type: bool
+    value: true
+  become: true
+  become_user: root
+  tags:
+    - sudo

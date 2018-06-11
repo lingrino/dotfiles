@@ -1,0 +1,68 @@
+- name: Write brewfile to home directory
+  template:
+    src: Brewfile
+    dest: "{{ ansible_env.HOME }}/.Brewfile"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Install homebrew packages with bundle
+  command: brew bundle --global
+  register: R_bundle
+  changed_when:
+    - (R_bundle.stderr != "")           or
+      ("Installing" in R_bundle.stdout) or
+      ("Upgrading"  in R_bundle.stdout)
+
+- name: Output bundle
+  debug:
+    msg: "{{ R_bundle.stdout_lines }}"
+  when:
+    - R_bundle.changed
+
+- name: Cleanup homebrew with bundle
+  command: brew bundle cleanup --global --force
+  register: R_bundle_clean
+  changed_when:
+    - R_bundle_clean.stdout != "" or R_bundle_clean.stderr != ""
+
+- name: Output bundle cleanup
+  debug:
+    msg: "{{ R_bundle_clean.stdout_lines }}"
+  when:
+    - R_bundle_clean.changed
+
+- name: Run brew cleanup
+  command: brew cleanup
+  register: R_brew_cleanup
+  changed_when:
+    - R_brew_cleanup.stderr != "" or R_brew_cleanup.stdout != ""
+
+- name: Output brew cleanup
+  debug:
+    msg: "{{ R_brew_cleanup.stdout_lines }}"
+  when:
+    - R_brew_cleanup.changed
+
+- name: Run brew prune
+  command: brew prune
+  register: R_brew_prune
+  changed_when:
+    - R_brew_prune.stderr != "" or R_brew_prune.stdout != ""
+
+- name: Output brew prune
+  debug:
+    msg: "{{ R_brew_prune.stdout_lines }}"
+  when:
+    - R_brew_prune.changed
+
+- name: Run brew doctor
+  command: brew doctor
+  register: R_brew_doctor
+  changed_when:
+    - R_brew_doctor.stdout != "Your system is ready to brew."
+
+- name: Output brew doctor
+  debug:
+    msg: "{{ R_brew_doctor.stdout_lines }}"
+  when:
+    - R_brew_doctor.changed

@@ -1,0 +1,5 @@
+gopath: "{{ projects_folder_path }}/go"
+
+go_gets:
+  - github.com/nsf/gocode
+  - github.com/sqs/goreturns

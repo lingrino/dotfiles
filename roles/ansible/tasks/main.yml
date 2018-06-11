@@ -1,0 +1,6 @@
+- name: Write the ansible config file
+  copy:
+    src: ansible.cfg
+    dest: "{{ ansible_env.HOME }}/.ansible.cfg"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

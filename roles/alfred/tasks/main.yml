@@ -1,0 +1,7 @@
+- name: Symlink alfred settings directory to home
+  file:
+    src: "{{ role_path }}/symlinks/settings"
+    dest: "{{ ansible_env.HOME }}/.alfred"
+    state: link
+    mode: 0700
+    owner: "{{ ansible_user_id }}"

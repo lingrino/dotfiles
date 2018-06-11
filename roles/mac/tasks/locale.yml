@@ -1,0 +1,32 @@
+- name: Set language to english
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleLanguages
+    type: array
+    value:
+      - en
+
+- name: Set locale/money to US/USD
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleLocale
+    type: string
+    value: en_US@currency=USD
+
+- name: Use imperial system
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleMeasurementUnits
+    type: string
+    value: Inches
+
+- name: Disable metric units
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: AppleMetricUnits
+    type: bool
+    value: false

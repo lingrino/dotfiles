@@ -1,0 +1,39 @@
+- name: Show the main window when launching Activity Monitor
+  osx_defaults:
+    state: present
+    domain: com.apple.ActivityMonitor
+    key: OpenMainWindow
+    type: bool
+    value: true
+
+- name: Visualize CPU usage in the Activity Monitor Dock icon
+  osx_defaults:
+    state: present
+    domain: com.apple.ActivityMonitor
+    key: IconType
+    type: int
+    value: 5
+
+- name: Show all processes in Activity Monitor
+  osx_defaults:
+    state: present
+    domain: com.apple.ActivityMonitor
+    key: ShowCategory
+    type: int
+    value: 0
+
+- name: Sort Activity Monitor results by CPU usage
+  osx_defaults:
+    state: present
+    domain: com.apple.ActivityMonitor
+    key: SortColumn
+    type: string
+    value: CPUUsage
+
+- name: Sort Activity Monitor results descending
+  osx_defaults:
+    state: present
+    domain: com.apple.ActivityMonitor
+    key: SortDirection
+    type: int
+    value: 0

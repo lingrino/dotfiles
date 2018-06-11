@@ -1,0 +1,9 @@
+pip_global_packages:
+  - ansible
+  - awscli
+  - boto
+  - boto3
+  - pip
+  - requests
+  - setuptools
+  - wheel

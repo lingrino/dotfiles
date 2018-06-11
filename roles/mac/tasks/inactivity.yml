@@ -1,0 +1,92 @@
+- name: Disable resume
+  osx_defaults:
+    state: present
+    domain: com.apple.systempreferences
+    key: NSQuitAlwaysKeepsWindows
+    type: bool
+    value: false
+
+- name: Disable auto termination of inactive apps
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: NSDisableAutomaticTermination
+    type: bool
+    value: true
+
+- name: Ask for password after sleep/screensaver
+  osx_defaults:
+    state: present
+    domain: com.apple.screensaver
+    key: askForPassword
+    type: int
+    value: 1
+
+- name: Require password immediately after sleep/screensaver
+  osx_defaults:
+    state: present
+    domain: com.apple.screensaver
+    key: askForPasswordDelay
+    type: int
+    value: 0
+
+- name: Set standby delay
+  block:
+    - name: Get current standbydelay
+      shell: pmset -g | grep standbydelay
+      register: R_standby_delay_info
+      changed_when:
+        - R_standby_delay_info.stderr != ""
+
+    - name: Set standby delay
+      command: pmset -a standbydelay {{ standby_delay_seconds }}
+      become: true
+      become_user: root
+      register: R_standby_delay
+      changed_when:
+        - (R_standby_delay.stdout != "") or
+          (R_standby_delay.stderr != "") or
+          (standby_delay_seconds | string not in R_standby_delay_info.stdout)
+  tags:
+    - sudo
+
+- name: Disable hibernation
+  block:
+    - name: Get current hibernate setting
+      shell: pmset -g | grep hibernatemode
+      register: R_hibernate_info
+      changed_when:
+        - R_hibernate_info.stderr != ""
+
+    - name: Disable hibernation
+      command: pmset -a hibernatemode 0
+      become: true
+      become_user: root
+      register: R_standby_delay
+      changed_when:
+        - (R_standby_delay.stdout != "") or
+          (R_standby_delay.stderr != "") or
+          ("0" not in R_hibernate_info.stdout)
+  tags:
+    - sudo
+
+- name: Disable sleep when idle
+  block:
+    - name: Get current sleep setting
+      command: systemsetup -getcomputersleep
+      become: true
+      become_user: root
+      register: R_sleep_info
+      changed_when:
+        - R_sleep_info.stderr != ""
+
+    - name: Disable sleep when idle
+      command: systemsetup -setcomputersleep Off
+      become: true
+      become_user: root
+      register: R_sleep_disable
+      changed_when:
+        - (R_sleep_disable.stderr != "") or
+          ("Never" not in R_sleep_info.stdout)
+  tags:
+    - sudo

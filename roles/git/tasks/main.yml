@@ -1,0 +1,20 @@
+- name: Write the global git config file
+  copy:
+    src: gitconfig_global
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Write the global gitignore file
+  copy:
+    src: gitignore_global
+    dest: "{{ ansible_env.HOME }}/.gitignore"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Write the gitconfig credentials file
+  copy:
+    src: gitconfig_local
+    dest: "{{ ansible_env.HOME }}/.gitconfig.local"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

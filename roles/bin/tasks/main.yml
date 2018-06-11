@@ -1,0 +1,13 @@
+- name: Template out dot into bin/dot
+  template:
+    src: dot
+    dest: "{{ role_path }}/bin/dot"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Make sure everything in bin is 0700
+  file:
+    path: "{{ role_path }}/bin/"
+    recurse: true
+    mode: 0700
+    owner: "{{ ansible_user_id }}"

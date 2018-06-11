@@ -1,0 +1,55 @@
+- name: Enable automatic update checks
+  osx_defaults:
+    state: present
+    domain: com.apple.SoftwareUpdate
+    key: AutomaticCheckEnabled
+    type: bool
+    value: true
+
+- name: Check for software updates daily
+  osx_defaults:
+    state: present
+    domain: com.apple.SoftwareUpdate
+    key: ScheduleFrequency
+    type: int
+    value: 1
+
+- name: Download new updates automatically
+  osx_defaults:
+    state: present
+    domain: com.apple.SoftwareUpdate
+    key: AutomaticDownload
+    type: int
+    value: 1
+
+- name: Always install security updates
+  osx_defaults:
+    state: present
+    domain: com.apple.SoftwareUpdate
+    key: CriticalUpdateInstall
+    type: int
+    value: 1
+
+- name: Automatically download apps purchased on other Macs
+  osx_defaults:
+    state: present
+    domain: com.apple.SoftwareUpdate
+    key: ConfigDataInstall
+    type: int
+    value: 1
+
+- name: Turn on app auto-update
+  osx_defaults:
+    state: present
+    domain: com.apple.commerce
+    key: AutoUpdate
+    type: bool
+    value: true
+
+- name: Let auto update do restarts
+  osx_defaults:
+    state: present
+    domain: com.apple.commerce
+    key: AutoUpdateRestartRequired
+    type: bool
+    value: true

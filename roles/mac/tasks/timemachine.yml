@@ -1,0 +1,18 @@
+- name: Prevent Time Machine from prompting to use new hard drives as backup volume
+  osx_defaults:
+    state: present
+    domain: com.apple.TimeMachine
+    key: DoNotOfferNewDisksForBackup
+    type: bool
+    value: true
+
+# Does not actually show 'changed' when the attribute changes
+# not sure how to properly do the update and know when it has changed
+- name: Disable local Time Machine backups
+  command: tmutil disablelocal
+  become: true
+  become_user: root
+  register: R_tmutil_disable
+  changed_when:
+    - (R_tmutil_disable.stderr != "") or
+      (R_tmutil_disable.stdout != "")
