@@ -19,6 +19,7 @@ brews:
   - kops
   - kubernetes-cli
   - libgit2
+  - m-cli
   - nmap
   - node
   - npm

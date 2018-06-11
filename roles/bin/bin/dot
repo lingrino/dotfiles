@@ -1,3 +1,13 @@
 #!/bin/sh
 
-ansible-playbook -i /Users/slingr20/projects/dotfiles/inventory -l $(whoami) /Users/slingr20/projects/dotfiles/main.yml
+case $1 in
+    all)
+        ansible-playbook -i /Users/slingr20/projects/dotfiles/inventory -l $(whoami) /Users/slingr20/projects/dotfiles/main.yml -K
+        ;;
+    most)
+        ansible-playbook -i /Users/slingr20/projects/dotfiles/inventory -l $(whoami) /Users/slingr20/projects/dotfiles/main.yml --skip-tags "sudo"
+        ;;
+    *)
+        ansible-playbook -i /Users/slingr20/projects/dotfiles/inventory -l $(whoami) /Users/slingr20/projects/dotfiles/main.yml --skip-tags "sudo,mac"
+        ;;
+esac

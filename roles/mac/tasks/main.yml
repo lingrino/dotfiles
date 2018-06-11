@@ -5,3 +5,5 @@
     loop_var: task
   when:
     - task | basename != "main.yml"
+  tags:
+    - mac

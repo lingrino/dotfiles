@@ -13,3 +13,14 @@
     - Apple Bitpool Min (editable)
     - Apple Initial Bitpool (editable)
     - Apple Initial Bitpool Min (editable)
+
+- name: Disable system sound effects at boot
+  command: nvram SystemAudioVolume=" "
+  become: true
+  become_user: root
+  register: R_boot_sound
+  changed_when:
+        - (R_boot_sound.stdout != "") or
+          (R_boot_sound.stderr != "")
+  tags:
+    - sudo

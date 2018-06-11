@@ -10,9 +10,7 @@
 - `zshrc` will look in `**/zsh/*.zsh` and source any files that it finds
 - Defaults for all systems should go in `group_vars/all`
 
-
 **TODO:**
-- [ ] parallelize installs and whole roles
 - [ ] get public and privkey from 1password and write to .ssh
 - [ ] vscode settings/extensions sync automated on new machines
 - [ ] add github token to ~/.config/goreleaser

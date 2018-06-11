@@ -75,3 +75,15 @@
     key: closeViewZoomFollowsFocus
     type: bool
     value: true
+
+- name: Enable HiDPI display modes
+  osx_defaults:
+    state: present
+    domain: /Library/Preferences/com.apple.windowserver
+    key: DisplayResolutionEnabled
+    type: bool
+    value: true
+  become: true
+  become_user: root
+  tags:
+    - sudo

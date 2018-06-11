@@ -1,3 +1,13 @@
 #!/bin/sh
 
-ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml
+case $1 in
+    all)
+        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml -K
+        ;;
+    most)
+        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml --skip-tags "sudo"
+        ;;
+    *)
+        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml --skip-tags "sudo,mac"
+        ;;
+esac
