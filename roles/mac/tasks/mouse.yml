@@ -1,0 +1,24 @@
+- name: Enable tap to click for current user
+  osx_defaults:
+    state: present
+    host: currentHost
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    type: int
+    value: 1
+
+- name: Enable tap to click on login screen
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    type: int
+    value: 1
+
+- name: Enable tap to click on external devices
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    type: bool
+    value: true

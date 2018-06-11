@@ -1,0 +1,13 @@
+- name: Template path.zsh into zsh/path.zsh
+  template:
+    src: path.zsh
+    dest: "{{ role_path }}/zsh/path.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Install all go packages
+  shell: go get -u {{ item }}
+  loop: "{{ go_gets }}"
+  register: R_goget
+  changed_when:
+    - R_goget.stdout != "" or R_goget.stderr != ""

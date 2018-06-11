@@ -1,0 +1,14 @@
+- name: Make the terraform plugin cache directory
+  file:
+    state: directory
+    path: "{{ terraform_plugin_dir | expanduser }}"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+  register: R_terraform_dir
+
+- name: Write terraform config file
+  template:
+    src: terraformrc
+    dest: "{{ ansible_env.HOME }}/.terraformrc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

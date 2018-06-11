@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ansible-playbook -i /Users/slingr20/projects/dotfiles/inventory -l $(whoami) /Users/slingr20/projects/dotfiles/main.yml

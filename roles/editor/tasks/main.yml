@@ -1,0 +1,6 @@
+- name: Template env.zsh into zsh/env.zsh
+  template:
+    src: env.zsh
+    dest: "{{ role_path }}/zsh/env.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

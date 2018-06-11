@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml

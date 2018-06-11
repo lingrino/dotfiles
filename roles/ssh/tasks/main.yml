@@ -1,0 +1,14 @@
+- name: Create the ssh directory
+  file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/.ssh"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+  register: R_ssh_dir
+
+- name: Copy over the ssh config file
+  copy:
+    src: config
+    dest: "{{ R_ssh_dir.path }}/config"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

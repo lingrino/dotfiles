@@ -1,0 +1,11 @@
+- name: Install all mac updates
+  command: softwareupdate -i -a
+  register: R_mac_update
+  changed_when:
+    - R_mac_update.stderr != "No updates are available."
+
+- name: Output software update on change
+  debug:
+    msg: "{{ R_mac_update }}"
+  when:
+    - R_mac_update.changed

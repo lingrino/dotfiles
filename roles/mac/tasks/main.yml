@@ -1,0 +1,7 @@
+- name: Run all tasks in this folder
+  include_tasks: "{{ task }}"
+  loop: "{{ query('fileglob', '{{ role_path }}/tasks/*.yml') }}"
+  loop_control:
+    loop_var: task
+  when:
+    - task | basename != "main.yml"

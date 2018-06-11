@@ -1,0 +1,22 @@
+- name: Setup
+  hosts: all
+  connection: local
+  roles:
+    - alfred
+    - ansible
+    - bin
+    - docker
+    - editor
+    - fonts
+    - git
+    - go
+    - homebrew
+    - iterm
+    - mac
+    - node
+    - projects
+    - python
+    - ssh
+    - sublime
+    - terraform
+    - zsh

@@ -1,0 +1,13 @@
+cask_args appdir: '/Applications'
+
+{% for tap in taps %}
+tap '{{ tap }}'
+{% endfor %}
+
+{% for brew in brews %}
+brew '{{ brew }}'
+{% endfor %}
+
+{% for cask in casks %}
+cask '{{ cask }}'
+{% endfor %}

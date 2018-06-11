@@ -1,0 +1,6 @@
+- name: Write zsh rc file
+  template:
+    src: zshrc.zsh
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"

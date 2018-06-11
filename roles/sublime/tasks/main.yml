@@ -1,0 +1,8 @@
+- name: Symlink the sublime global settings
+  file:
+    src: "{{ role_path }}/symlinks/settings.json"
+    dest: "{{ sublime_settings_file_location | expanduser }}"
+    state: link
+    force: true
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

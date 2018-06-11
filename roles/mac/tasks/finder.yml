@@ -1,0 +1,90 @@
+- name: Disable the desktop
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: CreateDesktop
+    type: bool
+    value: false
+
+- name: Disable finder animations
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: DisableAllAnimations
+    type: bool
+    value: true
+
+- name: Show all extensions in finder
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+
+- name: Show the status bar in finder
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: ShowStatusBar
+    type: bool
+    value: true
+
+- name: Display full path of item as finder window title
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: _FXShowPosixPathInTitle
+    type: bool
+    value: true
+
+- name: Sort folders before files
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: true
+
+- name: Search the current folder by default
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: FXDefaultSearchScope
+    type: string
+    value: SCcf
+
+- name: Disable warning when changing a file extension
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: false
+
+- name: Use column view by default
+  osx_defaults:
+    state: present
+    domain: com.apple.Finder
+    key: FXPreferredViewStyle
+    type: string
+    value: clmv
+
+- name: Disable empty trash warning
+  osx_defaults:
+    state: present
+    domain: com.apple.Finder
+    key: WarnOnEmptyTrash
+    type: bool
+    value: false
+
+- name: Don't create .DS_Store on network or usb drives
+  osx_defaults:
+    state: present
+    domain: com.apple.desktopservices
+    key: "{{ item }}"
+    type: bool
+    value: true
+  loop:
+    - DSDontWriteUSBStores
+    - DSDontWriteNetworkStores

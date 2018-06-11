@@ -1,0 +1,15 @@
+- name: Use better settings for bluetooth sound quality
+  osx_defaults:
+    state: present
+    domain: com.apple.BluetoothAudioAgent
+    key: "{{ item }}"
+    type: int
+    value: 80
+  loop:
+    - Negotiated Bitpool
+    - Negotiated Bitpool Max
+    - Negotiated Bitpool Min
+    - Apple Bitpool Max (editable)
+    - Apple Bitpool Min (editable)
+    - Apple Initial Bitpool (editable)
+    - Apple Initial Bitpool Min (editable)

@@ -1,0 +1,4 @@
+npm_global_packages:
+  - npm
+  - serverless
+  - spoof

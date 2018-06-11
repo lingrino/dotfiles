@@ -1,0 +1,111 @@
+- name: Minimize windows into application icon
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: minimize-to-application
+    type: bool
+    value: true
+
+- name: Enable spring loading on dock items
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: enable-spring-load-actions-on-all-items
+    type: bool
+    value: true
+
+- name: Show indicator lights for open applications in the Dock
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: show-process-indicators
+    type: bool
+    value: true
+
+- name: Show only open applications in the dock
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: static-only
+    type: bool
+    value: true
+
+- name: Don’t animate opening applications from the Dock
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: launchanim
+    type: bool
+    value: false
+
+- name: Speed up Mission Control animations
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: expose-animation-duration
+    type: float
+    value: 0.1
+
+- name: Don’t group windows by application in Mission Control
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: expose-group-by-app
+    type: bool
+    value: false
+
+- name: Disable Dashboard
+  osx_defaults:
+    state: present
+    domain: com.apple.dashboard
+    key: mcx-disabled
+    type: bool
+    value: true
+
+- name: Don't show dashboard as a space
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: dashboard-in-overlay
+    type: bool
+    value: true
+
+- name: Don’t automatically rearrange Spaces based on most recent use
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: mru-spaces
+    type: bool
+    value: false
+
+- name: Remove the auto-hiding Dock delay
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: autohide-delay
+    type: float
+    value: 0
+
+- name: Remove the animation when hiding/showing the Dock
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: autohide-time-modifier
+    type: float
+    value: 0
+
+- name: Automatically hide and show the Dock
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+
+- name: Disable the Launchpad gesture
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: showLaunchpadGestureEnabled
+    type: int
+    value: 0
