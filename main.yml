@@ -4,6 +4,7 @@
   roles:
     - alfred
     - ansible
+    - avant
     - bin
     - docker
     - editor

@@ -1,2 +1,3 @@
 # Can contain git credentials
 roles/git/files/gitconfig_local
+roles/avant
