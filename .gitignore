@@ -1,3 +1,5 @@
 # Can contain git credentials
 roles/git/files/gitconfig_local
+
+# Workplace specific
 roles/avant
