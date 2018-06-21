@@ -1,2 +1,7 @@
 # Workplace specific
 roles/avant
+
+# Templated files
+roles/bin/bin/dot
+roles/go/zsh/path.zsh
+roles/node/zsh/path.zsh
