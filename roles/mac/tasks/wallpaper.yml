@@ -1,0 +1,4 @@
+# We ignore changes here since there's no way to know
+- name: Set the wallpaper
+  command: osascript -e 'tell application "Finder" to set desktop picture to POSIX file "{{ role_path }}/files/wallpaper.png"'
+  changed_when: false
