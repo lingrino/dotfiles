@@ -56,7 +56,7 @@ then
 fi
 
 echo "Successfully bootstrapped. You must now run the following command to install your dotfiles:"
-echo "ansible-playbook -i inventory -l $(whoami) main.yml -K"
+echo "ansible-playbook -i ~/projects/dotfiles/inventory -l $(whoami) ~/projects/dotfiles/main.yml -K"
 echo "afterward you can enforce dotfile configuration at any time just by running 'dot'"
 
 exit 0
