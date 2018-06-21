@@ -1,3 +1,9 @@
+- name: Make sure the file exists first
+  file:
+    state: touch
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
 - name: Symlink the sublime global settings
   file:
     src: "{{ role_path }}/symlinks/settings.json"
