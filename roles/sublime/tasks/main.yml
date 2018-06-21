@@ -1,5 +1,6 @@
 - name: Make sure the file exists first
   file:
+    path: "{{ sublime_settings_file_location | expanduser }}"
     state: touch
     mode: 0600
     owner: "{{ ansible_user_id }}"
