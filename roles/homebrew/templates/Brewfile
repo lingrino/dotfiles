@@ -1,13 +1,43 @@
 cask_args appdir: '/Applications'
 
+# Taps in group_vars/all
+# Defined as 'taps'
 {% for tap in taps %}
 tap '{{ tap }}'
 {% endfor %}
 
+{% if host_taps is defined %}
+# Taps in group_vars/$(whoami)
+# Defined as 'host_taps'
+{% for tap in host_taps %}
+tap '{{ tap }}'
+{% endfor %}
+{% endif %}
+
+# Brews in group_vars/all
+# Defined as 'brews'
 {% for brew in brews %}
 brew '{{ brew }}'
 {% endfor %}
 
+{% if host_brews is defined %}
+# Brews in group_vars/$(whoami)
+# Defined as 'host_brews'
+{% for brew in host_brews %}
+brew '{{ brew }}'
+{% endfor %}
+{% endif %}
+
+# Casks in group_vars/all
+# Defined as 'casks'
 {% for cask in casks %}
 cask '{{ cask }}'
 {% endfor %}
+
+{% if host_casks is defined %}
+# Casks in group_vars/$(whoami)
+# Defined as 'host_casks'
+{% for cask in host_casks %}
+cask '{{ cask }}'
+{% endfor %}
+{% endif %}

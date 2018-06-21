@@ -45,7 +45,6 @@ casks:
   - homebrew/cask-versions/dropbox-beta
   - homebrew/cask-versions/firefox-beta
   - homebrew/cask-versions/google-chrome-beta
-  - hipchat
   - homebrew/cask-versions/iterm2-beta
   - java
   - homebrew/cask-versions/skype-preview
