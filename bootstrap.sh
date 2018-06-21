@@ -52,7 +52,7 @@ if ! grep -q "$(whoami)" inventory
 then
     echo "$(whoami) not found in inventory, adding"
     echo "you should push the new inventory back to git"
-    echo "\n[$(whoami)]\n127.0.0.1" >> inventory
+    echo "\n$(whoami)" >> inventory
 fi
 
 echo "Successfully bootstrapped. You must now run the following command to install your dotfiles:"
