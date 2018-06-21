@@ -17,4 +17,4 @@
     - (R_tmutil_disable.stderr != "") or
       (R_tmutil_disable.stdout != "")
   when:
-    - ansible_distribution_version >= 10.13.0
+    - ansible_distribution_version | version_compare('10.13.0', '>=')
