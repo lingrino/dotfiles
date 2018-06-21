@@ -4,7 +4,7 @@
 
 ## Bootstrap a new mac
 ```
-curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.sh | sh
+curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.sh | sudo sh
 ```
 
 ## How this works

@@ -7,18 +7,12 @@ then
     exit 0
 fi
 
-# Check if xcode command line tools are installed
-xcode-select -p &> /dev/null
-if [ $? -ne 0 ]
+# Check if homebrew is already installed
+# This also install xcode command line tools
+if test ! $(which brew)
 then
-    echo "xcode command line tools not installed, installing"
-    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-    TOOLS=$(softwareupdate -l |
-        grep "\*.*Command Line" |
-        head -n 1 | awk -F"*" '{print $2}' |
-        sed -e 's/^ *//' |
-        tr -d '\n')
-    softwareupdate -i "$TOOLS" -v;
+    echo "Homebrew not found, installing"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Check if dotfiles repo exists where it should
@@ -28,13 +22,6 @@ then
     git clone git@github.com:Lingrino/dotfiles.git
 fi
 cd ~/projects/dotfiles
-
-# Check if homebrew is already installed
-if test ! $(which brew)
-then
-    echo "Homebrew not found, installing"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
 
 # Check if pip3 is installed
 if test ! $(which pip3)
