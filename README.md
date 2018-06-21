@@ -27,3 +27,6 @@ curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.s
 - [ ] call onepassword update command
 - [ ] add bootstrap command
 - [ ] add host specific config for on x mac and not y mac
+- [ ] transmission
+- [ ] firefox
+- [ ] disable smart quotes
