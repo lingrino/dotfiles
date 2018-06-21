@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Fail on any errors
+set -e
+
 # Check if dot is a command
 if test $(which dot)
 then
@@ -15,11 +18,18 @@ then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# Create the projects folder if it does not exist
+if test ! -d ~/projects
+then
+    echo "~/projects does not exist, creating"
+    mkdir ~/projects
+fi
+
 # Check if dotfiles repo exists where it should
 if test ! -d ~/projects/dotfiles
 then
     echo "dotfiles are not at ~/projects/dotfiles, cloning to there"
-    git clone git@github.com:Lingrino/dotfiles.git
+    git clone git@github.com:Lingrino/dotfiles.git ~/projects/dotfiles
 fi
 cd ~/projects/dotfiles
 
