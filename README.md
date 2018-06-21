@@ -30,3 +30,4 @@ curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.s
 - [ ] transmission
 - [ ] firefox
 - [ ] disable smart quotes
+- [ ] move alfred settings sync to dropbox/drive (instructions on setting up first time use)
