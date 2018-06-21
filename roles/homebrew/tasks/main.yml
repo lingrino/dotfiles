@@ -5,6 +5,11 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
+- debug:
+    msg: "{{ group_names }}"
+
+- pause:
+
 - name: Install homebrew packages with bundle
   command: brew bundle --global
   register: R_bundle
