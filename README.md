@@ -2,6 +2,11 @@
 
 **NOTE:** This is is an example, not a drop in replacement, for your own dotfiles
 
+## Bootstrap a new mac
+```
+curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.sh | sh
+```
+
 ## How this works
 - Define new macs in `inventory` where the host is equal to `whoami` and the IP is 127.0.0.1
 - Run the ansible like `ansible-playbook -i inventory -l $(whoami) main.yml`

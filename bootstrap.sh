@@ -1,12 +1,33 @@
 #!/bin/sh
 
-# Check if we're in the right directory
-if test ! -f inventory || test ! -f main.yml
+# Check if dot is a command
+if test $(which dot)
 then
-    echo "either 'inventory' or 'main.yml' file does not exist in this directory"
-    echo "you must run ./bootstrap.sh from the root of the dotfile directory"
-    exit 1
+    echo "'dot' exists, you are already bootstrapped"
+    exit 0
 fi
+
+# Check if xcode command line tools are installed
+xcode-select -p &> /dev/null
+if [ $? -ne 0 ]
+then
+    echo "xcode command line tools not installed, installing"
+    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+    TOOLS=$(softwareupdate -l |
+        grep "\*.*Command Line" |
+        head -n 1 | awk -F"*" '{print $2}' |
+        sed -e 's/^ *//' |
+        tr -d '\n')
+    softwareupdate -i "$TOOLS" -v;
+fi
+
+# Check if dotfiles repo exists where it should
+if test ! -d ~/projects/dotfiles
+then
+    echo "dotfiles are not at ~/projects/dotfiles, cloning to there"
+    git clone git@github.com:Lingrino/dotfiles.git
+fi
+cd ~/projects/dotfiles
 
 # Check if homebrew is already installed
 if test ! $(which brew)
