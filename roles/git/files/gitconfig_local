@@ -1,0 +1,5 @@
+[user]
+  name = Sean Lingren
+  email = srlingren@gmail.com
+[credential]
+  helper = osxkeychain
