@@ -2,4 +2,5 @@
   pip:
     name: "{{ item }}"
     state: latest
+    executable: pip3
   loop: "{{ pip_global_packages }}"
