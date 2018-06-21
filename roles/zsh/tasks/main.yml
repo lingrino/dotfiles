@@ -1,6 +1,21 @@
+- name: Write /etc/shells
+  copy:
+    src: shells
+    dest: /etc/shells
+    mode: 644
+  become: true
+  become_user: root
+  tags:
+    - sudo
+
 - name: Write zsh rc file
   template:
     src: zshrc.zsh
     dest: "{{ ansible_env.HOME }}/.zshrc"
     mode: 0700
     owner: "{{ ansible_user_id }}"
+
+- name: Use zsh as my default shell
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/local/bin/zsh

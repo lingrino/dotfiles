@@ -18,3 +18,5 @@
       (R_tmutil_disable.stdout != "")
   when:
     - ansible_distribution_version is version('10.13.0', '>=')
+  tags:
+    - sudo
