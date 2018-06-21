@@ -2,6 +2,7 @@
   hosts: all
   connection: local
   roles:
+    - homebrew # must be first
     - alfred
     - ansible
     - bin
@@ -10,7 +11,6 @@
     - fonts
     - git
     - go
-    - homebrew
     - iterm
     - mac
     - node
