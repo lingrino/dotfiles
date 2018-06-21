@@ -1,8 +1,0 @@
-- name: Prevent iTunes from opening
-  file:
-    path: /Applications/iTunes.app/Contents/MacOS/iTunes
-    mode: 0600
-  become: true
-  become_user: root
-  tags:
-    - sudo
