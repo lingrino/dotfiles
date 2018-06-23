@@ -1,0 +1,12 @@
+- name: Show admin info on login screen
+  osx_defaults:
+    state: present
+    domain: /Library/Preferences/com.apple.loginwindow
+    key: AdminHostInfo
+    type: string
+    value: HostName
+  become: true
+  become_user: root
+  tags:
+    - sudo
+

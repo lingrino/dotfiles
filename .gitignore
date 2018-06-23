@@ -1,6 +1,9 @@
 # Workplace specific
 roles/avant
 
+# Secrets
+group_vars/all/secret.yml
+
 # Templated files
 roles/bin/bin/dot
 roles/go/zsh/path.zsh

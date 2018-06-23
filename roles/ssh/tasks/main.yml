@@ -12,3 +12,48 @@
     dest: "{{ R_ssh_dir.path }}/config"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+
+# Can't use the 1password module here beacuse it
+# doesn't support getting note content
+# https://docs.ansible.com/ansible/devel/plugins/lookup/onepassword.html
+- name: Get my private key from 1password
+  command: op get item {{ op_privkey_uuid }}
+  no_log: true
+  environment:
+    OP_SESSION_my: "{{ R_op_signin.stdout }}"
+  register: R_privkey
+  changed_when:
+    - R_privkey.rc != 0
+  tags:
+    - 1password
+
+- name: Copy my private key to id_rsa
+  copy:
+    content: "{{ R_privkey.stdout | from_json | json_query('details.notesPlain') }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/id_rsa"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  no_log: true
+  tags:
+    - 1password
+
+- name: Get my public key from 1password
+  command: op get item {{ op_pubkey_uuid }}
+  no_log: true
+  environment:
+    OP_SESSION_my: "{{ R_op_signin.stdout }}"
+  register: R_pubkey
+  changed_when:
+    - R_pubkey.rc != 0
+  tags:
+    - 1password
+
+- name: Copy my public key to id_rsa.pub
+  copy:
+    content: "{{ R_pubkey.stdout | from_json | json_query('details.notesPlain') }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/id_rsa.pub"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  no_log: true
+  tags:
+    - 1password

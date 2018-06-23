@@ -2,7 +2,8 @@
   hosts: all
   connection: local
   roles:
-    - homebrew # must be first
+    - homebrew
+    - 1password
     - ansible
     - bin
     - docker

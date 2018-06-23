@@ -6,6 +6,32 @@
     type: bool
     value: false
 
+- name: Allow quitting with cmd+Q
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: QuitMenuItem
+    type: bool
+    value: true
+
+- name: Set projects as the default location for new finder windows
+  block:
+  - name: Set the default location as a path
+    osx_defaults:
+      state: present
+      domain: com.apple.finder
+      key: NewWindowTarget
+      type: string
+      value: PfLo
+
+  - name: Set the default location as a path
+    osx_defaults:
+      state: present
+      domain: com.apple.finder
+      key: NewWindowTargetPath
+      type: string
+      value: "file://{{ projects_folder_path | expanduser }}/"
+
 - name: Disable finder animations
   osx_defaults:
     state: present
@@ -89,10 +115,23 @@
     - DSDontWriteUSBStores
     - DSDontWriteNetworkStores
 
+- name: Don't show devices on desktop
+  osx_defaults:
+    state: present
+    domain: com.apple.finder
+    key: "{{ item }}"
+    type: bool
+    value: false
+  loop:
+    - ShowHardDrivesOnDesktop
+    - ShowMountedServersOnDesktop
+    - ShowRemovableMediaOnDesktop
+    - ShowExternalHardDrivesOnDesktop
+
 # Does not actually show 'changed' when the attribute changes
 # not sure how to properly do the update and know when it has changed
 - name: Show the users library folder
-  command: chflags nohidden ~/Library
+  command: chflags nohidden {{ ansible_env.HOME }}/Library
   register: R_library_nohidden
   changed_when:
     - (R_library_nohidden.stderr != "") or

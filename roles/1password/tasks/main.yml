@@ -1,0 +1,11 @@
+# Don't want to mark this as "changed" if it's a successful login
+# https://github.com/ansible/ansible/blob/stable-2.6/changelogs/CHANGELOG-v2.6.rst
+- name: Auth to op CLI
+  shell: op signin {{ op_domain }} {{ op_email }} {{ op_secret_key }} "{{ op_password }}" --output=raw
+  no_log: true
+  register: R_op_signin
+  changed_when:
+    - R_op_signin.rc != 0
+  tags:
+    - internet
+    - 1password

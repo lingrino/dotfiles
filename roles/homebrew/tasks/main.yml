@@ -12,18 +12,24 @@
     - (R_bundle.stderr != "")           or
       ("Installing" in R_bundle.stdout) or
       ("Upgrading"  in R_bundle.stdout)
+  tags:
+    - internet
 
 - name: Output bundle
   debug:
     msg: "{{ R_bundle.stdout_lines }}"
   when:
     - R_bundle.changed
+  tags:
+    - internet
 
 - name: Cleanup homebrew with bundle
   command: brew bundle cleanup --global --force
   register: R_bundle_clean
   changed_when:
     - R_bundle_clean.stdout != "" or R_bundle_clean.stderr != ""
+  tags:
+    - internet
 
 - name: Output bundle cleanup
   debug:

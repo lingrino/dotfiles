@@ -33,3 +33,5 @@
     state: latest
     global: true
   loop: "{{ npm_global_packages }}"
+  tags:
+    - internet

@@ -15,10 +15,18 @@
     type: int
     value: 1
 
+- name: Enable tap to click on trackpad (newer macs)
+  osx_defaults:
+    state: present
+    domain: com.apple.AppleMultitouchTrackpad
+    key: Clicking
+    type: int
+    value: 1
+
 - name: Enable tap to click on external devices
   osx_defaults:
     state: present
-    domain: NSGlobalDomain
-    key: com.apple.driver.AppleBluetoothMultitouch.trackpad
-    type: bool
-    value: true
+    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: Clicking
+    type: int
+    value: 1

@@ -18,3 +18,5 @@
   register: R_goget
   changed_when:
     - R_goget.stdout != "" or R_goget.stderr != ""
+  tags:
+    - internet

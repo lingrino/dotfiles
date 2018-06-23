@@ -1,0 +1,62 @@
+- name: Set computer name
+  block:
+    - name: Get current computer name
+      command: scutil --get ComputerName
+      register: R_computer_name_get
+      changed_when:
+        - R_computer_name_get.stderr != ""
+      failed_when:
+        - R_computer_name_get.rc != 0
+        - ("not set" not in R_computer_name_get.stderr)
+
+    - name: Set the computer name
+      command: scutil --set ComputerName {{ computer_name }}
+      become: true
+      become_user: root
+      register: R_computer_name_set
+      when:
+        - R_computer_name_get.stdout != computer_name
+  tags:
+    - sudo
+
+- name: Set computer hostname
+  block:
+    - name: Get current computer hostname
+      command: scutil --get HostName
+      register: R_computer_hostname_get
+      changed_when:
+        - R_computer_hostname_get.stderr != ""
+      failed_when:
+        - R_computer_hostname_get.rc != 0
+        - ("not set" not in R_computer_hostname_get.stderr)
+
+    - name: Set the computer hostname
+      command: scutil --set HostName {{ computer_hostname }}
+      become: true
+      become_user: root
+      register: R_computer_hostname_set
+      when:
+        - R_computer_hostname_get.stdout != computer_hostname
+  tags:
+    - sudo
+
+- name: Set computer local hostname
+  block:
+    - name: Get current computer local hostname
+      command: scutil --get LocalHostName
+      register: R_computer_hostname_local_get
+      changed_when:
+        - R_computer_hostname_local_get.stderr != ""
+      failed_when:
+        - R_computer_hostname_local_get.rc != 0
+        - ("not set" not in R_computer_hostname_local_get.stderr)
+
+    - name: Set the computer local hostname
+      command: scutil --set LocalHostName {{ computer_hostname_local }}
+      become: true
+      become_user: root
+      register: R_computer_hostname_local_set
+      when:
+        - R_computer_hostname_local_get.stdout != computer_hostname
+  tags:
+    - sudo

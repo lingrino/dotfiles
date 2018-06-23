@@ -2,12 +2,14 @@
 
 case $1 in
     all)
-        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml -K
+        read -s -p "Enter Your 1password Password: " OP_PASSWORD
+        echo
+        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml -K -e "op_password='$OP_PASSWORD'"
         ;;
     most)
-        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml --skip-tags "sudo"
+        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml --skip-tags "sudo,1password"
         ;;
     *)
-        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml --skip-tags "sudo,mac"
+        ansible-playbook -i {{ inventory_dir }}/inventory -l $(whoami) {{ inventory_dir }}/main.yml --skip-tags "sudo,1password,mac"
         ;;
 esac

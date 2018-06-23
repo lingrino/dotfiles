@@ -1,3 +1,11 @@
+- name: Set the dock icon size
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 36
+
 - name: Minimize windows into application icon
   osx_defaults:
     state: present
@@ -109,3 +117,22 @@
     key: showLaunchpadGestureEnabled
     type: int
     value: 0
+
+- name: Disable hot corners
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: "{{ item }}"
+    type: int
+    value: 0
+  loop:
+    - wvous-tl-corner
+    - wvous-tl-modifier
+    - wvous-tr-corner
+    - wvous-tr-modifier
+    - wvous-bl-corner
+    - wvous-bl-modifier
+    - wvous-br-corner
+    - wvous-br-modifier
+
+    

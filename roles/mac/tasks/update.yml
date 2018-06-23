@@ -3,6 +3,8 @@
   register: R_mac_update
   changed_when:
     - R_mac_update.stderr != "No updates are available."
+  tags:
+    - internet
 
 - name: Output software update on change
   debug:
