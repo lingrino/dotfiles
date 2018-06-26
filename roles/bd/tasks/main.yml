@@ -1,0 +1,6 @@
+- name: Get latest bd.zsh
+  get_url:
+    url: https://raw.githubusercontent.com/Tarrasch/zsh-bd/master/bd.zsh
+    dest: "{{ role_path }}/zsh/bd.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
