@@ -84,8 +84,8 @@ so there's some manual steps.
     - Copy `group_vars/all/secret.yml.example` to `group_vars/all/secret.yml`
     - Fill out `secret.yml` with your details
 1. Commit your changes
-1. run `dot all`
-1. restart your mac one final time
+1. Run `dot all`
+1. Restart your mac one final time
 
 ## Tags
 TODO - Add explanantion of different task tags here
@@ -110,3 +110,4 @@ TODO - Add explanation of dot command here
 - [ ] Copy over settings for ctrl+R
 - [ ] Disable notification center completely
 - [ ] Map capslock to esc
+- [ ] Brew task should call `brew update`

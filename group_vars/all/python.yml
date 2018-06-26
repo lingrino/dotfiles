@@ -3,6 +3,7 @@ pip_global_packages:
   - awscli
   - boto
   - boto3
+  - glances
   - pip
   - requests
   - setuptools
