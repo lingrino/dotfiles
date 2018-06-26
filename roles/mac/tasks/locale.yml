@@ -30,3 +30,11 @@
     key: AppleMetricUnits
     type: bool
     value: false
+
+- name: Enable 24 hour time
+  osx_defaults:
+    state: present
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    type: string
+    value: EEE HH:mm

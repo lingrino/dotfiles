@@ -7,5 +7,6 @@
   changed_when:
     - R_op_signin.rc != 0
   tags:
+    - post
     - internet
     - 1password

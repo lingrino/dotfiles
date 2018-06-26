@@ -1,0 +1,249 @@
+- name: Disable universal search
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: UniversalSearchEnabled
+    type: bool
+    value: false
+
+- name: Use tab to navigate pages
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: bool
+    value: true
+  loop:
+    - WebKitTabToLinksPreferenceKey
+    - com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks
+
+- name: Show the full URL in the address bar
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: ShowFullURLInSmartSearchField
+    type: bool
+    value: true
+
+- name: Set a blank homepage
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: HomePage
+    type: string
+    value: ""
+
+- name: Don't open safe downloads automatically
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: AutoOpenSafeDownloads
+    type: bool
+    value: false
+
+- name: Use backspace key for navigation
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled
+    type: bool
+    value: true
+
+- name: Hide the bookmark bar by default
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: ShowFavoritesBar
+    type: bool
+    value: false
+
+- name: Hide the sidebar in top sites
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: ShowSidebarInTopSites
+    type: bool
+    value: false
+
+- name: Disable the thumbnail cache
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: DebugSnapshotsUpdatePolicy
+    type: int
+    value: 2
+
+- name: Make search 'contains' instead of 'starts with'
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: FindOnPageMatchesWordStartsOnly
+    type: bool
+    value: false
+
+- name: Enable developer tools
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: bool
+    value: true
+  loop:
+    - IncludeDevelopMenu
+    - WebKitDeveloperExtras
+    - IncludeInternalDebugMenu
+    - WebKitDeveloperExtrasEnabledPreferenceKey
+    - com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+
+- name: Enable continuous spellchecking
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: WebContinuousSpellCheckingEnabled
+    type: bool
+    value: true
+
+- name: Disable autocorrect
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: WebAutomaticSpellingCorrectionEnabled
+    type: bool
+    value: false
+
+- name: Disable autofill
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: bool
+    value: false
+  loop:
+    - AutoFillPasswords
+    - AutoFillCreditCardData
+    - AutoFillFromAddressBook
+    - AutoFillMiscellaneousForms
+
+- name: Warn about fraudulent websites
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: WarnAboutFraudulentWebsites
+    type: bool
+    value: true
+
+- name: Disable plugins
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: bool
+    value: false
+  loop:
+    - WebKitPluginsEnabled
+    - com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled
+
+- name: Disable java
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: bool
+    value: false
+  loop:
+    - WebKitJavaEnabled
+    - com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled
+
+- name: Block popup windows
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: bool
+    value: false
+  loop:
+    - WebKitJavaScriptCanOpenWindowsAutomatically
+    - com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically
+
+- name: Turn on do not track
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: SendDoNotTrackHTTPHeader
+    type: bool
+    value: true
+
+- name: Update extensions automatically
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: InstallExtensionUpdatesAutomatically
+    type: bool
+    value: true
+
+- name: Don't restore session at launch
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: AlwaysRestoreSessionAtLaunch
+    type: int
+    value: 0
+
+- name: Open incognito window at launch
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: OpenPrivateWindowWhenNotRestoringSessionAtLaunch
+    type: int
+    value: 1
+
+- name: Clear downloads on quit
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: DownloadsClearingPolicy
+    type: int
+    value: 1
+
+- name: Clear history after one day
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: HistoryAgeInDaysLimit
+    type: int
+    value: 1
+
+- name: Allow search suggestions
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: SuppressSearchSuggestions
+    type: bool
+    value: false
+
+- name: Don't allow apple pay checking
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2ApplePayCapabilityDisclosureAllowed
+    type: bool
+    value: false
+
+- name: Disable website specific search
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: WebsiteSpecificSearchEnabled
+    type: bool
+    value: false
+
+- name: Open emtpty new tabs and windows
+  osx_defaults:
+    state: present
+    domain: com.apple.Safari
+    key: "{{ item }}"
+    type: int
+    value: 1
+  loop:
+    - NewTabBehavior
+    - NewWindowBehavior

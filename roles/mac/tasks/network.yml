@@ -1,3 +1,17 @@
+- name: Set the DNS servers
+  block:
+    - name: Get the current DNS servers
+      command: networksetup -getdnsservers Wi-Fi
+      register: R_dns_info
+      changed_when:
+        - R_dns_info.rc != 0
+  
+    - name: Set the new DNS servers
+      command: networksetup -setdnsservers Wi-Fi {{ dns_servers }}
+      register: R_dns_set
+      changed_when:
+        - ( R_dns_info.stdout | replace('\n', ' ') ) != dns_servers
+
 - name: Set computer name
   block:
     - name: Get current computer name

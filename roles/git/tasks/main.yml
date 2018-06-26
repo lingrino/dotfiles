@@ -13,7 +13,7 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Write the gitconfig credentials file
-  copy:
+  template:
     src: gitconfig_local
     dest: "{{ ansible_env.HOME }}/.gitconfig.local"
     mode: 0600

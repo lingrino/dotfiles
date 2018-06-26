@@ -1,3 +1,14 @@
+- name: Change trackpad speed
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: "{{ item }}"
+    type: float
+    value: 1.5
+  loop:
+    - com.apple.mouse.scaling
+    - com.apple.trackpad.scaling
+
 - name: Enable tap to click for current user
   osx_defaults:
     state: present

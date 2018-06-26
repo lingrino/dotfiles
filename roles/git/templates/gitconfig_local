@@ -1,0 +1,5 @@
+[user]
+  name = {{ git_name }}
+  email = {{ git_email }}
+[credential]
+  helper = osxkeychain

@@ -25,6 +25,7 @@
   changed_when:
     - R_privkey.rc != 0
   tags:
+    - post
     - 1password
 
 - name: Copy my private key to id_rsa
@@ -35,6 +36,7 @@
     owner: "{{ ansible_user_id }}"
   no_log: true
   tags:
+    - post
     - 1password
 
 - name: Get my public key from 1password
@@ -46,6 +48,7 @@
   changed_when:
     - R_pubkey.rc != 0
   tags:
+    - post
     - 1password
 
 - name: Copy my public key to id_rsa.pub
@@ -56,4 +59,5 @@
     owner: "{{ ansible_user_id }}"
   no_log: true
   tags:
+    - post
     - 1password
