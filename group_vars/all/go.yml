@@ -3,3 +3,12 @@ gopath: "{{ projects_folder_path }}/go"
 go_gets:
   - github.com/nsf/gocode
   - github.com/sqs/goreturns
+  - github.com/rogpeppe/godef
+  - golang.org/x/tools/cmd/guru
+  - github.com/golang/lint/golint
+  - github.com/newhook/go-symbols
+  - golang.org/x/tools/cmd/gorename
+  - github.com/ramya-rao-a/go-outline
+  - github.com/derekparker/delve/cmd/dlv
+  - github.com/uudashr/gopkgs/cmd/gopkgs
+  - github.com/kubernetes-sigs/aws-iam-authenticator/cmd/aws-iam-authenticator

@@ -3,7 +3,7 @@
     state: present
     domain: com.apple.dock
     key: tilesize
-    type: int
+    type: float
     value: 36
 
 - name: Minimize windows into application icon

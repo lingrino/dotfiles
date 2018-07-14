@@ -12,6 +12,7 @@
     - fonts
     - git
     - go
+    - goreleaser
     - iterm
     - mac
     - node

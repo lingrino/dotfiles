@@ -5,3 +5,11 @@
     mode: 0400
     owner: "{{ ansible_user_id }}"
   loop: "{{ query('fileglob', '{{ role_path }}/files/consolas/*.TTF') }}"
+
+- name: Copy hack font to font folder
+  copy:
+    src: "{{ item }}"
+    dest: ~/Library/Fonts
+    mode: 0400
+    owner: "{{ ansible_user_id }}"
+  loop: "{{ query('fileglob', '{{ role_path }}/files/hack/*.TTF') }}"

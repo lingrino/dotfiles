@@ -1,3 +1,9 @@
+- name: Run brew update
+  command: brew update
+  register: R_update
+  changed_when:
+    - R_update.stderr != ""
+
 - name: Write brewfile to home directory
   template:
     src: Brewfile
@@ -60,15 +66,3 @@
     msg: "{{ R_brew_prune.stdout_lines }}"
   when:
     - R_brew_prune.changed
-
-- name: Run brew doctor
-  command: brew doctor
-  register: R_brew_doctor
-  changed_when:
-    - R_brew_doctor.stdout != "Your system is ready to brew."
-
-- name: Output brew doctor
-  debug:
-    msg: "{{ R_brew_doctor.stdout_lines }}"
-  when:
-    - R_brew_doctor.changed

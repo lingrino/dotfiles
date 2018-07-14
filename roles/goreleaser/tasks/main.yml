@@ -1,0 +1,28 @@
+- name: Get the go releaser github pat
+  command: op get item {{ op_goreleaser_pat_uuid }}
+  no_log: true
+  environment:
+    OP_SESSION_my: "{{ R_op_signin.stdout }}"
+  register: R_goreleaser_github_pat
+  changed_when:
+    - R_goreleaser_github_pat.rc != 0
+  tags:
+    - post
+    - 1password
+
+- name: Create the goreleaser directory
+  file:
+    state: directory
+    dest: "{{ ansible_env.HOME }}/.config/goreleaser"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Add the goreleaser github token file
+  copy:
+    content: "{{ R_goreleaser_github_pat.stdout | from_json | json_query('details.sections[].fields[?t==`PAT - goreleaser`].v | [0] | [0]') }}"
+    dest: "{{ ansible_env.HOME }}/.config/goreleaser/github_token"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - post
+    - 1password

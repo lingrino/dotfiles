@@ -94,11 +94,8 @@ TODO - Add explanantion of different task tags here
 TODO - Add explanation of dot command here
 
 **TODO:**
-- [ ] add github token to ~/.config/goreleaser
 - [ ] add htop/hub (in ~/.config)
-- [ ] template/write .localrc
 - [ ] handle aws mfa
-- [ ] handle .op folder
 - [ ] function that logs into onepassword if not logged in
 - [ ] call onepassword cli update command on dot
 - [ ] switch to hyper
@@ -110,4 +107,5 @@ TODO - Add explanation of dot command here
 - [ ] Copy over settings for ctrl+R
 - [ ] Disable notification center completely
 - [ ] Map capslock to esc
-- [ ] Brew task should call `brew update`
+- [ ] Manage .kube
+- [ ] fasd display prefs
