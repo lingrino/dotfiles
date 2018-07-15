@@ -22,9 +22,3 @@ setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
-
-# Configured in iTerm2 profile keys
-bindkey '^[begin' beginning-of-line
-bindkey '^[i' forward-word
-bindkey '^[end' end-of-line
-bindkey '^[u' backward-word

@@ -42,25 +42,33 @@ so there's some manual steps.
 1. Open finder settings
     - Delete all tags
     - Uncheck "show warning before removing from iCloud drive"
+1. Remove the spotlight icon from the menu bar by holding CMD and dragging it off
+1. Open Notification Center and remove all widgets
 1. Open system preferences
-    - General -> firefox to default web browser
+    - Appearance -> Change to dark
+    - General -> Firefox to default web browser
     - Security -> General -> Require password immeditately
-    - Spotlight -> disable spotlight suggestions in lookup
-    - Spotlight -> privacy -> prevent spotlight from accessing macintosh HD
-    - Displays -> turn off "automatically adjust brightness"
-    - Displays -> change the resolution to "more space"
+    - Security -> General -> Allow Apple Watch to Unlock Mac
+    - Spotlight -> Uncheck all except Applications, Documents, Contacts, System Preferences
+    - Notifications -> Disable all except FaceTime, Firefox, Hyper, Messages
+    - Notifications -> Don't allow on lockscreen, don't allow sound except on FaceTime, Firefox
+    - Displays -> Turn off "automatically adjust brightness"
+    - Displays -> Change the resolution to "more space"
     - Keyboard -> Uncheck "adjust keyboard brightness"
-    - Keyboard -> disable all text substitutes
+    - Keyboard -> Disable all text substitutes
     - Keyboard -> Uncheck capitalize automatically
     - Keyboard -> Disable the spotlight cmd+space hotkey
+    - Keyboard -> Shortcuts -> Uncheck every shortcut
+    - Keyboard -> Dictation -> Change the shortcut to "off"
     - Trackpad -> Scroll and Zoom -> disable pinch, zoom, and rotate
     - Trackapd -> More Gestures -> Disable notification center, mission control, show desktop
     - Sound -> Disable user interface sound effects
     - iCloud -> iCloud Drive -> Turn off "Desktop and Documents Folders"
-    - iCloud -> Turn off mail, calendar, safari
+    - iCloud -> Photos -> Only enable shared albums
+    - iCloud -> Turn off mail, calendar, safari, news, stocks, home, siri, reminders
     - Internet Accounts -> remove game center
     - Internet Accounts -> sign in to google, only sync contacts
-    - App Store -> install app updates/mac updates/
+    - Software Update -> Automatically install everything
     - Extensions -> Share Menu -> Uncheck all possible
     - Extensions -> Today -> Uncheck all
     - Users and Groups -> Disable guest
@@ -71,7 +79,7 @@ so there's some manual steps.
     - Change the theme to "Alfred macOS"
     - Enter your license key from 1password
     - Enable settings sync at `~/Dropbox/settings/alfred`
-1. Open iterm settings set to load preferences from ~/Dropbox/settings/iterm
+1. Open iterm settings and set to load preferences from ~/Dropbox/settings/iterm
 1. Open vscode to sync settings
     - Install the [settings sync extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
     - Press cmd+shift+p and type sync, hit enter
@@ -94,18 +102,9 @@ TODO - Add explanantion of different task tags here
 TODO - Add explanation of dot command here
 
 **TODO:**
-- [ ] add htop/hub (in ~/.config)
 - [ ] handle aws mfa
 - [ ] function that logs into onepassword if not logged in
-- [ ] call onepassword cli update command on dot
-- [ ] switch to hyper
-- [ ] Keyboard shortcuts with karabiner
 - [ ] disable itunes completely
 - [ ] "Show the users library folder" doesn't actually work
-- [ ] Spotlight mac changes don't work/persist
 - [ ] Remove spotlight icon from menu bar (can with cmd+drag)
-- [ ] Copy over settings for ctrl+R
 - [ ] Disable notification center completely
-- [ ] Map capslock to esc
-- [ ] Manage .kube
-- [ ] fasd display prefs

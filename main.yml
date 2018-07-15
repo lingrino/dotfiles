@@ -10,10 +10,11 @@
     - docker
     - editor
     - fonts
+    - fzf
     - git
     - go
     - goreleaser
-    - iterm
+    - hyper
     - mac
     - node
     - projects

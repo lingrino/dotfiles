@@ -43,11 +43,11 @@ casks:
   - docker
   - dropbox-beta
   - firefox
+  - hyper
   - iterm2-beta
   - java
   - skype-preview
   - slack-beta
   - spotify
-  - sublime-text
   - visual-studio-code-insiders
   - vlc

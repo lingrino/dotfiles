@@ -1,4 +1,5 @@
 npm_global_packages:
   - npm
+  - react
   - serverless
   - spoof

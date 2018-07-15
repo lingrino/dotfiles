@@ -19,7 +19,7 @@
 
 - name: Add the goreleaser github token file
   copy:
-    content: "{{ R_goreleaser_github_pat.stdout | from_json | json_query('details.sections[].fields[?t==`PAT - goreleaser`].v | [0] | [0]') }}"
+    content: "{{ R_goreleaser_github_pat.stdout | from_json | json_query('details.sections[?title==`Personal Access Tokens`].fields | [] | [?t==`PAT - goreleaser`].v | [0]') }}"
     dest: "{{ ansible_env.HOME }}/.config/goreleaser/github_token"
     mode: 0600
     owner: "{{ ansible_user_id }}"

@@ -1,0 +1,7 @@
+- name: Symlink hyper settings to the home directory
+  file:
+    src: "{{ role_path }}/symlinks/hyper.js"
+    dest: "{{ ansible_env.HOME }}/.hyper.js"
+    state: link
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
