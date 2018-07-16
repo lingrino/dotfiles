@@ -130,15 +130,6 @@
 
 # Does not actually show 'changed' when the attribute changes
 # not sure how to properly do the update and know when it has changed
-- name: Show the users library folder
-  command: chflags nohidden {{ ansible_env.HOME }}/Library
-  register: R_library_nohidden
-  changed_when:
-    - (R_library_nohidden.stderr != "") or
-      (R_library_nohidden.stdout != "")
-
-# Does not actually show 'changed' when the attribute changes
-# not sure how to properly do the update and know when it has changed
 - name: Show the /Volumes folder
   command: chflags nohidden /Volumes
   become: true

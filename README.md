@@ -103,8 +103,3 @@ TODO - Add explanation of dot command here
 
 **TODO:**
 - [ ] handle aws mfa
-- [ ] function that logs into onepassword if not logged in
-- [ ] disable itunes completely
-- [ ] "Show the users library folder" doesn't actually work
-- [ ] Remove spotlight icon from menu bar (can with cmd+drag)
-- [ ] Disable notification center completely
