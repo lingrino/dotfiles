@@ -2,7 +2,6 @@ gopath: "{{ projects_folder_path }}/go"
 
 go_gets:
   - github.com/nsf/gocode
-  - github.com/Lingrino/vaku
   - github.com/sqs/goreturns
   - github.com/rogpeppe/godef
   - golang.org/x/tools/cmd/guru
