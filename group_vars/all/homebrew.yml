@@ -11,6 +11,7 @@ brews:
   - fd
   - fzf
   - git
+  - git-lfs
   - go
   - goreleaser
   - grc
@@ -40,6 +41,7 @@ casks:
   - 1password
   - 1password-cli
   - alfred
+  - aws-vault
   - docker
   - dropbox-beta
   - firefox

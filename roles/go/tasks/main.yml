@@ -14,6 +14,8 @@
 
 - name: Install all go packages
   shell: go get -u {{ item }}
+  environment:
+    GOPATH: "{{ gopath | expanduser }}"
   loop: "{{ go_gets }}"
   register: R_goget
   changed_when:

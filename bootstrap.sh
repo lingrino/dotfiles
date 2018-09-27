@@ -47,16 +47,18 @@ then
     pip3 install ansible
 fi
 
-# Check if user exists in inventory
-if ! grep -q "$(whoami)" inventory
+# Ask the user what to name the host
+echo "What do you want to name this host?"
+read INVENTORY_NAME
+if ! grep -q "$INVENTORY_NAME" inventory
 then
-    echo "$(whoami) not found in inventory, adding"
+    echo "$INVENTORY_NAME not found in inventory, adding"
     echo "you should push the new inventory back to git"
-    echo "\n$(whoami)" >> inventory
+    echo "\n$INVENTORY_NAME" >> inventory
 fi
 
 echo "Successfully bootstrapped. You must now run the following command to install your dotfiles:"
-echo "ansible-playbook -i ~/projects/dotfiles/inventory -l $(whoami) ~/projects/dotfiles/main.yml -K --skip-tags \"post\""
+echo "ansible-playbook -i ~/projects/dotfiles/inventory -l $INVENTORY_NAME ~/projects/dotfiles/main.yml -K --skip-tags \"post\""
 echo "afterward you can enforce dotfile configuration at any time just by running 'dot'"
 
 exit 0

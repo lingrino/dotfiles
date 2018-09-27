@@ -1,5 +1,8 @@
+# Identification file
+me.txt
+
 # Workplace specific
-roles/avant
+roles/work
 
 # Secrets
 group_vars/all/secret.yml

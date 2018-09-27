@@ -7,7 +7,7 @@ tap '{{ tap }}'
 {% endfor %}
 
 {% if host_taps is defined %}
-# Taps in host_vars/$(whoami)
+# Taps in host_vars/$(cat {{ inventory_dir }}/me.txt)
 # Defined as 'host_taps'
 {% for tap in host_taps %}
 tap '{{ tap }}'
@@ -21,7 +21,7 @@ brew '{{ brew }}'
 {% endfor %}
 
 {% if host_brews is defined %}
-# Brews in host_vars/$(whoami)
+# Brews in host_vars/$(cat {{ inventory_dir }}/me.txt)
 # Defined as 'host_brews'
 {% for brew in host_brews %}
 brew '{{ brew }}'
@@ -35,7 +35,7 @@ cask '{{ cask }}'
 {% endfor %}
 
 {% if host_casks is defined %}
-# Casks in host_vars/$(whoami)
+# Casks in host_vars/$(cat {{ inventory_dir }}/me.txt)
 # Defined as 'host_casks'
 {% for cask in host_casks %}
 cask '{{ cask }}'

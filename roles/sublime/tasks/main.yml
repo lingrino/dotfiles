@@ -1,3 +1,5 @@
+# NOTE: Not using sublime right now, but leaving this here for reference
+
 - name: Make sure the file exists first
   stat:
     path: "{{ sublime_settings_file_location | expanduser }}"

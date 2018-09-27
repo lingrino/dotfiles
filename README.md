@@ -3,7 +3,7 @@
 **NOTE:** This is is an example, not a drop in replacement, for your own dotfiles
 
 ## How this works
-- Define new macs in `inventory` where the host is equal to `$(whoami)` and the IP is 127.1.1.1
+- Define new macs in `inventory` where the host is equal to `$(cat dotfiles_dir/me.txt)` and
 - `zshrc` will look in `**/zsh/*.zsh` and source any files that it finds
 
 ## Setup
@@ -17,13 +17,19 @@ so there's some manual steps.
     - Disable Siri
     - Disable analytics reporting
 1. Open terminal, and run the following command
-    ```
+
+    ```bash
     curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.sh | sh
     ```
+
+1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example` with your 1Password details
+
 1. Run the command that bootstrap returns, something like this
+
+    ```bash
+    ansible-playbook -i ~/projects/dotfiles/inventory -l $(cat dotfiles_dir/me.txt) ~/projects/dotfiles/main.yml -K --skip-tags "post"
     ```
-    ansible-playbook -i ~/projects/dotfiles/inventory -l $(whoami) ~/projects/dotfiles/main.yml -K --skip-tags "post"
-    ```
+
 1. Restart your mac
 
 ### Post Boostrap Manual Commands
@@ -50,15 +56,16 @@ so there's some manual steps.
     - Security -> General -> Require password immeditately
     - Security -> General -> Allow Apple Watch to Unlock Mac
     - Spotlight -> Uncheck all except Applications, Documents, Contacts, System Preferences
-    - Notifications -> Disable all except FaceTime, Firefox, Hyper, Messages
+    - Notifications -> Disable all except 1Password, Alfred, FaceTime, Firefox, Hyper, iTerm, Messages, Slack
     - Notifications -> Don't allow on lockscreen, don't allow sound except on FaceTime, Firefox
     - Displays -> Turn off "automatically adjust brightness"
     - Displays -> Change the resolution to "more space"
+    - Keyboard -> Modifier Keys -> Change 'Caps Lock' to 'Escape'
     - Keyboard -> Uncheck "adjust keyboard brightness"
     - Keyboard -> Disable all text substitutes
     - Keyboard -> Uncheck capitalize automatically
     - Keyboard -> Disable the spotlight cmd+space hotkey
-    - Keyboard -> Shortcuts -> Uncheck every shortcut
+    - Keyboard -> Shortcuts -> Uncheck every shortcut except screenshots
     - Keyboard -> Dictation -> Change the shortcut to "off"
     - Trackpad -> Scroll and Zoom -> disable pinch, zoom, and rotate
     - Trackapd -> More Gestures -> Disable notification center, mission control, show desktop
@@ -88,7 +95,7 @@ so there's some manual steps.
 
 ### Final Commands
 1. Open the dotfiles with `e ~/projects/dotfiles`
-    - Add any custom changes to `host_vars/$(whoami)/*.yml`. Use other `host_vars` as a template
+    - Add any custom changes to `host_vars/$(cat dotfiles_dir/me.txt)/*.yml`. Use other `host_vars` as a template
     - Copy `group_vars/all/secret.yml.example` to `group_vars/all/secret.yml`
     - Fill out `secret.yml` with your details
 1. Commit your changes
@@ -103,3 +110,5 @@ TODO - Add explanation of dot command here
 
 **TODO:**
 - [ ] handle aws mfa
+- [ ] Backup aws-vault?
+- [ ] fix op function loops
