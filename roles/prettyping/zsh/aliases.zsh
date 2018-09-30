@@ -1,0 +1,1 @@
+alias ping='prettyping --nolegend'

@@ -12,31 +12,29 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-# Disabling this until the alias can be fixed
-# - name: Check if there's a 1password cli update
-#   shell: op update
-#   register: R_op_update
-#   changed_when:
-#     - ("Please download our latest version" in R_op_update.stdout)
-#   tags:
-#     - post
-#     - internet
-#     - 1password
+- name: Check if there's a 1password cli update
+  shell: /usr/local/bin/op update
+  register: R_op_update
+  changed_when:
+    - ("Please download our latest version" in R_op_update.stdout)
+  tags:
+    - post
+    - internet
+    - 1password
 
-# - name: Update 1password CLI
-#   command: brew cask reinstall 1password-cli
-#   when:
-#     - ("Please download our latest version" in R_op_update.stdout)
-#   tags:
-#     - post
-#     - internet
-#     - 1password
+- name: Update 1password CLI
+  command: brew cask reinstall 1password-cli
+  when:
+    - ("Please download our latest version" in R_op_update.stdout)
+  tags:
+    - post
+    - internet
+    - 1password
 
 # Don't want to mark this as "changed" if it's a successful login
 # https://github.com/ansible/ansible/blob/stable-2.6/changelogs/CHANGELOG-v2.6.rst
 - name: Auth to 1password CLI
-  shell: op signin {{ op_domain }} {{ op_email }} {{ op_secret_key }} "{{ op_password }}" --output=raw
-  no_log: true
+  shell: echo "{{ op_password }}" | /usr/local/bin/op signin {{ op_domain }} {{ op_email }} {{ op_secret_key }} --output=raw
   register: R_op_signin
   changed_when:
     - R_op_signin.rc != 0

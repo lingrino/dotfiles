@@ -12,6 +12,20 @@ enforced is a semi-regular run of `dot`. To setup a mac for the first time follo
 instructions. Unfortunately not everything can be done automatically (or I haven't gotten to it),
 so there's some manual steps.
 
+## Dot
+After bootstrap you can periodically run the `dot` command to keep your system in sync. By default `dot`
+runs all ansible except mac settings configuration and anything that requires sudo or auth to 1Password. You
+can run `dot most` to include the mac settings and `dot all` to include sudo and 1Password commands, which
+require user input.
+
+## Tags
+Many of the ansible commands contain tags. Some of them are not used yet, but keeping things tags makes slicing
+easier now and in the future. Here's a list of tags:
+- **1password:** Tags all tasks that require auth to 1Password
+- **internet:** Tags all tasks that can only be run with internet access
+- **post:** Tags all tasks that must be run after bootstrap is run
+- **sudo:** Tags all tasks that require sudo
+
 ### Initial Bootstrap
 1. Follow the on-screen mac instructions for first-time setup
     - Disable Siri
@@ -101,14 +115,3 @@ so there's some manual steps.
 1. Commit your changes
 1. Run `dot all`
 1. Restart your mac one final time
-
-## Tags
-TODO - Add explanantion of different task tags here
-
-## Dot
-TODO - Add explanation of dot command here
-
-**TODO:**
-- [ ] handle aws mfa
-- [ ] Backup aws-vault?
-- [ ] fix op function loops

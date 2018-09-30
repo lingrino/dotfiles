@@ -1,0 +1,1 @@
+alias avt='aws-vault'

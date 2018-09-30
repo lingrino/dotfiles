@@ -17,7 +17,7 @@
 # doesn't support getting note content
 # https://docs.ansible.com/ansible/devel/plugins/lookup/onepassword.html
 - name: Get my private key from 1password
-  command: op get item {{ op_privkey_uuid }}
+  command: /usr/local/bin/op get item {{ op_privkey_uuid }}
   no_log: true
   environment:
     OP_SESSION_my: "{{ R_op_signin.stdout }}"
@@ -40,7 +40,7 @@
     - 1password
 
 - name: Get my public key from 1password
-  command: op get item {{ op_pubkey_uuid }}
+  command: /usr/local/bin/op get item {{ op_pubkey_uuid }}
   no_log: true
   environment:
     OP_SESSION_my: "{{ R_op_signin.stdout }}"

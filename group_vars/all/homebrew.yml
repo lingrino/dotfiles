@@ -3,10 +3,11 @@ taps:
   - homebrew/cask-versions
 
 brews:
-  - ack
+  - bat
   - coreutils
   - ctags
   - dep
+  - diff-so-fancy
   - fasd
   - fd
   - fzf
@@ -15,6 +16,7 @@ brews:
   - go
   - goreleaser
   - grc
+  - htop
   - hub
   - jq
   - kubernetes-cli
@@ -24,12 +26,15 @@ brews:
   - node
   - npm
   - openssl
+  - prettyping
   - readline
   - packer
   - postgresql
   - python
+  - ripgrep
   - shellcheck
   - terraform
+  - tldr
   - unrar
   - vault
   - watch

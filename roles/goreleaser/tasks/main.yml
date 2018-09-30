@@ -1,5 +1,5 @@
 - name: Get the go releaser github pat
-  command: op get item {{ op_goreleaser_pat_uuid }}
+  command: /usr/local/bin/op get item {{ op_goreleaser_pat_uuid }}
   no_log: true
   environment:
     OP_SESSION_my: "{{ R_op_signin.stdout }}"

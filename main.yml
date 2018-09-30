@@ -5,6 +5,8 @@
     - homebrew
     - 1password
     - ansible
+    - aws-vault
+    - bat
     - bd
     - bin
     - docker
@@ -14,12 +16,15 @@
     - git
     - go
     - goreleaser
+    - htop
     - hyper
     - mac
     - node
+    - prettyping
     - projects
     - python
     - ssh
     - terraform
+    - tldr
     - transmission
     - zsh
