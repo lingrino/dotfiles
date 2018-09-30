@@ -4,7 +4,7 @@ hub_path=$(which hub)
 if (( $+commands[hub] ))
 then
   alias g=$hub_path
-  # alias git=$hub_path
+  alias git=$hub_path
 fi
 
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
