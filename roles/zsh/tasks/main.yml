@@ -1,14 +1,14 @@
 - name: Get latest pure.zsh
   get_url:
     url: https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
-    dest: "{{ role_path }}/zsh/pure.zsh"
+    dest: "/usr/local/share/zsh/site-functions/prompt_pure_setup"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
 - name: Get latest async.zsh
   get_url:
     url: https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
-    dest: "{{ role_path }}/zsh/async.zsh"
+    dest: "/usr/local/share/zsh/site-functions/async"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 

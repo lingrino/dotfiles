@@ -1,6 +1,10 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH={{ inventory_dir }}
 
+# Load our prompt
+autoload -U promptinit; promptinit
+prompt pure
+
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/zsh/*.zsh)
