@@ -8,6 +8,7 @@ brews:
   - ctags
   - dep
   - diff-so-fancy
+  - exa
   - fasd
   - fd
   - fzf
