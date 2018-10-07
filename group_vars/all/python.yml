@@ -4,6 +4,7 @@ pip_global_packages:
   - boto
   - boto3
   - glances
+  - howdoi
   - pip
   - requests
   - setuptools
