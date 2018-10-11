@@ -3,30 +3,36 @@
 **NOTE:** This is is an example, not a drop in replacement, for your own dotfiles
 
 ## How this works
+
 - Define new macs in `inventory` where the host is equal to `$(cat dotfiles_dir/me.txt)` and
 - `zshrc` will look in `**/zsh/*.zsh` and source any files that it finds
 
 ## Setup
+
 Once the initial setup is complete all that is needed to make changes and keep the mac
 enforced is a semi-regular run of `dot`. To setup a mac for the first time follow the below
 instructions. Unfortunately not everything can be done automatically (or I haven't gotten to it),
 so there's some manual steps.
 
 ## Dot
+
 After bootstrap you can periodically run the `dot` command to keep your system in sync. By default `dot`
 runs all ansible except mac settings configuration and anything that requires sudo or auth to 1Password. You
 can run `dot most` to include the mac settings and `dot all` to include sudo and 1Password commands, which
 require user input.
 
 ## Tags
+
 Many of the ansible commands contain tags. Some of them are not used yet, but keeping things tags makes slicing
 easier now and in the future. Here's a list of tags:
+
 - **1password:** Tags all tasks that require auth to 1Password
 - **internet:** Tags all tasks that can only be run with internet access
 - **post:** Tags all tasks that must be run after bootstrap is run
 - **sudo:** Tags all tasks that require sudo
 
 ### Initial Bootstrap
+
 1. Follow the on-screen mac instructions for first-time setup
     - Disable Siri
     - Disable analytics reporting
@@ -47,6 +53,7 @@ easier now and in the future. Here's a list of tags:
 1. Restart your mac
 
 ### Post Boostrap Manual Commands
+
 1. Open and login to 1password
 1. Login to the dropbox app
     - Disable finder integration
@@ -108,6 +115,7 @@ easier now and in the future. Here's a list of tags:
     - For gist ID enter `6ff61f3d01c5772138f5d928471c40c4`
 
 ### Final Commands
+
 1. Open the dotfiles with `e ~/projects/dotfiles`
     - Add any custom changes to `host_vars/$(cat dotfiles_dir/me.txt)/*.yml`. Use other `host_vars` as a template
     - Copy `group_vars/all/secret.yml.example` to `group_vars/all/secret.yml`
