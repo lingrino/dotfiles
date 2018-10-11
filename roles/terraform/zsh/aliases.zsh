@@ -24,3 +24,6 @@ alias tfr='terraform refresh'
 
 # Shorten terraform destroy
 alias tfd='terraform destroy'
+
+# Shorten terraform init & apply
+alias tfia='tfi && tfa'
