@@ -113,6 +113,7 @@ easier now and in the future. Here's a list of tags:
     - Press cmd+shift+p and type sync, hit enter
     - For personal access token enter the one found in 1password 'Github' login notes
     - For gist ID enter `6ff61f3d01c5772138f5d928471c40c4`
+1. Visit [this page](https://www.sonos.com/redir/controller_software_mac) to download the Sonos Mac App
 
 ### Final Commands
 
