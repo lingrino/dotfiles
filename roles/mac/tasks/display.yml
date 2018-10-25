@@ -1,10 +1,18 @@
 - name: Enable font smoothing
-  osx_defaults:
-    state: present
-    domain: NSGlobalDomain
-    key: AppleFontSmoothing
-    type: int
-    value: 1
+  block:
+    - osx_defaults:
+        state: present
+        domain: NSGlobalDomain
+        key: AppleFontSmoothing
+        type: int
+        value: 1
+
+    - osx_defaults:
+        state: present
+        domain: NSGlobalDomain
+        key: CGFontRenderingFontSmoothingDisabled
+        type: bool
+        value: false
 
 - name: Turn off transparency
   osx_defaults:
@@ -95,3 +103,11 @@
   become_user: root
   tags:
     - sudo
+
+- name: Enable ctrl+option+cmd to drag windows
+  osx_defaults:
+    state: present
+    domain: com.apple.universalaccess
+    key: NSWindowShouldDragOnGesture
+    type: string
+    value: "YES"

@@ -1,11 +1,3 @@
-# git-all
-# Commit all changes and push
-ga() {
-    git add -A
-    git commit -m "$*"
-    git push
-}
-
 # Exports admin github personal access token
 # egt -> export github token
 egt () {

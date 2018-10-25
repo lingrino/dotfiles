@@ -9,4 +9,3 @@
   become_user: root
   tags:
     - sudo
-

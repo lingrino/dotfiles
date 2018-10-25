@@ -38,6 +38,14 @@
     type: bool
     value: true
 
+- name: Don't show recent applications in the dock
+  osx_defaults:
+    state: present
+    domain: com.apple.dock
+    key: show-recents
+    type: bool
+    value: false
+
 - name: Don’t animate opening applications from the Dock
   osx_defaults:
     state: present

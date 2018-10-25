@@ -18,3 +18,10 @@
     dest: "{{ ansible_env.HOME }}/.gitconfig.local"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+
+- name: Write the gitconfig work credentials file
+  template:
+    src: gitconfig_work_local
+    dest: "{{ ansible_env.HOME }}/.gitconfig-work.local"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

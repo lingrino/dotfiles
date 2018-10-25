@@ -1,12 +1,27 @@
 # Local/private config goes in the include
 [include]
         path = ~/.gitconfig.local
-[hub]
-        protocol = https
+
+[includeIf "gitdir:~/projects/work/"]
+        path = ~/.gitconfig-work.local
+
 [alias]
+        a = "!f() { git add -A && git commit -m \"${*}\" && git push; }; f"
+        br = branch
+        cl = clone
+        cm = commit
+        co = checkout
+        df = diff
+        lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+        nb = "!f() { git checkout -b ${1} && git push --set-upstream origin ${1}:${1}; }; f"
         ps = push
         pl = pull
-        co = checkout
+        st = status
+
+        aliases = config --get-regexp alias
+        branches = branch -a
+        remotes = remote -v
+        tags = tag -l
 [color]
         diff = auto
         status = auto
@@ -15,6 +30,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = $EDITOR
+        untrackedCache = true
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -25,6 +41,7 @@
         autocorrect = 1
 [push]
         default = simple
+        followTags = true
 [fetch]
         prune = true
 [pager]

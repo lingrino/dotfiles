@@ -53,3 +53,19 @@
     key: AutoUpdateRestartRequired
     type: bool
     value: true
+
+- name: Turn off video autoplay
+  block:
+    - osx_defaults:
+        state: present
+        domain: com.apple.AppStore
+        key: UserSetAutoPlayVideoSetting
+        type: int
+        value: 1
+
+    - osx_defaults:
+        state: present
+        domain: com.apple.AppStore
+        key: AutoPlayVideoSetting
+        type: string
+        value: "off"
