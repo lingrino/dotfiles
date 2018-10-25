@@ -16,6 +16,9 @@
 # Can't use the 1password module here beacuse it
 # doesn't support getting note content
 # https://docs.ansible.com/ansible/devel/plugins/lookup/onepassword.html
+####################
+### Personal     ###
+####################
 - name: Get my private key from 1password
   command: /usr/local/bin/op get item {{ op_privkey_uuid }}
   no_log: true
@@ -28,10 +31,10 @@
     - post
     - 1password
 
-- name: Copy my private key to id_rsa
+- name: Copy my private key to personal
   copy:
     content: "{{ R_privkey.stdout | from_json | json_query('details.notesPlain') }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/id_rsa"
+    dest: "{{ ansible_env.HOME }}/.ssh/personal"
     mode: 0600
     owner: "{{ ansible_user_id }}"
   no_log: true
@@ -51,10 +54,59 @@
     - post
     - 1password
 
-- name: Copy my public key to id_rsa.pub
+- name: Copy my public key to personal.pub
   copy:
     content: "{{ R_pubkey.stdout | from_json | json_query('details.notesPlain') }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/id_rsa.pub"
+    dest: "{{ ansible_env.HOME }}/.ssh/personal.pub"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  no_log: true
+  tags:
+    - post
+    - 1password
+
+####################
+### Work         ###
+####################
+- name: Get my work private key from 1password
+  command: /usr/local/bin/op get item {{ op_privkey_work_uuid }}
+  no_log: true
+  environment:
+    OP_SESSION_my: "{{ R_op_signin.stdout }}"
+  register: R_privkey_work
+  changed_when:
+    - R_privkey_work.rc != 0
+  tags:
+    - post
+    - 1password
+
+- name: Copy my private key to work
+  copy:
+    content: "{{ R_privkey_work.stdout | from_json | json_query('details.notesPlain') }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/work"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  no_log: true
+  tags:
+    - post
+    - 1password
+
+- name: Get my work public key from 1password
+  command: /usr/local/bin/op get item {{ op_pubkey_work_uuid }}
+  no_log: true
+  environment:
+    OP_SESSION_my: "{{ R_op_signin.stdout }}"
+  register: R_pubkey_work
+  changed_when:
+    - R_pubkey_work.rc != 0
+  tags:
+    - post
+    - 1password
+
+- name: Copy my public key to work.pub
+  copy:
+    content: "{{ R_pubkey_work.stdout | from_json | json_query('details.notesPlain') }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/work.pub"
     mode: 0600
     owner: "{{ ansible_user_id }}"
   no_log: true
