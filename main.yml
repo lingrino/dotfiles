@@ -2,24 +2,24 @@
   hosts: all
   connection: local
   roles:
-    - homebrew
-    - 1password
-    - ansible
-    - bd
-    - bin
-    - docker
-    - editor
-    - fonts
-    - fzf
+    # - homebrew
+    # - 1password
+    # - ansible
+    # - bd
+    # - bin
+    # - docker
+    # - editor
+    # - fonts
+    # - fzf
     - git
-    - go
-    - goreleaser
-    - hyper
-    - mac
-    - node
-    - projects
-    - python
-    - ssh
-    - terraform
-    - transmission
-    - zsh
+    # - go
+    # - goreleaser
+    # - hyper
+    # - mac
+    # - node
+    # - projects
+    # - python
+    # - ssh
+    # - terraform
+    # - transmission
+    # - zsh
