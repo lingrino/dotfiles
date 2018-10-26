@@ -13,27 +13,9 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-# Can't use the 1password module here beacuse it
-# doesn't support getting note content
-# https://docs.ansible.com/ansible/devel/plugins/lookup/onepassword.html
-####################
-### Personal     ###
-####################
-- name: Get my private key from 1password
-  command: /usr/local/bin/op get item {{ op_privkey_uuid }}
-  no_log: true
-  environment:
-    OP_SESSION_my: "{{ R_op_signin.stdout }}"
-  register: R_privkey
-  changed_when:
-    - R_privkey.rc != 0
-  tags:
-    - post
-    - 1password
-
 - name: Copy my private key to personal
   copy:
-    content: "{{ R_privkey.stdout | from_json | json_query('details.notesPlain') }}"
+    content: "{{ lookup('onepassword_raw', 'SSH - Personal Main Private', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
     dest: "{{ ansible_env.HOME }}/.ssh/personal"
     mode: 0600
     owner: "{{ ansible_user_id }}"
@@ -42,21 +24,9 @@
     - post
     - 1password
 
-- name: Get my public key from 1password
-  command: /usr/local/bin/op get item {{ op_pubkey_uuid }}
-  no_log: true
-  environment:
-    OP_SESSION_my: "{{ R_op_signin.stdout }}"
-  register: R_pubkey
-  changed_when:
-    - R_pubkey.rc != 0
-  tags:
-    - post
-    - 1password
-
 - name: Copy my public key to personal.pub
   copy:
-    content: "{{ R_pubkey.stdout | from_json | json_query('details.notesPlain') }}"
+    content: "{{ lookup('onepassword_raw', 'SSH - Personal Main Public', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
     dest: "{{ ansible_env.HOME }}/.ssh/personal.pub"
     mode: 0600
     owner: "{{ ansible_user_id }}"
@@ -65,24 +35,9 @@
     - post
     - 1password
 
-####################
-### Work         ###
-####################
-- name: Get my work private key from 1password
-  command: /usr/local/bin/op get item {{ op_privkey_work_uuid }}
-  no_log: true
-  environment:
-    OP_SESSION_my: "{{ R_op_signin.stdout }}"
-  register: R_privkey_work
-  changed_when:
-    - R_privkey_work.rc != 0
-  tags:
-    - post
-    - 1password
-
 - name: Copy my private key to work
   copy:
-    content: "{{ R_privkey_work.stdout | from_json | json_query('details.notesPlain') }}"
+    content: "{{ lookup('onepassword_raw', 'SSH - Personal Work Private', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
     dest: "{{ ansible_env.HOME }}/.ssh/work"
     mode: 0600
     owner: "{{ ansible_user_id }}"
@@ -91,21 +46,9 @@
     - post
     - 1password
 
-- name: Get my work public key from 1password
-  command: /usr/local/bin/op get item {{ op_pubkey_work_uuid }}
-  no_log: true
-  environment:
-    OP_SESSION_my: "{{ R_op_signin.stdout }}"
-  register: R_pubkey_work
-  changed_when:
-    - R_pubkey_work.rc != 0
-  tags:
-    - post
-    - 1password
-
 - name: Copy my public key to work.pub
   copy:
-    content: "{{ R_pubkey_work.stdout | from_json | json_query('details.notesPlain') }}"
+    content: "{{ lookup('onepassword_raw', 'SSH - Personal Work Public', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
     dest: "{{ ansible_env.HOME }}/.ssh/work.pub"
     mode: 0600
     owner: "{{ ansible_user_id }}"
