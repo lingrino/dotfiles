@@ -17,6 +17,7 @@
     - hyper
     - mac
     - node
+    - pgp
     - projects
     - python
     - ssh

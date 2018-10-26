@@ -1,0 +1,50 @@
+- name: Check if my key is already imported
+  command: gpg --list-keys sean
+  register: R_gpg_list
+  changed_when:
+    - R_gpg_list.rc != 0
+  failed_when:
+    - R_gpg_list.rc != 0
+    - ("No public key" not in R_gpg_list.stderr)
+  tags:
+    - post
+    - 1password
+
+- name: Import my pgp keys
+  block:
+    - name: Copy my pgp public key to a temporary location
+      copy:
+        content: "{{ lookup('onepassword_raw', 'PGP - Personal Public', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
+        dest: "/tmp/pgp_personal_public.asc"
+        mode: 0600
+        owner: "{{ ansible_user_id }}"
+      no_log: true
+
+    - name: Copy my pgp private key to a temporary location
+      copy:
+        content: "{{ lookup('onepassword_raw', 'PGP - Personal Private', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
+        dest: "/tmp/pgp_personal_private.asc"
+        mode: 0600
+        owner: "{{ ansible_user_id }}"
+      no_log: true
+
+    - name: Import my pgp public key
+      command: gpg --import /tmp/pgp_personal_public.asc
+
+    - name: Import my pgp private key
+      command: gpg --import /tmp/pgp_personal_private.asc
+
+    - name: Remove my temporary pgp public key
+      file:
+        state: absent
+        path: /tmp/pgp_personal_public.asc
+
+    - name: Remove my temporary pgp private key
+      file:
+        state: absent
+        path: /tmp/pgp_personal_private.asc
+  when:
+    - R_gpg_list.rc != 0
+  tags:
+    - post
+    - 1password
