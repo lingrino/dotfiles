@@ -15,14 +15,14 @@
 
 - name: Add the npmrc file
   template:
-    src: npmrc
+    src: npmrc.j2
     dest: "{{ ansible_env.HOME }}/.npmrc"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
 - name: Template path.zsh into zsh/path.zsh
   template:
-    src: path.zsh
+    src: path.zsh.j2
     dest: "{{ role_path }}/zsh/path.zsh"
     mode: 0600
     owner: "{{ ansible_user_id }}"

@@ -1,6 +1,6 @@
 - name: Template out dot into bin/dot
   template:
-    src: dot
+    src: dot.j2
     dest: "{{ role_path }}/bin/dot"
     mode: 0700
     owner: "{{ ansible_user_id }}"

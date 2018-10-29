@@ -1,6 +1,9 @@
-git_name: Sean Lingren
-git_email: srlingren@gmail.com
-git_signing_key: 7C413E47
-git_name_work: Sean Lingren
-git_email_work: sean.lingren@enigma.com
-git_signing_key_work: 7C413E47
+# Define a list of git users and which paths they should be used in
+# If path is left empty it will be the "default" user that is used if
+# no other path matches
+git_users:
+  personal:
+    shorthand: me
+    name: Sean Lingren
+    email: srlingren@gmail.com
+    signing_key: 7C413E47

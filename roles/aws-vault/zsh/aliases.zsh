@@ -1,1 +1,3 @@
-alias avt='aws-vault'
+#!/bin/sh
+
+alias av='aws-vault'

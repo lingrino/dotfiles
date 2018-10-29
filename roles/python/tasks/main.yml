@@ -1,8 +1,7 @@
 - name: Install all pip packages
   pip:
-    name: "{{ item }}"
+    name: "{{ pip_global_packages }}"
     state: latest
     executable: pip3
-  loop: "{{ pip_global_packages }}"
   tags:
     - internet

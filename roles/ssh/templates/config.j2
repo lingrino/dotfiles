@@ -1,8 +1,9 @@
+{% for key in ssh_keys %}
+IdentityFile ~/.ssh/{{ ssh_keys[key].file_name }}
+{% endfor %}
+
 # Disable known_hosts functionality
 # Careful with this in untrusted environments
-IdentityFile ~/.ssh/work
-IdentityFile ~/.ssh/personal
-
 LogLevel QUIET
 StrictHostKeyChecking no
 UserKnownHostsFile /dev/null

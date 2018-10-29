@@ -5,7 +5,8 @@ me.txt
 roles/work
 
 # Secrets
-group_vars/all/secret.yml
+secret.yml
+*_secret.yml
 
 # Templated files
 roles/bin/bin/dot

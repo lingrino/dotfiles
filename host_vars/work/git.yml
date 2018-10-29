@@ -1,0 +1,12 @@
+git_users:
+  personal:
+    shorthand: me
+    name: Sean Lingren
+    email: srlingren@gmail.com
+    signing_key: 7C413E47
+  work:
+    shorthand: work
+    name: Sean Lingren
+    email: sean.lingren@enigma.com
+    signing_key: AB836EDD
+    path: ~/projects/work/

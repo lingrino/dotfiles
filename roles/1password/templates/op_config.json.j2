@@ -1,0 +1,15 @@
+{
+	"latest_signin": "",
+	"accounts": [
+{% for auth in op_auths %}
+		{
+			"shorthand": "{{ op_auths[auth].shorthand }}",
+			"url": "{{ op_auths[auth].domain }}",
+			"email": "{{ op_auths[auth].email }}",
+			"accountKey": "{{ op_auths[auth].secret_key }}",
+			"userUUID": "{{ op_auths[auth].user_uuid  }}"
+		}{% if not loop.last %},{% endif %}
+
+{% endfor %}
+	]
+}

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Shorten terraform
 alias tf='terraform'
 alias tg='terragrunt'

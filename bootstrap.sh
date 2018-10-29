@@ -4,7 +4,7 @@
 set -e
 
 # Check if dot is a command
-if test $(which dot)
+if test "$(command -v dot)"
 then
     echo "'dot' exists, you are already bootstrapped"
     exit 0
@@ -12,7 +12,7 @@ fi
 
 # Check if homebrew is already installed
 # This also install xcode command line tools
-if test ! $(which brew)
+if test ! "$(command -v brew)"
 then
     echo "Homebrew not found, installing"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -21,7 +21,7 @@ fi
 # Create the projects folder if it does not exist
 if test ! -d ~/projects
 then
-    echo "~/projects does not exist, creating"
+    echo "$HOME/projects does not exist, creating"
     mkdir ~/projects
 fi
 
@@ -34,14 +34,14 @@ fi
 cd ~/projects/dotfiles
 
 # Check if pip3 is installed
-if test ! $(which pip3)
+if test ! "$(command -v pip3)"
 then
     echo "pip3 not found, installing with homebrew"
     brew install python
 fi
 
 # Check if ansible is installed
-if test ! $(which ansible-playbook)
+if test ! "$(command -v ansible-playbook)"
 then
     echo "ansible-playbook not found, installing with pip"
     pip3 install ansible
@@ -49,7 +49,7 @@ fi
 
 # Ask the user what to name the host
 echo "What do you want to name this host?"
-read INVENTORY_NAME
+read -r INVENTORY_NAME
 if ! grep -q "$INVENTORY_NAME" inventory
 then
     echo "$INVENTORY_NAME not found in inventory, adding"

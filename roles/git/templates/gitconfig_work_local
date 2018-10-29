@@ -1,6 +1,0 @@
-[user]
-  name = {{ git_name_work }}
-  email = {{ git_email_work }}
-  signingkey = {{ git_signing_key_work }}
-[credential]
-  helper = osxkeychain

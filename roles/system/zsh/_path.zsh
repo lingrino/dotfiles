@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # This file is _path.zsh because it needs to be loaded after all other path files
 # So the zshrc will load all path.zsh, then all *.zsh (incluing this file), making it last
 # Load /usr/local/bin after roles/bin/bin so that the latter can take precedence

@@ -1,6 +1,6 @@
 - name: Write the global git config file
-  copy:
-    src: gitconfig_global
+  template:
+    src: gitconfig_global.j2
     dest: "{{ ansible_env.HOME }}/.gitconfig"
     mode: 0600
     owner: "{{ ansible_user_id }}"
@@ -12,16 +12,10 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-- name: Write the gitconfig credentials file
+- name: Write the gitconfig users files
   template:
-    src: gitconfig_local
-    dest: "{{ ansible_env.HOME }}/.gitconfig.local"
+    src: gitconfig_user_local.j2
+    dest: "{{ ansible_env.HOME }}/.gitconfig-{{ item.value.shorthand }}.local"
     mode: 0600
     owner: "{{ ansible_user_id }}"
-
-- name: Write the gitconfig work credentials file
-  template:
-    src: gitconfig_work_local
-    dest: "{{ ansible_env.HOME }}/.gitconfig-work.local"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
+  loop: "{{ git_users | dict2items }}"

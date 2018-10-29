@@ -7,7 +7,16 @@
 
 - name: Add the goreleaser github token file
   copy:
-    content: "{{ lookup('onepassword_raw', 'Github', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key)  | json_query('details.sections[?title==`Personal Access Tokens`].fields | [] | [?t==`PAT - goreleaser`].v | [0]') }}"
+    content: "{{
+      lookup(
+        'onepassword_raw',
+        'Github',
+        subdomain=op_auths['me'].shorthand,
+        username=op_auths['me'].email,
+        secret_key=op_auths['me'].secret_key,
+        vault_password=lookup('vars', 'op_password_'+op_auths['me'].shorthand)
+      ) | json_query('details.sections[?title==`Personal Access Tokens`].fields | [] | [?t==`PAT - goreleaser`].v | [0]')
+    }}"
     dest: "{{ ansible_env.HOME }}/.config/goreleaser/github_token"
     mode: 0600
     owner: "{{ ansible_user_id }}"

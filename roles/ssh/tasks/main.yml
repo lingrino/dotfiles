@@ -7,52 +7,50 @@
   register: R_ssh_dir
 
 - name: Copy over the ssh config file
-  copy:
-    src: config
+  template:
+    src: config.j2
     dest: "{{ R_ssh_dir.path }}/config"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-- name: Copy my private key to personal
+- name: Copy over my SSH public keys
   copy:
-    content: "{{ lookup('onepassword_raw', 'SSH - Personal Main Private', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/personal"
+    content: "{{
+      lookup(
+        'onepassword_raw',
+        item.value.op_name_public,
+        subdomain=op_auths[item.value.op_shorthand].shorthand,
+        username=op_auths[item.value.op_shorthand].email,
+        secret_key=op_auths[item.value.op_shorthand].secret_key,
+        vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+      ) | json_query('details.notesPlain')
+    }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ item.value.file_name }}.pub"
     mode: 0600
     owner: "{{ ansible_user_id }}"
   no_log: true
+  loop: "{{ ssh_keys | dict2items }}"
   tags:
     - post
     - 1password
 
-- name: Copy my public key to personal.pub
+- name: Copy over my SSH private keys
   copy:
-    content: "{{ lookup('onepassword_raw', 'SSH - Personal Main Public', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/personal.pub"
+    content: "{{
+      lookup(
+        'onepassword_raw',
+        item.value.op_name_private,
+        subdomain=op_auths[item.value.op_shorthand].shorthand,
+        username=op_auths[item.value.op_shorthand].email,
+        secret_key=op_auths[item.value.op_shorthand].secret_key,
+        vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+      ) | json_query('details.notesPlain')
+    }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ item.value.file_name }}"
     mode: 0600
     owner: "{{ ansible_user_id }}"
   no_log: true
-  tags:
-    - post
-    - 1password
-
-- name: Copy my private key to work
-  copy:
-    content: "{{ lookup('onepassword_raw', 'SSH - Personal Work Private', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/work"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-  no_log: true
-  tags:
-    - post
-    - 1password
-
-- name: Copy my public key to work.pub
-  copy:
-    content: "{{ lookup('onepassword_raw', 'SSH - Personal Work Public', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
-    dest: "{{ ansible_env.HOME }}/.ssh/work.pub"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-  no_log: true
+  loop: "{{ ssh_keys | dict2items }}"
   tags:
     - post
     - 1password

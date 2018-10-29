@@ -1,4 +1,6 @@
-if $(exa &>/dev/null)
+#!/bin/bash
+
+if exa &>/dev/null
 then
   alias l="exa -abghl"
   alias la="exa -abghl"
@@ -8,7 +10,7 @@ then
     if [ -z "$1" ]; then
       exa -bghlT
     else
-      exa -bghlT -L $1
+      exa -bghlT -L "$1"
     fi
   }
 fi

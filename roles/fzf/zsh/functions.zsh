@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # If no args, call fasd_cd with fzf on input
 # If args, just call fasd_cd
 j() {

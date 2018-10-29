@@ -1,5 +1,7 @@
-[ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
-[ -d ~/Projects ]             && alias pj='cd ~/projects'
+#!/bin/sh
+
+[ -d ~/Downloads ] && alias dl='cd ~/Downloads'
+[ -d ~/Projects ]  && alias pj='cd ~/projects'
 
 alias cb='pbcopy'
 

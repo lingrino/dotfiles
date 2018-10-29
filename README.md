@@ -31,6 +31,8 @@ easier now and in the future. Here's a list of tags:
 - **post:** Tags all tasks that must be run after bootstrap is run
 - **sudo:** Tags all tasks that require sudo
 
+Also, all roles are tagged with their own name.
+
 ### Initial Bootstrap
 
 1. Follow the on-screen mac instructions for first-time setup

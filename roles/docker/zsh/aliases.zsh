@@ -1,2 +1,4 @@
-alias dk='docker $*'
-alias dc='docker-compose $*'
+#!/bin/sh
+
+alias dk='docker'
+alias dc='docker-compose'

@@ -42,7 +42,12 @@
        show = diff-so-fancy | less --tabs=1,5 -RFX
 [commit]
 	gpgsign = true
+{% for user in git_users %}
+{% if git_users[user].path is defined %}
+[includeIf "gitdir:{{ git_users[user].path }}"]
+        path = ~/.gitconfig-{{ git_users[user].shorthand }}.local
+{% else %}
 [include]
-        path = ~/.gitconfig.local
-[includeIf "gitdir:~/projects/work/"]
-        path = ~/.gitconfig-work.local
+        path = ~/.gitconfig-{{ git_users[user].shorthand }}.local
+{% endif %}
+{% endfor %}

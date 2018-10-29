@@ -6,7 +6,7 @@
 
 - name: Write brewfile to home directory
   template:
-    src: Brewfile
+    src: Brewfile.j2
     dest: "{{ ansible_env.HOME }}/.Brewfile"
     mode: 0600
     owner: "{{ ansible_user_id }}"

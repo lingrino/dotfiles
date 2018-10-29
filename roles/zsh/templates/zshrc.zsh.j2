@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH={{ inventory_dir }}
 
@@ -12,13 +14,13 @@ config_files=($ZSH/**/zsh/*.zsh)
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  source $file
+  . "$file"
 done
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  source $file
+  . $file
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -28,17 +30,10 @@ compinit
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  source $file
+  . "$file"
 done
 
 unset config_files
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

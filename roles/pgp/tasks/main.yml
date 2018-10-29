@@ -1,50 +1,115 @@
-- name: Check if my key is already imported
-  command: gpg --list-keys sean
+- name: Check if the key is already imported
+  shell: gpg -k {{ item.value.hash }} && gpg -K {{ item.value.hash }}
   register: R_gpg_list
+  no_log: true
   changed_when:
     - R_gpg_list.rc != 0
   failed_when:
     - R_gpg_list.rc != 0
     - ("No public key" not in R_gpg_list.stderr)
+  loop: "{{ pgp_keys | dict2items }}"
   tags:
     - post
     - 1password
 
-- name: Import my pgp keys
-  block:
-    - name: Copy my pgp public key to a temporary location
-      copy:
-        content: "{{ lookup('onepassword_raw', 'PGP - Personal Public', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
-        dest: "/tmp/pgp_personal_public.asc"
-        mode: 0600
-        owner: "{{ ansible_user_id }}"
-      no_log: true
-
-    - name: Copy my pgp private key to a temporary location
-      copy:
-        content: "{{ lookup('onepassword_raw', 'PGP - Personal Private', subdomain=op_subdomain, username=op_email, vault_password=op_password, secret_key=op_secret_key) | json_query('details.notesPlain') }}"
-        dest: "/tmp/pgp_personal_private.asc"
-        mode: 0600
-        owner: "{{ ansible_user_id }}"
-      no_log: true
-
-    - name: Import my pgp public key
-      command: gpg --import /tmp/pgp_personal_public.asc
-
-    - name: Import my pgp private key
-      command: gpg --import /tmp/pgp_personal_private.asc
-
-    - name: Remove my temporary pgp public key
-      file:
-        state: absent
-        path: /tmp/pgp_personal_public.asc
-
-    - name: Remove my temporary pgp private key
-      file:
-        state: absent
-        path: /tmp/pgp_personal_private.asc
+- name: Copy the pgp public key to a temporary location
+  copy:
+    content: "{{
+      lookup(
+        'onepassword_raw',
+        item.value.op_name_public,
+        subdomain=op_auths[item.value.op_shorthand].shorthand,
+        username=op_auths[item.value.op_shorthand].email,
+        secret_key=op_auths[item.value.op_shorthand].secret_key,
+        vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+      ) | json_query('details.notesPlain')
+    }}"
+    dest: "/tmp/pgp_public_{{ item.value.name }}.asc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  no_log: true
   when:
-    - R_gpg_list.rc != 0
+    - R_gpg_list.results[idx].rc != 0
+  loop: "{{ pgp_keys | dict2items }}"
+  loop_control:
+    index_var: idx
+  tags:
+    - post
+    - 1password
+
+- name: Copy the pgp private key to a temporary location
+  copy:
+    content: "{{
+      lookup(
+        'onepassword_raw',
+        item.value.op_name_private,
+        subdomain=op_auths[item.value.op_shorthand].shorthand,
+        username=op_auths[item.value.op_shorthand].email,
+        secret_key=op_auths[item.value.op_shorthand].secret_key,
+        vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+      ) | json_query('details.notesPlain')
+    }}"
+    dest: "/tmp/pgp_private_{{ item.value.name }}.asc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  no_log: true
+  when:
+    - R_gpg_list.results[idx].rc != 0
+  loop: "{{ pgp_keys | dict2items }}"
+  loop_control:
+    index_var: idx
+  tags:
+    - post
+    - 1password
+
+- name: Import the pgp public key
+  command: gpg --import /tmp/pgp_public_{{ item.value.name }}.asc
+  no_log: true
+  when:
+    - R_gpg_list.results[idx].rc != 0
+  loop: "{{ pgp_keys | dict2items }}"
+  loop_control:
+    index_var: idx
+  tags:
+    - post
+    - 1password
+
+- name: Import the pgp private key
+  command: gpg --import /tmp/pgp_private_{{ item.value.name }}.asc
+  no_log: true
+  when:
+    - R_gpg_list.results[idx].rc != 0
+  loop: "{{ pgp_keys | dict2items }}"
+  loop_control:
+    index_var: idx
+  tags:
+    - post
+    - 1password
+
+- name: Remove the temporary pgp public key
+  file:
+    state: absent
+    path: /tmp/pgp_public_{{ item.value.name }}.asc
+  no_log: true
+  when:
+    - R_gpg_list.results[idx].rc != 0
+  loop: "{{ pgp_keys | dict2items }}"
+  loop_control:
+    index_var: idx
+  tags:
+    - post
+    - 1password
+
+- name: Remove the temporary pgp private key
+  file:
+    state: absent
+    path: /tmp/pgp_private_{{ item.value.name }}.asc
+  no_log: true
+  when:
+    - R_gpg_list.results[idx].rc != 0
+  loop: "{{ pgp_keys | dict2items }}"
+  loop_control:
+    index_var: idx
   tags:
     - post
     - 1password

@@ -8,7 +8,7 @@
 
 - name: Write terraform config file
   template:
-    src: terraformrc
+    src: terraformrc.j2
     dest: "{{ ansible_env.HOME }}/.terraformrc"
     mode: 0600
     owner: "{{ ansible_user_id }}"

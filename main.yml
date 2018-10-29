@@ -2,25 +2,24 @@
   hosts: all
   connection: local
   roles:
-    - homebrew
-    - 1password
-    - ansible
-    - bd
-    - bin
-    - docker
-    - editor
-    - fonts
-    - fzf
-    - git
-    - go
-    - goreleaser
-    - hyper
-    - mac
-    - node
-    - pgp
-    - projects
-    - python
-    - ssh
-    - terraform
-    - transmission
-    - zsh
+    - { role: homebrew,     tags: ['homebrew']     }
+    - { role: 1password,    tags: ['1password']    }
+    - { role: ansible,      tags: ['ansible']      }
+    - { role: bin,          tags: ['bin']          }
+    - { role: docker,       tags: ['docker']       }
+    - { role: editor,       tags: ['editor']       }
+    - { role: fonts,        tags: ['fonts']        }
+    - { role: fzf,          tags: ['fzf']          }
+    - { role: git,          tags: ['git']          }
+    - { role: go,           tags: ['go']           }
+    - { role: goreleaser,   tags: ['goreleaser']   }
+    - { role: hyper,        tags: ['hyper']        }
+    - { role: mac,          tags: ['mac']          }
+    - { role: node,         tags: ['node']         }
+    - { role: pgp,          tags: ['pgp']          }
+    - { role: projects,     tags: ['projects']     }
+    - { role: python,       tags: ['python']       }
+    - { role: ssh,          tags: ['ssh']          }
+    - { role: terraform,    tags: ['terraform']    }
+    - { role: transmission, tags: ['transmission'] }
+    - { role: zsh,          tags: ['zsh']          }

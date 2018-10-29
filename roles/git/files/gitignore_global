@@ -1,18 +1,156 @@
-.DS_Store
-*~
-*.swp
-*.ignore
-*.pem
-*.priv
-*.pyc
+###################################################################################
+# Ansible                                                                       ###
+# https://github.com/github/gitignore/blob/master/Global/Ansible.gitignore      ###
+###################################################################################
 *.retry
-*.sav
+
+
+###################################################################################
+# Archives                                                                      ###
+# https://github.com/github/gitignore/blob/master/Global/Archives.gitignore     ###
+###################################################################################
+# It's better to unpack these files and commit the raw source because
+# git has its own built in compression methods.
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.tgz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.cab
+
+# Packing-only formats
+*.iso
+*.tar
+
+# Package management formats
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+*.msi
+*.msm
+*.msp
+
+
+###################################################################################
+# Dropbox                                                                       ###
+# https://github.com/github/gitignore/blob/master/Global/Dropbox.gitignore      ###
+###################################################################################
+# Dropbox settings and caches
+.dropbox
+.dropbox.attr
+.dropbox.cache
+
+
+###################################################################################
+# Go                                                                            ###
+# https://github.com/github/gitignore/blob/master/Go.gitignore                  ###
+###################################################################################
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+
+###################################################################################
+# Keys                                                                          ###
+###################################################################################
+*.pem
 *.key
 *.crt
-*.war
-*.bak
-*.vscode
-**/.terraform/*
-*.tfstate*
-.terragrunt-cache
+*.priv
+
+
+###################################################################################
+# Mac                                                                           ###
+# https://github.com/github/gitignore/blob/master/Global/macOS.gitignore        ###
+###################################################################################
+# General
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+###################################################################################
+# Packer                                                                        ###
+# https://github.com/github/gitignore/blob/master/Packer.gitignore              ###
+###################################################################################
+# Cache objects
+packer_cache/
+
+# For built boxes
+*.box
+
+
+###################################################################################
+# Personal                                                                      ###
+###################################################################################
 *NOT_IN_GIT
+*.ignore
+*.bak
+*.sav
+
+
+###################################################################################
+# Terraform                                                                     ###
+# https://github.com/github/gitignore/blob/master/Terraform.gitignore           ###
+###################################################################################
+# Local .terraform directories
+**/.terraform/*
+.terragrunt-cache
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+
+###################################################################################
+# VSCode                                                                        ###
+###################################################################################
+*.vscode

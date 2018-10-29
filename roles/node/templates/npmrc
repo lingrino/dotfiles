@@ -1,7 +1,0 @@
-init.author.name=Sean Lingren
-init.author.email=srlingren@gmail.com
-init.author.url=https://srlingren.com
-init.license=MIT
-init.version=0.0.1
-loglevel=error
-prefix={{ R_node_modules_dir.path }}
