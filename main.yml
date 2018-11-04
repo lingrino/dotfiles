@@ -6,6 +6,7 @@
     - { role: 1password,    tags: ['1password']    }
     - { role: ansible,      tags: ['ansible']      }
     - { role: bin,          tags: ['bin']          }
+    - { role: certs,        tags: ['certs']        }
     - { role: docker,       tags: ['docker']       }
     - { role: editor,       tags: ['editor']       }
     - { role: fonts,        tags: ['fonts']        }

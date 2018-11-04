@@ -1,0 +1,11 @@
+- name: Trust all certs in certs_to_trust
+  copy:
+    content: "{{ item.value }}"
+    dest: /etc/ssl/certs/{{ item.key }}.pem
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  become: true
+  become_user: root
+  loop: "{{ certs_to_trust | dict2items }}"
+  tags:
+    - sudo
