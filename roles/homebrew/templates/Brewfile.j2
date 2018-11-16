@@ -41,3 +41,17 @@ cask '{{ cask }}'
 cask '{{ cask }}'
 {% endfor %}
 {% endif %}
+
+# Mac App Store Apps in group_vars/all
+# Defined as 'apps'
+{% for app in apps %}
+mas '{{ app.name }}', id: {{ app.id }}
+{% endfor %}
+
+{% if host_apps is defined %}
+# Mac App Store Apps in host_vars/$(cat {{ inventory_dir }}/me.txt)
+# Defined as 'host_apps'
+{% for app in host_apps %}
+mas '{{ app.name }}', id: {{ app.id }}
+{% endfor %}
+{% endif %}

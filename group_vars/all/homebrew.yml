@@ -22,6 +22,7 @@ brews:
   - kubernetes-cli
   - libgit2
   - m-cli
+  - mas
   - nmap
   - node
   - npm
@@ -61,3 +62,7 @@ casks:
   - spotify
   - visual-studio-code-insiders
   - vlc
+
+apps:
+  - id: 904280696
+    name: Things3
