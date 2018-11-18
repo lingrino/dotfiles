@@ -3,7 +3,6 @@ npm_author_email: srlingren@gmail.com
 npm_author_url:   https://srlingren.com
 
 npm_global_packages:
-  - npm
   - react
   - serverless
   - spoof
