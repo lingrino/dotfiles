@@ -4,6 +4,7 @@
         cl = clone
         cm = commit
         co = checkout
+        db = "!f() { git branch -vv | grep ': gone]'| grep -v \"*\" | awk '{ print $1; }' | xargs git branch -d; }; f"
         df = diff
         lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
         nb = "!f() { git checkout -b ${1} && git push --set-upstream origin ${1}:${1}; }; f"
