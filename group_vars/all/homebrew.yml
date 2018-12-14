@@ -33,6 +33,7 @@ brews:
   - postgresql
   - python
   - ripgrep
+  - rustup-init
   - shellcheck
   - terraform
   - terragrunt
