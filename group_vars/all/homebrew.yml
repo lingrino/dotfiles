@@ -53,6 +53,7 @@ casks:
   - docker
   - dropbox-beta
   - firefox
+  - google-chrome
   - gpg-suite
   - hyper
   - iterm2-beta
