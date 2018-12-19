@@ -35,6 +35,7 @@ brews:
   - ripgrep
   - rustup-init
   - shellcheck
+  - telnet
   - terraform
   - terragrunt
   - tldr
