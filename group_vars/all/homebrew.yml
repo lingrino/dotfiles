@@ -18,6 +18,7 @@ brews:
   - goreleaser
   - grc
   - htop
+  - httpie
   - jq
   - kubernetes-cli
   - libgit2

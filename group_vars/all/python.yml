@@ -1,5 +1,6 @@
 pip_global_packages:
   - ansible
+  - ansible-lint
   - awscli
   - boto
   - boto3
