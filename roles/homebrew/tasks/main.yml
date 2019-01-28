@@ -54,15 +54,3 @@
     msg: "{{ R_brew_cleanup.stdout_lines }}\n{{ R_brew_cleanup.stderr_lines }}"
   when:
     - R_brew_cleanup.changed
-
-- name: Run brew prune
-  command: brew prune
-  register: R_brew_prune
-  changed_when:
-    - R_brew_prune.stderr != "" or R_brew_prune.stdout != ""
-
-- name: Output brew prune
-  debug:
-    msg: "{{ R_brew_prune.stdout_lines }}"
-  when:
-    - R_brew_prune.changed
