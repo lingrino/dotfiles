@@ -4,7 +4,7 @@
     domain: NSGlobalDomain
     key: "{{ item }}"
     type: float
-    value: 1.5
+    value: 3
   loop:
     - com.apple.mouse.scaling
     - com.apple.trackpad.scaling
