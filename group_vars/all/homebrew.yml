@@ -20,6 +20,7 @@ brews:
   - htop
   - httpie
   - jq
+  - kubectx
   - kubernetes-cli
   - libgit2
   - m-cli
@@ -36,6 +37,7 @@ brews:
   - ripgrep
   - rustup-init
   - shellcheck
+  - shfmt
   - telnet
   - terraform
   - terragrunt
@@ -54,7 +56,6 @@ casks:
   - aws-vault
   - docker
   - dropbox-beta
-  - firefox
   - google-chrome
   - gpg-suite
   - hyper
