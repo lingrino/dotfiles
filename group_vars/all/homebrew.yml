@@ -72,3 +72,5 @@ casks:
 apps:
   - id: 904280696
     name: Things3
+  - id: 1091189122
+    name: Bear
