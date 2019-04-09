@@ -4,6 +4,7 @@ go_gets:
   - github.com/nsf/gocode
   - github.com/sqs/goreturns
   - golang.org/x/lint/golint
+  - github.com/mitchellh/gox
   - github.com/rogpeppe/godef
   - golang.org/x/tools/cmd/guru
   - github.com/spf13/cobra/cobra
