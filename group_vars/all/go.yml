@@ -8,6 +8,7 @@ go_gets:
   - github.com/spf13/cobra/cobra
   - github.com/go-delve/delve/cmd/dlv
   - github.com/davidrjenni/reftools/cmd/fillstruct
+  - github.com/mdempsky/gocode
   - github.com/stamblerre/gocode
   - github.com/rogpeppe/godef
   - golang.org/x/tools/cmd/godoc
