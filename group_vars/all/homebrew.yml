@@ -22,6 +22,7 @@ brews:
   - jq
   - kubectx
   - kubernetes-cli
+  - kubernetes-helm
   - libgit2
   - m-cli
   - mas
@@ -58,11 +59,9 @@ casks:
   - dropbox-beta
   - google-chrome
   - gpg-suite
-  - hyper
   - iterm2-beta
   - java
   - keybase
-  - notion
   - skype-preview
   - slack-beta
   - spotify
