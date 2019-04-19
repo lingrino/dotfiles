@@ -14,7 +14,6 @@
     - { role: git,          tags: ['git']          }
     - { role: go,           tags: ['go']           }
     - { role: goreleaser,   tags: ['goreleaser']   }
-    - { role: hyper,        tags: ['hyper']        }
     - { role: mac,          tags: ['mac']          }
     - { role: node,         tags: ['node']         }
     - { role: pgp,          tags: ['pgp']          }
