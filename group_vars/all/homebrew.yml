@@ -47,6 +47,7 @@ brews:
   - terragrunt
   - tldr
   - unrar
+  - lingrino/tap/vaku
   - vault
   - watch
   - wget
