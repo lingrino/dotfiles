@@ -1,6 +1,8 @@
 taps:
+  - goreleaser/tap
   - homebrew/cask
   - homebrew/cask-versions
+  - lingrino/tap
 
 brews:
   - bat
@@ -14,8 +16,9 @@ brews:
   - fzf
   - git
   - git-lfs
+  - lingrino/tap/glen
   - go
-  - goreleaser
+  - goreleaser/tap/goreleaser
   - grc
   - htop
   - httpie
