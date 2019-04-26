@@ -56,14 +56,16 @@
 
 - name: Turn off video autoplay
   block:
-    - osx_defaults:
+    - name: Disable UserSetAutoPlayVideoSetting
+      osx_defaults:
         state: present
         domain: com.apple.AppStore
         key: UserSetAutoPlayVideoSetting
         type: int
         value: 1
 
-    - osx_defaults:
+    - name: Disable AutoPlayVideoSetting
+      osx_defaults:
         state: present
         domain: com.apple.AppStore
         key: AutoPlayVideoSetting

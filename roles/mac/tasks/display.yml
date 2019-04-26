@@ -1,13 +1,15 @@
 - name: Enable font smoothing
   block:
-    - osx_defaults:
+    - name: Set AppleFontSmoothing
+      osx_defaults:
         state: present
         domain: NSGlobalDomain
         key: AppleFontSmoothing
         type: int
         value: 1
 
-    - osx_defaults:
+    - name: Set CGFontRenderingFontSmoothingDisabled
+      osx_defaults:
         state: present
         domain: NSGlobalDomain
         key: CGFontRenderingFontSmoothingDisabled

@@ -5,7 +5,7 @@
       register: R_dns_info
       changed_when:
         - R_dns_info.rc != 0
-  
+
     - name: Set the new DNS servers
       command: networksetup -setdnsservers Wi-Fi {{ dns_servers }}
       register: R_dns_set
@@ -18,7 +18,7 @@
       command: scutil --get ComputerName
       register: R_computer_name_get
       changed_when:
-        - R_computer_name_get.stderr != ""
+        - R_computer_name_get.stderr
       failed_when:
         - R_computer_name_get.rc != 0
         - ("not set" not in R_computer_name_get.stderr)
@@ -39,7 +39,7 @@
       command: scutil --get HostName
       register: R_computer_hostname_get
       changed_when:
-        - R_computer_hostname_get.stderr != ""
+        - R_computer_hostname_get.stderr
       failed_when:
         - R_computer_hostname_get.rc != 0
         - ("not set" not in R_computer_hostname_get.stderr)
@@ -60,7 +60,7 @@
       command: scutil --get LocalHostName
       register: R_computer_hostname_local_get
       changed_when:
-        - R_computer_hostname_local_get.stderr != ""
+        - R_computer_hostname_local_get.stderr
       failed_when:
         - R_computer_hostname_local_get.rc != 0
         - ("not set" not in R_computer_hostname_local_get.stderr)

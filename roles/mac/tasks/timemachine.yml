@@ -14,8 +14,8 @@
   become_user: root
   register: R_tmutil_disable
   changed_when:
-    - (R_tmutil_disable.stderr != "") or
-      (R_tmutil_disable.stdout != "")
+    - (R_tmutil_disable.stderr) or
+      (R_tmutil_disable.stdout)
   when:
     - ansible_distribution_version is version('10.13.0', '>=')
   tags:

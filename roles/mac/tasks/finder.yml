@@ -136,7 +136,7 @@
   become_user: root
   register: R_volumes_nohidden
   changed_when:
-    - (R_volumes_nohidden.stderr != "") or
-      (R_volumes_nohidden.stdout != "")
+    - (R_volumes_nohidden.stderr) or
+      (R_volumes_nohidden.stdout)
   tags:
     - sudo

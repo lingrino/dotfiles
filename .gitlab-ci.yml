@@ -1,0 +1,10 @@
+image: python:3
+
+stages:
+  - lint
+
+lint:
+  stage: lint
+  script:
+    - pip install ansible-lint
+    - ansible-lint main.yml

@@ -23,7 +23,7 @@
   copy:
     src: shells
     dest: /etc/shells
-    mode: 644
+    mode: 0644
   become: true
   become_user: root
   tags:

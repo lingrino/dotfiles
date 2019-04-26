@@ -13,12 +13,12 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Install all go packages
-  shell: go get -u {{ item }}
+  command: go get -u {{ item }}
   environment:
     GOPATH: "{{ gopath | expanduser }}"
   loop: "{{ go_gets }}"
   register: R_goget
   changed_when:
-    - R_goget.stdout != "" or R_goget.stderr != ""
+    - R_goget.stdout or R_goget.stderr
   tags:
     - internet

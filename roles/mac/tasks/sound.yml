@@ -20,7 +20,7 @@
   become_user: root
   register: R_boot_sound
   changed_when:
-        - (R_boot_sound.stdout != "") or
-          (R_boot_sound.stderr != "")
+        - (R_boot_sound.stdout) or
+          (R_boot_sound.stderr)
   tags:
     - sudo

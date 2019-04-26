@@ -2,7 +2,7 @@
   command: brew update
   register: R_update
   changed_when:
-    - R_update.stderr != ""
+    - R_update.stderr
 
 - name: Write brewfile to home directory
   template:
@@ -15,7 +15,7 @@
   command: brew bundle --global
   register: R_bundle
   changed_when:
-    - (R_bundle.stderr != "")           or
+    - (R_bundle.stderr)                 or
       ("Installing" in R_bundle.stdout) or
       ("Upgrading"  in R_bundle.stdout)
   tags:
@@ -33,7 +33,7 @@
   command: brew bundle cleanup --global --force
   register: R_bundle_clean
   changed_when:
-    - R_bundle_clean.stdout != "" or R_bundle_clean.stderr != ""
+    - R_bundle_clean.stdout or R_bundle_clean.stderr
   tags:
     - internet
 
@@ -47,7 +47,7 @@
   command: brew cleanup
   register: R_brew_cleanup
   changed_when:
-    - R_brew_cleanup.stderr != "" or R_brew_cleanup.stdout != ""
+    - R_brew_cleanup.stderr or R_brew_cleanup.stdout
 
 - name: Output brew cleanup
   debug:

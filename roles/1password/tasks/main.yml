@@ -16,7 +16,7 @@
   changed_when: false
 
 - name: Check if there's a 1password cli update
-  shell: /usr/local/bin/op update
+  command: /usr/local/bin/op update
   register: R_op_update
   changed_when:
     - ("Please download our latest version" in R_op_update.stdout)
