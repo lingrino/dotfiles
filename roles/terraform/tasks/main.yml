@@ -6,9 +6,31 @@
     owner: "{{ ansible_user_id }}"
   register: R_terraform_dir
 
-- name: Write terraform config file
+- name: Create a dictionary of terraform domains to their user tokens
+  set_fact:
+    tf_domains_to_tokens: "{{ tf_domains_to_tokens | default({}) | combine(
+      {item.value.tfe_domain:
+        lookup(
+          'onepassword_raw',
+          item.value.op_name,
+          subdomain=op_auths[item.value.op_shorthand].shorthand,
+          username=op_auths[item.value.op_shorthand].email,
+          secret_key=op_auths[item.value.op_shorthand].secret_key,
+          vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+        ) | json_query('details.sections[?title==`' + item.value.op_section_title + '`].fields | [] | [?t==`' + item.value.op_label + '`].v | [0]')
+      }
+    )}}"
+  loop: "{{ terraform_tokens | dict2items }}"
+  tags:
+    - post
+    - 1password
+
+- name: Write the terraform config file
   template:
     src: terraformrc.j2
     dest: "{{ ansible_env.HOME }}/.terraformrc"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+  tags:
+    - post
+    - 1password
