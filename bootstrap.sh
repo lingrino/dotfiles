@@ -29,7 +29,7 @@ fi
 if test ! -d ~/projects/dotfiles
 then
     echo "dotfiles are not at ~/projects/dotfiles, cloning to there"
-    git clone https://github.com/Lingrino/dotfiles.git ~/projects/dotfiles
+    git clone https://github.com/lingrino/dotfiles.git ~/projects/dotfiles
 fi
 cd ~/projects/dotfiles
 
