@@ -13,15 +13,13 @@ go_gets:
   - github.com/rogpeppe/godef
   - golang.org/x/tools/cmd/godoc
   - github.com/zmb3/gogetdoc
-  - golang.org/x/tools/cmd/goimports
   - github.com/golangci/golangci-lint/cmd/golangci-lint
   - github.com/sourcegraph/go-langserver
   - golang.org/x/lint/golint
   - github.com/fatih/gomodifytags
   - github.com/ramya-rao-a/go-outline
   - github.com/uudashr/gopkgs/cmd/gopkgs
-  - github.com/haya14busa/goplay
-  - github.com/haya14busa/goplay/cmd/goplay
+  - golang.org/x/tools/cmd/gopls
   - golang.org/x/tools/cmd/gorename
   - github.com/sqs/goreturns
   - github.com/acroca/go-symbols
