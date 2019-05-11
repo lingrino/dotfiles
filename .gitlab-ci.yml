@@ -1,4 +1,4 @@
-image: python:3
+image: registry.gitlab.com/lingrino/docker/ci:latest
 
 stages:
   - lint
@@ -6,5 +6,4 @@ stages:
 lint:
   stage: lint
   script:
-    - pip install ansible-lint
     - ansible-lint main.yml
