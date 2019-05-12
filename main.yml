@@ -5,6 +5,7 @@
     - { role: homebrew,     tags: ['homebrew']     }
     - { role: 1password,    tags: ['1password']    }
     - { role: ansible,      tags: ['ansible']      }
+    - { role: aws,          tags: ['aws']          }
     - { role: bin,          tags: ['bin']          }
     - { role: certs,        tags: ['certs']        }
     - { role: docker,       tags: ['docker']       }
