@@ -1,4 +1,5 @@
 #!/bin/sh
 
 export GOPATH="{{ gopath | expanduser }}"
+export GOBIN="$GOPATH/bin"
 export PATH="$GOPATH/bin:$PATH"
