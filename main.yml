@@ -16,6 +16,7 @@
     - { role: go,           tags: ['go']           }
     - { role: goreleaser,   tags: ['goreleaser']   }
     - { role: mac,          tags: ['mac']          }
+    - { role: netrc,        tags: ['netrc']        }
     - { role: node,         tags: ['node']         }
     - { role: pgp,          tags: ['pgp']          }
     - { role: projects,     tags: ['projects']     }

@@ -1,0 +1,5 @@
+{% for machine, info in netrc_machines_to_logins.items() %}
+machine {{ machine }}
+  login {{ info.login }}
+  password {{ info.password }}
+{% endfor %}
