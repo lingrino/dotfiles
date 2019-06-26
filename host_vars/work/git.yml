@@ -7,6 +7,6 @@ git_users:
   work:
     shorthand: work
     name: Sean Lingren
-    email: sean.lingren@enigma.com
-    signing_key: AB836EDD
+    email: lingrino@github.com
+    signing_key: 7226342E
     path: ~/projects/work/

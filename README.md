@@ -41,7 +41,7 @@ Also, all roles are tagged with their own name.
 1. Open terminal, and run the following command
 
     ```bash
-    curl -sSL https://raw.githubusercontent.com/Lingrino/dotfiles/master/bootstrap.sh | sh
+    curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/master/bootstrap.sh | sh
     ```
 
 1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example` with your 1Password details
@@ -71,16 +71,15 @@ Also, all roles are tagged with their own name.
 1. Open finder settings
     - Delete all tags
     - Uncheck "show warning before removing from iCloud drive"
-1. Remove the spotlight icon from the menu bar by holding CMD and dragging it off
 1. Open Notification Center and remove all widgets
 1. Open system preferences
     - Appearance -> Change to dark
-    - General -> Firefox to default web browser
+    - General -> Chrome to default web browser
     - Security -> General -> Require password immeditately
     - Security -> General -> Allow Apple Watch to Unlock Mac
     - Spotlight -> Uncheck all except Applications, Documents, Contacts, System Preferences
-    - Notifications -> Disable all except 1Password, Alfred, FaceTime, Firefox, Hyper, iTerm, Messages, Slack
-    - Notifications -> Don't allow on lockscreen, don't allow sound except on FaceTime, Firefox
+    - Notifications -> Disable all except 1Password, Alfred, FaceTime, Chrome, Hyper, iTerm, Messages, Slack, Zoom
+    - Notifications -> Don't allow on lockscreen, don't allow sound except on FaceTime, Chrome, Zoom
     - Displays -> Turn off "automatically adjust brightness"
     - Displays -> Change the resolution to "more space"
     - Keyboard -> Modifier Keys -> Change 'Caps Lock' to 'Escape'
@@ -115,7 +114,10 @@ Also, all roles are tagged with their own name.
     - Press cmd+shift+p and type sync, hit enter
     - For personal access token enter the one found in 1password 'Github' login notes
     - For gist ID enter `6ff61f3d01c5772138f5d928471c40c4`
-1. Visit [this page](https://www.sonos.com/redir/controller_software_mac) to download the Sonos Mac App
+1. Open Messages settings
+    - Sync with iCloud
+    - Enable read receipts
+    - Disable sound effects
 
 ### Final Commands
 

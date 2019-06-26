@@ -7,7 +7,7 @@ pgp_keys:
     op_name_private: PGP - Personal Private
   work:
     name: work
-    hash: 8532126A591FE59255F39FC57246DBF7AB836EDD
-    op_shorthand:    work
+    hash: 7951C8C284DA855B8FA6853A6B0C97C77226342E
+    op_shorthand:    me
     op_name_public:  PGP - Work Public
     op_name_private: PGP - Work Private

@@ -68,9 +68,11 @@ casks:
   - keybase
   - skype-preview
   - slack-beta
+  - sonos
   - spotify
   - visual-studio-code-insiders
   - vlc
+  - zoomus
 
 apps:
   - id: 904280696
