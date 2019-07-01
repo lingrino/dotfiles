@@ -1,11 +1,11 @@
 ssh_keys:
-  personal:
-    file_name:       personal
-    op_shorthand:    me
-    op_name_public:  SSH - Personal Main Public
-    op_name_private: SSH - Personal Main Private
   work:
     file_name:       work
     op_shorthand:    me
     op_name_public:  SSH - Personal Work Public
     op_name_private: SSH - Personal Work Private
+  personal:
+    file_name:       personal
+    op_shorthand:    me
+    op_name_public:  SSH - Personal Main Public
+    op_name_private: SSH - Personal Main Private

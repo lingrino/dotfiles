@@ -2,8 +2,6 @@
 IdentityFile ~/.ssh/{{ ssh_keys[key].file_name }}
 {% endfor %}
 
-# Disable known_hosts functionality
-# Careful with this in untrusted environments
-LogLevel QUIET
-StrictHostKeyChecking no
-UserKnownHostsFile /dev/null
+# Mac Specific Settings
+UseKeychain yes
+AddKeysToAgent yes
