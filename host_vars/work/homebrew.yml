@@ -1,2 +1,4 @@
 host_casks:
+  - mysql
+  - ruby
   - viscosity
