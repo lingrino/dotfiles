@@ -1,4 +1,6 @@
-host_casks:
+host_brews:
   - mysql
   - ruby
+
+host_casks:
   - viscosity
