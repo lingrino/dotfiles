@@ -6,6 +6,13 @@
     owner: "{{ ansible_user_id }}"
   register: R_ssh_dir
 
+- name: Create the SSH sockets directory
+  file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/.ssh/sockets"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
 - name: Copy over the ssh config file
   template:
     src: config.j2

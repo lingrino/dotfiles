@@ -5,3 +5,8 @@ IdentityFile ~/.ssh/{{ ssh_keys[key].file_name }}
 # Mac Specific Settings
 UseKeychain yes
 AddKeysToAgent yes
+
+{% if ssh_host_configs is defined %}
+# Host Specific Settings
+{{ ssh_host_configs }}
+{% endif %}
