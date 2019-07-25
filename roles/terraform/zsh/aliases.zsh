@@ -13,10 +13,10 @@ alias tfi='terraform init -upgrade'
 alias tfg='terraform get -update'
 
 # Shorten terraform plan
-alias tfp='terraform plan -parallelism=30 -refresh=true'
+alias tfp='terraform plan -refresh=true'
 
 # Shorten terraform apply
-alias tfa='terraform apply -parallelism=30 -refresh=true'
+alias tfa='terraform apply -refresh=true'
 
 # Shorten terraform console
 alias tfc='terraform console'

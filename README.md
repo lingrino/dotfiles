@@ -38,10 +38,13 @@ Also, all roles are tagged with their own name.
 1. Follow the on-screen mac instructions for first-time setup
     - Disable Siri
     - Disable analytics reporting
+
+1. Run all mac software updates
+
 1. Open terminal, and run the following command
 
     ```bash
-    curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/master/bootstrap.sh | sh
+    sh -c "$(curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/master/bootstrap.sh)"
     ```
 
 1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example` with your 1Password details
