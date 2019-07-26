@@ -1,30 +1,34 @@
 # Dotfiles
 
-**NOTE:** This is is an example, not a drop in replacement, for your own dotfiles
+**NOTE:** This is is an example, not a drop in replacement, for your own
+dotfiles
 
 ## How this works
 
-- Define new macs in `inventory` where the host is equal to `$(cat dotfiles_dir/me.txt)` and
+- Define new macs in `inventory` where the host is equal to `$(cat
+  dotfiles_dir/me.txt)` and
 - `zshrc` will look in `**/zsh/*.zsh` and source any files that it finds
 
 ## Setup
 
-Once the initial setup is complete all that is needed to make changes and keep the mac
-enforced is a semi-regular run of `dot`. To setup a mac for the first time follow the below
-instructions. Unfortunately not everything can be done automatically (or I haven't gotten to it),
-so there's some manual steps.
+Once the initial setup is complete all that is needed to make changes and keep
+the mac enforced is a semi-regular run of `dot`. To setup a mac for the first
+time follow the below instructions. Unfortunately not everything can be done
+automatically (or I haven't gotten to it), so there's some manual steps.
 
 ## Dot
 
-After bootstrap you can periodically run the `dot` command to keep your system in sync. By default `dot`
-runs all ansible except mac settings configuration and anything that requires sudo or auth to 1Password. You
-can run `dot most` to include the mac settings and `dot all` to include sudo and 1Password commands, which
-require user input.
+After bootstrap you can periodically run the `dot` command to keep your system
+in sync. By default `dot` runs all ansible except mac settings configuration and
+anything that requires sudo or auth to 1Password. You can run `dot most` to
+include the mac settings and `dot all` to include sudo and 1Password commands,
+which require user input.
 
 ## Tags
 
-Many of the ansible commands contain tags. Some of them are not used yet, but keeping things tags makes slicing
-easier now and in the future. Here's a list of tags:
+Many of the ansible commands contain tags. Some of them are not used yet, but
+keeping things tags makes slicing easier now and in the future. Here's a list of
+tags:
 
 - **1password:** Tags all tasks that require auth to 1Password
 - **internet:** Tags all tasks that can only be run with internet access
@@ -47,7 +51,8 @@ Also, all roles are tagged with their own name.
     sh -c "$(curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/master/bootstrap.sh)"
     ```
 
-1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example` with your 1Password details
+1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example`
+   with your 1Password details
 
 1. Run the command that bootstrap returns, something like this
 
@@ -80,9 +85,12 @@ Also, all roles are tagged with their own name.
     - General -> Chrome to default web browser
     - Security -> General -> Require password immeditately
     - Security -> General -> Allow Apple Watch to Unlock Mac
-    - Spotlight -> Uncheck all except Applications, Documents, Contacts, System Preferences
-    - Notifications -> Disable all except 1Password, Alfred, FaceTime, Chrome, Hyper, iTerm, Messages, Slack, Zoom
-    - Notifications -> Don't allow on lockscreen, don't allow sound except on FaceTime, Chrome, Zoom
+    - Spotlight -> Uncheck all except Applications, Documents, Contacts, System
+      Preferences
+    - Notifications -> Disable all except 1Password, Alfred, FaceTime, Chrome,
+      Hyper, iTerm, Messages, Slack, Zoom
+    - Notifications -> Don't allow on lockscreen, don't allow sound except on
+      FaceTime, Chrome, Zoom
     - Displays -> Turn off "automatically adjust brightness"
     - Displays -> Change the resolution to "more space"
     - Keyboard -> Modifier Keys -> Change 'Caps Lock' to 'Escape'
@@ -93,11 +101,13 @@ Also, all roles are tagged with their own name.
     - Keyboard -> Shortcuts -> Uncheck every shortcut except screenshots
     - Keyboard -> Dictation -> Change the shortcut to "off"
     - Trackpad -> Scroll and Zoom -> disable pinch, zoom, and rotate
-    - Trackapd -> More Gestures -> Disable notification center, mission control, show desktop
+    - Trackapd -> More Gestures -> Disable notification center, mission control,
+      show desktop
     - Sound -> Disable user interface sound effects
     - iCloud -> iCloud Drive -> Turn off "Desktop and Documents Folders"
     - iCloud -> Photos -> Only enable shared albums
-    - iCloud -> Turn off mail, calendar, safari, news, stocks, home, siri, reminders
+    - iCloud -> Turn off mail, calendar, safari, news, stocks, home, siri,
+      reminders
     - Internet Accounts -> remove game center
     - Internet Accounts -> sign in to google, only sync contacts
     - Software Update -> Automatically install everything
@@ -113,9 +123,11 @@ Also, all roles are tagged with their own name.
     - Enable settings sync at `~/Dropbox/settings/alfred`
 1. Open iterm settings and set to load preferences from ~/Dropbox/settings/iterm
 1. Open vscode to sync settings
-    - Install the [settings sync extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
+    - Install the [settings sync
+      extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
     - Press cmd+shift+p and type sync, hit enter
-    - For personal access token enter the one found in 1password 'Github' login notes
+    - For personal access token enter the one found in 1password 'Github' login
+      notes
     - For gist ID enter `6ff61f3d01c5772138f5d928471c40c4`
 1. Open Messages settings
     - Sync with iCloud
@@ -125,7 +137,8 @@ Also, all roles are tagged with their own name.
 ### Final Commands
 
 1. Open the dotfiles with `e ~/projects/dotfiles`
-    - Add any custom changes to `host_vars/$(cat dotfiles_dir/me.txt)/*.yml`. Use other `host_vars` as a template
+    - Add any custom changes to `host_vars/$(cat dotfiles_dir/me.txt)/*.yml`.
+      Use other `host_vars` as a template
     - Copy `group_vars/all/secret.yml.example` to `group_vars/all/secret.yml`
     - Fill out `secret.yml` with your details
 1. Commit your changes
