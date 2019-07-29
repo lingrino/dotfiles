@@ -159,6 +159,16 @@ Also, all roles are tagged with their own name.
     - Sync with iCloud
     - Enable read receipts
     - Disable sound effects
+1. Open Chrome and sign in with Google
+    - Hide all extensions in the top bar except pocket
+1. Open slack and sign in to all workspaces
+1. Open Things, sign in, and enable Things Cloud
+    - Enable calendar events sync
+1. Open Bear and make sure it Syncs
+1. Open Docker and grant it permissions
+1. Open Keybase and sign in
+    - Make sure to revoke any old devices
+1. Open Zoom and sign in to account
 
 ### Final Commands
 
