@@ -172,6 +172,15 @@ Also, all roles are tagged with their own name.
 
 ### Final Commands
 
+1. Change the dotfiles git origin to use ssh
+
+```shell
+cd ~/projects/dotfiles
+git remote rename origin originold
+git remote add origin git@github.com:lingrino/dotfiles.git
+git remote remove originold
+```
+
 1. Open the dotfiles with `e ~/projects/dotfiles`
     - Add any custom changes to `host_vars/$(cat dotfiles_dir/me.txt)/*.yml`.
       Use other `host_vars` as a template
