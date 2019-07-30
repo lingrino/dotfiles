@@ -138,6 +138,7 @@ Also, all roles are tagged with their own name.
     - Software Update -> Automatically install everything
     - Extensions -> Share Menu -> Uncheck all possible
     - Extensions -> Today -> Uncheck all
+    - Users and Groups -> Change profile picture to vinyl record
     - Users and Groups -> Disable guest
     - Users and Groups -> self -> login items -> hide Dropbox
     - Accessibility -> General -> Turn off shortcuts
