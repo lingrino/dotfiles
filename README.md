@@ -169,6 +169,12 @@ Also, all roles are tagged with their own name.
 1. Open Keybase and sign in
     - Make sure to revoke any old devices
 1. Open Zoom and sign in to account
+1. Open iTunes and agree, then open settings
+    - Enable iCloud music library
+    - Crossfade songs for 1 second
+    - Enable sound check
+    - Sync podcast subscription and settings
+    - Automatically download album artwork
 
 ### Final Commands
 
