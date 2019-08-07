@@ -160,6 +160,8 @@ Also, all roles are tagged with their own name.
     - Sync with iCloud
     - Enable read receipts
     - Disable sound effects
+1. Open FaceTime settings
+    - Turn on wifi calling
 1. Open Chrome and sign in with Google
     - Hide all extensions in the top bar except pocket
 1. Open slack and sign in to all workspaces
