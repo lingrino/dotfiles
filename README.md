@@ -111,6 +111,7 @@ Also, all roles are tagged with their own name.
         - 1password: Banners
         - FaceTime: Sounds, Alerts
         - Messages: Badges, Banners
+        - Things: Badges, Banners
     - Notifications -> Don't allow any on lockscreen
     - Notifications -> Always show notification preview
     - Notifications -> Never show in notification center
