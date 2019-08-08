@@ -11,6 +11,8 @@
       register: R_dns_set
       changed_when:
         - ( R_dns_info.stdout | replace('\n', ' ') ) != dns_servers
+  when:
+    - enable_custom_dns
 
 - name: Set computer name
   block:
