@@ -117,14 +117,12 @@ Also, all roles are tagged with their own name.
     - Notifications -> Never show in notification center
     - Keyboard -> Modifier Keys -> Change 'Caps Lock' to 'Escape'
     - Keyboard -> Uncheck "adjust keyboard brightness"
-    - Keyboard -> Touch bar shows expanded control strip
     - Keyboard -> Disable all text substitutes
     - Keyboard -> Uncheck capitalize automatically
     - Keyboard -> Uncheck touch bar typing suggestions
     - Keyboard -> Shortcuts -> Uncheck every shortcut except screenshots
     - Keyboard -> Input Sources -> Uncheck "show input in menu bar"
     - Keyboard -> Dictation -> Change the shortcut to "off"
-    - Trackpad -> Scroll and Zoom -> disable pinch, zoom, and rotate
     - Trackapd -> More Gestures -> Disable notification center, mission control,
       show desktop
     - Sound -> Disable user interface sound effects
