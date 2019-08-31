@@ -1,6 +1,7 @@
 taps:
   - goreleaser/tap
   - homebrew/cask
+  - homebrew/cask-drivers
   - homebrew/cask-versions
   - lingrino/tap
 
@@ -65,6 +66,7 @@ casks:
   - iterm2-beta
   - java
   - keybase
+  - logitech-options
   - slack-beta
   - visual-studio-code-insiders
   - vlc
