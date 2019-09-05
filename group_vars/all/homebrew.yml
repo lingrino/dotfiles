@@ -59,8 +59,10 @@ casks:
   - 1password-cli
   - alfred
   - aws-vault
+  - cardhop
   - docker
   - dropbox-beta
+  - fantastical
   - google-chrome
   - gpg-suite
   - iterm2-beta
