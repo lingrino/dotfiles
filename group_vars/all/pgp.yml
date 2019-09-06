@@ -1,7 +1,7 @@
 pgp_keys:
   personal:
     name: personal
-    hash: E7FA3DAE5DD76E7A4A52611E784889F27C413E47
+    hash: E2DEF4C1BA7A0C57BD66CE88B9648AAD7B9F176F
     op_shorthand:    me
     op_name_public:  PGP - Personal Public
     op_name_private: PGP - Personal Private
