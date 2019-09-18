@@ -1,9 +1,0 @@
-image: registry.gitlab.com/lingrino/docker/ci:latest
-
-stages:
-  - lint
-
-lint:
-  stage: lint
-  script:
-    - ansible-lint main.yml
