@@ -11,5 +11,5 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 1
-      - name: Go fmt
+      - name: Ansible Lint
         run: ansible-lint main.yml
