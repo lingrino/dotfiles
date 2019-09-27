@@ -1,3 +1,18 @@
+# https://damieng.com/blog/2015/04/24/make-home-end-keys-behave-like-windows-on-mac-os-x
+- name: Make sure the ~/Library/KeyBindings directory exists
+  file:
+    state: directory
+    dest: "{{ ansible_env.HOME }}/Library/KeyBindings"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Copy over home/end keybindings
+  copy:
+    src: DefaultKeyBinding.dict
+    dest: "{{ ansible_env.HOME }}/Library/KeyBindings/DefaultKeyBinding.dict"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
 - name: Use press-and-hold to repeat key
   osx_defaults:
     state: present
