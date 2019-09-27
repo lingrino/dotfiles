@@ -41,6 +41,7 @@ brews:
   - ripgrep
   - shellcheck
   - shfmt
+  - starship
   - telnet
   - terraform
   - tldr

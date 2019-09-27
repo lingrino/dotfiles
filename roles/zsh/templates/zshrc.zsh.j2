@@ -4,8 +4,7 @@
 export ZSH={{ inventory_dir }}
 
 # Load our prompt
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
 
 # all of our zsh files
 typeset -U config_files
