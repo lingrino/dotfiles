@@ -40,8 +40,6 @@ Also, all roles are tagged with their own name.
 ### Initial Bootstrap
 
 1. Follow the on-screen mac instructions for first-time setup
-    - Disable Siri
-    - Disable analytics reporting
 
 1. Run all mac software updates
 
@@ -127,12 +125,11 @@ Also, all roles are tagged with their own name.
       show desktop
     - Sound -> Disable user interface sound effects
     - iCloud -> iCloud Drive -> Turn off "Desktop and Documents Folders"
-    - iCloud -> Photos -> Only enable shared albums
-    - iCloud -> Turn off all except iCloud Drive, Photos, Siri, Keychain, Find
-      my Mac
-    - Internet Accounts -> remove game center
-    - Internet Accounts -> sign in to google, only sync contacts and calendar
-    - Internet Accounts -> sign in to google for work if applicable and sync
+    - iCloud -> Photos -> Enable All
+    - iCloud -> Turn on all except Mail, Calendars
+    - Internet Accounts -> Remove game center
+    - Internet Accounts -> Sign in to fastmail with calendar sync
+    - Internet Accounts -> Sign in to google for work if applicable and sync
       calendar
     - Software Update -> Automatically install everything
     - Extensions -> Share Menu -> Uncheck all possible

@@ -3,8 +3,6 @@ pip_global_packages:
   - ansible-lint
   - awscli
   - black
-  - boto
-  - boto3
   - howdoi
   - jedi
   - pip

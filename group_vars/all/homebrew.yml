@@ -28,7 +28,6 @@ brews:
   - kubernetes-cli
   - kubernetes-helm
   - libgit2
-  - m-cli
   - mas
   - nmap
   - node
@@ -40,7 +39,6 @@ brews:
   - postgresql
   - python
   - ripgrep
-  - rustup-init
   - shellcheck
   - shfmt
   - telnet
@@ -59,18 +57,16 @@ casks:
   - 1password-cli
   - alfred
   - aws-vault
-  - cardhop
   - docker
-  - dropbox-beta
-  - fantastical
+  - dropbox
   - google-chrome
   - gpg-suite
   - iterm2-beta
   - java
   - keybase
   - logitech-options
-  - slack-beta
-  - visual-studio-code-insiders
+  - slack
+  - visual-studio-code
   - vlc
   - zoomus
 

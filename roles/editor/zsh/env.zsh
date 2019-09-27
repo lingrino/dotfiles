@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export EDITOR='code-insiders'
+export EDITOR='code'

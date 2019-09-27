@@ -3,6 +3,5 @@ npm_author_email: sean@lingrino.com
 npm_author_url:   https://lingrino.com
 
 npm_global_packages:
-  - react
   - serverless
   - spoof
