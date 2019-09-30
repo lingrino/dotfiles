@@ -1,3 +1,4 @@
 #!/bin/sh
 
-[ -f "$(brew --prefix)/etc/grc.zsh" ] && . "$(brew --prefix)/etc/grc.zsh"
+# Enable grc color completions
+[ -f "$(brew --prefix)/etc/grc.zsh" ] && source "$(brew --prefix)/etc/grc.zsh"

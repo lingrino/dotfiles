@@ -16,6 +16,7 @@
   command: go get -u {{ item }}
   environment:
     GOPATH: "{{ gopath | expanduser }}"
+    GO111MODULE: on
   loop: "{{ go_gets }}"
   register: R_goget
   changed_when:

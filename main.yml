@@ -12,7 +12,6 @@
     - { role: docker,       tags: ['docker']       }
     - { role: editor,       tags: ['editor']       }
     - { role: fonts,        tags: ['fonts']        }
-    - { role: fzf,          tags: ['fzf']          }
     - { role: git,          tags: ['git']          }
     - { role: go,           tags: ['go']           }
     - { role: goreleaser,   tags: ['goreleaser']   }

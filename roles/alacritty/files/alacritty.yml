@@ -24,7 +24,7 @@ window:
 
 scrolling:
   history: 50000
-  auto_scroll: false
+  auto_scroll: true
   multiplier: 3
   faux_multiplier: 3
 

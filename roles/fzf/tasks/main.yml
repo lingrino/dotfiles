@@ -1,6 +1,0 @@
-- name: Copy fzf.zsh to ~/.fzf.zsh
-  copy:
-    src: fzf.zsh
-    dest: "{{ ansible_env.HOME }}/.fzf.zsh"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"

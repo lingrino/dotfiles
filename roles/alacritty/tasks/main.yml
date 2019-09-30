@@ -19,7 +19,7 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-# I write the default file, just for reference. Is not used.
+# I write the default config file just for reference. Is not used.
 - name: Write the default alacritty config file
   get_url:
     url: https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty.yml

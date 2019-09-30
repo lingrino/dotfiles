@@ -1,8 +1,8 @@
 - name: Run brew update
   command: brew update
-  register: R_update
+  register: R_brew_update
   changed_when:
-    - R_update.stderr
+    - R_brew_update.stderr
 
 - name: Write brewfile to home directory
   template:
@@ -13,35 +13,49 @@
 
 - name: Install homebrew packages with bundle
   command: brew bundle --global
-  register: R_bundle
+  register: R_brew_bundle
   changed_when:
-    - (R_bundle.stderr)                 or
-      ("Installing" in R_bundle.stdout) or
-      ("Upgrading"  in R_bundle.stdout)
+    - (R_brew_bundle.stderr)                 or
+      ("Installing" in R_brew_bundle.stdout) or
+      ("Upgrading"  in R_brew_bundle.stdout)
   tags:
     - internet
 
 - name: Output bundle
   debug:
-    msg: "{{ R_bundle.stdout_lines }}"
+    msg: "{{ R_brew_bundle.stdout_lines }}"
   when:
-    - R_bundle.changed
+    - R_brew_bundle.changed
   tags:
     - internet
 
 - name: Cleanup homebrew with bundle
   command: brew bundle cleanup --global --force
-  register: R_bundle_clean
+  register: R_brew_bundle_clean
   changed_when:
-    - R_bundle_clean.stdout or R_bundle_clean.stderr
+    - R_brew_bundle_clean.stdout or R_brew_bundle_clean.stderr
   tags:
     - internet
 
 - name: Output bundle cleanup
   debug:
-    msg: "{{ R_bundle_clean.stdout_lines }}"
+    msg: "{{ R_brew_bundle_clean.stdout_lines }}"
   when:
-    - R_bundle_clean.changed
+    - R_brew_bundle_clean.changed
+
+# Brewfile only upgrades direct packagers. We run this in case
+# dependencies or brew itself need upgrades.
+- name: Run brew upgrade
+  command: brew upgrade
+  register: R_brew_upgrade
+  changed_when:
+    - R_brew_upgrade.stdout or R_brew_upgrade.stderr
+
+- name: Output brew upgrade
+  debug:
+    msg: "{{ R_brew_upgrade.stdout_lines }}\n{{ R_brew_upgrade.stderr_lines }}"
+  when:
+    - R_brew_upgrade.changed
 
 - name: Run brew cleanup
   command: brew cleanup

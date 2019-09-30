@@ -6,7 +6,7 @@
     type: string
     value: "{{ ansible_env.HOME }}/Downloads"
 
-- name: Don’t prompt for confirmation before downloading
+- name: Don't prompt for confirmation before downloading
   osx_defaults:
     state: present
     domain: org.m0k.transmission

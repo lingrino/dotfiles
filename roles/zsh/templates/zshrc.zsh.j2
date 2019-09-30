@@ -16,6 +16,10 @@ do
   . "$file"
 done
 
+# These final PATH and MANPATH exports need to be loaded last
+export PATH="./bin:$ZSH/roles/bin/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do

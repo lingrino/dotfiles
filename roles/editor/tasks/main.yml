@@ -1,3 +1,10 @@
+- name: Make sure zsh directory exists
+  file:
+    state: directory
+    dest: "{{ role_path }}/zsh"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
 - name: Template env.zsh into zsh/env.zsh
   template:
     src: env.zsh.j2

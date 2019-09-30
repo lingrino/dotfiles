@@ -4,13 +4,4 @@
 gopath: "{{ projects_folder_path }}/go"
 
 go_gets:
-  - github.com/spf13/cobra/cobra
-  - github.com/go-delve/delve/cmd/dlv
-  - github.com/golangci/golangci-lint/cmd/golangci-lint
-  - github.com/ramya-rao-a/go-outline
-  - github.com/uudashr/gopkgs/cmd/gopkgs
   - golang.org/x/tools/gopls
-  - golang.org/x/tools/cmd/gorename
-  - github.com/acroca/go-symbols
-  - golang.org/x/tools/cmd/guru
-  - github.com/josharian/impl

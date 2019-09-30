@@ -1,3 +1,5 @@
+# This file is manually updated with my account information
+
 [profile me]
 mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
 
