@@ -36,6 +36,7 @@
     dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.info"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+  register: R_alacritty_terminfo
   tags:
     - internet
 
@@ -43,6 +44,8 @@
   command: tic -xe alacritty,alacritty-direct extra/alacritty.info
   become: true
   become_user: root
+  when:
+    - R_alacritty_terminfo.changed
   tags:
     - sudo
 

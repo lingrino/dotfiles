@@ -9,7 +9,6 @@ brews:
   - bat
   - coreutils
   - ctags
-  - dep
   - diff-so-fancy
   - exa
   - fasd
@@ -31,7 +30,6 @@ brews:
   - mas
   - nmap
   - node
-  - npm
   - openssl
   - prettyping
   - readline
@@ -44,7 +42,6 @@ brews:
   - starship
   - telnet
   - terraform
-  - tldr
   - tmux
   - unrar
   - lingrino/tap/vaku
