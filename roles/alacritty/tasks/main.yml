@@ -1,0 +1,74 @@
+- name: Make sure the config directory exists
+  file:
+    state: directory
+    dest: "{{ ansible_env.HOME }}/.config"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Make sure the alacritty config directory exists
+  file:
+    state: directory
+    dest: "{{ ansible_env.HOME }}/.config/alacritty"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Write the alacritty config file
+  copy:
+    src: alacritty.yml
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.yml"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+# I write the default file, just for reference. Is not used.
+- name: Write the default alacritty config file
+  get_url:
+    url: https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty.yml
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty-default.yml"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - internet
+
+# https://github.com/jwilm/alacritty/blob/master/INSTALL.md#terminfo
+- name: Write the alacritty terminfo database
+  get_url:
+    url: https://raw.githubusercontent.com/jwilm/alacritty/master/extra/alacritty.info
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.info"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - internet
+
+- name: Install the alacritty terminfo database
+  command: tic -xe alacritty,alacritty-direct extra/alacritty.info
+  become: true
+  become_user: root
+  tags:
+    - sudo
+
+# https://github.com/jwilm/alacritty/blob/master/INSTALL.md#manual-page
+- name: Make sure the man directory exists
+  file:
+    state: directory
+    dest: /usr/local/share/man/man1
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Write the man page
+  get_url:
+    url: https://raw.githubusercontent.com/jwilm/alacritty/master/extra/alacritty.man
+    dest: /usr/local/share/man/man1/alacritty.1
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - internet
+
+# https://github.com/jwilm/alacritty/blob/master/INSTALL.md#shell-completions
+- name: Write the alacritty zsh completions
+  get_url:
+    url: https://raw.githubusercontent.com/jwilm/alacritty/master/extra/completions/_alacritty
+    dest: "/usr/local/share/zsh/site-functions/_alacritty"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - internet

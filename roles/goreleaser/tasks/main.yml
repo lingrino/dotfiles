@@ -1,3 +1,10 @@
+- name: Make sure the config directory exists
+  file:
+    state: directory
+    dest: "{{ ansible_env.HOME }}/.config"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
 - name: Create the goreleaser directory
   file:
     state: directory

@@ -4,6 +4,7 @@
   roles:
     - { role: homebrew,     tags: ['homebrew']     }
     - { role: 1password,    tags: ['1password']    }
+    - { role: alacritty,    tags: ['alacritty']    }
     - { role: ansible,      tags: ['ansible']      }
     - { role: aws,          tags: ['aws']          }
     - { role: bin,          tags: ['bin']          }

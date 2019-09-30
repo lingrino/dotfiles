@@ -45,6 +45,7 @@ brews:
   - telnet
   - terraform
   - tldr
+  - tmux
   - unrar
   - lingrino/tap/vaku
   - vault
@@ -56,6 +57,7 @@ brews:
 casks:
   - 1password
   - 1password-cli
+  - alacritty
   - alfred
   - aws-vault
   - docker

@@ -12,3 +12,4 @@ secret.yml
 roles/bin/bin/dot
 roles/go/zsh/path.zsh
 roles/node/zsh/path.zsh
+roles/alacritty/zsh/completion.zsh
