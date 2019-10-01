@@ -5,6 +5,7 @@
     clone: true
     depth: 1
     update: true
+    version: master
   tags:
     - internet
 
@@ -15,6 +16,7 @@
     clone: true
     depth: 1
     update: true
+    version: master
   tags:
     - internet
 
@@ -25,6 +27,7 @@
     clone: true
     depth: 1
     update: true
+    version: master
   tags:
     - internet
 

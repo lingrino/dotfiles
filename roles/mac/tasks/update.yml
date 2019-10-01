@@ -2,7 +2,7 @@
   command: softwareupdate -i -a
   register: R_mac_update
   changed_when:
-    - R_mac_update.stderr != ""
+    - R_mac_update.stderr
   tags:
     - internet
 
