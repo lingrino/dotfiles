@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 # Use fd instead of find
 export FZF_DEFAULT_COMMAND='fd --type f'

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 # Quick shortcut to an editor.
 exec "$EDITOR" "${1:-.}"

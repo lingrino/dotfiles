@@ -1,42 +1,45 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 
-# shortcut to this dotfiles path is $ZSH
+# Set ZSH to the path to these dotfiles
 export ZSH={{ inventory_dir }}
 
-# Load our prompt
-eval "$(starship init zsh)"
-
-# all of our zsh files
+# Set config_files to every file in the zsh folder ending in .zsh
 typeset -U config_files
 config_files=($ZSH/**/zsh/*.zsh)
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  . "$file"
+# First source any file called 'path.zsh'
+for file in ${(M)config_files:#*/path.zsh}; do
+  source "$file"
 done
 
-# These final PATH and MANPATH exports need to be loaded last
-export PATH="./bin:$ZSH/roles/bin/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-
-# load everything but the path and completion files
+# Now source anything '*.zsh' that is not 'path.zsh' or 'completion.zsh'
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  . $file
+  source "$file"
 done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# Add our completions to fpath
+fpath=(/usr/local/share/zsh/completions/src $fpath)
 
-# load every completion after autocomplete loads
+# This line initializes the completion system
+autoload -U compinit && compinit
+
+# This line lets zsh use bash completions
+autoload -U +X bashcompinit && bashcompinit
+
+# Now source all 'completion.zsh' files. These must be loaded last.
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  . "$file"
+  source "$file"
 done
 
+# We don't need this variable anymore
 unset config_files
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
+# Load autosuggestions and syntax-highlighting
+# Syntax-highlighting must be loaded at the end
+source /usr/local/share/zsh/autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Lastly we load our prompt
+eval "$(starship init zsh)"

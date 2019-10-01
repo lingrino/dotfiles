@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 # Shorten terraform
 alias tf='terraform'

@@ -1,4 +1,34 @@
-- name: Write zsh rc file
+- name: Clone zsh-completions into our zsh directory
+  git:
+    repo: https://github.com/zsh-users/zsh-completions.git
+    dest: "/usr/local/share/zsh/completions"
+    clone: true
+    depth: 1
+    update: true
+  tags:
+    - internet
+
+- name: Clone zsh-autosuggestions into our zsh directory
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "/usr/local/share/zsh/autosuggestions"
+    clone: true
+    depth: 1
+    update: true
+  tags:
+    - internet
+
+- name: Clone zsh-syntax-highlighting into our zsh directory
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "/usr/local/share/zsh/syntax-highlighting"
+    clone: true
+    depth: 1
+    update: true
+  tags:
+    - internet
+
+- name: Write the zsh rc file
   template:
     src: zshrc.zsh.j2
     dest: "{{ ansible_env.HOME }}/.zshrc"

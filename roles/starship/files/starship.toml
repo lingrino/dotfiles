@@ -1,2 +1,41 @@
+# https://starship.rs/config/
+
 # Don't print a new line at the start of the prompt
 add_newline = true
+
+[aws]
+disabled = true
+
+[cmd_duration]
+prefix = ""
+
+[directory]
+truncate_to_repo = false
+truncation_length = 10
+
+[env_var]
+disabled = true
+
+[git_branch]
+symbol = ""
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true

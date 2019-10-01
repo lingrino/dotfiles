@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 alias k='kubectl'
 alias kn='kubens'

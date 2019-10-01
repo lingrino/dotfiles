@@ -90,10 +90,20 @@ mouse_bindings:
 key_bindings:
   # My Custom Defaults
 
+  # Open a new window
+  - { key: N, mods: Command, action: SpawnNewInstance }
+
+  # Open our settings
+  - { key: Comma,  mods: Command, command:
+      { program: "open", args: ["/Users/lingrino/projects/dotfiles/roles/alacritty/files/alacritty.yml"] } }
+
+  # Reload zsh and reset
+  - { key: R, mods: Command, chars: "reload\n" }
+
   # These two make command left/right replicat home/end
   # They work together with bindings in my keybindings.zsh
-  - { key: Left, mods: Command, chars: "\x1b[H"} # Beginning of line
-  - { key: Right,  mods: Command, chars: "\x1b[F"} # End of line
+  - { key: Left,   mods: Command, chars: "\x1b[H" } # Beginning of line
+  - { key: Right,  mods: Command, chars: "\x1b[F" } # End of line
 
   # Alacritty Mac Defaults (I have not changed)
   - { key: Key0,   mods: Command,         action: ResetFontSize    }

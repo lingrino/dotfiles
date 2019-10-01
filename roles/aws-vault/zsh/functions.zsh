@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 # avx -> aws-vault export
 # Takes in a profile name and exports the generated keys

@@ -49,7 +49,6 @@ brews:
   - watch
   - wget
   - zsh
-  - zsh-completions
 
 casks:
   - 1password

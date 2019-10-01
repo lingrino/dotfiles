@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 #
 # Usage: x <file>
 # Description: extracts archived files / mounts disk images

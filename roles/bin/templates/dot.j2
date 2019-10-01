@@ -1,22 +1,22 @@
 #!/bin/bash
 
 case $1 in
-    all)
-        shift
-        op_passwords=""
-        for account in $(jq -r '.accounts[].shorthand' < ~/.op/config); do
-            read -r -s -p "Enter Your 1password Password for ${account}: " "OP_PASSWORD_${account}"
-            echo
-            pass="OP_PASSWORD_${account}"
-            op_passwords="$op_passwords op_password_${account}='${!pass}'"
-        done
-        ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml -K -e "${op_passwords}" "$@"
-        ;;
-    most)
-        shift
-        ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,1password" "$@"
-        ;;
-    *)
-        ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,1password,mac" "$@"
-        ;;
+all)
+    shift
+    op_passwords=""
+    for account in $(jq -r '.accounts[].shorthand' <~/.op/config); do
+        read -r -s -p "Enter Your 1password Password for ${account}: " "OP_PASSWORD_${account}"
+        echo
+        pass="OP_PASSWORD_${account}"
+        op_passwords="$op_passwords op_password_${account}='${!pass}'"
+    done
+    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml -K -e "${op_passwords}" "$@"
+    ;;
+most)
+    shift
+    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,1password" "$@"
+    ;;
+*)
+    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,1password,mac" "$@"
+    ;;
 esac

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
 
 # Shorten python, use v3 as default
 alias p='python3'
