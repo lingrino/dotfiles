@@ -5,16 +5,9 @@
     mode: 0700
     owner: "{{ ansible_user_id }}"
 
-- name: Create the goreleaser directory
-  file:
-    state: directory
-    dest: "{{ ansible_env.HOME }}/.config/goreleaser"
-    mode: 0700
-    owner: "{{ ansible_user_id }}"
-
-- name: Add the goreleaser github token file
-  copy:
-    content: "{{
+- name: Get the value of our hub personal access token
+  set_fact:
+    hub_pat: "{{
       lookup(
         'onepassword_raw',
         'Github',
@@ -22,9 +15,17 @@
         username=op_auths['me'].email,
         secret_key=op_auths['me'].secret_key,
         vault_password=lookup('vars', 'op_password_'+op_auths['me'].shorthand)
-      ) | json_query('details.sections[?title==`Personal Access Tokens`].fields | [] | [?t==`PAT - goreleaser`].v | [0]')
+      ) | json_query('details.sections[?title==`Personal Access Tokens`].fields | [] | [?t==`PAT - hub`].v | [0]')
     }}"
-    dest: "{{ ansible_env.HOME }}/.config/goreleaser/github_token"
+  no_log: true
+  tags:
+    - post
+    - 1password
+
+- name: Write the hub config file
+  template:
+    src: hub.j2
+    dest: "{{ ansible_env.HOME }}/.config/hub"
     mode: 0600
     owner: "{{ ansible_user_id }}"
   no_log: true

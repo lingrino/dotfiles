@@ -14,6 +14,7 @@
       }
     ) }}"
   loop: "{{ netrc_logins | dict2items }}"
+  no_log: true
   tags:
     - post
     - 1password
@@ -24,6 +25,7 @@
     dest: "{{ ansible_env.HOME }}/.netrc"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+  no_log: true
   tags:
     - post
     - 1password

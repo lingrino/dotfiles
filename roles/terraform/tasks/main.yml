@@ -21,6 +21,7 @@
       }
     ) }}"
   loop: "{{ terraform_tokens | dict2items }}"
+  no_log: true
   tags:
     - post
     - 1password

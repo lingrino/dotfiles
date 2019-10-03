@@ -22,6 +22,7 @@ brews:
   - grc
   - htop
   - httpie
+  - hub
   - jq
   - kubectx
   - kubernetes-cli

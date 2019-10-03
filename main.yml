@@ -16,6 +16,7 @@
     - { role: git,          tags: ['git']          }
     - { role: go,           tags: ['go']           }
     - { role: goreleaser,   tags: ['goreleaser']   }
+    - { role: hub,          tags: ['hub']          }
     - { role: mac,          tags: ['mac']          }
     - { role: netrc,        tags: ['netrc']        }
     - { role: node,         tags: ['node']         }
