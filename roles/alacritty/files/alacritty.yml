@@ -484,7 +484,7 @@ schemes:
 
 # This points to one of the schemes defined above. The 'colors'
 # option must appear below the defined schemes
-colors: *snazzy
+colors: *monokai-pro
 
 ##########################
 ### Unused             ###

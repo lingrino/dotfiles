@@ -29,7 +29,7 @@
 - name: Write the Monokai Pro theme to themes
   copy:
     src: MonokaiPro.tmTheme
-    dest: "{{ ansible_env.HOME }}/.config/bat/themes/MonokaiPro.tmTheme"
+    dest: "{{ ansible_env.HOME }}/.config/bat/themes/custom.tmTheme"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
