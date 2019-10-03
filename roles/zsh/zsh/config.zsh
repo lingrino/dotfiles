@@ -1,31 +1,39 @@
 #!/usr/local/bin/zsh
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
+# Config Reference
+# http://zsh.sourceforge.net/Doc/Release/Options.html
+# Can also type `setopt ` and then tab for completion
 
+# Some ideas from
+# https://github.com/holman/dotfiles/blob/master/zsh/config.zsh
+# https://www.viget.com/articles/zsh-config-productivity-plugins-for-mac-oss-default-shell/
+
+################################
+### History                  ###
+################################
+
+# HISTSIZE should always be a bit bigger than SAVEHIST
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=80000
+SAVEHIST=50000
 
-setopt NO_BG_NICE # don't nice background tasks
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS   # allow functions to have local traps
-setopt HIST_VERIFY
-setopt SHARE_HISTORY    # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt PROMPT_SUBST
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
+setopt SHARE_HISTORY                     # Share across sessions
+setopt INC_APPEND_HISTORY                # Add to history as soon as they are run
+setopt EXTENDED_HISTORY                  # Include timestamps and durations
+setopt HIST_EXPIRE_DUPS_FIRST            # Remove duplicates before unique commands
+setopt HIST_IGNORE_DUPS hist_ignore_dups # Don't add duplicates to history
+setopt HIST_IGNORE_SPACE                 # Don't add commands that start with a space
 
-setopt APPEND_HISTORY                   # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
-setopt HIST_REDUCE_BLANKS
+################################
+### Changing Directories     ###
+################################
+setopt AUTO_CD    # So that `~/Downloads` means `cd ~/Downloads`
+setopt AUTO_PUSHD # Keep a stack of directories you cd into
+setopt PUSHDMINUS # Use `-` instead of `+` to go back directories
 
-# Colored man pages
+################################
+### Colored Man Pages        ###
+################################
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'

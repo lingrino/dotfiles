@@ -22,7 +22,7 @@ done
 fpath=(/usr/local/share/zsh/completions/src $fpath)
 
 # This line initializes the completion system
-autoload -U compinit && compinit
+autoload -U +X compinit && compinit
 
 # This line lets zsh use bash completions
 autoload -U +X bashcompinit && bashcompinit

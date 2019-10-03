@@ -12,7 +12,6 @@ background_opacity: 1.0
 window:
   decorations: buttonless
   startup_mode: Windowed
-  dynamic_padding: true
 
   padding:
     x: 2
