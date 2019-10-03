@@ -33,6 +33,7 @@ brews:
   - openssl
   - prettyping
   - readline
+  - scc
   - packer
   - postgresql
   - python
