@@ -4,4 +4,10 @@
 gopath: "{{ projects_folder_path }}/go"
 
 go_gets:
+  - github.com/mdempsky/gocode
+  - github.com/ramya-rao-a/go-outline
+  - github.com/rogpeppe/godef
+  - github.com/sqs/goreturns
+  - github.com/uudashr/gopkgs/cmd/gopkgs
+  - golang.org/x/lint/golint
   - golang.org/x/tools/gopls
