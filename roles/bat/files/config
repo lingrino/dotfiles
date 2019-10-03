@@ -1,0 +1,5 @@
+# Use the TODO theme
+--theme="MonokaiPro"
+
+# Show line numbers and git changes
+--style="numbers,changes"

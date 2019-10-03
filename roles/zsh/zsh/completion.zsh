@@ -15,9 +15,6 @@ zstyle ':completion:*' menu select
 # Verbose completion results
 zstyle ':completion:*' verbose true
 
-# Smart matching of dashed values, e.g. f-b matching foo-bar
-zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
-
 # Group results by category
 zstyle ':completion:*' group-name ''
 
@@ -39,9 +36,6 @@ zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:corrections' format '%U%F{green}%d (errors: %e)%f%u'
 zstyle ':completion:*:warnings' format '%F{202}%BSorry, no matches for: %F{214}%d%b'
-
-# Show message while waiting for completion
-zstyle ':completion:*' show-completer true
 
 # Add colors
 zstyle ':completion:*' list-colors ''

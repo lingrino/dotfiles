@@ -7,6 +7,7 @@
     - { role: alacritty,    tags: ['alacritty']    }
     - { role: ansible,      tags: ['ansible']      }
     - { role: aws,          tags: ['aws']          }
+    - { role: bat,          tags: ['bat']          }
     - { role: bin,          tags: ['bin']          }
     - { role: certs,        tags: ['certs']        }
     - { role: docker,       tags: ['docker']       }
