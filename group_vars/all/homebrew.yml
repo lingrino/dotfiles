@@ -58,6 +58,7 @@ casks:
   - alacritty
   - alfred
   - aws-vault
+  - dash
   - docker
   - dropbox
   - google-chrome
