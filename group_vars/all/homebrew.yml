@@ -66,6 +66,7 @@ casks:
   - java
   - keybase
   - logitech-options
+  - rocket
   - slack
   - visual-studio-code
   - vlc
