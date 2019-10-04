@@ -74,7 +74,9 @@ casks:
   - zoomus
 
 apps:
-  - id: 904280696
-    name: Things3
   - id: 1091189122
     name: Bear
+  - id: 441258766
+    name: Magnet
+  - id: 904280696
+    name: Things3
