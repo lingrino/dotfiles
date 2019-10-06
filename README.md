@@ -1,196 +1,99 @@
 # Dotfiles
 
-**NOTE:** This is is an example, not a drop in replacement, for your own
-dotfiles
+Welcome to my dotfiles!
 
-## How this works
+[![Terminal](docs/images/cover.png)](docs/images/cover.png "Terminal")
 
-- Define new macs in `inventory` where the host is equal to `$(cat
-  dotfiles_dir/me.txt)` and
-- `zshrc` will look in `**/zsh/*.zsh` and source any files that it finds
+This repo contains all of the configuration that I use to get my mac from first boot to
+100% configured. Almost everything is automated using Ansible, but some system preferences
+must be done manually and those are documented in this repo.
 
-## Setup
+This repo contains **my dotfiles** and the contents change in master without warning as I
+update my own tools and preferences. However the dotfiles are arranged such that you
+*should* be able to fork this repo, change variables, and get going with your own
+configuration.
 
-Once the initial setup is complete all that is needed to make changes and keep
-the mac enforced is a semi-regular run of `dot`. To setup a mac for the first
-time follow the below instructions. Unfortunately not everything can be done
-automatically (or I haven't gotten to it), so there's some manual steps.
+## Tools That I Use
 
-## Dot
+I rely heavily on the following tools. If you don't use them you will have a hard time
+removing removing them from the repo. Other tools should be easy to add/remove.
 
-After bootstrap you can periodically run the `dot` command to keep your system
-in sync. By default `dot` runs all ansible except mac settings configuration and
-anything that requires sudo or auth to 1Password. You can run `dot most` to
-include the mac settings and `dot all` to include sudo and 1Password commands,
-which require user input.
+### Ansible
 
-## Tags
+This whole project runs on [Ansible](https://www.ansible.com). Ansible is the tool that
+takes these config files and copies them to the right place on your mac.
 
-Many of the ansible commands contain tags. Some of them are not used yet, but
-keeping things tags makes slicing easier now and in the future. Here's a list of
-tags:
+### 1Password
 
-- **1password:** Tags all tasks that require auth to 1Password
-- **internet:** Tags all tasks that can only be run with internet access
-- **post:** Tags all tasks that must be run after bootstrap is run
-- **sudo:** Tags all tasks that require sudo
+I use [1Password](https://1password.com) to store all of my secrets. There are no secrets
+in this repo because they all in 1Password and pulled at runtime using the
+[op](https://1password.com/downloads/command-line/) CLI. If you don't use 1Password any of
+the commands the pull secrets will need to be refactored. Don't put secrets in directly in
+your repo.
 
-Also, all roles are tagged with their own name.
+### Homebrew
 
-### Initial Bootstrap
+I use [Homebrew](https://brew.sh) to install all mac applications and utilities that are
+available on the platform. Nothing would be installed without it.
 
-1. Follow the on-screen mac instructions for first-time setup
+### Zsh
 
-1. Run all mac software updates
+I use [Zsh](https://github.com/zsh-users/zsh) as my shell and much of the configuration is
+geared towards making zsh easier to use.
 
-1. Open terminal, and run the following command
+### Other Tools
 
-    ```bash
-    sh -c "$(curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/master/bootstrap.sh)"
-    ```
+For a full list of other tools that I install and configure in this repo check folder
+names in [roles/](roles/) and lines in [homebrew.yml](group_vars/homebrew.yml),
+[go.yml](group_vars/go.yml), [node.yml](group_vars/node.yml), and
+[python.yml](group_vars/python.yml).
 
-1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example`
-   with your 1Password details
+## How Everything Works
 
-1. Run the command that bootstrap returns, something like this
+Everything works in one of two ways. The first is you write custom Ansible that configures
+your apps, usually by copying a config file to a directory. The second is you create a
+file in `roles/**/zsh/file.zsh` that is automatically sourced when you open a new shell.
 
-    ```bash
-    ansible-playbook -i ~/projects/dotfiles/inventory -l $(cat dotfiles_dir/me.txt) ~/projects/dotfiles/main.yml -K --skip-tags "post"
-    ```
+All of this configuration is enforced by the [dot](roles/bin/templates/dot.j2) command,
+which is intended to be run regulary and keeps this repo in sync with your mac through
+Ansible. After you change something in this repo run `dot` to sync it with your mac.
 
-1. Restart your mac
+### The Dot Command
 
-### Post Boostrap Manual Commands
+By default `dot` will run all Ansible that does not require user input or configure MacOS
+system preferences. This means you can be carefree about running `dot` and knowing it
+won't take long (~1.5 minutes on my machine) and that you won't have to interact with it.
+During initial setup and occasionally afterwards you should run `dot all`, which will
+prompt for your 1Password and sudo passwords and then configure the entire machine.
 
-1. Open system preferences and set up Touch ID
-    - Use Touch ID for all the things
-1. Open and login to 1password
-    - Uncheck "show 1password in the menu bar"
-    - Uncheck "open 1password in the background"
-1. Open 1password settings
-    - Mini -> Tags -> Hide
-    - Security -> Allow touchID to unlock 1password
-    - Watchtower -> Check for vulnerable passwords
-    - Browsers -> Check "Always keep extension helper running"
-    - Browsers -> Uncheck "detect and offer to save new usernames/passwords"
-    - Advanced -> Check "Copy UUID" and "Copy JSON"
-    - Advanced -> Check "Enable third party integrations"
-1. Login to the dropbox app
-    - Disable finder integration
-    - Disable camera uploads
-    - Disable screenshot sharing
-    - Disable notifications
-    - Enable selective sync on only desired folders
-1. Open finder and remove all items from the sidebar except (in order)
-    - Airdrop
-    - Applications
-    - projects
-    - Downloads
-1. Open finder settings
-    - Delete all tags
-    - Uncheck all locations and tags in sidebar
-    - Uncheck "show warning before removing from iCloud drive"
-1. Open Notification Center and remove all widgets
-1. Open system preferences
-    - General -> Change to dark
-    - General -> Chrome to default web browser
-    - Displays -> Turn off "automatically adjust brightness"
-    - Displays -> Change the resolution to "more space"
-    - Security -> General -> Require password immeditately
-    - Security -> General -> Allow Apple Watch to Unlock Mac
-    - Security -> FileVault -> Make sure FileVault is turned on, write down
-      recovery key
-    - Spotlight -> Uncheck all except Applications, Contacts, Documents, System
-      Preferences
-    - Spotlight -> Uncheck "allow spotlight suggestions in lookup"
-    - Notifications -> Do Not Disturb -> Turn on DND from 19:00 to 09:00
-    - Notifications -> Do Not Disturb -> Check "allow repeated calls"
-    - Notifications -> Disable all except
-        - 1password: Banners
-        - FaceTime: Sounds, Alerts
-        - Messages: Badges, Banners
-        - Things: Badges, Banners
-    - Notifications -> Don't allow any on lockscreen
-    - Notifications -> Always show notification preview
-    - Notifications -> Never show in notification center
-    - Keyboard -> Modifier Keys -> Change 'Caps Lock' to 'Escape'
-    - Keyboard -> Uncheck "adjust keyboard brightness"
-    - Keyboard -> Disable all text substitutes
-    - Keyboard -> Uncheck capitalize automatically
-    - Keyboard -> Uncheck touch bar typing suggestions
-    - Keyboard -> Shortcuts -> Uncheck every shortcut except screenshots
-    - Keyboard -> Input Sources -> Uncheck "show input in menu bar"
-    - Keyboard -> Dictation -> Change the shortcut to "off"
-    - Trackapd -> More Gestures -> Disable notification center, mission control,
-      show desktop
-    - Sound -> Disable user interface sound effects
-    - iCloud -> iCloud Drive -> Turn off "Desktop and Documents Folders"
-    - iCloud -> Photos -> Enable All
-    - iCloud -> Turn on all except Mail, Calendars
-    - Internet Accounts -> Remove game center
-    - Internet Accounts -> Sign in to fastmail with calendar sync
-    - Internet Accounts -> Sign in to google for work if applicable and sync
-      calendar
-    - Software Update -> Automatically install everything
-    - Extensions -> Share Menu -> Uncheck all possible
-    - Extensions -> Today -> Uncheck all
-    - Users and Groups -> Change profile picture to vinyl record
-    - Users and Groups -> Disable guest
-    - Users and Groups -> self -> login items -> hide Dropbox
-    - Accessibility -> General -> Turn off shortcuts
-1. Open Alfred settings
-    - Enter your license key from 1password
-    - Change the hotkey to cmd+space
-    - Change the theme to "Alfred macOS Dark"
-    - Enable settings sync at `~/Dropbox/settings/alfred`
-1. Open iterm settings and set to load preferences from ~/Dropbox/settings/iterm
-    - Do not save current settings
-    - Restart iterm and then check "save changes to foler when iterm quits"
-1. Open vscode to sync settings
-    - Install the [settings sync
-      extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
-    - Login with github account
-    - Select gist ID `6ff61f3d01c5772138f5d928471c40c4`
-    - Press cmd+shift+p and type `Sync: Download Settings`
-1. Open Messages settings
-    - Sync with iCloud
-    - Enable read receipts
-    - Disable sound effects
-1. Open FaceTime settings
-    - Turn on wifi calling
-1. Open Chrome and sign in with Google
-    - Hide all extensions in the top bar except pocket
-1. Open slack and sign in to all workspaces
-1. Open Things, sign in, and enable Things Cloud
-    - Enable calendar events sync
-1. Open Bear and make sure it Syncs
-1. Open Docker and grant it permissions
-1. Open Keybase and sign in
-    - Make sure to revoke any old devices
-1. Open Zoom and sign in to account
-1. Open iTunes and agree, then open settings
-    - Enable iCloud music library
-    - Crossfade songs for 1 second
-    - Enable sound check
-    - Sync podcast subscription and settings
-    - Automatically download album artwork
+### Tags
 
-### Final Commands
+Many tasks in the playbook are tagged by their external dependencies. For example, tasks
+that require root are tagged `sudo`. The same is true for the `1password` and `internet`
+tags.
 
-1. Change the dotfiles git origin to use ssh
+Every role is also tagged with its own name. Meaning you can run `dot -t ROLE_NAME` to run
+dot against only a specific role.
 
-    ```shell
-    cd ~/projects/dotfiles
-    git remote rename origin originold
-    git remote add origin git@github.com:lingrino/dotfiles.git
-    git remote remove originold
-    ```
+## Setting Up A New Mac
 
-1. Open the dotfiles with `e ~/projects/dotfiles`
-    - Add any custom changes to `host_vars/$(cat dotfiles_dir/me.txt)/*.yml`.
-      Use other `host_vars` as a template
-    - Copy `group_vars/all/op_secret.yml.example` to `group_vars/all/op_secret.yml`
-    - Fill out `secret.yml` with your details
-1. Commit your changes
-1. Run `dot all`
-1. Restart your mac one final time
+Follow the instructions in [INSTALL.md](docs/INSTALL.md) to setup a new mac for the first
+time.
+
+## Ideas
+
+Some things that I plan to add here eventually
+
+- Vim & vim configuration
+- Tmux and tmux configuration
+- More CI (run against a new mac)
+- Some manual steps can still be automated with `osx_defaults`
+- Make these work on linux systems
+- Remote linux workstation with these dotfiles
+
+## Inspiration
+
+These dotfiles are written 100% from scratch unless otherwise mentioned in the file
+comemnts. Heavy inspiration provided by
+[holman/dotfiles](https://github.com/holman/dotfiles) and
+[geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook).
