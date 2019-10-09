@@ -6,11 +6,11 @@
 ##########################
 ### Window             ###
 ##########################
-dynamic_title: true
+dynamic_title:      true
 background_opacity: 1.0
 
 window:
-  decorations: buttonless
+  decorations:  buttonless
   startup_mode: Windowed
 
   padding:
@@ -19,37 +19,37 @@ window:
 
   dimensions:
     columns: 0
-    lines: 0
+    lines:   0
 
 scrolling:
-  history: 50000
-  auto_scroll: false
-  multiplier: 3
+  history:         50000
+  auto_scroll:     false
+  multiplier:      3
   faux_multiplier: 3
 
 ##########################
 ### Text               ###
 ##########################
-tabspaces: 8
+tabspaces:                         8
 draw_bold_text_with_bright_colors: true
 
 cursor:
-  style: Beam
+  style:            Beam
   unfocused_hollow: true
 
 font:
-  size: 13.0
+  size:             13.0
   use_thin_strokes: true
 
   normal:
     family: Hack
-    style: Regular
+    style:  Regular
   bold:
     family: Hack
-    style: Bold
+    style:  Bold
   italic:
     family: Hack
-    style: Italic
+    style:  Italic
 
   offset:
     x: 0
@@ -61,11 +61,11 @@ font:
 ##########################
 ### Behavior           ###
 ##########################
-working_directory: None
+working_directory:  None
 live_config_reload: true
 
 selection:
-  save_to_clipboard: true
+  save_to_clipboard:     true
   semantic_escape_chars: ",â”‚`|:\"' ()[]{}<>"
 
 ##########################
@@ -239,8 +239,8 @@ schemes:
       background: '0x292C3E'
       foreground: '0xEBEBEB'
     cursor:
-    text: '0xFF261E'
-    cursor: '0xFF261E'
+      text:   '0xFF261E'
+      cursor: '0xFF261E'
     normal:
       black:   '0x0d0d0d'
       red:     '0xFF301B'
@@ -338,23 +338,23 @@ schemes:
       background: '0x2D2D2D'
       foreground: '0xB3B9C5'
     normal:
-      black: '0x2D2D2D'
-      red: '0xF2777A'
-      green: '0x92D192'
-      yellow: '0xFFD479'
-      blue: '0x6AB0F3'
+      black:   '0x2D2D2D'
+      red:     '0xF2777A'
+      green:   '0x92D192'
+      yellow:  '0xFFD479'
+      blue:    '0x6AB0F3'
       magenta: '0xE1A6F2'
-      cyan: '0x76D4D6'
-      white: '0xB3B9C5'
+      cyan:    '0x76D4D6'
+      white:   '0xB3B9C5'
     bright:
-      black: '0x777C85'
-      red: '0xF2777A'
-      green: '0x76D4D6'
-      yellow: '0xFFEEA6'
-      blue: '0x6AB0F3'
+      black:   '0x777C85'
+      red:     '0xF2777A'
+      green:   '0x76D4D6'
+      yellow:  '0xFFEEA6'
+      blue:    '0x6AB0F3'
       magenta: '0xE1A6F2'
-      cyan: '0x76D4D6'
-      white: '0xFFFFFF'
+      cyan:    '0x76D4D6'
+      white:   '0xFFFFFF'
 
   # https://github.com/arcticicestudio/nord
   nord: &nord
@@ -484,7 +484,7 @@ schemes:
 
 # This points to one of the schemes defined above. The 'colors'
 # option must appear below the defined schemes
-colors: *monokai-pro
+colors: *nord
 
 ##########################
 ### Unused             ###
@@ -497,8 +497,8 @@ visual_bell:
   duration: 0
 
 debug:
-  ref_test: false
-  log_level: Warn
-  render_timer: false
-  print_events: false
+  ref_test:           false
+  log_level:          Warn
+  render_timer:       false
+  print_events:       false
   persistent_logging: false

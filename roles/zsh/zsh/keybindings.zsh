@@ -17,6 +17,10 @@
 # custom database is better, although I'm not sure of the specifics. See the bottom
 # section on this page - https://github.com/jwilm/alacritty/blob/master/INSTALL.md#terminfo
 
+# NOTE: The above comment is still true, but I now `export TERM=xterm-256color`
+#       and so some of these changes are not currently relevant. Maybe in the
+#       future alacritty terminfo will be better supported.
+
 # create a zkbd (zsh keybaord bindings) compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -A key

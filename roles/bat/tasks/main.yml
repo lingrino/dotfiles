@@ -26,10 +26,10 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-- name: Write the Monokai Pro theme to themes
+- name: Write the Nord theme to themes
   copy:
-    src: custom.tmTheme
-    dest: "{{ ansible_env.HOME }}/.config/bat/themes/custom.tmTheme"
+    src: nord.tmTheme
+    dest: "{{ ansible_env.HOME }}/.config/bat/themes/nord.tmTheme"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 

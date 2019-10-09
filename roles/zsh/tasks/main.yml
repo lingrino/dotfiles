@@ -1,3 +1,13 @@
+# https://www.nordtheme.com/docs/ports/dircolors/installation
+- name: Write the nord dircolors file
+  get_url:
+    url: https://raw.githubusercontent.com/arcticicestudio/nord-dircolors/master/src/dir_colors
+    dest: "{{ ansible_env.HOME }}/.dir_colors"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - internet
+
 - name: Clone zsh-completions into our zsh directory
   git:
     repo: https://github.com/zsh-users/zsh-completions.git
