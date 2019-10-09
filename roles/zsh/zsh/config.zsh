@@ -44,7 +44,7 @@ setopt PUSHDMINUS # Use `-` instead of `+` to go back directories
 ### Dircolors                ###
 ################################
 # https://www.nordtheme.com/docs/ports/dircolors/installation
-test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
 
 ################################
 ### Colored Man Pages        ###
