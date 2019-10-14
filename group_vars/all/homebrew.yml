@@ -9,7 +9,9 @@ brews:
   - bat
   - coreutils
   - ctags
+  - ctop
   - diff-so-fancy
+  - dive
   - exa
   - fasd
   - fd
