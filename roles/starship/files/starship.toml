@@ -9,9 +9,15 @@ disabled = true
 [cmd_duration]
 prefix = ""
 
+[conda]
+disabled = true
+
 [directory]
 truncate_to_repo = false
 truncation_length = 10
+
+[dotnet]
+disabled = true
 
 [env_var]
 disabled = true
@@ -22,7 +28,19 @@ symbol = ""
 [golang]
 disabled = true
 
+[hostname]
+disabled = true
+
 [java]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[nix_shell]
 disabled = true
 
 [nodejs]
@@ -38,4 +56,7 @@ disabled = true
 disabled = true
 
 [rust]
+disabled = true
+
+[time]
 disabled = true
