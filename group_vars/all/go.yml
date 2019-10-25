@@ -10,4 +10,3 @@ go_gets:
   - github.com/sqs/goreturns
   - github.com/uudashr/gopkgs/cmd/gopkgs
   - golang.org/x/lint/golint
-  - golang.org/x/tools/gopls
