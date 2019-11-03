@@ -81,6 +81,14 @@
     type: bool
     value: false
 
+- name: Enable global developer tools
+  osx_defaults:
+    state: present
+    domain: NSGlobalDomain
+    key: WebKitDeveloperExtras
+    type: bool
+    value: true
+
 - name: Enable developer tools
   osx_defaults:
     state: present
@@ -90,7 +98,6 @@
     value: true
   loop:
     - IncludeDevelopMenu
-    - WebKitDeveloperExtras
     - IncludeInternalDebugMenu
     - WebKitDeveloperExtrasEnabledPreferenceKey
     - com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled

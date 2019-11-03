@@ -21,3 +21,11 @@
     key: _HIHideMenuBar
     type: bool
     value: true
+
+- name: Use transparency
+  osx_defaults:
+    state: present
+    domain: com.apple.universalaccess
+    key: reduceTransparency
+    type: bool
+    value: false
