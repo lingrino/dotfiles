@@ -25,7 +25,6 @@ scrolling:
   history:         50000
   auto_scroll:     false
   multiplier:      3
-  faux_multiplier: 3
 
 ##########################
 ### Text               ###
