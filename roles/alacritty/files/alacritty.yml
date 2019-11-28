@@ -18,8 +18,8 @@ window:
     y: 5
 
   dimensions:
-    columns: 0
-    lines:   0
+    columns: 150
+    lines:   50
 
 scrolling:
   history:         50000
