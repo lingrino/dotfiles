@@ -86,13 +86,13 @@
   shell: rustup completions zsh > /tmp/zsh-completions-rustup-tmp
   register: R_rustup_completions_zsh
   changed_when:
-    - R_rustup_completions_zsh.stderr != ""
+    - R_rustup_completions_zsh.stderr
 
 - name: Write the zsh cargo completions to a temporary file
   shell: rustup completions zsh cargo > /tmp/zsh-completions-cargo-tmp
   register: R_rustup_completions_cargo
   changed_when:
-    - R_rustup_completions_cargo.stderr != ""
+    - R_rustup_completions_cargo.stderr
 
 - name: Copy temporary zsh rustup completions to site-functions
   copy:
