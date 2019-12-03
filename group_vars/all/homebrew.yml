@@ -41,6 +41,7 @@ brews:
   - postgresql
   - python
   - ripgrep
+  - rustup-init
   - shellcheck
   - shfmt
   - starship
@@ -81,5 +82,7 @@ apps:
     name: Bear
   - id: 441258766
     name: Magnet
+  - id: 1176895641
+    name: Spark
   - id: 904280696
     name: Things3

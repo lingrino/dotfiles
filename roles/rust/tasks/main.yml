@@ -1,0 +1,119 @@
+- name: Create the cargo directory
+  file:
+    state: directory
+    path: "{{ cargo_home | expanduser }}"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+  register: R_cargo_dir
+
+- name: Create the cargo bin directory
+  file:
+    state: directory
+    path: "{{ R_cargo_dir.path }}/bin"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Create the rustup directory
+  file:
+    state: directory
+    path: "{{ rustup_home | expanduser }}"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+  register: R_rustup_dir
+
+- name: Create the zsh directory
+  file:
+    state: directory
+    dest: "{{ role_path }}/zsh"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Template path.zsh into zsh/path.zsh
+  template:
+    src: path.zsh.j2
+    dest: "{{ role_path }}/zsh/path.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Template env.zsh into zsh/env.zsh
+  template:
+    src: env.zsh.j2
+    dest: "{{ role_path }}/zsh/env.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Install the latest verion of the rust toolchain
+  command: rustup-init -y --no-modify-path --profile=complete --default-toolchain=stable
+  register: R_rustup_init
+  changed_when:
+    - ("downloading" in R_rustup_init.stderr)
+  tags:
+    - internet
+
+- name: Output rustup-init
+  debug:
+    msg: "{{ R_rustup_init.stderr_lines }}\n{{ R_rustup_init.stdout_lines }}"
+  when:
+    - R_rustup_init.changed
+  tags:
+    - internet
+
+- name: Update rust with rustup
+  command: rustup update
+  register: R_rustup_update
+  changed_when:
+    - ("updated" in R_rustup_update.stdout)
+  tags:
+    - internet
+
+- name: Output rustup update
+  debug:
+    msg: "{{ R_rustup_update.stderr_lines }}\n{{ R_rustup_update.stdout_lines }}"
+  when:
+    - R_rustup_update.changed
+  tags:
+    - internet
+
+- name: Set the default toolchain to stable
+  command: rustup default stable
+  register: R_rustup_default
+  changed_when:
+    - ("updated" in R_rustup_default.stderr)
+  tags:
+    - internet
+
+- name: Write the zsh rustup completions to a temporary file
+  shell: rustup completions zsh > /tmp/zsh-completions-rustup-tmp
+  register: R_rustup_completions_zsh
+  changed_when:
+    - R_rustup_completions_zsh.stderr != ""
+
+- name: Write the zsh cargo completions to a temporary file
+  shell: rustup completions zsh cargo > /tmp/zsh-completions-cargo-tmp
+  register: R_rustup_completions_cargo
+  changed_when:
+    - R_rustup_completions_cargo.stderr != ""
+
+- name: Copy temporary zsh rustup completions to site-functions
+  copy:
+    src: /tmp/zsh-completions-rustup-tmp
+    dest: /usr/local/share/zsh/site-functions/_rustup
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Copy temporary zsh cargo completions to site-functions
+  copy:
+    src: /tmp/zsh-completions-cargo-tmp
+    dest: /usr/local/share/zsh/site-functions/_cargo
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Add cargo config file
+  template:
+    src: config.toml.j2
+    dest: "{{ R_cargo_dir.path }}/config"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+# - name: Install rust components
+# Loop here over rust_components var

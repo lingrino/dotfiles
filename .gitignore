@@ -15,3 +15,5 @@ roles/bin/zsh/path.zsh
 roles/editor/zsh/env.zsh
 roles/go/zsh/path.zsh
 roles/node/zsh/path.zsh
+roles/rust/zsh/env.zsh
+roles/rust/zsh/path.zsh
