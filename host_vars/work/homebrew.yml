@@ -1,5 +1,11 @@
+host_taps:
+- ephread/ink
+
 host_brews:
+  - inklecate
   - mysql
+  - nodenv
 
 host_casks:
+  - ngrok
   - viscosity
