@@ -2,7 +2,7 @@ host_taps:
 - ephread/ink
 
 host_brews:
-  - inklecate
+  - inklecate@0.8.3
   - mysql
   - nodenv
 
