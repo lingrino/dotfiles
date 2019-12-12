@@ -10,13 +10,13 @@ brews:
   - coreutils
   - ctags
   - ctop
-  - diff-so-fancy
   - dive
   - exa
   - fasd
   - fd
   - fzf
   - git
+  - git-delta
   - git-lfs
   - lingrino/tap/glen
   - go

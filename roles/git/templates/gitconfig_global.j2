@@ -28,6 +28,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = $EDITOR
+        pager = delta --dark --minus-color="#773D42" --minus-emph-color="#BF616A" --plus-color="#667758" --plus-emph-color="#A3BE8C"
         untrackedCache = true
 [apply]
         whitespace = nowarn
@@ -42,9 +43,6 @@
         followTags = true
 [fetch]
         prune = true
-[pager]
-       diff = diff-so-fancy | less --tabs=1,5 -RFX
-       show = diff-so-fancy | less --tabs=1,5 -RFX
 [commit]
        gpgsign = true
 {% for user in git_users %}
