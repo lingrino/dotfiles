@@ -1,0 +1,99 @@
+- name: Create the tmux plugin directory
+  file:
+    state: directory
+    path: "{{ tmux_plugin_dir | expanduser }}"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+  register: R_tmux_plugin_dir
+
+- name: Create the zsh directory
+  file:
+    state: directory
+    dest: "{{ role_path }}/zsh"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Template env.zsh into zsh/env.zsh
+  template:
+    src: env.zsh.j2
+    dest: "{{ role_path }}/zsh/env.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Clone tmux plugin manager into the plugins directory
+  git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ R_tmux_plugin_dir.path }}/tpm"
+    clone: true
+    depth: 1
+    update: true
+    version: master
+  tags:
+    - internet
+
+- name: Write the tmux config file
+  template:
+    src: tmux.conf.j2
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Install all tmux plugins
+  command: "{{ R_tmux_plugin_dir.path }}/tpm/bin/install_plugins"
+  register: R_tpm_install
+  changed_when:
+    - ("Installing" in R_tpm_install.stdout)
+  tags:
+    - internet
+
+- name: Output tpm install
+  debug:
+    msg:
+      - "stdout:"
+      - "{{ R_tpm_install.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_tpm_install.stderr_lines }}"
+  when:
+    - R_tpm_install.changed
+  tags:
+    - internet
+
+- name: Update all tmux plugins
+  command: "{{ R_tmux_plugin_dir.path }}/tpm/bin/update_plugins all"
+  register: R_tpm_update
+  changed_when:
+    - ("fail" in R_tpm_update.stdout)
+  tags:
+    - internet
+
+- name: Output tpm update
+  debug:
+    msg:
+      - "stdout:"
+      - "{{ R_tpm_update.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_tpm_update.stderr_lines }}"
+  when:
+    - R_tpm_update.changed
+  tags:
+    - internet
+
+- name: Clean up unused tmux plugins
+  command: "{{ R_tmux_plugin_dir.path }}/tpm/bin/clean_plugins"
+  register: R_tpm_clean
+  changed_when:
+    - ("Removing" in R_tpm_clean.stdout)
+  tags:
+    - internet
+
+- name: Output tpm clean
+  debug:
+    msg:
+      - "stdout:"
+      - "{{ R_tpm_clean.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_tpm_clean.stderr_lines }}"
+  when:
+    - R_tpm_clean.changed
+  tags:
+    - internet

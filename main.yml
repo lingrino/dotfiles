@@ -27,5 +27,6 @@
     - { role: ssh,          tags: ['ssh']          }
     - { role: starship,     tags: ['starship']     }
     - { role: terraform,    tags: ['terraform']    }
+    - { role: tmux,         tags: ['tmux']         }
     - { role: transmission, tags: ['transmission'] }
     - { role: zsh,          tags: ['zsh']          }

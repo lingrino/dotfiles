@@ -1,0 +1,40 @@
+# My tmux config file
+# Uses tpm for package management
+# https://github.com/tmux-plugins/tpm
+
+# Set prefix to ctrl-a
+set-option -g prefix C-a
+
+# Set TERM properly
+# https://github.com/tmux/tmux/wiki/FAQ#what-is-term-and-what-does-it-do
+set -g default-terminal "tmux-256color"
+
+# Enable mouse mode
+set -g mouse on
+
+# Start window numbering at 1
+set -g base-index 1
+setw -g pane-base-index 1
+setw -g automatic-rename on
+set -g renumber-windows on
+
+# Use F1 and F2 to open and close windows
+# Set to Command-T/W in alacritty keybindings
+bind-key -n F1 new-window
+bind-key -n F2 kill-window
+
+# Use F3 and F4 to cycle windows
+# Set to Control-(Shift)-Tab in alacritty keybindings
+bind-key -n F3 next-window
+bind-key -n F4 previous-window
+
+# Set custom TPM plugin path
+set-environment -g TMUX_PLUGIN_MANAGER_PATH '{{ R_tmux_plugin_dir.path }}/'
+
+# Plugins to install (should be at the bottom)
+{% for plugin in tmux_plugins %}
+set -g @plugin '{{ plugin }}'
+{% endfor %}
+
+# Initialize tpm (must be last line)
+run -b '~/.tmux/plugins/tpm/tpm'

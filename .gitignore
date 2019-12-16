@@ -17,3 +17,4 @@ roles/go/zsh/path.zsh
 roles/node/zsh/path.zsh
 roles/rust/zsh/env.zsh
 roles/rust/zsh/path.zsh
+roles/tmux/zsh/env.zsh

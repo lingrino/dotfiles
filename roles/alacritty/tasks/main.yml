@@ -13,8 +13,8 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Write the alacritty config file
-  copy:
-    src: alacritty.yml
+  template:
+    src: alacritty.yml.j2
     dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.yml"
     mode: 0600
     owner: "{{ ansible_user_id }}"

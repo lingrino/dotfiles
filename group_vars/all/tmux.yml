@@ -1,0 +1,11 @@
+tmux_plugin_dir: ~/.tmux/plugins
+
+tmux_plugins:
+  - arcticicestudio/nord-tmux
+  - tmux-plugins/tmux-copycat
+  - tmux-plugins/tmux-pain-control
+  - tmux-plugins/tmux-prefix-highlight
+  - tmux-plugins/tmux-sensible
+  - tmux-plugins/tmux-sessionist
+  - tmux-plugins/tmux-yank
+  - tmux-plugins/tpm

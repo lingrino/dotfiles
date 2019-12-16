@@ -40,6 +40,7 @@ brews:
   - packer
   - postgresql
   - python
+  - reattach-to-user-namespace
   - ripgrep
   - rustup-init
   - shellcheck

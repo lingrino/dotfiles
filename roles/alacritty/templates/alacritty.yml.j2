@@ -14,8 +14,8 @@ window:
   startup_mode: Windowed
 
   padding:
-    x: 2
-    y: 5
+    x: 0
+    y: 0
 
   dimensions:
     columns: 150
@@ -93,15 +93,23 @@ key_bindings:
 
   # Open our settings
   - { key: Comma,  mods: Command, command:
-      { program: "open", args: ["/Users/lingrino/projects/dotfiles/roles/alacritty/files/alacritty.yml"] } }
+      { program: "open", args: ["{{ role_path }}/templates/alacritty.yml"] } }
 
   # Reload zsh and reset
   - { key: R, mods: Command, chars: "reload\n" }
 
-  # These two make command left/right replicat home/end
+  # Make Command-T/W send what tmux has bound to new/close window
+  - { key: T, mods: Command, chars: "\x1bOP" } # F1
+  - { key: W, mods: Command, chars: "\x1bOQ" } # F2
+
+  # Make Control-(Shift)-Tab send characters that tmux has bound to cycling through windows
+  - { key: Tab, mods: Control,       chars: "\x1bOR" } # F3
+  - { key: Tab, mods: Control|Shift, chars: "\x1bOS" } # F4
+
+  # These two make command left/right replicate home/end
   # They work together with bindings in my keybindings.zsh
-  - { key: Left,   mods: Command, chars: "\x1b[H" } # Beginning of line
-  - { key: Right,  mods: Command, chars: "\x1b[F" } # End of line
+  - { key: Left,  mods: Command, chars: "\x1b[H" } # Beginning of line
+  - { key: Right, mods: Command, chars: "\x1b[F" } # End of line
 
   # Alacritty Mac Defaults (I have not changed)
   - { key: Key0,   mods: Command,         action: ResetFontSize    }
@@ -114,7 +122,6 @@ key_bindings:
   - { key: C,      mods: Command,         action: Copy             }
   - { key: H,      mods: Command,         action: Hide             }
   - { key: Q,      mods: Command,         action: Quit             }
-  - { key: W,      mods: Command,         action: Quit             }
   - { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
   # Alacritty Defaults (I have not changed)

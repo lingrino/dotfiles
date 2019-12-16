@@ -52,7 +52,11 @@
 
 - name: Output rustup-init
   debug:
-    msg: "{{ R_rustup_init.stderr_lines }}\n{{ R_rustup_init.stdout_lines }}"
+    msg:
+      - "stdout:"
+      - "{{ R_rustup_init.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_rustup_init.stderr_lines }}"
   when:
     - R_rustup_init.changed
   tags:
@@ -68,7 +72,11 @@
 
 - name: Output rustup update
   debug:
-    msg: "{{ R_rustup_update.stderr_lines }}\n{{ R_rustup_update.stdout_lines }}"
+    msg:
+      - "stdout:"
+      - "{{ R_rustup_update.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_rustup_update.stderr_lines }}"
   when:
     - R_rustup_update.changed
   tags:

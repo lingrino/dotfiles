@@ -23,7 +23,11 @@
 
 - name: Output bundle
   debug:
-    msg: "{{ R_brew_bundle.stdout_lines }}"
+    msg:
+      - "stdout:"
+      - "{{ R_brew_bundle.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_brew_bundle.stderr_lines }}"
   when:
     - R_brew_bundle.changed
   tags:
@@ -39,7 +43,11 @@
 
 - name: Output bundle cleanup
   debug:
-    msg: "{{ R_brew_bundle_clean.stdout_lines }}"
+    msg:
+      - "stdout:"
+      - "{{ R_brew_bundle_clean.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_brew_bundle_clean.stderr_lines }}"
   when:
     - R_brew_bundle_clean.changed
 
@@ -53,7 +61,11 @@
 
 - name: Output brew upgrade
   debug:
-    msg: "{{ R_brew_upgrade.stdout_lines }}\n{{ R_brew_upgrade.stderr_lines }}"
+    msg:
+      - "stdout:"
+      - "{{ R_brew_upgrade.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_brew_upgrade.stderr_lines }}"
   when:
     - R_brew_upgrade.changed
 
@@ -65,6 +77,10 @@
 
 - name: Output brew cleanup
   debug:
-    msg: "{{ R_brew_cleanup.stdout_lines }}\n{{ R_brew_cleanup.stderr_lines }}"
+    msg:
+      - "stdout:"
+      - "{{ R_brew_cleanup.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_brew_cleanup.stderr_lines }}"
   when:
     - R_brew_cleanup.changed
