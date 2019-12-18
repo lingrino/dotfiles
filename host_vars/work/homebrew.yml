@@ -3,6 +3,7 @@ host_taps:
 
 host_brews:
   - inklecate@0.8.3
+  - mono
   - mysql
   - nodenv
 
