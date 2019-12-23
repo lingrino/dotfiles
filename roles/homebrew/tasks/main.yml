@@ -3,6 +3,20 @@
   register: R_brew_update
   changed_when:
     - R_brew_update.stderr
+  tags:
+    - internet
+
+- name: Output brew update
+  debug:
+    msg:
+      - "stdout:"
+      - "{{ R_brew_update.stdout_lines }}"
+      - "stderr:"
+      - "{{ R_brew_update.stderr_lines }}"
+  when:
+    - R_brew_update.changed
+  tags:
+    - internet
 
 - name: Write brewfile to home directory
   template:
