@@ -4,6 +4,7 @@
 gopath: "{{ projects_folder_path }}/go"
 
 go_gets:
+  - github.com/cjbassi/gotop
   - github.com/mdempsky/gocode
   - github.com/ramya-rao-a/go-outline
   - github.com/rogpeppe/godef

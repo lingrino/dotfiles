@@ -43,3 +43,6 @@ source /usr/local/share/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Lastly we load our prompt
 eval "$(starship init zsh)"
+
+# Start a tmux session if we're not in one
+if [ -z "$TMUX" ]; then tmux new-session -A -s main; fi

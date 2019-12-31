@@ -18,15 +18,9 @@ setw -g pane-base-index 1
 setw -g automatic-rename on
 set -g renumber-windows on
 
-# Use F1 and F2 to open and close windows
-# Set to Command-T/W in alacritty keybindings
-bind-key -n F1 new-window
-bind-key -n F2 kill-window
-
-# Use F3 and F4 to cycle windows
-# Set to Control-(Shift)-Tab in alacritty keybindings
-bind-key -n F3 next-window
-bind-key -n F4 previous-window
+# Set to Control-T/W to open and close windows/tabs
+bind-key -n C-T new-window
+bind-key -n C-W kill-window
 
 # Set custom TPM plugin path
 set-environment -g TMUX_PLUGIN_MANAGER_PATH '{{ R_tmux_plugin_dir.path }}/'
