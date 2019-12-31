@@ -31,6 +31,14 @@
   tags:
     - internet
 
+- name: Write the tmux remote config file
+  template:
+    src: tmux.remote.conf.j2
+    dest: "{{ ansible_env.HOME }}/.tmux.remote.conf"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  register: R_tmux_remote_conf
+
 - name: Write the tmux config file
   template:
     src: tmux.conf.j2

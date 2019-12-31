@@ -16,7 +16,11 @@
 # likely many other things. The issue with keybindings should be solved in keybindings.zsh
 # but I don't want to hunt around for other fixes when there's no obvious reason to
 # user the Alacritty terminfo anyway
-export TERM="xterm-256color"
+if ! [ -n "$TMUX" ]; then
+    export TERM="xterm-256color"
+else
+    export TERM="screen-256color"
+fi
 
 ################################
 ### History                  ###

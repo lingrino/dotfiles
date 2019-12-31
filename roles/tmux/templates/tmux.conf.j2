@@ -2,7 +2,15 @@
 # Uses tpm for package management
 # https://github.com/tmux-plugins/tpm
 
+# Many options copied from
+# https://github.com/samoshkin/tmux-config/blob/master/tmux/tmux.conf
+
+##########################
+### General            ###
+##########################
+
 # Set prefix to ctrl-a
+unbind C-b
 set-option -g prefix C-a
 
 # Set TERM properly
@@ -18,10 +26,95 @@ setw -g pane-base-index 1
 setw -g automatic-rename on
 set -g renumber-windows on
 
+# Set parent terminal title to reflect current window in tmux session
+set -g set-titles on
+set -g set-titles-string "#I:#W"
+
+##########################
+### Keybindings        ###
+##########################
+# Unbind default key bindings, we're going to override
+unbind "\$"    # rename-session
+unbind ,       # rename-window
+unbind %       # split-window -h
+unbind '"'     # split-window
+unbind '}'     # swap-pane -D
+unbind '{'     # swap-pane -U
+unbind [       # paste-buffer
+unbind ]
+unbind "'"     # select-window
+unbind n       # next-window
+unbind p       # previous-window
+unbind l       # last-window
+unbind M-n     # next window with alert
+unbind M-p     # next window with alert
+unbind o       # focus thru panes
+unbind &       # kill-window
+unbind "#"     # list-buffer
+unbind =       # choose-buffer
+unbind z       # zoom-pane
+unbind M-Up    # resize 5 rows up
+unbind M-Down  # resize 5 rows down
+unbind M-Right # resize 5 rows right
+unbind M-Left  # resize 5 rows left
+
 # Set to Control-T/W to open and close windows/tabs
 bind-key -n C-T new-window
 bind-key -n C-W kill-window
 
+# Window and pane selection
+bind -r C-[ previous-window
+bind -r C-] next-window
+bind -r [ select-pane -t :.-
+bind -r ] select-pane -t :.+
+bind -r Tab next-window
+bind -r C-Tab next-window
+bind -r BTab previous-window
+bind -r C-BTab previous-window # This is not working
+
+# Detach from session
+bind d detach
+bind D if -F '#{session_many_attached}' \
+    'confirm-before -p "Detach other clients? (y/n)" "detach -a"' \
+    'display "Session has only 1 client attached"'
+
+##########################
+### Remote Sessions    ###
+##########################
+# https://github.com/samoshkin/tmux-config#nested-tmux-sessions
+
+# Session is considered to be remote when we ssh into host
+if-shell 'test -n "$SSH_CLIENT"' \
+    'source-file {{ R_tmux_remote_conf.path }}'
+
+# We want to have single prefix key "C-a", usable both for local and remote session
+# we don't want to "C-a" + "a" approach either
+# Idea is to turn off all key bindings and prefix handling on local session,
+# so that all keystrokes are passed to inner/remote session
+
+# see: toggle on/off all keybindings - https://github.com/tmux/tmux/issues/237
+
+# Also, change some visual styles when window keys are off
+bind -T root F12  \
+    set prefix None \;\
+    set key-table off \;\
+    set status-style "fg=$color_status_text,bg=$color_window_off_status_bg" \;\
+    set window-status-current-format "#[fg=$color_window_off_status_bg,bg=$color_window_off_status_current_bg]$separator_powerline_right#[default] #I:#W# #[fg=$color_window_off_status_current_bg,bg=$color_window_off_status_bg]$separator_powerline_right#[default]" \;\
+    set window-status-current-style "fg=$color_dark,bold,bg=$color_window_off_status_current_bg" \;\
+    if -F '#{pane_in_mode}' 'send-keys -X cancel' \;\
+    refresh-client -S \;\
+
+bind -T off F12 \
+  set -u prefix \;\
+  set -u key-table \;\
+  set -u status-style \;\
+  set -u window-status-current-style \;\
+  set -u window-status-current-format \;\
+  refresh-client -S
+
+##########################
+### Plugins            ###
+##########################
 # Set custom TPM plugin path
 set-environment -g TMUX_PLUGIN_MANAGER_PATH '{{ R_tmux_plugin_dir.path }}/'
 
