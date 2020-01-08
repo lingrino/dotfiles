@@ -6,6 +6,7 @@ taps:
   - lingrino/tap
 
 brews:
+  - bandwhich
   - bat
   - coreutils
   - ctags
