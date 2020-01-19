@@ -15,7 +15,7 @@ set-option -g prefix C-a
 
 # Set TERM properly
 # https://github.com/tmux/tmux/wiki/FAQ#what-is-term-and-what-does-it-do
-set -g default-terminal "tmux-256color"
+set -g default-terminal "xterm-256color"
 
 # Enable mouse mode
 set -g mouse on
@@ -28,7 +28,7 @@ set -g renumber-windows on
 
 # Set parent terminal title to reflect current window in tmux session
 set -g set-titles on
-set -g set-titles-string "#I:#W"
+set -g set-titles-string "#T"
 
 ##########################
 ### Keybindings        ###
@@ -125,3 +125,7 @@ set -g @plugin '{{ plugin }}'
 
 # Initialize tpm (must be last line)
 run -b '~/.tmux/plugins/tpm/tpm'
+
+# This goes after running tpm to fix iterm2 aggressive-resize integration
+# https://github.com/tmux-plugins/tmux-sensible/issues/24
+setw -g aggressive-resize off
