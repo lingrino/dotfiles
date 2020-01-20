@@ -4,6 +4,7 @@ taps:
   - homebrew/cask-drivers
   - homebrew/cask-versions
   - lingrino/tap
+  - MisterTea/et
 
 brews:
   - bandwhich
@@ -32,6 +33,7 @@ brews:
   - kubernetes-helm
   - libgit2
   - mas
+  - MisterTea/et/et
   - nmap
   - node
   - openssl

@@ -28,6 +28,9 @@ symbol = ""
 [golang]
 disabled = true
 
+[hg_branch]
+disabled = true
+
 [hostname]
 disabled = true
 
@@ -49,6 +52,9 @@ disabled = true
 [package]
 disabled = true
 
+[php]
+disabled = true
+
 [python]
 disabled = true
 
@@ -56,6 +62,9 @@ disabled = true
 disabled = true
 
 [rust]
+disabled = true
+
+[terraform]
 disabled = true
 
 [time]

@@ -3,6 +3,7 @@
   register: R_brew_update
   changed_when:
     - R_brew_update.stderr
+  ignore_errors: true
   tags:
     - internet
 
@@ -15,6 +16,8 @@
       - "{{ R_brew_update.stderr_lines }}"
   when:
     - R_brew_update.changed
+  failed_when:
+    - R_brew_update.failed
   tags:
     - internet
 
@@ -32,6 +35,7 @@
     - (R_brew_bundle.stderr)                 or
       ("Installing" in R_brew_bundle.stdout) or
       ("Upgrading"  in R_brew_bundle.stdout)
+  ignore_errors: true
   tags:
     - internet
 
@@ -44,6 +48,8 @@
       - "{{ R_brew_bundle.stderr_lines }}"
   when:
     - R_brew_bundle.changed
+  failed_when:
+    - R_brew_bundle.failed
   tags:
     - internet
 
@@ -52,6 +58,7 @@
   register: R_brew_bundle_clean
   changed_when:
     - R_brew_bundle_clean.stdout or R_brew_bundle_clean.stderr
+  ignore_errors: true
   tags:
     - internet
 
@@ -64,6 +71,8 @@
       - "{{ R_brew_bundle_clean.stderr_lines }}"
   when:
     - R_brew_bundle_clean.changed
+  failed_when:
+    - R_brew_bundle_clean.failed
 
 # Brewfile only upgrades direct packagers. We run this in case
 # dependencies or brew itself need upgrades.
@@ -72,6 +81,7 @@
   register: R_brew_upgrade
   changed_when:
     - R_brew_upgrade.stdout or R_brew_upgrade.stderr
+  ignore_errors: true
 
 - name: Output brew upgrade
   debug:
@@ -82,12 +92,15 @@
       - "{{ R_brew_upgrade.stderr_lines }}"
   when:
     - R_brew_upgrade.changed
+  failed_when:
+    - R_brew_upgrade.failed
 
 - name: Run brew cleanup
   command: brew cleanup
   register: R_brew_cleanup
   changed_when:
     - R_brew_cleanup.stderr or R_brew_cleanup.stdout
+  ignore_errors: true
 
 - name: Output brew cleanup
   debug:
@@ -98,3 +111,5 @@
       - "{{ R_brew_cleanup.stderr_lines }}"
   when:
     - R_brew_cleanup.changed
+  failed_when:
+    - R_brew_cleanup.failed

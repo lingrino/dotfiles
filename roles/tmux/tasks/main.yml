@@ -51,6 +51,7 @@
   register: R_tpm_install
   changed_when:
     - ("Installing" in R_tpm_install.stdout)
+  ignore_errors: true
   tags:
     - internet
 
@@ -63,6 +64,8 @@
       - "{{ R_tpm_install.stderr_lines }}"
   when:
     - R_tpm_install.changed
+  failed_when:
+    - R_tpm_install.failed
   tags:
     - internet
 
@@ -71,6 +74,7 @@
   register: R_tpm_update
   changed_when:
     - ("fail" in R_tpm_update.stdout)
+  ignore_errors: true
   tags:
     - internet
 
@@ -83,6 +87,8 @@
       - "{{ R_tpm_update.stderr_lines }}"
   when:
     - R_tpm_update.changed
+  failed_when:
+    - R_tpm_update.failed
   tags:
     - internet
 
@@ -91,6 +97,7 @@
   register: R_tpm_clean
   changed_when:
     - ("Removing" in R_tpm_clean.stdout)
+  ignore_errors: true
   tags:
     - internet
 
@@ -103,5 +110,7 @@
       - "{{ R_tpm_clean.stderr_lines }}"
   when:
     - R_tpm_clean.changed
+  failed_when:
+    - R_tpm_clean.failed
   tags:
     - internet

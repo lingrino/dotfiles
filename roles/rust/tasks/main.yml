@@ -47,6 +47,7 @@
   register: R_rustup_init
   changed_when:
     - ("downloading" in R_rustup_init.stderr)
+  ignore_errors: true
   tags:
     - internet
 
@@ -59,6 +60,8 @@
       - "{{ R_rustup_init.stderr_lines }}"
   when:
     - R_rustup_init.changed
+  failed_when:
+    - R_rustup_init.failed
   tags:
     - internet
 
@@ -67,6 +70,7 @@
   register: R_rustup_update
   changed_when:
     - ("updated" in R_rustup_update.stdout)
+  ignore_errors: true
   tags:
     - internet
 
@@ -79,6 +83,8 @@
       - "{{ R_rustup_update.stderr_lines }}"
   when:
     - R_rustup_update.changed
+  failed_when:
+    - R_rustup_update.failed
   tags:
     - internet
 
