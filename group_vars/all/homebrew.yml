@@ -70,6 +70,7 @@ casks:
   - dash
   - docker
   - dropbox
+  - freedom
   - google-chrome
   - gpg-suite
   - iterm2-beta
