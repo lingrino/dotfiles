@@ -9,6 +9,7 @@ taps:
 brews:
   - bandwhich
   - bat
+  - lingrino/tap/cami
   - coreutils
   - ctags
   - ctop
