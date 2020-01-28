@@ -52,6 +52,7 @@ brews:
   - starship
   - telnet
   - terraform
+  - tflint
   - tmux
   - unrar
   - lingrino/tap/vaku
