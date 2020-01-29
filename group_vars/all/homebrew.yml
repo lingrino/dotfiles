@@ -1,4 +1,5 @@
 taps:
+  - golangci/tap
   - goreleaser/tap
   - homebrew/cask
   - homebrew/cask-drivers
@@ -23,6 +24,7 @@ brews:
   - git-lfs
   - lingrino/tap/glen
   - go
+  - golangci/tap/golangci-lint
   - goreleaser/tap/goreleaser
   - grc
   - htop
