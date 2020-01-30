@@ -12,3 +12,10 @@
     dest: "{{ R_docker_dir.path }}/daemon.json"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+
+- name: Write the default hadolint file
+  copy:
+    src: hadolint.yaml
+    dest: "{{ ansible_env.HOME }}/.config/hadolint.yaml"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

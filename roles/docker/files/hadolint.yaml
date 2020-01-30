@@ -1,0 +1,6 @@
+ignored:
+  - DL3007 # Docker latest image tag
+  - DL3008 # APT version pinning
+  - DL3013 # PIP version pinning
+  - DL3016 # NPM version pinning
+  - DL3018 # APK version pinning

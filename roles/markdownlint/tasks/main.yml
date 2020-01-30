@@ -1,0 +1,17 @@
+# Write to json and rc file to support CLI and extension
+# https://github.com/DavidAnson/markdownlint
+# https://github.com/igorshubovych/markdownlint-cli
+
+- name: Write the default markdownlint file as json
+  copy:
+    src: .markdownlint.json
+    dest: "{{ ansible_env.HOME }}/.markdownlint.json"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Write the default markdownlint file as rc
+  copy:
+    src: .markdownlint.json
+    dest: "{{ ansible_env.HOME }}/.markdownlintrc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

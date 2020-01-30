@@ -1,0 +1,7 @@
+# https://github.com/koalaman/shellcheck/wiki/Ignore
+- name: Write the default shellcheck lint file
+  copy:
+    src: .shellcheckrc
+    dest: "{{ ansible_env.HOME }}/.shellcheckrc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"

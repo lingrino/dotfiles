@@ -22,3 +22,10 @@
     - R_goget.stdout or R_goget.stderr
   tags:
     - internet
+
+- name: Write the default golangci lint file
+  copy:
+    src: .golangci.yml
+    dest: "{{ ansible_env.HOME }}/.golangci.yml"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
