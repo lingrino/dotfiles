@@ -32,4 +32,5 @@
     - { role: terraform,    tags: ['terraform']    }
     - { role: tmux,         tags: ['tmux']         }
     - { role: transmission, tags: ['transmission'] }
+    - { role: wrangler,     tags: ['wrangler']     }
     - { role: zsh,          tags: ['zsh']          }

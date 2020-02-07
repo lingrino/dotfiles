@@ -1,0 +1,2 @@
+account_id = "{{ cloudflare_account_id }}"
+api_token = "{{ wrangler_api_token }}"
