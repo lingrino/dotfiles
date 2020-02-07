@@ -129,5 +129,11 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-# - name: Install rust components
-# Loop here over rust_components var
+- name: Install rust cargo
+  command: cargo install {{ item }} --force
+  loop: "{{ rust_cargos }}"
+  register: R_cargos
+  changed_when:
+    - R_cargos.stdout or R_cargos.stderr
+  tags:
+    - internet

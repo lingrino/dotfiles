@@ -5,3 +5,4 @@ npm_author_url:   https://lingrino.com
 npm_global_packages:
   - serverless
   - spoof
+  - "@cloudflare/wrangler"
