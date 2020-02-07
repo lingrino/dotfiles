@@ -1,4 +1,5 @@
 taps:
+  - github/gh
   - golangci/tap
   - goreleaser/tap
   - homebrew/cask
@@ -19,6 +20,7 @@ brews:
   - fasd
   - fd
   - fzf
+  - github/gh/gh
   - git
   - git-delta
   - git-lfs
