@@ -72,7 +72,6 @@ casks:
   - 1password-cli
   - alacritty
   - alfred
-  - arq
   - aws-vault
   - dash
   - docker
