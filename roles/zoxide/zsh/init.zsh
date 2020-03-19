@@ -5,7 +5,3 @@ eval "$(zoxide init zsh --no-define-aliases)"
 
 # I prefer j over z
 alias j='z'
-alias ji='z -i'
-alias ja='zoxide add'
-alias jq='zoxide query'
-alias jr='zoxide remove'
