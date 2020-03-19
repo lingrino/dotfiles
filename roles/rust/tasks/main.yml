@@ -130,10 +130,11 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Install rust cargo
-  command: cargo install {{ item }} --force
+  command: cargo install {{ item }}
   loop: "{{ rust_cargos }}"
   register: R_cargos
   changed_when:
-    - R_cargos.stdout or R_cargos.stderr
+    - ("Installed" in R_cargos.stderr) or
+      ("Replaced"  in R_cargos.stderr)
   tags:
     - internet

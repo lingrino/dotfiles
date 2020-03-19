@@ -6,4 +6,3 @@ npm_global_packages:
   - serverless
   - spoof
   - typescript
-  - "@cloudflare/wrangler"
