@@ -12,29 +12,9 @@
     mode: 0700
     owner: "{{ ansible_user_id }}"
 
-- name: Make sure the bat themes directory exists
-  file:
-    state: directory
-    dest: "{{ ansible_env.HOME }}/.config/bat/themes"
-    mode: 0700
-    owner: "{{ ansible_user_id }}"
-
 - name: Write the bat config file
   copy:
     src: config
     dest: "{{ ansible_env.HOME }}/.config/bat/config"
     mode: 0600
     owner: "{{ ansible_user_id }}"
-
-- name: Write the Nord theme to themes
-  copy:
-    src: nord.tmTheme
-    dest: "{{ ansible_env.HOME }}/.config/bat/themes/nord.tmTheme"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-
-- name: Rebuild the bat cache to get the new theme
-  command: bat cache --build
-  register: R_bat_cache_build
-  changed_when:
-    - R_bat_cache_build.stderr
