@@ -30,6 +30,7 @@ brews:
   - go
   - golangci/tap/golangci-lint
   - goreleaser/tap/goreleaser
+  - hadolint
   - hyperfine
   - jq
   - libgit2
