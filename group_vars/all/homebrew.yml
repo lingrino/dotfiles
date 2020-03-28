@@ -1,4 +1,5 @@
 taps:
+  - cjbassi/ytop
   - github/gh
   - golangci/tap
   - goreleaser/tap
@@ -9,61 +10,56 @@ taps:
   - MisterTea/et
 
 brews:
+  - ansible
+  - ansible-lint
+  - awscli
   - bandwhich
   - bat
-  - lingrino/tap/cami
+  - cjbassi/ytop/ytop
   - coreutils
-  - ctags
   - ctop
   - dive
+  - dust
   - exa
   - fd
   - fzf
-  - github/gh/gh
   - git
   - git-delta
   - git-lfs
-  - lingrino/tap/glen
+  - github/gh/gh
   - go
   - golangci/tap/golangci-lint
   - goreleaser/tap/goreleaser
-  - grc
-  - htop
-  - httpie
-  - hub
+  - hyperfine
   - jq
-  - kubectx
-  - kubernetes-cli
-  - kubernetes-helm
   - libgit2
+  - lingrino/tap/cami
+  - lingrino/tap/glen
+  - lingrino/tap/vaku
   - mas
   - MisterTea/et/et
   - nmap
   - node
   - openssl
-  - prettyping
-  - readline
-  - scc
   - packer
-  - postgresql
+  - prettyping
   - python
+  - readline
   - reattach-to-user-namespace
   - ripgrep
   - rustup-init
+  - scc
   - shellcheck
   - shfmt
   - starship
-  - telnet
   - terraform
   - tflint
   - tmux
   - unrar
-  - lingrino/tap/vaku
   - vault
   - watch
   - wget
   - wireguard-tools
-  - yarn
   - zsh
 
 casks:
@@ -72,7 +68,6 @@ casks:
   - alacritty
   - alfred
   - aws-vault
-  - dash
   - docker
   - dropbox
   - fantastical

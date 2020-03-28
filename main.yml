@@ -16,7 +16,6 @@
     - { role: git,          tags: ['git']          }
     - { role: go,           tags: ['go']           }
     - { role: goreleaser,   tags: ['goreleaser']   }
-    - { role: hub,          tags: ['hub']          }
     - { role: mac,          tags: ['mac']          }
     - { role: markdownlint, tags: ['markdownlint'] }
     - { role: netrc,        tags: ['netrc']        }
@@ -31,6 +30,5 @@
     - { role: starship,     tags: ['starship']     }
     - { role: terraform,    tags: ['terraform']    }
     - { role: tmux,         tags: ['tmux']         }
-    - { role: transmission, tags: ['transmission'] }
     - { role: wrangler,     tags: ['wrangler']     }
     - { role: zsh,          tags: ['zsh']          }

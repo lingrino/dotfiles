@@ -1,14 +1,5 @@
-# Many tools from here
-# https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on
-
 gopath: "{{ projects_folder_path }}/go"
 
 go_gets:
-  - github.com/cjbassi/gotop
-  - github.com/mdempsky/gocode
-  - github.com/ramya-rao-a/go-outline
-  - github.com/rogpeppe/godef
-  - github.com/sqs/goreturns
-  - github.com/uudashr/gopkgs/cmd/gopkgs
-  - golang.org/x/lint/golint
   - golang.org/x/perf/cmd/benchstat
+  - golang.org/x/tools/gopls

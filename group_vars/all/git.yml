@@ -1,6 +1,5 @@
-# Define a list of git users and which paths they should be used in
-# If path is left empty it will be the "default" user that is used if
-# no other path matches
+# Define a list of git users and which paths they should be used in If path is left empty it will be
+# the "default" user that is used if no other path matches
 git_users:
   personal:
     shorthand: me

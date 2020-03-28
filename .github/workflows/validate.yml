@@ -1,6 +1,7 @@
 name: Validate
 
-on: push
+on:
+  - push
 
 jobs:
   validate:

@@ -1,13 +1,6 @@
 ansible_python_interpreter: /usr/local/bin/python3
 
 pip_global_packages:
-  - ansible
-  - ansible-lint
-  - awscli
-  - black
-  - jedi
   - pip
-  - pylint
-  - requests
   - setuptools
   - wheel

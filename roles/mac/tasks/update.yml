@@ -2,7 +2,7 @@
   command: softwareupdate -i -a
   register: R_mac_update
   changed_when:
-    - R_mac_update.stderr
+    - ("No updates are available." not in R_mac_update.stderr)
   tags:
     - internet
 
