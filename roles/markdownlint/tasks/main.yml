@@ -15,3 +15,10 @@
     dest: "{{ ansible_env.HOME }}/.markdownlintrc"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+
+- name: Write the mdlrc file
+  copy:
+    src: .mdlrc
+    dest: "{{ ansible_env.HOME }}/.mdlrc"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
