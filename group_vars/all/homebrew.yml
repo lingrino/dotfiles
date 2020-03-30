@@ -1,3 +1,6 @@
+# run `brew --prefix` to show
+brew_prefix: /usr/local
+
 taps:
   - cjbassi/ytop
   - github/gh

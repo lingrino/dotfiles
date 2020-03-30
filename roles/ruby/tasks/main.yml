@@ -1,0 +1,33 @@
+- name: Create the zsh directory
+  file:
+    state: directory
+    dest: "{{ role_path }}/zsh"
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+
+- name: Template env.zsh into zsh/env.zsh
+  template:
+    src: env.zsh.j2
+    dest: "{{ role_path }}/zsh/env.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Get the output of `rbenv init -`
+  command: rbenv init -
+  register: R_rbenv_init
+  changed_when:
+    - R_rbenv_init.stderr
+
+- name: Write rbenv init to zsh/rbenv.zsh
+  template:
+    src: rbenv.zsh.j2
+    dest: "{{ role_path }}/zsh/rbenv.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Update default mysql config
+  copy:
+    src: my.cnf
+    dest: "{{ brew_prefix }}/etc/my.cnf"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
