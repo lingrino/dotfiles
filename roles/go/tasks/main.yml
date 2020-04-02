@@ -13,7 +13,7 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Install all go packages
-  command: go get -u {{ item }}
+  command: go get { item }}
   environment:
     GOPATH: "{{ gopath | expanduser }}"
   loop: "{{ go_gets }}"
