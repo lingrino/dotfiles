@@ -93,6 +93,8 @@ apps:
     name: Bear
   - id: 441258766
     name: Magnet
+  - id: 1475387142
+    name: Tailscale
   - id: 904280696
     name: Things3
   - id: 1451685025
