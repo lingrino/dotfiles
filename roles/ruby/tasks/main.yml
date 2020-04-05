@@ -5,6 +5,13 @@
     mode: 0700
     owner: "{{ ansible_user_id }}"
 
+- name: Template path.zsh into zsh/path.zsh
+  template:
+    src: path.zsh.j2
+    dest: "{{ role_path }}/zsh/path.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
 - name: Template env.zsh into zsh/env.zsh
   template:
     src: env.zsh.j2
@@ -18,7 +25,7 @@
   changed_when:
     - R_rbenv_init.stderr
 
-- name: Write rbenv init to zsh/rbenv.zsh
+- name: Template rbenv init to zsh/rbenv.zsh
   template:
     src: rbenv.zsh.j2
     dest: "{{ role_path }}/zsh/rbenv.zsh"
@@ -31,3 +38,26 @@
     dest: "{{ brew_prefix }}/etc/my.cnf"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+
+- name: Install the global ruby version
+  command: rbenv install -s {{ ruby_global_version }}
+  register: R_ruby_global_install
+  changed_when:
+    - R_ruby_global_install.stdout or R_ruby_global_install.stderr
+  tags:
+    - internet
+
+- name: Copy global ruby version file
+  template:
+    src: version
+    dest: "{{ ansible_env.HOME }}/.rbenv/version"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+
+- name: Install all ruby gems
+  gem:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ ruby_global_gems }}"
+  tags:
+    - internet
