@@ -1,5 +1,11 @@
+host_taps:
+  - github/bootstrap
+
 host_brews:
+  - launch_socket_server
+  - launchdns
   - mysql@5.7
+  - nginx
   - rbenv
   - ruby-build
 
