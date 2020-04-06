@@ -2,4 +2,3 @@ gopath: "{{ projects_folder_path }}/go"
 
 go_gets:
   - golang.org/x/perf/cmd/benchstat
-  - golang.org/x/tools/gopls
