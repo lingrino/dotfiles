@@ -63,7 +63,6 @@ brews:
   - vault
   - watch
   - wget
-  - wireguard-tools
   - zsh
 
 casks:
@@ -97,5 +96,3 @@ apps:
     name: Tailscale
   - id: 904280696
     name: Things3
-  - id: 1451685025
-    name: WireGuard
