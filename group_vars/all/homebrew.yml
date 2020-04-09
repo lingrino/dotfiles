@@ -10,7 +10,6 @@ taps:
   - homebrew/cask-drivers
   - homebrew/cask-versions
   - lingrino/tap
-  - MisterTea/et
 
 brews:
   - ansible
@@ -41,7 +40,6 @@ brews:
   - lingrino/tap/glen
   - lingrino/tap/vaku
   - mas
-  - MisterTea/et/et
   - nmap
   - node
   - openssl
