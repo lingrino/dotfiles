@@ -41,7 +41,7 @@
     - internet
 
 - name: Install the alacritty terminfo database
-  command: tic -xe alacritty,alacritty-direct extra/alacritty.info
+  command: tic -xe alacritty,alacritty-direct {{ R_alacritty_terminfo.path }}
   become: true
   become_user: root
   when:
