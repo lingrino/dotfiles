@@ -66,6 +66,7 @@ brews:
 casks:
   - 1password
   - 1password-cli
+  - adguard
   - alacritty
   - alfred
   - aws-vault
