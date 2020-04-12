@@ -6,8 +6,6 @@ host_brews:
   - launchdns
   - mysql@5.7
   - nginx
-  - rbenv
-  - ruby-build
 
 host_casks:
   - ngrok

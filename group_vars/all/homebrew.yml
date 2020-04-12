@@ -46,9 +46,11 @@ brews:
   - packer
   - prettyping
   - python
+  - rbenv
   - readline
   - reattach-to-user-namespace
   - ripgrep
+  - ruby-build
   - rustup-init
   - scc
   - shellcheck
