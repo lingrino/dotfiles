@@ -4,3 +4,7 @@ IdentityFile ~/.ssh/{{ ssh_keys[key].file_name }}
 
 # Mac Specific Settings
 UseKeychain yes
+
+{% if ssh_config_extra is defined %}
+{{ ssh_config_extra }}
+{% endif %}
