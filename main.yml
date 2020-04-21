@@ -31,5 +31,6 @@
     - { role: starship,     tags: ['starship']     }
     - { role: terraform,    tags: ['terraform']    }
     - { role: tmux,         tags: ['tmux']         }
+    - { role: work,         tags: ['work']     }
     - { role: wrangler,     tags: ['wrangler']     }
     - { role: zsh,          tags: ['zsh']          }
