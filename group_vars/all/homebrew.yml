@@ -72,6 +72,7 @@ casks:
   - alacritty
   - alfred
   - aws-vault
+  - cleanshot
   - docker
   - dropbox
   - fantastical
