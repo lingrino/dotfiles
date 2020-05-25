@@ -1,5 +1,26 @@
 #!/usr/local/bin/zsh
 
+# Helper functions for managing path. Prevents duplicates.
+typeset -U path  # No duplicates
+path=()
+
+_prepath() {
+    for dir in "$@"; do
+        dir=${dir:A}
+        [[ ! -d "$dir" ]] && return
+        path=("$dir" $path[@])
+    done
+}
+_postpath() {
+    for dir in "$@"; do
+        dir=${dir:A}
+        [[ ! -d "$dir" ]] && return
+        path=($path[@] "$dir")
+    done
+}
+_prepath /bin /sbin /usr/bin /usr/sbin
+_prepath /usr/local/bin /usr/local/sbin
+
 # Set ZSH to the path to these dotfiles
 export ZSH={{ inventory_dir }}
 
@@ -40,6 +61,9 @@ unset config_files
 # Syntax-highlighting must be loaded at the end
 source /usr/local/share/zsh/autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+
+unfunction _prepath
+unfunction _postpath
 
 # Lastly we load our prompt
 eval "$(starship init zsh)"
