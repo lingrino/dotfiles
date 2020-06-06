@@ -89,6 +89,7 @@ casks:
   - visual-studio-code
   - vlc
   - zoomus
+  - zsa-wally
 
 apps:
   - id: 1091189122
