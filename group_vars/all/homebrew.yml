@@ -48,7 +48,6 @@ brews:
   - python
   - rbenv
   - readline
-  - reattach-to-user-namespace
   - ripgrep
   - ruby-build
   - rustup-init
@@ -58,7 +57,6 @@ brews:
   - starship
   - terraform
   - tflint
-  - tmux
   - unrar
   - vault
   - watch
