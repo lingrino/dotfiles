@@ -13,7 +13,7 @@ fi
 # This also install xcode command line tools
 if test ! "$(command -v brew)"; then
     echo "Homebrew not found, installing"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install)"
 fi
 
 # Create the projects folder if it does not exist

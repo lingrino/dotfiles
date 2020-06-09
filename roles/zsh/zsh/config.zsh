@@ -5,7 +5,7 @@
 # Can also type `setopt ` and then tab for completion
 
 # Some ideas from
-# https://github.com/holman/dotfiles/blob/master/zsh/config.zsh
+# https://github.com/holman/dotfiles/blob/HEAD/zsh/config.zsh
 # https://www.viget.com/articles/zsh-config-productivity-plugins-for-mac-oss-default-shell/
 
 ################################

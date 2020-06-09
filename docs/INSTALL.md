@@ -9,7 +9,7 @@
 1. Open terminal and run the following command
 
    ```bash
-   sh -c "$(curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/master/bootstrap.sh)"
+   sh -c "$(curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/HEAD/bootstrap.sh)"
    ```
 
 1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example` with your

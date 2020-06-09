@@ -1,13 +1,13 @@
 ###################################################################################
 # Ansible                                                                       ###
-# https://github.com/github/gitignore/blob/master/Global/Ansible.gitignore      ###
+# https://github.com/github/gitignore/blob/HEAD/Global/Ansible.gitignore      ###
 ###################################################################################
 *.retry
 
 
 ###################################################################################
 # Archives                                                                      ###
-# https://github.com/github/gitignore/blob/master/Global/Archives.gitignore     ###
+# https://github.com/github/gitignore/blob/HEAD/Global/Archives.gitignore     ###
 ###################################################################################
 # It's better to unpack these files and commit the raw source because
 # git has its own built in compression methods.
@@ -41,7 +41,7 @@
 
 ###################################################################################
 # Dropbox                                                                       ###
-# https://github.com/github/gitignore/blob/master/Global/Dropbox.gitignore      ###
+# https://github.com/github/gitignore/blob/HEAD/Global/Dropbox.gitignore      ###
 ###################################################################################
 # Dropbox settings and caches
 .dropbox
@@ -51,7 +51,7 @@
 
 ###################################################################################
 # Go                                                                            ###
-# https://github.com/github/gitignore/blob/master/Go.gitignore                  ###
+# https://github.com/github/gitignore/blob/HEAD/Go.gitignore                  ###
 ###################################################################################
 # Binaries for programs and plugins
 *.exe
@@ -75,7 +75,7 @@
 
 ###################################################################################
 # Mac                                                                           ###
-# https://github.com/github/gitignore/blob/master/Global/macOS.gitignore        ###
+# https://github.com/github/gitignore/blob/HEAD/Global/macOS.gitignore        ###
 ###################################################################################
 # General
 *~
@@ -109,7 +109,7 @@ Temporary Items
 
 ###################################################################################
 # Packer                                                                        ###
-# https://github.com/github/gitignore/blob/master/Packer.gitignore              ###
+# https://github.com/github/gitignore/blob/HEAD/Packer.gitignore              ###
 ###################################################################################
 # Cache objects
 packer_cache/
@@ -148,7 +148,7 @@ packer-provisioner-*
 
 ###################################################################################
 # Terraform                                                                     ###
-# https://github.com/github/gitignore/blob/master/Terraform.gitignore           ###
+# https://github.com/github/gitignore/blob/HEAD/Terraform.gitignore           ###
 ###################################################################################
 # Local .terraform directories
 **/.terraform/*

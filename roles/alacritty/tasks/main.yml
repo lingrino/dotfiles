@@ -22,17 +22,17 @@
 # I write the default config file just for reference. Is not used.
 - name: Write the default alacritty config file
   get_url:
-    url: https://raw.githubusercontent.com/jwilm/alacritty/master/alacritty.yml
+    url: https://raw.githubusercontent.com/jwilm/alacritty/HEAD/alacritty.yml
     dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty-default.yml"
     mode: 0600
     owner: "{{ ansible_user_id }}"
   tags:
     - internet
 
-# https://github.com/jwilm/alacritty/blob/master/INSTALL.md#terminfo
+# https://github.com/jwilm/alacritty/blob/HEAD/INSTALL.md#terminfo
 - name: Write the alacritty terminfo database
   get_url:
-    url: https://raw.githubusercontent.com/jwilm/alacritty/master/extra/alacritty.info
+    url: https://raw.githubusercontent.com/jwilm/alacritty/HEAD/extra/alacritty.info
     dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.info"
     mode: 0600
     owner: "{{ ansible_user_id }}"
@@ -49,7 +49,7 @@
   tags:
     - sudo
 
-# https://github.com/jwilm/alacritty/blob/master/INSTALL.md#manual-page
+# https://github.com/jwilm/alacritty/blob/HEAD/INSTALL.md#manual-page
 - name: Make sure the man directory exists
   file:
     state: directory
@@ -59,17 +59,17 @@
 
 - name: Write the man page
   get_url:
-    url: https://raw.githubusercontent.com/jwilm/alacritty/master/extra/alacritty.man
+    url: https://raw.githubusercontent.com/jwilm/alacritty/HEAD/extra/alacritty.man
     dest: /usr/local/share/man/man1/alacritty.1
     mode: 0600
     owner: "{{ ansible_user_id }}"
   tags:
     - internet
 
-# https://github.com/jwilm/alacritty/blob/master/INSTALL.md#shell-completions
+# https://github.com/jwilm/alacritty/blob/HEAD/INSTALL.md#shell-completions
 - name: Write the alacritty zsh completions
   get_url:
-    url: https://raw.githubusercontent.com/jwilm/alacritty/master/extra/completions/_alacritty
+    url: https://raw.githubusercontent.com/jwilm/alacritty/HEAD/extra/completions/_alacritty
     dest: "/usr/local/share/zsh/site-functions/_alacritty"
     mode: 0600
     owner: "{{ ansible_user_id }}"

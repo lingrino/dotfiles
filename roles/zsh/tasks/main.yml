@@ -1,7 +1,7 @@
 # https://www.nordtheme.com/docs/ports/dircolors/installation
 - name: Write the nord dircolors file
   get_url:
-    url: https://raw.githubusercontent.com/arcticicestudio/nord-dircolors/master/src/dir_colors
+    url: https://raw.githubusercontent.com/arcticicestudio/nord-dircolors/HEAD/src/dir_colors
     dest: "{{ ansible_env.HOME }}/.dir_colors"
     mode: 0600
     owner: "{{ ansible_user_id }}"
@@ -15,7 +15,7 @@
     clone: true
     depth: 1
     update: true
-    version: master
+    version: HEAD
   tags:
     - internet
 
@@ -26,7 +26,7 @@
     clone: true
     depth: 1
     update: true
-    version: master
+    version: HEAD
   tags:
     - internet
 
@@ -37,7 +37,7 @@
     clone: true
     depth: 1
     update: true
-    version: master
+    version: HEAD
   tags:
     - internet
 

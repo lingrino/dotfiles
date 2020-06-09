@@ -6,7 +6,7 @@ Welcome to my dotfiles!
 
 This repo contains all of the configuration that I use to get my mac from first boot to 100% configured. Almost everything is automated using Ansible, but some system preferences must be done manually and those are documented in this repo.
 
-This repo contains **my dotfiles** and the contents change in master without warning as I update my own tools and preferences. However the dotfiles are arranged such that you *should* be able to fork this repo, change variables, and get going with your own
+This repo contains **my dotfiles** and the contents change without warning as I update my own tools and preferences. However the dotfiles are arranged such that you *should* be able to fork this repo, change variables, and get going with your own
 configuration.
 
 ## Tools That I Use

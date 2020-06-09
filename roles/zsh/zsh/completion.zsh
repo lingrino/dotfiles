@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 
-# Taken from - https://github.com/ThiefMaster/zsh-config/blob/master/zshrc.d/completion.zsh
+# Taken from - https://github.com/Thief/zsh-config/blob/HEAD/zshrc.d/completion.zsh
 
 # Enable approximate completions
 zstyle ':completion:*' completer _complete _ignored _approximate
