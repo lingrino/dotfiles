@@ -1,4 +1,4 @@
-- name: Enable font smoothing
+- name: Disable font smoothing
   block:
     - name: Set AppleFontSmoothing
       osx_defaults:
@@ -6,7 +6,7 @@
         domain: NSGlobalDomain
         key: AppleFontSmoothing
         type: int
-        value: 1
+        value: 0
 
     - name: Set CGFontRenderingFontSmoothingDisabled
       osx_defaults:
@@ -14,7 +14,7 @@
         domain: NSGlobalDomain
         key: CGFontRenderingFontSmoothingDisabled
         type: bool
-        value: false
+        value: true
 
 - name: Turn off transparency
   osx_defaults:
