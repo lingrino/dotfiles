@@ -1,1 +1,2 @@
 default_editor: /usr/local/bin/code
+default_git_editor: /usr/local/bin/code --wait
