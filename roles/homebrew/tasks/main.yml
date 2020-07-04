@@ -43,7 +43,7 @@
   debug:
     msg:
       - "stdout:"
-      - "{{ R_brew_bundle.stdout_lines }}"
+      - "{{ R_brew_bundle.stdout_lines | select('match', '^Installing*') | list }}"
       - "stderr:"
       - "{{ R_brew_bundle.stderr_lines }}"
   when:
