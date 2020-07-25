@@ -1,5 +1,5 @@
 # Use the TODO theme
---theme="nord"
+--theme="Nord"
 
 # Show line numbers and git changes
 --style="numbers,changes"
