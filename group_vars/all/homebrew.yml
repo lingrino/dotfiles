@@ -35,6 +35,7 @@ brews:
   - hadolint
   - hyperfine
   - jq
+  - less
   - libgit2
   - lingrino/tap/cami
   - lingrino/tap/glen

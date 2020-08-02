@@ -31,8 +31,14 @@
 [core]
         excludesfile = ~/.gitignore
         editor = $GIT_EDITOR
-        pager = delta --dark --theme="nord" --minus-color="#773D42" --minus-emph-color="#BF616A" --plus-color="#425630" --plus-emph-color="#A3BE8C"
+        pager = delta
         untrackedCache = true
+[delta]
+        syntax-theme = nord
+        plus-style = syntax "#425630"
+        minus-style = syntax "#773D42"
+        plus-emph-style = syntax "#A3BE8C"
+        minus-emph-style = syntax "#BF616A"
 [apply]
         whitespace = nowarn
 [mergetool]
