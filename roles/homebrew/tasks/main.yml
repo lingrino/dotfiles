@@ -80,7 +80,8 @@
   command: brew upgrade
   register: R_brew_upgrade
   changed_when:
-    - R_brew_upgrade.stdout or R_brew_upgrade.stderr
+    - (R_brew_upgrade.stderr) or
+      ("No Casks to upgrade" not in R_brew_upgrade.stdout)
   ignore_errors: true
 
 - name: Output brew upgrade
