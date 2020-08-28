@@ -3,7 +3,6 @@ brew_prefix: /usr/local
 
 taps:
   - cjbassi/ytop
-  - github/gh
   - golangci/tap
   - goreleaser/tap
   - homebrew/cask
@@ -28,7 +27,7 @@ brews:
   - git
   - git-delta
   - git-lfs
-  - github/gh/gh
+  - gh
   - go
   - golangci/tap/golangci-lint
   - goreleaser/tap/goreleaser
