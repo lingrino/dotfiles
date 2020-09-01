@@ -3,7 +3,7 @@
   connection: local
   roles:
     - { role: homebrew,     tags: ["homebrew"]     }
-    - { role: 1password,    tags: ["1password"]    }
+    - { role: onepassword,  tags: ["onepassword"]  }
     - { role: alacritty,    tags: ["alacritty"]    }
     - { role: ansible,      tags: ["ansible"]      }
     - { role: aws,          tags: ["aws"]          }

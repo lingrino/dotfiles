@@ -14,9 +14,9 @@ all)
     ;;
 most)
     shift
-    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,1password" "$@"
+    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,onepassword" "$@"
     ;;
 *)
-    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,1password,mac" "$@"
+    ansible-playbook -i {{ inventory_dir }}/inventory -l "$(cat {{ inventory_dir }}/me.txt)" {{ inventory_dir }}/main.yml --skip-tags "sudo,onepassword,mac" "$@"
     ;;
 esac

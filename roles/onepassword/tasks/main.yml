@@ -23,7 +23,7 @@
   tags:
     - post
     - internet
-    - 1password
+    - onepassword
 
 - name: Update 1password CLI
   command: brew cask reinstall 1password-cli
@@ -32,4 +32,4 @@
   tags:
     - post
     - internet
-    - 1password
+    - onepassword

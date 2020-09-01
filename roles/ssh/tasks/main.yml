@@ -39,7 +39,7 @@
   loop: "{{ ssh_keys | dict2items }}"
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Copy over my SSH private keys
   copy:
@@ -60,4 +60,4 @@
   loop: "{{ ssh_keys | dict2items }}"
   tags:
     - post
-    - 1password
+    - onepassword

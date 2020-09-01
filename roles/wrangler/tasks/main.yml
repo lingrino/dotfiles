@@ -29,7 +29,7 @@
   no_log: true
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Get our wrangler api token
   set_fact:
@@ -46,7 +46,7 @@
   no_log: true
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Write the wrangler config file
   template:
@@ -56,4 +56,4 @@
     owner: "{{ ansible_user_id }}"
   tags:
     - post
-    - 1password
+    - onepassword

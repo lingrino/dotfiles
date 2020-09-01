@@ -10,7 +10,7 @@
   loop: "{{ pgp_keys | dict2items }}"
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Copy the pgp public key to a temporary location
   copy:
@@ -35,7 +35,7 @@
     index_var: idx
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Copy the pgp private key to a temporary location
   copy:
@@ -60,7 +60,7 @@
     index_var: idx
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Import the pgp public key
   command: gpg --import /tmp/pgp_public_{{ item.value.name }}.asc
@@ -72,7 +72,7 @@
     index_var: idx
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Import the pgp private key
   command: gpg --import /tmp/pgp_private_{{ item.value.name }}.asc
@@ -84,7 +84,7 @@
     index_var: idx
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Remove the temporary pgp public key
   file:
@@ -98,7 +98,7 @@
     index_var: idx
   tags:
     - post
-    - 1password
+    - onepassword
 
 - name: Remove the temporary pgp private key
   file:
@@ -112,4 +112,4 @@
     index_var: idx
   tags:
     - post
-    - 1password
+    - onepassword
