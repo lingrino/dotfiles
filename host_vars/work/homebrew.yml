@@ -2,6 +2,7 @@ host_taps:
   - github/bootstrap
 
 host_brews:
+  - jfrog-cli-go
   - launch_socket_server
   - launchdns
   - mysql@5.7

@@ -27,7 +27,7 @@
 [protocol]
         version = 2
 [pack]
-	useSparse = true
+        useSparse = true
 [core]
         excludesfile = ~/.gitignore
         editor = $GIT_EDITOR
@@ -55,7 +55,9 @@
 [fetch]
         prune = true
 [commit]
-       gpgsign = true
+        gpgsign = true
+[url "git@github.com:"]
+        insteadOf = https://github.com/
 {% for user in git_users %}
 {% if git_users[user].path is defined %}
 [includeIf "gitdir:{{ git_users[user].path }}"]
