@@ -45,6 +45,7 @@ brews:
   - openssl
   - packer
   - prettyping
+  - procs
   - python
   - rbenv
   - readline
@@ -52,6 +53,7 @@ brews:
   - ruby-build
   - rustup-init
   - scc
+  - sd
   - shellcheck
   - shfmt
   - starship
