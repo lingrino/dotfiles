@@ -7,7 +7,7 @@ add_newline = true
 disabled = true
 
 [cmd_duration]
-prefix = ""
+format = "[$duration]($style)"
 
 [conda]
 disabled = true
