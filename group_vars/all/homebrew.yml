@@ -2,7 +2,7 @@
 brew_prefix: /usr/local
 
 taps:
-  - cjbassi/ytop
+  - clementtsang/bottom
   - golangci/tap
   - goreleaser/tap
   - homebrew/cask
@@ -16,7 +16,7 @@ brews:
   - awscli
   - bandwhich
   - bat
-  - cjbassi/ytop/ytop
+  - clementtsang/bottom/bottom
   - coreutils
   - ctop
   - dive
