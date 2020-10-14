@@ -1,9 +1,10 @@
 cargo_home: ~/.cargo/
 rustup_home: ~/.rustup
 
-rust_author_name:  Sean Lingren
+rust_author_name: Sean Lingren
 rust_author_email: sean@lingrino.com
 
 rust_cargos:
+  - loop-rs
   - wrangler
   - zoxide
