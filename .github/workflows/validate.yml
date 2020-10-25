@@ -1,16 +1,18 @@
 name: Validate
 
 on:
-  - push
+  push:
+  workflow_dispatch:
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    container: lingrino/ci:latest
     steps:
       - name: Code - Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
       - name: Ansible Lint
-        run: ansible-lint main.yml
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: packer/ansible/**/*.yml
