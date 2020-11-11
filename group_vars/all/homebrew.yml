@@ -20,6 +20,7 @@ brews:
   - coreutils
   - ctop
   - dive
+  - dog
   - dust
   - exa
   - fd

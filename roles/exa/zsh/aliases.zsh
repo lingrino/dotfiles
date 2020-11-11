@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 
 # exa is a replacement for ls
 
