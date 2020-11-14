@@ -41,7 +41,7 @@
         username=op_auths['me'].email,
         secret_key=op_auths['me'].secret_key,
         vault_password=lookup('vars', 'op_password_'+op_auths['me'].shorthand)
-      ) | json_query('details.sections[?title==`API Tokens`].fields | [] | [?t==`wrangler`].v | [0]')
+      ) | json_query('details.sections[?title==`API Tokens`].fields | [] | [?t==`wrangler-local`].v | [0]')
     }}"
   no_log: true
   tags:
