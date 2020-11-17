@@ -9,6 +9,9 @@ alias tff='terraform fmt'
 # Shorten terraform init
 alias tfi='terraform init -upgrade'
 
+# Shorten terraform import
+alias tfim='terraform import'
+
 # Shorten terraform plan
 alias tfp='terraform plan'
 

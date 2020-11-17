@@ -1,7 +1,3 @@
-npm_author_name:  Sean Lingren
+npm_author_name: Sean Lingren
 npm_author_email: sean@lingrino.com
-npm_author_url:   https://lingrino.com
-
-npm_global_packages:
-  - markdownlint-cli
-  - serverless
+npm_author_url: https://lingrino.com

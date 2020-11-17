@@ -32,13 +32,6 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
-- name: Update default mysql config
-  copy:
-    src: my.cnf
-    dest: "{{ brew_prefix }}/etc/my.cnf"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-
 - name: Install the global ruby version
   command: rbenv install -s {{ ruby_global_version }}
   register: R_ruby_global_install

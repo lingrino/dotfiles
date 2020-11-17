@@ -1,4 +1,4 @@
-enable_custom_dns: false
+enable_custom_dns: true
 
 computer_name:           lingrino-macwork
 computer_hostname:       lingrino-macwork

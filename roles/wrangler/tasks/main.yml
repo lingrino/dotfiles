@@ -19,11 +19,7 @@
     cloudflare_account_id: "{{
       lookup(
         'onepassword_raw',
-        'Cloudflare',
-        subdomain=op_auths['me'].shorthand,
-        username=op_auths['me'].email,
-        secret_key=op_auths['me'].secret_key,
-        vault_password=lookup('vars', 'op_password_'+op_auths['me'].shorthand)
+        'Cloudflare'
       ) | json_query('details.sections[?title==`API Tokens`].fields | [] | [?t==`Account ID`].v | [0]')
     }}"
   no_log: true
@@ -36,11 +32,7 @@
     wrangler_api_token: "{{
       lookup(
         'onepassword_raw',
-        'Cloudflare',
-        subdomain=op_auths['me'].shorthand,
-        username=op_auths['me'].email,
-        secret_key=op_auths['me'].secret_key,
-        vault_password=lookup('vars', 'op_password_'+op_auths['me'].shorthand)
+        'Cloudflare'
       ) | json_query('details.sections[?title==`API Tokens`].fields | [] | [?t==`wrangler-local`].v | [0]')
     }}"
   no_log: true

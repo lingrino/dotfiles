@@ -1,7 +1,5 @@
 #!/usr/local/bin/zsh
 
-# Taken from - https://github.com/Thief/zsh-config/blob/HEAD/zshrc.d/completion.zsh
-
 # Enable approximate completions
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3)) numeric)'

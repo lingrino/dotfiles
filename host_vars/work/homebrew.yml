@@ -5,9 +5,7 @@ host_brews:
   - jfrog-cli-go
   - launch_socket_server
   - launchdns
-  - mysql@5.7
   - nginx
 
 host_casks:
-  - ngrok
   - viscosity

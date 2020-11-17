@@ -20,6 +20,7 @@ brews:
   - coreutils
   - ctop
   - dive
+  - doctl
   - dog
   - dust
   - exa
@@ -35,11 +36,13 @@ brews:
   - hadolint
   - hyperfine
   - jq
+  - kubernetes-cli
   - less
   - libgit2
   - lingrino/tap/cami
   - lingrino/tap/glen
   - lingrino/tap/vaku
+  - markdownlint-cli
   - mas
   - nmap
   - node
@@ -55,6 +58,7 @@ brews:
   - rustup-init
   - scc
   - sd
+  - serverless
   - shellcheck
   - shfmt
   - starship
@@ -64,29 +68,27 @@ brews:
   - vault
   - watch
   - wget
+  - zoxide
   - zsh
 
 casks:
   - 1password
   - 1password-cli
   - adguard
-  - alacritty
   - alfred
   - aws-vault
   - cleanshot
+  - cloudflare-warp
   - craft
   - docker
   - dropbox
   - fantastical
-  - freedom
-  - goland
   - google-chrome
   - gpg-suite
   - istat-menus
   - iterm2-beta
   - java
   - logitech-options
-  - monodraw
   - slack
   - spotify
   - visual-studio-code

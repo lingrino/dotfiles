@@ -1,7 +1,0 @@
-- name: Quit printer when jobs complete
-  osx_defaults:
-    state: present
-    domain: com.apple.print.PrintingPrefs
-    key: Quit When Finished
-    type: bool
-    value: true

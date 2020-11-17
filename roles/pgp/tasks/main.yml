@@ -17,11 +17,7 @@
     content: "{{
       lookup(
         'onepassword_raw',
-        item.value.op_name_public,
-        subdomain=op_auths[item.value.op_shorthand].shorthand,
-        username=op_auths[item.value.op_shorthand].email,
-        secret_key=op_auths[item.value.op_shorthand].secret_key,
-        vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+        item.value.op_name_public
       ) | json_query('details.notesPlain')
     }}"
     dest: "/tmp/pgp_public_{{ item.value.name }}.asc"
@@ -42,11 +38,7 @@
     content: "{{
       lookup(
         'onepassword_raw',
-        item.value.op_name_private,
-        subdomain=op_auths[item.value.op_shorthand].shorthand,
-        username=op_auths[item.value.op_shorthand].email,
-        secret_key=op_auths[item.value.op_shorthand].secret_key,
-        vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+        item.value.op_name_private
       ) | json_query('details.notesPlain')
     }}"
     dest: "/tmp/pgp_private_{{ item.value.name }}.asc"

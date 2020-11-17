@@ -1,5 +1,1 @@
-{
-    "debug": true,
-    "max-concurrent-downloads": 10,
-    "max-concurrent-uploads": 10
-}
+{}

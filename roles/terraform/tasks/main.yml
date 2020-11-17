@@ -12,11 +12,7 @@
       {item.value.tfe_domain:
         lookup(
           'onepassword_raw',
-          item.value.op_name,
-          subdomain=op_auths[item.value.op_shorthand].shorthand,
-          username=op_auths[item.value.op_shorthand].email,
-          secret_key=op_auths[item.value.op_shorthand].secret_key,
-          vault_password=lookup('vars', 'op_password_'+op_auths[item.value.op_shorthand].shorthand)
+          item.value.op_name
         ) | json_query('details.sections[?title==`' + item.value.op_section_title + '`].fields | [] | [?t==`' + item.value.op_label + '`].v | [0]')
       }
     ) }}"

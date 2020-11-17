@@ -5,16 +5,6 @@
     mode: 0700
     owner: "{{ ansible_user_id }}"
 
-# We ignore changes on this block because the file includes some
-# timestamps and other information that we can't control
-- name: Copy over the 1password CLI config
-  template:
-    src: op_config.json.j2
-    dest: "{{ ansible_env.HOME }}/.op/config"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-  changed_when: false
-
 - name: Check if there's a 1password cli update
   command: /usr/local/bin/op update
   register: R_op_update

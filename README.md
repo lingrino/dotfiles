@@ -2,67 +2,134 @@
 
 Welcome to my dotfiles!
 
-[![Terminal](docs/images/cover.png)](docs/images/cover.png "Terminal")
-
-This repo contains all of the configuration that I use to get my mac from first boot to 100% configured. Almost everything is automated using Ansible, but some system preferences must be done manually and those are documented in this repo.
-
-This repo contains **my dotfiles** and the contents change without warning as I update my own tools and preferences. However the dotfiles are arranged such that you *should* be able to fork this repo, change variables, and get going with your own
-configuration.
-
-## Tools That I Use
-
-I rely heavily on the following tools. If you don't use them you will have a hard time removing removing them from the repo. Other tools should be easy to add/remove.
-
-### Ansible
-
-This whole project runs on [Ansible](https://www.ansible.com). Ansible is the tool that takes these config files and copies them to the right place on your mac.
-
-### 1Password
-
-I use [1Password](https://1password.com) to store all of my secrets. There are no secrets in this repo because they all in 1Password and pulled at runtime using the [op](https://1password.com/downloads/command-line/) CLI. If you don't use 1Password any of the commands the pull secrets will need to be refactored. Don't put secrets in directly in your repo.
-
-### Homebrew
-
-I use [Homebrew](https://brew.sh) to install all mac applications and utilities that are available on the platform. Nothing would be installed without it.
-
-### Zsh
-
-I use [Zsh](https://github.com/zsh-users/zsh) as my shell and much of the configuration is geared towards making zsh easier to use.
-
-### Other Tools
-
-For a full list of other tools that I install and configure in this repo check folder names in [roles/](roles/) and lines in [homebrew.yml](group_vars/homebrew.yml), [go.yml](group_vars/go.yml), [node.yml](group_vars/node.yml), and [python.yml](group_vars/python.yml).
-
-## How Everything Works
-
-Everything works in one of two ways. The first is you write custom Ansible that configures your apps, usually by copying a config file to a directory. The second is you create a file in `roles/**/zsh/file.zsh` that is automatically sourced when you open a new shell.
-
-All of this configuration is enforced by the [dot](roles/bin/templates/dot.j2) command, which is intended to be run regulary and keeps this repo in sync with your mac through Ansible. After you change something in this repo run `dot` to sync it with your mac.
-
-### The Dot Command
-
-By default `dot` will run all Ansible that does not require user input or configure MacOS system preferences. This means you can be carefree about running `dot` and knowing it won't take long (~1.5 minutes on my machine) and that you won't have to interact with it. During initial setup and occasionally afterwards you should run `dot all`, which will prompt for your 1Password and sudo passwords and then configure the entire machine.
-
-### Tags
-
-Many tasks in the playbook are tagged by their external dependencies. For example, tasks that require root are tagged `sudo`. The same is true for the `1password` and `internet` tags.
-
-Every role is also tagged with its own name. Meaning you can run `dot -t ROLE_NAME` to run dot against only a specific role.
-
 ## Setting Up A New Mac
 
-Follow the instructions in [INSTALL.md](docs/INSTALL.md) to setup a new mac for the first time.
+### Initial Bootstrap
 
-## Ideas
+1. Follow the on-screen mac instructions for first-time setup
 
-Some things that I plan to add here eventually
+1. Run all mac software updates
 
-- Vim & vim configuration
-- More CI (run against a new mac)
-- Some manual steps can still be automated with `osx_defaults`
-- Make these work on linux systems
-- Remote linux workstation with these dotfiles
+1. Open terminal and run the following command
+
+   ```bash
+   sh -c "$(curl -sSL https://raw.githubusercontent.com/lingrino/dotfiles/HEAD/bootstrap.sh)"
+   ```
+
+1. Create a file at `group_vars/all/secret.yml` based on `secret.yml.example` with your
+   1Password details
+
+1. Run the command that bootstrap returns, something like this
+
+   ```bash
+   ansible-playbook -i ~/projects/dotfiles/inventory -l $(cat ~/projects/dotfiles/me.txt) ~/projects/dotfiles main.yml -K --skip-tags "post"
+   ```
+
+1. Restart your mac
+
+### Post Boostrap Manual Commands
+
+1. Setup Touch ID for all things
+
+1. 1Password
+
+- Uncheck "show 1password in the menu bar"
+- Uncheck "open 1password in the background"
+- Mini -> Tags/Categories -> Hide
+- Security -> Allow touchID to unlock 1password
+- Watchtower -> Check for vulnerable passwords
+- Browsers -> Check "Always keep extension helper running"
+- Browsers -> Uncheck "detect and offer to save new usernames/passwords"
+- Notifications -> Uncheck "one-time passwords"
+- Advanced -> Check "Copy UUID" and "Copy JSON"
+- Advanced -> Check "Enable third party integrations"
+
+1. Finder
+
+   Sidebar:
+   - Airdrop
+   - Applications
+   - Documents
+   - projects
+   - Downloads
+
+- Delete all tags
+- Uncheck all locations and tags in sidebar except iCloud Drive
+- Uncheck "show warning before removing from iCloud drive"
+
+1. System Preferences
+
+- General -> Change to dark
+- Displays -> Turn off "automatically adjust brightness"
+- Security -> General -> Require password immeditately
+- Security -> General -> Allow Apple Watch to Unlock Mac
+- Security -> FileVault -> Make sure FileVault is turned on, write down recovery key
+- Spotlight -> Uncheck all except Applications, Contacts, Documents, System Preferences
+- Spotlight -> Uncheck "allow spotlight suggestions in lookup"
+- Notifications -> Do Not Disturb -> Turn on DND from 19:00 to 09:00
+- Notifications -> Do Not Disturb -> Check "allow repeated calls"
+- Notifications -> Disable all except those needed
+- Notifications -> Don't allow any on lockscreen
+- Notifications -> Always show notification preview
+- Notifications -> Never show in notification center
+- Keyboard -> Modifier Keys -> Change 'Caps Lock' to 'Escape'
+- Keyboard -> Uncheck "adjust keyboard brightness"
+- Keyboard -> Disable all text substitutes
+- Keyboard -> Uncheck capitalize automatically
+- Keyboard -> Uncheck touch bar typing suggestions
+- Keyboard -> Shortcuts -> Uncheck every shortcut
+- Keyboard -> Input Sources -> Uncheck "show input in menu bar"
+- Keyboard -> Dictation -> Change the shortcut to "off"
+- Trackapd -> More Gestures -> Disable notification center, mission control, show desktop
+- Sound -> Disable user interface sound effects
+- iCloud -> Photos -> Enable All
+- iCloud -> Turn on all except Mail, Calendars, Contacts
+- Internet Accounts -> Remove game center
+- Internet Accounts -> Sign in to google for contacts only
+- Software Update -> Automatically install everything
+- Extensions -> Share Menu -> Uncheck all possible
+- Extensions -> Today -> Uncheck all
+- Users and Groups -> Change profile picture to vinyl record
+- Users and Groups -> Disable guest
+- Users and Groups -> self -> login items -> hide Dropbox
+- Accessibility -> General -> Turn off shortcuts
+
+1. Alfred
+
+- Enter your license key from 1password
+- Change the hotkey to cmd+space
+- Change the theme to "Alfred macOS Dark"
+- Enable settings sync from cloud drive
+
+1. iTerm
+
+- set to load preferences from cloud drive
+- Do not save current settings
+- Restart iterm and then check "save changes to foler when iterm quits"
+
+### Final Commands
+
+1. Change the dotfiles git origin to use ssh
+
+   ```shell
+   cd ~/projects/dotfiles
+   git remote rename origin originold
+   git remote add origin git@github.com:lingrino/dotfiles.git
+   git remote remove originold
+   ```
+
+1. Open the dotfiles with `e ~/projects/dotfiles`
+
+- Add any custom changes to `host_vars/inventory_name/me.txt)/*.yml`. Use other
+  `host_vars` as a template
+- Copy `group_vars/all/op_secret.yml.example` to `group_vars/all/op_secret.yml`
+- Fill out `secret.yml` with your details
+
+1. Commit your changes
+1. Run `dot all`
+1. Restart your mac one final time
 
 ## Inspiration
 
-These dotfiles are written 100% from scratch unless otherwise mentioned in the file comments. Heavy inspiration provided by [holman/dotfiles](https://github.com/holman/dotfiles) and [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook).
+- [holman/dotfiles](https://github.com/holman/dotfiles)
+- [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook).

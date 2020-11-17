@@ -11,11 +11,6 @@
 ################################
 ### Terminal                 ###
 ################################
-# Set terminfo to xterm-256color. Alacritty has its own terminfo that I WANT to use.
-# Unfortunately is causes all kinds of problems with keybindings, SSH, dircolors, and
-# likely many other things. The issue with keybindings should be solved in keybindings.zsh
-# but I don't want to hunt around for other fixes when there's no obvious reason to
-# user the Alacritty terminfo anyway
 export TERM="xterm-256color"
 
 ################################
