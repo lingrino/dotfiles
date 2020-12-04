@@ -2,10 +2,17 @@ host_taps:
   - github/bootstrap
 
 host_brews:
+  - cairo
+  - giflib
   - jfrog-cli-go
+  - jpeg
   - launch_socket_server
   - launchdns
+  - libpng
+  - librsvg
   - nginx
+  - pango
+  - pkg-config
 
 host_casks:
   - viscosity

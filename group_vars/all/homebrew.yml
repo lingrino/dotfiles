@@ -93,7 +93,7 @@ casks:
   - visual-studio-code
   - vlc
   - yubico-yubikey-manager
-  - zoomus
+  - zoom
   - zsa-wally
 
 apps:
