@@ -3,6 +3,7 @@ brew_prefix: /usr/local
 
 taps:
   - clementtsang/bottom
+  - cloudflare/cloudflare
   - golangci/tap
   - goreleaser/tap
   - homebrew/cask
@@ -17,6 +18,7 @@ brews:
   - bandwhich
   - bat
   - clementtsang/bottom/bottom
+  - cloudflare/cloudflare/cloudflared
   - coreutils
   - ctop
   - dive
