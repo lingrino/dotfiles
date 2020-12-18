@@ -102,11 +102,7 @@ casks:
 apps:
   - id: 1091189122
     name: Bear
-  - id: 1487937127
-    name: Craft
   - id: 441258766
-    name: Magnet
-  - id: 1475387142
-    name: Tailscale
+    name: Magnets
   - id: 904280696
     name: Things3
