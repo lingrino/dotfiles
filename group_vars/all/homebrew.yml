@@ -104,5 +104,7 @@ apps:
     name: Bear
   - id: 441258766
     name: Magnets
+  - id: 1529448980
+    name: Reeder
   - id: 904280696
     name: Things3
