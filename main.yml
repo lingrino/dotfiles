@@ -9,12 +9,14 @@
     - { role: bat,          tags: ["bat"]          }
     - { role: bin,          tags: ["bin"]          }
     - { role: certs,        tags: ["certs"]        }
+    - { role: digitalocean, tags: ["digitalocean"] }
     - { role: docker,       tags: ["docker"]       }
     - { role: editor,       tags: ["editor"]       }
     - { role: fonts,        tags: ["fonts"]        }
     - { role: git,          tags: ["git"]          }
     - { role: go,           tags: ["go"]           }
     - { role: goreleaser,   tags: ["goreleaser"]   }
+    - { role: kubernetes,   tags: ["kubernetes"]   }
     - { role: mac,          tags: ["mac"]          }
     - { role: markdownlint, tags: ["markdownlint"] }
     - { role: netrc,        tags: ["netrc"]        }
