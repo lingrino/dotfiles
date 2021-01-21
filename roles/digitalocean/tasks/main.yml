@@ -25,3 +25,6 @@
     dest: "{{ R_doctl_dir.path }}/config.yaml"
     mode: 0600
     owner: "{{ ansible_user_id }}"
+  tags:
+    - post
+    - onepassword

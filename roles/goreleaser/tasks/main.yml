@@ -23,7 +23,7 @@
     dest: "{{ ansible_env.HOME }}/.config/goreleaser/github_token"
     mode: 0600
     owner: "{{ ansible_user_id }}"
-  no_log: false # TODO
+  no_log: true
   tags:
     - post
     - onepassword
