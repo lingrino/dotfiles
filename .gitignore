@@ -9,7 +9,6 @@ secret.yml
 *_secret.yml
 
 # Templated files
-roles/alacritty/zsh/completion.zsh
 roles/bin/bin/dot
 roles/bin/zsh/path.zsh
 roles/editor/zsh/env.zsh

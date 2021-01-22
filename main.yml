@@ -9,6 +9,7 @@
     - { role: bat,          tags: ["bat"]          }
     - { role: bin,          tags: ["bin"]          }
     - { role: certs,        tags: ["certs"]        }
+    - { role: cloudflare,   tags: ["cloudflare"]   }
     - { role: digitalocean, tags: ["digitalocean"] }
     - { role: docker,       tags: ["docker"]       }
     - { role: editor,       tags: ["editor"]       }
@@ -32,5 +33,4 @@
     - { role: starship,     tags: ["starship"]     }
     - { role: terraform,    tags: ["terraform"]    }
     - { role: work,         tags: ["work"]         }
-    - { role: wrangler,     tags: ["wrangler"]     }
     - { role: zsh,          tags: ["zsh"]          }
