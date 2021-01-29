@@ -91,7 +91,6 @@ Welcome to my dotfiles!
 - Extensions -> Today -> Uncheck all
 - Users and Groups -> Change profile picture to vinyl record
 - Users and Groups -> Disable guest
-- Users and Groups -> self -> login items -> hide Dropbox
 - Accessibility -> General -> Turn off shortcuts
 
 1. Alfred
