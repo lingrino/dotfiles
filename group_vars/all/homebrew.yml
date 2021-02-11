@@ -71,6 +71,7 @@ brews:
   - vault
   - watch
   - wget
+  - yq
   - zoxide
   - zsh
 
@@ -95,7 +96,6 @@ casks:
   - spotify
   - visual-studio-code
   - vlc
-  - yq
   - yubico-yubikey-manager
   - zoom
   - zsa-wally
