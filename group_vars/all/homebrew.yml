@@ -95,6 +95,7 @@ casks:
   - spotify
   - visual-studio-code
   - vlc
+  - yq
   - yubico-yubikey-manager
   - zoom
   - zsa-wally
