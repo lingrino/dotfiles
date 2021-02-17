@@ -10,10 +10,12 @@
     - { role: bin,          tags: ["bin"]          }
     - { role: certs,        tags: ["certs"]        }
     - { role: cloudflare,   tags: ["cloudflare"]   }
+    - { role: custom,       tags: ["custom"]       }
     - { role: digitalocean, tags: ["digitalocean"] }
     - { role: docker,       tags: ["docker"]       }
     - { role: editor,       tags: ["editor"]       }
     - { role: fonts,        tags: ["fonts"]        }
+    - { role: fzf,          tags: ["fzf"]          }
     - { role: git,          tags: ["git"]          }
     - { role: go,           tags: ["go"]           }
     - { role: goreleaser,   tags: ["goreleaser"]   }
@@ -32,5 +34,4 @@
     - { role: ssh,          tags: ["ssh"]          }
     - { role: starship,     tags: ["starship"]     }
     - { role: terraform,    tags: ["terraform"]    }
-    - { role: work,         tags: ["work"]         }
     - { role: zsh,          tags: ["zsh"]          }

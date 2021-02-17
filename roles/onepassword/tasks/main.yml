@@ -6,7 +6,7 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Check if there's a 1password cli update
-  command: /usr/local/bin/op update
+  command: op update
   register: R_op_update
   changed_when:
     - ("Please download our latest version" in R_op_update.stdout)

@@ -111,14 +111,14 @@
 - name: Copy temporary zsh rustup completions to site-functions
   copy:
     src: /tmp/zsh-completions-rustup-tmp
-    dest: /usr/local/share/zsh/site-functions/_rustup
+    dest: "{{ brew_prefix }}/share/zsh/site-functions/_rustup"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
 - name: Copy temporary zsh cargo completions to site-functions
   copy:
     src: /tmp/zsh-completions-cargo-tmp
-    dest: /usr/local/share/zsh/site-functions/_cargo
+    dest: "{{ brew_prefix }}/share/zsh/site-functions/_cargo"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 

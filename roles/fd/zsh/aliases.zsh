@@ -1,3 +1,3 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 alias find='fd'

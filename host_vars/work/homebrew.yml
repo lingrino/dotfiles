@@ -1,3 +1,5 @@
+brew_prefix: /usr/local
+
 host_taps:
   - github/bootstrap
 

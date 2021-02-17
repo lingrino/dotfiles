@@ -1,5 +1,5 @@
-ruby_global_version: 2.7.2
-ruby_global_version_zero_minor: 2.7.0
+ruby_global_version: 3.0.0
+ruby_global_version_zero_minor: 3.0.0
 
 ruby_global_gems:
   - solargraph

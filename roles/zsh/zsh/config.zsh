@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 # Config Reference
 # http://zsh.sourceforge.net/Doc/Release/Options.html

@@ -1,8 +1,8 @@
 # Identification file
 me.txt
 
-# Workplace specific
-roles/work
+# Local specific
+roles/custom
 
 # Secrets
 secret.yml
@@ -13,6 +13,7 @@ roles/bin/bin/dot
 roles/bin/zsh/path.zsh
 roles/editor/zsh/env.zsh
 roles/go/zsh/path.zsh
+roles/homebrew/zsh/path.zsh
 roles/node/zsh/path.zsh
 roles/ruby/zsh/env.zsh
 roles/ruby/zsh/path.zsh

@@ -8,10 +8,20 @@
   tags:
     - internet
 
+- name: Create the zsh directories
+  file:
+    state: directory
+    path: "{{ item }}"
+    mode: 0755
+    owner: "{{ ansible_user_id }}"
+  loop:
+    - "{{ brew_prefix }}/share/zsh"
+    - "{{ brew_prefix }}/share/zsh/site-functions"
+
 - name: Clone zsh-completions into our zsh directory
   git:
     repo: https://github.com/zsh-users/zsh-completions.git
-    dest: "/usr/local/share/zsh/completions"
+    dest: "{{ brew_prefix }}/share/zsh/completions"
     clone: true
     depth: 1
     update: true
@@ -22,7 +32,7 @@
 - name: Clone zsh-autosuggestions into our zsh directory
   git:
     repo: https://github.com/zsh-users/zsh-autosuggestions.git
-    dest: "/usr/local/share/zsh/autosuggestions"
+    dest: "{{ brew_prefix }}/share/zsh/autosuggestions"
     clone: true
     depth: 1
     update: true
@@ -33,7 +43,7 @@
 - name: Clone zsh-syntax-highlighting into our zsh directory
   git:
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: "/usr/local/share/zsh/syntax-highlighting"
+    dest: "{{ brew_prefix }}/share/zsh/syntax-highlighting"
     clone: true
     depth: 1
     update: true
@@ -49,8 +59,8 @@
     owner: "{{ ansible_user_id }}"
 
 - name: Write /etc/shells
-  copy:
-    src: shells
+  template:
+    src: shells.j2
     dest: /etc/shells
     mode: 0644
   become: true
@@ -61,7 +71,7 @@
 - name: Use zsh as my default shell
   user:
     name: "{{ ansible_user_id }}"
-    shell: /usr/local/bin/zsh
+    shell: "{{ brew_prefix }}/bin/zsh"
   become: true
   become_user: root
   tags:

@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 # Enable approximate completions
 zstyle ':completion:*' completer _complete _ignored _approximate

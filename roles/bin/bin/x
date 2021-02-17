@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 #
 # Usage: x <file>
 # Description: extracts archived files / mounts disk images
@@ -20,7 +20,6 @@ x() {
         *.ZIP) unzip "$1" ;;
         *.pax) pax -r <"$1" ;;
         *.pax.Z) uncompress "$1" --stdout | pax -r ;;
-        *.rar) unrar x "$1" ;;
         *.Z) uncompress "$1" ;;
         *) echo "'$1' cannot be extracted/mounted via x()" ;;
         esac

@@ -1,5 +1,5 @@
 # run `brew --prefix` to show
-brew_prefix: /usr/local
+brew_prefix: /opt/homebrew
 
 taps:
   - clementtsang/bottom
@@ -15,7 +15,7 @@ brews:
   - ansible
   - ansible-lint
   - awscli
-  - bandwhich
+  # - bandwhich
   - bat
   - clementtsang/bottom/bottom
   - cloudflare/cloudflare/cloudflared
@@ -23,7 +23,7 @@ brews:
   - ctop
   - dive
   - doctl
-  - dog
+  # - dog
   - dust
   - exa
   - fd
@@ -35,11 +35,11 @@ brews:
   - go
   - golangci/tap/golangci-lint
   - goreleaser/tap/goreleaser
-  - hadolint
+  # - hadolint
   - helm
   - hyperfine
   - jq
-  - kubernetes-cli
+  # - kubernetes-cli
   - less
   - libgit2
   - lingrino/tap/cami
@@ -50,7 +50,7 @@ brews:
   - nmap
   - node
   - openssl
-  - packer
+  # - packer
   - prettyping
   - procs
   - python
@@ -62,13 +62,12 @@ brews:
   - scc
   - sd
   - serverless
-  - shellcheck
+  # - shellcheck
   - shfmt
   - starship
-  - terraform
+  # - terraform
   - tflint
-  - unrar
-  - vault
+  # - vault
   - watch
   - wget
   - yq
@@ -82,13 +81,12 @@ casks:
   - aws-vault
   - cleanshot
   - cloudflare-warp
-  - docker
+  # - docker
   - fantastical
   - google-chrome
   - gpg-suite
   - istat-menus
   - iterm2-beta
-  - java
   - logitech-options
   - loom
   - notion
@@ -101,11 +99,9 @@ casks:
   - zsa-wally
 
 apps:
-  - id: 1091189122
-    name: Bear
   - id: 441258766
     name: Magnets
   - id: 1529448980
     name: Reeder
   - id: 904280696
-    name: Things3
+    name: Things

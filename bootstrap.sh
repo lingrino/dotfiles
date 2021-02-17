@@ -13,7 +13,7 @@ fi
 # This also install xcode command line tools
 if test ! "$(command -v brew)"; then
     echo "Homebrew not found, installing"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Create the projects folder if it does not exist
@@ -38,7 +38,7 @@ fi
 # Check if ansible is installed
 if test ! "$(command -v ansible-playbook)"; then
     echo "ansible-playbook not found, installing with pip"
-    pip3 install ansible
+    brew install ansible
 fi
 
 # Ask the user what to name the host

@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 # Helper functions for managing path. Prevents duplicates.
 typeset -U path  # No duplicates
@@ -40,7 +40,7 @@ do
 done
 
 # Add our completions to fpath
-fpath=(/usr/local/share/zsh/completions/src $fpath)
+fpath=({{ brew_prefix }}/share/zsh/completions/src $fpath)
 
 # This line initializes the completion system
 autoload -U +X compinit && compinit
@@ -59,8 +59,8 @@ unset config_files
 
 # Load autosuggestions and syntax-highlighting
 # Syntax-highlighting must be loaded at the end
-source /usr/local/share/zsh/autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+source {{ brew_prefix }}/share/zsh/autosuggestions/zsh-autosuggestions.zsh
+source {{ brew_prefix }}/share/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
 unfunction _prepath
 unfunction _postpath
