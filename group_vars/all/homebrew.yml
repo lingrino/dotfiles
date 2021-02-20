@@ -99,9 +99,15 @@ casks:
   - zsa-wally
 
 apps:
+  - id: 1107421413
+    name: 1Blocker
+  - id: 1481302432
+    name: Instapaper Save
   - id: 441258766
     name: Magnets
   - id: 1529448980
     name: Reeder
+  - id: 1376402589
+    name: StopTheMadness
   - id: 904280696
     name: Things
