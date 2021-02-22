@@ -15,7 +15,6 @@ brews:
   - ansible
   - ansible-lint
   - awscli
-  # - bandwhich
   - bat
   - clementtsang/bottom/bottom
   - cloudflare/cloudflare/cloudflared
