@@ -109,5 +109,7 @@ apps:
     name: Reeder
   - id: 1376402589
     name: StopTheMadness
+  - id: 1475387142
+    name: Tailscale
   - id: 904280696
     name: Things

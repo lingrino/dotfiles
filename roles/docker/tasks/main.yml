@@ -6,13 +6,6 @@
     owner: "{{ ansible_user_id }}"
   register: R_docker_dir
 
-- name: Write docker daemon file
-  copy:
-    src: daemon.json
-    dest: "{{ R_docker_dir.path }}/daemon.json"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-
 - name: Write the default hadolint file
   copy:
     src: hadolint.yaml
