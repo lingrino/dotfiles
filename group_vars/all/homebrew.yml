@@ -80,6 +80,7 @@ casks:
   - aws-vault
   - cleanshot
   - cloudflare-warp
+  - dash
   # - docker
   - fantastical
   - google-chrome
