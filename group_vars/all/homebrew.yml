@@ -64,7 +64,7 @@ brews:
   # - shellcheck
   - shfmt
   - starship
-  # - terraform
+  - terraform
   - tflint
   # - vault
   - watch
@@ -83,6 +83,7 @@ casks:
   - dash
   # - docker
   - fantastical
+  - firefox
   - google-chrome
   - gpg-suite
   - istat-menus
