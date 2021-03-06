@@ -79,7 +79,6 @@ casks:
   - alfred
   - aws-vault
   - cleanshot
-  - cloudflare-warp
   - dash
   # - docker
   - fantastical
