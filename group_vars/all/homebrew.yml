@@ -20,6 +20,7 @@ brews:
   - cloudflare/cloudflare/cloudflared
   - coreutils
   - ctop
+  - delve
   - dive
   - doctl
   # - dog
