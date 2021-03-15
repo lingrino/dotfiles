@@ -39,7 +39,7 @@ brews:
   - helm
   - hyperfine
   - jq
-  # - kubernetes-cli
+  - kubernetes-cli
   - less
   - libgit2
   - lingrino/tap/cami
