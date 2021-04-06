@@ -12,11 +12,10 @@ secret.yml
 roles/bin/bin/dot
 roles/bin/zsh/path.zsh
 roles/editor/zsh/env.zsh
+roles/fzf/zsh/config.zsh
 roles/go/zsh/path.zsh
+roles/homebrew/zsh/env.zsh
 roles/homebrew/zsh/path.zsh
 roles/node/zsh/path.zsh
-roles/ruby/zsh/env.zsh
-roles/ruby/zsh/path.zsh
-roles/ruby/zsh/rbenv.zsh
 roles/rust/zsh/env.zsh
 roles/rust/zsh/path.zsh

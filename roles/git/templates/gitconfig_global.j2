@@ -56,8 +56,8 @@
         prune = true
 [commit]
         gpgsign = true
-[url "git@github.com:github"]
-        insteadOf = https://github.com/github
+[url "git@github.com:loomhq"]
+        insteadOf = https://github.com/loomhq
 {% for user in git_users %}
 {% if git_users[user].path is defined %}
 [includeIf "gitdir:{{ git_users[user].path }}"]

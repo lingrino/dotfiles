@@ -12,6 +12,29 @@
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
+- name: Add the homebrew github token file
+  set_fact:
+    homebrew_github_token: "{{
+      lookup(
+        'onepassword_raw',
+        'Github'
+      ) | json_query('details.sections[?title==`Personal Access Tokens`].fields | [] | [?t==`PAT - homebrew`].v | [0]')
+    }}"
+  no_log: true
+  tags:
+    - post
+    - onepassword
+
+- name: Template env.zsh into zsh/env.zsh
+  template:
+    src: env.zsh.j2
+    dest: "{{ role_path }}/zsh/env.zsh"
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+  tags:
+    - post
+    - onepassword
+
 - name: Run brew update
   command: brew update
   register: R_brew_update

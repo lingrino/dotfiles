@@ -28,7 +28,6 @@
     - { role: projects,     tags: ["projects"]     }
     - { role: python,       tags: ["python"]       }
     - { role: ripgrep,      tags: ["ripgrep"]      }
-    - { role: ruby,         tags: ["ruby"]         }
     - { role: rust,         tags: ["rust"]         }
     - { role: shellcheck,   tags: ["shellcheck"]   }
     - { role: ssh,          tags: ["ssh"]          }

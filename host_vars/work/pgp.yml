@@ -1,0 +1,13 @@
+pgp_keys:
+  personal:
+    name: personal
+    hash: E2DEF4C1BA7A0C57BD66CE88B9648AAD7B9F176F
+    op_shorthand:    me
+    op_name_public:  PGP - Personal Public
+    op_name_private: PGP - Personal Private
+  work:
+    name: work
+    hash: E0300D94C97D83D9539DE0C3EDD0CA31147EC3A9
+    op_shorthand:    me
+    op_name_public:  PGP - Work Public
+    op_name_private: PGP - Work Private
