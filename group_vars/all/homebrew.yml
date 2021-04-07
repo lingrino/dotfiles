@@ -103,6 +103,8 @@ casks:
 apps:
   - id: 1487937127
     name: Craft
+  - id: 1055511498
+    name: Day One
   - id: 1365531024
     name: 1Blocker
   - id: 1481302432

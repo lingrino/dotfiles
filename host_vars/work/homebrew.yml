@@ -13,6 +13,7 @@ host_brews:
   - packer
   - versent/homebrew-taps/saml2aws
   - shellcheck
+  - terragrunt
   - vault
 
 host_casks:
