@@ -2,3 +2,4 @@ gopath: "{{ ansible_env.HOME }}/go"
 
 go_gets:
   - golang.org/x/perf/cmd/benchstat
+  - github.com/timbray/topfew
