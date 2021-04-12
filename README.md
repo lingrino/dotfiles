@@ -53,6 +53,7 @@ Welcome to my dotfiles!
    git remote rename origin originold
    git remote add origin git@github.com:lingrino/dotfiles.git
    git remote remove originold
+   git remote set-head origin main
    ```
 
 1. Commit your changes
