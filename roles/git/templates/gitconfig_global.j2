@@ -9,6 +9,7 @@
         lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
         ms = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git db
         nb = "!f() { git checkout -b ${1} && git push --set-upstream origin ${1}:${1}; }; f"
+        pr = "!gh pr create --web"
         ps = push
         pl = pull
         st = status
