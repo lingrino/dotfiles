@@ -63,4 +63,4 @@ Welcome to my dotfiles!
 ## Inspiration
 
 - [holman/dotfiles](https://github.com/holman/dotfiles)
-- [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook).
+- [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)
