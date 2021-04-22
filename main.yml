@@ -2,6 +2,7 @@
   hosts: all
   connection: local
   roles:
+    - { role: pre,          tags: ["pre"]          }
     - { role: homebrew,     tags: ["homebrew"]     }
     - { role: onepassword,  tags: ["onepassword"]  }
     - { role: ansible,      tags: ["ansible"]      }
