@@ -80,7 +80,7 @@ casks:
   - aws-vault
   - cleanshot
   - dash
-  # - docker
+  - docker
   - fantastical
   - firefox
   - google-chrome

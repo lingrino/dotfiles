@@ -15,6 +15,3 @@ host_brews:
   - shellcheck
   - terragrunt
   - vault
-
-host_casks:
-  - docker
