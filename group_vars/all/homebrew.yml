@@ -110,6 +110,8 @@ apps:
     name: 1Blocker
   - id: 1481302432
     name: Instapaper Save
+  - id: 1547106997
+    name: Pins
   - id: 1529448980
     name: Reeder
   - id: 1376402589
