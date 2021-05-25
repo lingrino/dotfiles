@@ -50,7 +50,7 @@ brews:
   - nmap
   - node
   - openssl
-  # - packer
+  - packer
   - prettyping
   - procs
   - python
@@ -65,7 +65,7 @@ brews:
   - starship
   - terraform
   - tflint
-  # - vault
+  - vault
   - watch
   - wget
   - yq
