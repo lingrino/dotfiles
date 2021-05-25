@@ -10,8 +10,6 @@ host_brews:
   - hadolint
   - loomhq/tap/loomctl
   - minikube
-  - packer
   - versent/homebrew-taps/saml2aws
   - shellcheck
   - terragrunt
-  - vault
