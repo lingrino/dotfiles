@@ -3,7 +3,6 @@ brew_prefix: /opt/homebrew
 
 taps:
   - clementtsang/bottom
-  - cloudflare/cloudflare
   - golangci/tap
   - goreleaser/tap
   - homebrew/cask
@@ -17,13 +16,11 @@ brews:
   - awscli
   - bat
   - clementtsang/bottom/bottom
-  - cloudflare/cloudflare/cloudflared
   - coreutils
   - ctop
   - delve
   - dive
   - doctl
-  # - dog
   - dust
   - exa
   - fd
@@ -92,7 +89,6 @@ casks:
   - logitech-options
   - loom
   - notion
-  - rocket
   - slack
   - sublime-text
   - spotify
@@ -109,8 +105,6 @@ apps:
     name: Day One
   - id: 1365531024
     name: 1Blocker
-  - id: 1481302432
-    name: Instapaper Save
   - id: 1547106997
     name: Pins
   - id: 1529448980
