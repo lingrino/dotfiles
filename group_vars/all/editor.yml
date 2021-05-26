@@ -1,2 +1,3 @@
 default_editor: code
-default_git_editor: code --wait
+default_editor_fast: subl
+default_git_editor: subl --wait

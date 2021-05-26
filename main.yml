@@ -33,5 +33,6 @@
     - { role: shellcheck,   tags: ["shellcheck"]   }
     - { role: ssh,          tags: ["ssh"]          }
     - { role: starship,     tags: ["starship"]     }
+    - { role: sublime,      tags: ["sublime"]      }
     - { role: terraform,    tags: ["terraform"]    }
     - { role: zsh,          tags: ["zsh"]          }

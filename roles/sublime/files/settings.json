@@ -1,0 +1,12 @@
+{
+  "ensure_newline_at_eof_on_save": true,
+  "font_face": "Jetbrains Mono",
+  "font_size": 14,
+  "highlight_modified_tabs": true,
+  "indent_to_bracket": true,
+  "line_padding_bottom": 1,
+  "line_padding_top": 1,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true,
+  "theme": "auto"
+}
