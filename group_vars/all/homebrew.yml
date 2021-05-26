@@ -75,6 +75,7 @@ casks:
   - airbuddy
   - alfred
   - aws-vault
+  - cardhop
   - cleanshot
   - dash
   - docker
