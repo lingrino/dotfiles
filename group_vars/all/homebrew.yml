@@ -16,6 +16,7 @@ brews:
   - awscli
   - bat
   - clementtsang/bottom/bottom
+  - cloudflare-wrangler
   - coreutils
   - ctop
   - delve
