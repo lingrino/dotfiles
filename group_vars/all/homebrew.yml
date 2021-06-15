@@ -22,6 +22,7 @@ brews:
   - delve
   - dive
   - doctl
+  - dog
   - dust
   - exa
   - fd
@@ -33,7 +34,7 @@ brews:
   - go
   - golangci/tap/golangci-lint
   - goreleaser/tap/goreleaser
-  # - hadolint
+  - hadolint
   - helm
   - hyperfine
   - jq
@@ -58,7 +59,7 @@ brews:
   - scc
   - sd
   - serverless
-  # - shellcheck
+  - shellcheck
   - shfmt
   - starship
   - terraform

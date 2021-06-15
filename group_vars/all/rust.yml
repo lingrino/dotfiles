@@ -4,5 +4,4 @@ rustup_home: ~/.rustup
 rust_author_name: Sean Lingren
 rust_author_email: sean@lingrino.com
 
-rust_cargos:
-  - "--git https://github.com/ogham/dog dog"
+rust_cargos: []

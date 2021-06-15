@@ -6,10 +6,7 @@ host_taps:
 
 host_brews:
   - aws-iam-authenticator
-  - dog
-  - hadolint
   - loomhq/tap/loomctl
   - minikube
   - versent/homebrew-taps/saml2aws
-  - shellcheck
   - terragrunt
