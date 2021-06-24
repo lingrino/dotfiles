@@ -23,6 +23,7 @@ brews:
   - dive
   - doctl
   - dog
+  - duf
   - dust
   - exa
   - fd
@@ -67,6 +68,7 @@ brews:
   - vault
   - watch
   - wget
+  - xh
   - yq
   - zoxide
   - zsh
