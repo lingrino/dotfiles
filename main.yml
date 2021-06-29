@@ -24,7 +24,6 @@
     - { role: mac,          tags: ["mac"]          }
     - { role: markdownlint, tags: ["markdownlint"] }
     - { role: netrc,        tags: ["netrc"]        }
-    - { role: nextdns,      tags: ["nextdns"]      }
     - { role: node,         tags: ["node"]         }
     - { role: pgp,          tags: ["pgp"]          }
     - { role: projects,     tags: ["projects"]     }

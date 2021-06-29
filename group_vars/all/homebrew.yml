@@ -9,7 +9,6 @@ taps:
   - homebrew/cask-drivers
   - homebrew/cask-versions
   - lingrino/tap
-  - nextdns/tap
 
 brews:
   - ansible
@@ -48,7 +47,6 @@ brews:
   - lingrino/tap/vaku
   - markdownlint-cli
   - mas
-  - nextdns/tap/nextdns
   - nmap
   - node
   - openssl
