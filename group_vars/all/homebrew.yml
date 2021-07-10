@@ -15,6 +15,7 @@ brews:
   - ansible-lint
   - awscli
   - bat
+  - chezmoi
   - clementtsang/bottom/bottom
   - cloudflare-wrangler
   - coreutils
