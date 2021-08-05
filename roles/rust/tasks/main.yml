@@ -125,7 +125,7 @@
 - name: Add cargo config file
   template:
     src: config.toml.j2
-    dest: "{{ R_cargo_dir.path }}/config"
+    dest: "{{ R_cargo_dir.path }}/config.toml"
     mode: 0600
     owner: "{{ ansible_user_id }}"
 
