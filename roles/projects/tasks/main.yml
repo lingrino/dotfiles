@@ -1,6 +1,0 @@
-- name: Create my projects folder
-  file:
-    state: directory
-    path: "{{ projects_folder_path | expanduser }}"
-    mode: 0700
-    owner: "{{ ansible_user_id }}"

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+ln -sf {{ .chezmoi.homeDir }}/.config/sublime/settings.json "{{ .chezmoi.homeDir }}/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
+ln -sf {{ .chezmoi.homeDir }}/.config/sublime/keybindings.json "{{ .chezmoi.homeDir }}/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap"

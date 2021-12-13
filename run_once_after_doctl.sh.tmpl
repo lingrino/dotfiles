@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+mkdir -p '{{ .chezmoi.homeDir }}/Library/Application Support/doctl'
+chmod 755 '{{ .chezmoi.homeDir }}/Library/Application Support/doctl'
+
+ln -sf {{ .chezmoi.homeDir }}/.config/doctl/config.yaml '{{ .chezmoi.homeDir }}/Library/Application Support/doctl/config.yaml'

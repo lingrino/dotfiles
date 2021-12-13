@@ -1,4 +1,0 @@
-- name: get latest dotfiles repo
-  git:
-    repo: git@github.com:lingrino/dotfiles.git
-    dest: "{{ projects_folder_path | expanduser }}/dotfiles"

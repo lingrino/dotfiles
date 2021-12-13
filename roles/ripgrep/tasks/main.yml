@@ -1,6 +1,0 @@
-- name: Write the ripgrep config files
-  copy:
-    src: .ripgreprc
-    dest: "{{ ansible_env.HOME }}/.ripgreprc"
-    mode: 0600
-    owner: "{{ ansible_user_id }}"

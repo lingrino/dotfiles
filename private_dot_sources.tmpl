@@ -1,0 +1,407 @@
+#!/usr/bin/env zsh
+
+################################
+### aws                      ###
+################################
+export AWS_VAULT_BACKEND=keychain
+export AWS_VAULT_KEYCHAIN_NAME=login
+
+alias av='aws-vault'
+
+# avx -> aws-vault export
+# Takes in a profile name and exports the generated keys
+avx() {
+    unset AWS_VAULT
+    aws-vault exec --duration=1h "$1"
+}
+
+################################
+### bat                      ###
+################################
+alias cat='bat'
+
+################################
+### bottom                   ###
+################################
+alias top='btm'
+
+################################
+### chezmoi                  ###
+################################
+alias cm='chezmoi'
+alias cma='chezmoi apply'
+alias cmd='chezmoi diff'
+alias cms='chezmoi status'
+
+################################
+### ctop                     ###
+################################
+alias dtop='ctop'
+
+################################
+### docker                   ###
+################################
+alias dk='docker'
+alias dc='docker-compose'
+
+################################
+### dot                      ###
+################################
+alias cm='chezmoi'
+alias dot='chezmoi apply'
+
+################################
+### duf                      ###
+################################
+alias df='duf'
+alias duf='duf --hide-fs devfs'
+
+################################
+### dust                     ###
+################################
+alias du='dust'
+alias dust='dust -r'
+
+################################
+### editor                   ###
+################################
+export EDITOR='code'
+export EDITOR_FAST='sublime'
+export GIT_EDITOR='subl --wait'
+
+e() {
+    "$EDITOR" "${1:-.}"
+}
+
+ee() {
+    "$EDITOR_FAST" "${1:-.}"
+}
+
+################################
+### exa                      ###
+################################
+if exa &>/dev/null; then
+    # List all
+    alias l="exa -abghl"
+    alias la="exa -abghl"
+
+    # List visible in table
+    alias ll="exa -bghl"
+
+    # Normal ls
+    alias ls="exa"
+
+    # List tree with optional depth
+    lt() {
+        if [ -z "$1" ]; then
+            exa -bghlT
+        else
+            exa -bghlT -L "$1"
+        fi
+    }
+fi
+
+################################
+### fd                       ###
+################################
+alias find='fd'
+
+################################
+### fzf                      ###
+################################
+# Use fd instead of find
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# I run the below two commands instead of adding them
+# manually using $(brew --prefix)/opt/fzf/install utility
+
+# Add completions if in interactive mode
+[[ $- == *i* ]] && source "{{ .brewprefix }}/opt/fzf/shell/completion.zsh" 2>/dev/null
+
+# Add keybindings
+source "{{ .brewprefix }}/opt/fzf/shell/key-bindings.zsh"
+
+################################
+### git                      ###
+################################
+alias g='git'
+
+################################
+### go                       ###
+################################
+export GOPATH="{{ .chezmoi.homeDir }}/go"
+export GOBIN="${GOPATH}/bin"
+_prepath "${GOPATH}/bin"
+
+{{- if not .work }}
+export GOPRIVATE="github.com/loomhq/*"
+{{- end }}
+
+################################
+### homebrew                 ###
+################################
+alias b='brew'
+export HOMEBREW_GITHUB_API_TOKEN={{ range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi").details.sections }}
+    {{- if (hasKey $e "fields") }}
+        {{- range $j,$f := $e.fields }}
+            {{- if (eq (dig "t" "" $f) "PAT - homebrew") }}
+                {{- $f.v }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+################################
+### kdash                    ###
+################################
+alias kd='kdash'
+alias ktop='kdash'
+
+################################
+### kubernetes               ###
+################################
+alias k='kubectl'
+
+################################
+### node                     ###
+################################
+_prepath "{{ .chezmoi.homeDir }}/.npm-global-modules/bin"
+
+################################
+### os                       ###
+################################
+alias reload='source ~/.zshrc && clear'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+
++x() {
+    chmod +x "$@"
+}
+
+################################
+### prettyping               ###
+################################
+alias ping='prettyping --nolegend'
+
+################################
+### procs                    ###
+################################
+alias ps='procs'
+
+################################
+### python                   ###
+################################
+alias p='python3'
+alias pip='pip3'
+
+################################
+### ripgrep                  ###
+################################
+export RIPGREP_CONFIG_PATH="{{ .chezmoi.homeDir }}/.config/ripgrep/.ripgreprc"
+
+alias rge='env | rg'
+alias rgh='rg --hidden'
+
+################################
+### rust                     ###
+################################
+export CARGO_HOME="{{ .chezmoi.homeDir }}/.cargo"
+export RUSTUP_HOME="{{ .chezmoi.homeDir }}/.rustup"
+
+alias c='cargo'
+
+_prepath "{{ .chezmoi.homeDir }}/.cargo/bin"
+
+################################
+### scc                      ###
+################################
+alias loc='scc'
+
+################################
+### terraform                ###
+################################
+export TF_CLI_CONFIG_FILE="{{ .chezmoi.homeDir }}/.config/terraform/.terraformrc"
+
+# Shorten terraform
+alias tf='terraform'
+alias tg='terragrunt'
+
+# Shorten terraform fmt, include tfvars files
+alias tff='terraform fmt'
+alias tgf='terragrunt fmt'
+
+# Shorten terraform init
+alias tfi='terraform init -upgrade'
+alias tgi='terragrunt init -upgrade'
+
+# Shorten terraform import
+alias tfim='terraform import'
+alias tgim='terrgruntm import'
+
+# Shorten terraform plan
+alias tfp='terraform plan'
+alias tgp='terragrunt plan'
+
+# Shorten terraform apply
+alias tfa='terraform apply'
+alias tga='terragrunt apply'
+
+# Shorten terraform console
+alias tfc='terraform console'
+alias tgc='terragrunt console'
+
+# Shorten terraform state
+alias tfs='terraform state'
+alias tgs='terragrunt state'
+
+# Shorten terraform destroy
+alias tfd='terraform destroy'
+alias tgd='terragrunt destroy'
+
+# Shorten terraform init & apply/plan
+alias tfia='tfi && tfa'
+alias tgia='tgi && tga'
+alias tfia='tfi && tfp'
+alias tgia='tgi && tgp'
+
+################################
+### vault                    ###
+################################
+alias v='vault'
+
+################################
+### zoxide                   ###
+################################
+eval "$(zoxide init zsh --cmd j)"
+
+################################
+### zsh TODO                 ###
+################################
+# Config Reference
+# http://zsh.sourceforge.net/Doc/Release/Options.html
+# Can also type `setopt ` and then tab for completion
+
+# Some ideas from
+# https://github.com/holman/dotfiles/blob/HEAD/zsh/config.zsh
+# https://www.viget.com/articles/zsh-config-productivity-plugins-for-mac-oss-default-shell/
+
+################################
+### Terminal                 ###
+################################
+export TERM="xterm-256color"
+
+################################
+### History                  ###
+################################
+# HISTSIZE should always be a bit bigger than SAVEHIST
+HISTFILE=~/.zsh_history
+HISTSIZE=80000
+SAVEHIST=50000
+
+setopt SHARE_HISTORY                     # Share across sessions
+setopt INC_APPEND_HISTORY                # Add to history as soon as they are run
+setopt EXTENDED_HISTORY                  # Include timestamps and durations
+setopt HIST_EXPIRE_DUPS_FIRST            # Remove duplicates before unique commands
+setopt HIST_IGNORE_DUPS hist_ignore_dups # Don't add duplicates to history
+setopt HIST_IGNORE_SPACE                 # Don't add commands that start with a space
+
+################################
+### Changing Directories     ###
+################################
+setopt AUTO_CD    # So that `~/Downloads` means `cd ~/Downloads`
+setopt AUTO_PUSHD # Keep a stack of directories you cd into
+setopt PUSHDMINUS # Use `-` instead of `+` to go back directories
+
+################################
+### Dircolors                ###
+################################
+# https://www.nordtheme.com/docs/ports/dircolors/installation
+test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
+
+################################
+### Colored Man Pages        ###
+################################
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+############################
+### Custom Keybindings   ###
+############################
+
+# This make the up/down keys search through history and only
+# match anything that's already been typed in the terminal
+# https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search   # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+# Make cmd+right/left go to beginning and end of lines.
+# You must also set your terminal emulator to send these
+# escape code when cmd+right/left is pressed.
+bindkey "\x1b[F" end-of-line       # cmd+right
+bindkey "\x1b[H" beginning-of-line # cmd+left
+
+############################
+### Completions          ###
+############################
+
+# Enable approximate completions
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3)) numeric)'
+
+# Automatically update PATH entries
+zstyle ':completion:*' rehash true
+
+# Use menu completion
+zstyle ':completion:*' menu select
+
+# Verbose completion results
+zstyle ':completion:*' verbose true
+
+# Group results by category
+zstyle ':completion:*' group-name ''
+
+# Keep directories and files separated
+zstyle ':completion:*' list-dirs-first true
+
+# Don't try parent path completion if the directories exist
+zstyle ':completion:*' accept-exact-dirs true
+
+# Always use menu selection for `cd -`
+zstyle ':completion:*:*:cd:*:directory-stack' force-list always
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+
+# Pretty messages during pagination
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+
+# Nicer format for completion messages
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:corrections' format '%U%F{green}%d (errors: %e)%f%u'
+zstyle ':completion:*:warnings' format '%F{202}%BSorry, no matches for: %F{214}%d%b'
+
+# Add colors
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+
+# Prettier completion for processes
+zstyle ':completion:*:*:*:*:processes' force-list always
+zstyle ':completion:*:*:*:*:processes' menu yes select
+zstyle ':completion:*:*:*:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,args -w -w"

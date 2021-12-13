@@ -1,0 +1,32 @@
+{{- $machine   := ""    -}}
+{{- $work      := false -}}
+{{- $headless  := false -}}
+{{- $transient := false -}}
+
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") -}}
+{{-    $machine   = .chezmoi.hostname -}}
+{{-    $headless  = true -}}
+{{-    $transient = true -}}
+{{- else }}
+{{-    $machine = promptString "machine name (eg: work)" -}}
+{{- end -}}
+
+{{- if eq $machine "work" -}}
+{{-    $headless = true -}}
+{{- end -}}
+
+sourceDir: {{ .chezmoi.homeDir }}/projects/dotfiles
+remove: true
+data:
+  machine:   {{ $machine }}
+  work:      {{ $work }}
+  headless:  {{ $headless }}
+  transient: {{ $transient }}
+
+{{- if eq .chezmoi.os "darwin" }}
+  {{- if eq .chezmoi.arch "arm64" }}
+  brewprefix: /opt/homebrew
+  {{- else if eq .chezmoi.arch "amd64" }}
+  brewprefix: /usr/local
+  {{- end }}
+{{- end }}

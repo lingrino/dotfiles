@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-# Quick shortcut to the fast editor.
-exec "$EDITOR_FAST" "${1:-.}"

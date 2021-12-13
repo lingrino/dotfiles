@@ -1,0 +1,9 @@
+access-token: "{{ range $i,$e := (onepassword "id3ey2jqpzdklc3jxbum3v5o3e").details.sections }}
+    {{- if (hasKey $e "fields") }}
+        {{- range $j,$f := $e.fields }}
+            {{- if (eq (dig "t" "" $f) "local") }}
+                {{- $f.v }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}"

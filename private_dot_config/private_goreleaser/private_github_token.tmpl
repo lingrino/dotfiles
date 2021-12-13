@@ -1,0 +1,9 @@
+{{- range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi").details.sections }}
+    {{- if (hasKey $e "fields") }}
+        {{- range $j,$f := $e.fields }}
+            {{- if (eq (dig "t" "" $f) "PAT - goreleaser") }}
+                {{- $f.v }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}

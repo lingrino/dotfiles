@@ -1,0 +1,58 @@
+# repo files
+.github/
+fonts/
+.gitignore
+.markdownlint.json
+install.sh
+LICENSE
+README.md
+
+# builtin
+.cache/
+.CFUserTextEncoding
+.DS_Store
+.lesshst
+.local
+.ssh/known_hosts
+.ssh/sockets
+.Trash/
+
+# mac
+Applications/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+Zoom/
+
+# folders
+go/*
+projects/*
+
+# tools
+.ansible
+.Brewfile.lock.json
+.cargo/*
+!.cargo/config.toml
+.config/chezmoi/chezmoistate.boltdb
+.config/chezmoi/chezmoi.yaml
+.config/gh/hosts.yml
+.config/iterm2/
+.docker/*
+.gnupg
+.kube/*
+.npm
+.npm-global-modules/*
+.op/*
+.proxyman*
+.rustup/*
+.terraform.d/*
+.zcompdump
+.zsh_history
+.zsh_sessions/
+.wrangler/version.toml
+.vscode/

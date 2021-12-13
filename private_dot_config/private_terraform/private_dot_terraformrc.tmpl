@@ -1,0 +1,13 @@
+# https://www.terraform.io/docs/cli/config/config-file.html
+
+credentials "app.terraform.io" {
+  token = "{{- range $i,$e := (onepassword "uieqxph7m5frpjro5yshwgwb6i").details.sections }}
+    {{- if (hasKey $e "fields") }}
+        {{- range $j,$f := $e.fields }}
+            {{- if (eq (dig "t" "" $f) "infra-personal") }}
+                {{- $f.v }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}"
+}
