@@ -134,7 +134,9 @@ export GOPATH="{{ .chezmoi.homeDir }}/go"
 export GOBIN="${GOPATH}/bin"
 _prepath "${GOPATH}/bin"
 
-{{- if not .work }}
+alias go=richgo
+
+{{- if .work }}
 export GOPRIVATE="github.com/loomhq/*"
 {{- end }}
 
@@ -187,9 +189,9 @@ alias .........="cd ../../../../../../../.."
 }
 
 ################################
-### prettyping               ###
+### ping                     ###
 ################################
-alias ping='prettyping --nolegend'
+alias ping='gping'
 
 ################################
 ### procs                    ###
