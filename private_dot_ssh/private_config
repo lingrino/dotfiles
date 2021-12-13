@@ -2,4 +2,3 @@ IdentityFile ~/.ssh/personal
 
 # Mac Specific Settings
 UseKeychain yes
-
