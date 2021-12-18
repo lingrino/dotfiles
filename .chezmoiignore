@@ -49,6 +49,7 @@ projects/*
 .npm-global-modules/*
 .op/*
 .proxyman*
+.python_history
 .rustup/*
 .terraform.d/*
 .zcompdump

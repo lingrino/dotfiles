@@ -31,6 +31,7 @@ alias top='btm'
 alias cm='chezmoi'
 alias cma='chezmoi apply'
 alias cmd='chezmoi diff'
+alias cmi='chezmoi init'
 alias cms='chezmoi status'
 
 ################################
@@ -141,10 +142,15 @@ export GOPRIVATE="github.com/loomhq/*"
 {{- end }}
 
 ################################
+### gpg                      ###
+################################
+export GPG_TTY=$(tty)
+
+################################
 ### homebrew                 ###
 ################################
 alias b='brew'
-export HOMEBREW_GITHUB_API_TOKEN={{ range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi").details.sections }}
+export HOMEBREW_GITHUB_API_TOKEN={{ range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
             {{- if (eq (dig "t" "" $f) "PAT - homebrew") }}
@@ -173,6 +179,8 @@ _prepath "{{ .chezmoi.homeDir }}/.npm-global-modules/bin"
 ################################
 ### os                       ###
 ################################
+alias o='open'
+
 alias reload='source ~/.zshrc && clear'
 
 alias ..="cd .."

@@ -1,6 +1,6 @@
 machine api.heroku.com
   login sean@lingrino.com
-  password {{ range $i,$e := (onepassword "6pmlloqnuna5xfadxu3wdqa3nm").details.sections }}
+  password {{ range $i,$e := (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
             {{- if (eq (dig "t" "" $f) "laptop") }}
@@ -11,7 +11,7 @@ machine api.heroku.com
 {{- end }}
 machine git.heroku.com
   login sean@lingrino.com
-  password {{ range $i,$e := (onepassword "6pmlloqnuna5xfadxu3wdqa3nm").details.sections }}
+  password {{ range $i,$e := (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
             {{- if (eq (dig "t" "" $f) "laptop") }}

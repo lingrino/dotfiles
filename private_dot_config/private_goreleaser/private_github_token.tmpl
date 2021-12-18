@@ -1,4 +1,4 @@
-{{- range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi").details.sections }}
+{{- range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
             {{- if (eq (dig "t" "" $f) "PAT - goreleaser") }}

@@ -22,46 +22,54 @@
         branches = branch -a
         remotes = remote -v
         tags = tag -l
+[apply]
+        whitespace = nowarn
 [color]
         diff = auto
         status = auto
         branch = auto
         ui = true
-[init]
-        defaultBranch = main
-[protocol]
-        version = 2
-[pack]
-        useSparse = true
+[commit]
+        gpgsign = true
 [core]
         excludesfile = ~/.gitignore
         editor = $GIT_EDITOR
         pager = delta
         untrackedCache = true
+[credential]
+        helper = osxkeychain
+[difftool]
+        prompt = false
 [delta]
         syntax-theme = nord
         plus-style = syntax "#425630"
         minus-style = syntax "#773D42"
         plus-emph-style = syntax "#A3BE8C"
         minus-emph-style = syntax "#BF616A"
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
+[fetch]
+        prune = true
 [help]
         autocorrect = 1
+[init]
+        defaultBranch = main
+[mergetool]
+        keepBackup = false
+[pack]
+        useSparse = true
+[protocol]
+        version = 2
+[pull]
+        rebase = false
 [push]
         default = simple
         followTags = true
-[pull]
-        rebase = false
-[fetch]
-        prune = true
-[commit]
+[tag]
         gpgsign = true
+{{- if .work }}
 [url "git@github.com:loomhq"]
         insteadOf = https://github.com/loomhq
-[include]
-        path = ~/.gitconfig-me.local
+{{- end }}
+[user]
+        name = Sean Lingren
+        email = {{ .email }}
+        signingkey = {{ .signkey }}

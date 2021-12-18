@@ -1,4 +1,4 @@
-account_id = "{{- range $i,$e := (onepassword "vitahigjlffkxfmn5yb64xd7zq").details.sections }}
+account_id = "{{- range $i,$e := (onepassword "vitahigjlffkxfmn5yb64xd7zq" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
             {{- if (eq (dig "t" "" $f) "Account ID") }}
@@ -7,7 +7,7 @@ account_id = "{{- range $i,$e := (onepassword "vitahigjlffkxfmn5yb64xd7zq").deta
         {{- end }}
     {{- end }}
 {{- end }}"
-api_token = "{{- range $i,$e := (onepassword "vitahigjlffkxfmn5yb64xd7zq").details.sections }}
+api_token = "{{- range $i,$e := (onepassword "vitahigjlffkxfmn5yb64xd7zq" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
             {{- if (eq (dig "t" "" $f) "wrangler-local") }}

@@ -3,7 +3,7 @@
 {{- $headless  := false -}}
 {{- $transient := false -}}
 
-{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") -}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "vagrant" "vscode") -}}
 {{-    $machine   = .chezmoi.hostname -}}
 {{-    $headless  = true -}}
 {{-    $transient = true -}}
@@ -22,6 +22,13 @@ data:
   work:      {{ $work }}
   headless:  {{ $headless }}
   transient: {{ $transient }}
+{{- if $work }}
+  email: sean.lingren@loom.com
+  signkey: 147EC3A9
+{{- else }}
+  email: sean@lingrino.com
+  signkey: B9648AAD7B9F176F
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
   {{- if eq .chezmoi.arch "arm64" }}
@@ -30,3 +37,6 @@ data:
   brewprefix: /usr/local
   {{- end }}
 {{- end }}
+
+diff:
+  exclude: ["scripts"]

@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+set -euo pipefail
 
 sudo tee /etc/shells >/dev/null <<EOF
 # List of acceptable shells for chpass(1).

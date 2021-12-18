@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+set -euo pipefail
 
 # TODO change to run instead of run_once
 exit 0
