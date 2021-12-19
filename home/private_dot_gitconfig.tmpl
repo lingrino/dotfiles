@@ -1,75 +1,75 @@
 [alias]
-        a = "!f() { git add -A && git commit -m \"${*}\" && git push; }; f"
-        br = branch
-        cl = clone
-        cm = commit
-        co = checkout
-        db = "!f() { git branch -vv | grep ': gone]'| grep -v \"*\" | awk '{ print $1; }' | xargs git branch -d; }; f"
-        df = diff
-        lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-        ms = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git db
-        nb = "!f() { git checkout -b lingrino/${1} && git push --set-upstream origin lingrino/${1}:lingrino/${1}; }; f"
-        pc = "!gh pr create --web"
-        pv = "!gh pr view --web"
-        ps = push
-        pl = pull
-        rv = "!gh repo view --web"
-        sd = !git stash && git stash drop
-        st = status
-        t = "!f() { git tag -a \"${1}\" -m \"${*:2}\" && git push origin \"${1}\"; }; f"
+  a = "!f() { git add -A && git commit -m \"${*}\" && git push; }; f"
+  br = branch
+  cl = clone
+  cm = commit
+  co = checkout
+  db = "!f() { git branch -vv | grep ': gone]'| grep -v \"*\" | awk '{ print $1; }' | xargs git branch -d; }; f"
+  df = diff
+  lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  ms = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git db
+  nb = "!f() { git checkout -b lingrino/${1} && git push --set-upstream origin lingrino/${1}:lingrino/${1}; }; f"
+  pc = "!gh pr create --web"
+  pv = "!gh pr view --web"
+  ps = push
+  pl = pull
+  rv = "!gh repo view --web"
+  sd = !git stash && git stash drop
+  st = status
+  t = "!f() { git tag -a \"${1}\" -m \"${*:2}\" && git push origin \"${1}\"; }; f"
 
-        aliases = config --get-regexp alias
-        branches = branch -a
-        remotes = remote -v
-        tags = tag -l
+  aliases = config --get-regexp alias
+  branches = branch -a
+  remotes = remote -v
+  tags = tag -l
 [apply]
-        whitespace = nowarn
+  whitespace = nowarn
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [commit]
-        gpgsign = true
+  gpgsign = true
 [core]
-        excludesfile = ~/.gitignore
-        editor = $GIT_EDITOR
-        pager = delta
-        untrackedCache = true
+  excludesfile = ~/.gitignore
+  editor = $GIT_EDITOR
+  pager = delta
+  untrackedCache = true
 [credential]
-        helper = osxkeychain
+  helper = osxkeychain
 [difftool]
-        prompt = false
+  prompt = false
 [delta]
-        syntax-theme = nord
-        plus-style = syntax "#425630"
-        minus-style = syntax "#773D42"
-        plus-emph-style = syntax "#A3BE8C"
-        minus-emph-style = syntax "#BF616A"
+  syntax-theme = nord
+  plus-style = syntax "#425630"
+  minus-style = syntax "#773D42"
+  plus-emph-style = syntax "#A3BE8C"
+  minus-emph-style = syntax "#BF616A"
 [fetch]
-        prune = true
+  prune = true
 [help]
-        autocorrect = 1
+  autocorrect = 1
 [init]
-        defaultBranch = main
+  defaultBranch = main
 [mergetool]
-        keepBackup = false
+  keepBackup = false
 [pack]
-        useSparse = true
+  useSparse = true
 [protocol]
-        version = 2
+  version = 2
 [pull]
-        rebase = false
+  rebase = false
 [push]
-        default = simple
-        followTags = true
+  default = simple
+  followTags = true
 [tag]
-        gpgsign = true
-{{- if .work }}
-[url "git@github.com:loomhq"]
-        insteadOf = https://github.com/loomhq
-{{- end }}
+  gpgsign = true
 [user]
-        name = Sean Lingren
-        email = {{ .email }}
-        signingkey = {{ .signkey }}
+  name = Sean Lingren
+  email = sean@lingrino.com
+  signingkey = B9648AAD7B9F176F
+{{- if .work }}
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/projects/work/"]
+  path = ~/.gitconfig-work
+{{- end }}

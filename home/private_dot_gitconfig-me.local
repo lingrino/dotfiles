@@ -1,6 +1,0 @@
-[user]
-  name = Sean Lingren
-  email = sean@lingrino.com
-  signingkey = 7B9F176F
-[credential]
-  helper = osxkeychain

@@ -22,13 +22,6 @@ data:
   work:      {{ $work }}
   headless:  {{ $headless }}
   transient: {{ $transient }}
-{{- if $work }}
-  email: sean.lingren@loom.com
-  signkey: EDD0CA31147EC3A9
-{{- else }}
-  email: sean@lingrino.com
-  signkey: B9648AAD7B9F176F
-{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
   {{- if eq .chezmoi.arch "arm64" }}
