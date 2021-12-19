@@ -1,3 +1,3 @@
 # dotfiles
 
-a work in progress
+configured with [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
