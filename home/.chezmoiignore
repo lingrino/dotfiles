@@ -37,7 +37,9 @@ projects/*
 .config/gh/hosts.yml
 .config/iterm2/
 .docker/*
-.gnupg
+.gnupg/*
+!.gnupg/gpg.conf
+!.gnupg/gpg-agent.conf
 .kube/*
 .npm
 .npm-global-modules/*
