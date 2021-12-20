@@ -1,11 +1,5 @@
 # repo files
-.github/
 fonts/
-.gitignore
-.markdownlint.json
-install.sh
-LICENSE
-README.md
 
 # builtin
 .cache/

@@ -68,7 +68,7 @@ alias dust='dust -r'
 ### editor                   ###
 ################################
 export EDITOR='code'
-export EDITOR_FAST='sublime'
+export EDITOR_FAST='subl'
 export GIT_EDITOR='subl --wait'
 
 e() {
@@ -151,6 +151,7 @@ export GPG_TTY=$(tty)
 ### homebrew                 ###
 ################################
 alias b='brew'
+export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_GITHUB_API_TOKEN={{ range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
         {{- range $j,$f := $e.fields }}
