@@ -1,3 +1,6 @@
+################################
+### machine information      ###
+################################
 {{- $machine   := ""    -}}
 {{- $work      := false -}}
 {{- $headless  := false -}}
@@ -15,8 +18,9 @@
 {{-    $headless = true -}}
 {{- end -}}
 
-sourceDir: {{ .chezmoi.homeDir }}/projects/dotfiles
-remove: true
+################################
+### chezmoi data             ###
+################################
 data:
   machine:   {{ $machine }}
   work:      {{ $work }}
@@ -31,8 +35,15 @@ data:
   {{- end }}
 {{- end }}
 
+################################
+### chezmoi config           ###
+################################
+sourceDir: {{ .chezmoi.homeDir }}/projects/dotfiles
+
+format: yaml
+pager: delta
+remove: true
 diff:
-  pager: delta
   exclude: ["scripts"]
 edit:
   command: code

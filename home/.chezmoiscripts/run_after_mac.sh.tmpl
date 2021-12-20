@@ -9,6 +9,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write -g KeyRepeat 2
 defaults write -g InitialKeyRepeat 12
 
+mkdir -p '{{ .chezmoi.homeDir }}/Library/KeyBindings'
 tee {{ .chezmoi.homeDir }}/Library/KeyBindings/DefaultKeyBinding.dict >/dev/null <<EOF
 {
   "\UF729"  = moveToBeginningOfLine:; // home
