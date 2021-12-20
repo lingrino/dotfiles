@@ -2,7 +2,7 @@
 set -euo pipefail
 
 brew update
-brew bundle --global
-brew bundle cleanup --global --force
+brew bundle --global | grep -v 'Using'
+brew bundle cleanup --global --force --zap
 brew upgrade
 brew cleanup
