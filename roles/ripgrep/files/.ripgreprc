@@ -1,8 +1,0 @@
-# https://github.com/BurntSushi/ripgrep/blob/HEAD/GUIDE.md#configuration-file
-
-# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
---max-columns=150
---max-columns-preview
-
-# Ignore case unless there is an uppercase letter
---smart-case

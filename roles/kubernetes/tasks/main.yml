@@ -1,7 +1,0 @@
-- name: Create the kube config directory
-  file:
-    state: directory
-    path: "{{ ansible_env.HOME }}/.kube"
-    mode: 0750
-    owner: "{{ ansible_user_id }}"
-  register: R_kube_dir

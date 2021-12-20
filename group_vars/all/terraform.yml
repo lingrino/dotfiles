@@ -1,9 +1,0 @@
-terraform_plugin_dir: ~/.terraform.d
-
-terraform_tokens:
-  personal:
-    op_shorthand: me
-    op_name: Terraform
-    op_section_title: User Tokens
-    op_label: infra-personal
-    tfe_domain: app.terraform.io

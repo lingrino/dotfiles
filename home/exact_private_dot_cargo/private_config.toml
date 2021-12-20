@@ -1,0 +1,12 @@
+# REFERENCE: https://doc.rust-lang.org/cargo/reference/config.html
+
+[cargo-new]
+vcs = "none"
+name = "Sean Lingren"
+email = "sean@lingrino.com"
+
+[alias]
+b = "build"
+c = "check"
+r = "run"
+t = "test"

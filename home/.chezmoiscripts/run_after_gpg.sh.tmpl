@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+PASSPHRASE='{{ range $i,$e := (onepassword "ec4vextgtbefrgkl7jnvrjig6u" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
+    {{- if (hasKey $e "fields") }}
+        {{- range $j,$f := $e.fields }}
+            {{- if (eq (dig "t" "" $f) "passphrase") }}
+                {{- $f.v }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}'
+
+OUTPUT_IMPORT=$(gpg --import --batch --passphrase "${PASSPHRASE}" ~/.gpg/personal.key 2>&1)
+if [[ ${OUTPUT_IMPORT} == *"secret keys imported: 1"* ]]; then
+    echo "gpg: imported personal"
+fi
+gpg --import-ownertrust <<< "E2DEF4C1BA7A0C57BD66CE88B9648AAD7B9F176F:6:"
+
+{{- if .work }}
+PASSPHRASE='{{ range $i,$e := (onepassword "4tp6cwncdbhdfieelujx5bouji" "gbn3qqaiareuxog5caebzs6aba").details.sections }}
+    {{- if (hasKey $e "fields") }}
+        {{- range $j,$f := $e.fields }}
+            {{- if (eq (dig "t" "" $f) "passphrase") }}
+                {{- $f.v }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}'
+
+OUTPUT_IMPORT=$(gpg --import --batch --passphrase "${PASSPHRASE}" ~/.gpg/work.key 2>&1)
+if [[ ${OUTPUT_IMPORT} == *"secret keys imported: 1"* ]]; then
+    echo "gpg: imported work"
+fi
+gpg --import-ownertrust <<< "E0300D94C97D83D9539DE0C3EDD0CA31147EC3A9:6:"
+{{- end }}

@@ -1,6 +1,0 @@
-ansible_python_interpreter: /opt/homebrew/bin/python3
-
-pip_global_packages:
-  - pip
-  - setuptools
-  - wheel

@@ -1,0 +1,3 @@
+{{- if eq .chezmoi.os "darwin" -}}
+pinentry-program {{ .brewprefix }}/bin/pinentry-mac
+{{- end }}
