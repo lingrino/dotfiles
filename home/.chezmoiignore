@@ -4,6 +4,7 @@ fonts/
 # builtin
 .cache/
 .CFUserTextEncoding
+.cups
 .DS_Store
 .lesshst
 .local
@@ -32,24 +33,34 @@ projects/*
 .Brewfile.lock.json
 .cargo/*
 !.cargo/config.toml
-.config/chezmoi/chezmoistate.boltdb
-.config/chezmoi/chezmoi.yaml
+.config/chezmoi
 .config/gh/hosts.yml
 .config/iterm2/
 .docker/*
 .gnupg/*
 !.gnupg/gpg.conf
 !.gnupg/gpg-agent.conf
+.iterm2
+.iterm2_shell_integration.zsh
 .kube/*
 .npm
 .npm-global-modules/*
 .op/*
 .proxyman*
+.psql_history
 .python_history
 .rustup/*
+.serverless
+.serverlessrc
 .terraform.d/*
 .zcompdump
 .zsh_history
 .zsh_sessions/
 .wrangler/version.toml
 .vscode/
+
+{{- if .work }}
+# work
+.loomctl
+.saml2aws
+{{- end }}
