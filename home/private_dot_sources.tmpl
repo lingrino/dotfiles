@@ -8,6 +8,10 @@ alias ops='eval $(op signin my)'
 ################################
 ### aws                      ###
 ################################
+{{- if .work }}
+export AWS_PROFILE="saml"
+{{- end }}
+
 export AWS_VAULT_BACKEND=keychain
 export AWS_VAULT_KEYCHAIN_NAME=login
 
