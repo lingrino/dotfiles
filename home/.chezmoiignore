@@ -30,6 +30,7 @@ projects/*
 
 # tools
 .ansible
+.aws/credentials
 .Brewfile.lock.json
 .cargo/*
 !.cargo/config.toml

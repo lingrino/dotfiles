@@ -10,6 +10,7 @@ alias ops='eval $(op signin my)'
 ################################
 {{- if .work }}
 export AWS_PROFILE="saml"
+export AWS_REGION="us-west-2"
 {{- end }}
 
 export AWS_VAULT_BACKEND=keychain
@@ -273,7 +274,7 @@ alias tgp='terragrunt plan'
 
 # Shorten terraform apply
 alias tfa='terraform apply'
-alias tga='terragrunt apply'
+alias tga='terragrunt apply --terragrunt-source-update'
 
 # Shorten terraform console
 alias tfc='terraform console'
@@ -288,10 +289,10 @@ alias tfd='terraform destroy'
 alias tgd='terragrunt destroy'
 
 # Shorten terraform init & apply/plan
+alias tfip='tfi && tfp'
+alias tgip='tgi && tgp'
 alias tfia='tfi && tfa'
 alias tgia='tgi && tga'
-alias tfia='tfi && tfp'
-alias tgia='tgi && tgp'
 
 ################################
 ### vault                    ###
@@ -304,7 +305,7 @@ alias v='vault'
 eval "$(zoxide init zsh --cmd j)"
 
 ################################
-### zsh TODO                 ###
+### zsh                      ###
 ################################
 # Config Reference
 # http://zsh.sourceforge.net/Doc/Release/Options.html

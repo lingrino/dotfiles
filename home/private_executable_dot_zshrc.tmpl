@@ -24,7 +24,7 @@ _prepath {{ .brewprefix }}/bin
 
 # Set config_files to every file in the zsh folder ending in .zsh
 typeset -U config_files
-config_files=("{{ .chezmoi.homeDir }}/.sources") # TODO
+config_files=("{{ .chezmoi.homeDir }}/.sources")
 
 # Now source anything '*.zsh' that is not 'path.zsh' or 'completion.zsh'
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
