@@ -161,6 +161,8 @@ export GPG_TTY=$(tty)
 ### homebrew                 ###
 ################################
 alias b='brew'
+alias buu='brew update && brew upgrade'
+
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_GITHUB_API_TOKEN={{ range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
     {{- if (hasKey $e "fields") }}
