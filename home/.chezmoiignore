@@ -29,19 +29,19 @@ go/*
 projects/*
 
 # tools
-!.cargo/config.toml
-!.gnupg/gpg-agent.conf
-!.gnupg/gpg.conf
 .ansible
 .aws/credentials
 .Brewfile.lock.json
 .cargo/*
+!.cargo/config.toml
 .config/chezmoi
 .config/gh/hosts.yml
 .config/iterm2/
 .docker/*
 .fly/*
 .gnupg/*
+!.gnupg/gpg-agent.conf
+!.gnupg/gpg.conf
 .iterm2
 .iterm2_shell_integration.zsh
 .kube/*
@@ -55,6 +55,8 @@ projects/*
 .serverless
 .serverlessrc
 .terraform.d/*
+!.terraform.d/plugincache
+.terraform.d/plugincache/*
 .vscode/
 .wrangler/version.toml
 .zcompdump
