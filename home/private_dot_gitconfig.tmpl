@@ -1,6 +1,7 @@
 [alias]
   a = "!f() { git add -A && git commit -m \"${*}\" && git push; }; f"
   br = branch
+  bs = branch -a
   cl = clone
   cm = commit
   co = checkout
@@ -17,6 +18,7 @@
   sd = !git stash && git stash drop
   st = status
   t = "!f() { git tag -a \"${1}\" -m \"${*:2}\" && git push origin \"${1}\"; }; f"
+  ts = tag -l
 
   aliases = config --get-regexp alias
   branches = branch -a
