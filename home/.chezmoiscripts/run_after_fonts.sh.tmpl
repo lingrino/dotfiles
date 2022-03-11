@@ -5,4 +5,4 @@ set -euo pipefail
 # fonts: consolas,hack,mono
 
 sudo cp {{ .chezmoi.sourceDir }}/fonts/**/*.TTF ~/Library/Fonts
-sudo chmod 0600 ~/Library/Fonts/*.TTF
+sudo chmod 0660 ~/Library/Fonts/*.TTF
