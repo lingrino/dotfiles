@@ -37,6 +37,7 @@ projects/*
 .config/chezmoi
 .config/gh/hosts.yml
 .config/iterm2/
+.config/op
 .docker/*
 .fly/*
 .gnupg/*

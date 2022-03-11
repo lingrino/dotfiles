@@ -1,28 +1,23 @@
 cask_args appdir: '/Applications'
 
-tap 'clementtsang/bottom'
 tap 'golangci/tap'
 tap 'goreleaser/tap'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask'
 tap 'kdash-rs/kdash'
-tap 'kyoh86/tap'
 tap 'lingrino/tap'
 tap 'superfly/tap'
 
-brew 'ansible-lint'
-brew 'ansible'
 brew 'awscli'
 brew 'bat'
+brew 'bottom'
 brew 'chezmoi'
-brew 'clementtsang/bottom/bottom'
 brew 'cloudflare-wrangler'
 brew 'coreutils'
 brew 'ctop'
 brew 'delve'
 brew 'dive'
-brew 'doctl'
 brew 'dog'
 brew 'duf'
 brew 'dust'
@@ -59,7 +54,6 @@ brew 'pinentry-mac'
 brew 'procs'
 brew 'python'
 brew 'readline'
-brew 'richgo'
 brew 'ripgrep'
 brew 'rustup-init'
 brew 'scc'
@@ -89,12 +83,12 @@ cask 'docker'
 cask 'fantastical'
 cask 'firefox'
 cask 'google-chrome'
-cask 'hookshot'
 cask 'infra'
 cask 'istat-menus'
 cask 'iterm2-beta'
 cask 'linear-linear'
 cask 'loom'
+cask 'mimestream'
 cask 'notion'
 cask 'proxyman'
 cask 'slack'
@@ -105,18 +99,14 @@ cask 'zoom'
 
 mas 'Craft', id: 1487937127
 mas 'Peek', id: 1554235898
-mas 'Pins', id: 1547106997
 mas 'Tailscale', id: 1475387142
 mas 'Things', id: 904280696
 
 {{ if .work -}}
 # work
 tap 'loomhq/tap'
-tap 'versent/homebrew-taps'
 
 brew 'aws-iam-authenticator'
 brew 'loomhq/tap/loomctl'
-brew 'minikube'
-brew 'terragrunt'
-brew 'versent/homebrew-taps/saml2aws'
+brew 'saml2aws'
 {{- end }}
