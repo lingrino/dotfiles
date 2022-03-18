@@ -146,8 +146,6 @@ export GOPATH="{{ .chezmoi.homeDir }}/go"
 export GOBIN="${GOPATH}/bin"
 _prepath "${GOPATH}/bin"
 
-alias go=richgo
-
 {{- if .work }}
 export GOPRIVATE="github.com/loomhq/*"
 {{- end }}
