@@ -3,25 +3,17 @@ plugin_cache_dir = "{{ .chezmoi.homeDir }}/.terraform.d/plugincache"
 
 {{ if .work -}}
 credentials "app.terraform.io" {
-  token = "{{- range $i,$e := (onepassword "lgezf4idm5aphocsmisig4jp7m" "gbn3qqaiareuxog5caebzs6aba").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "work-laptop") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+  token = "{{ range (onepassword "lgezf4idm5aphocsmisig4jp7m" "gbn3qqaiareuxog5caebzs6aba").fields }}
+    {{- if and (eq .label "work-laptop") (eq .section.label "User Tokens") }}
+        {{- .value }}
     {{- end }}
 {{- end }}"
 }
 {{- else }}
 credentials "app.terraform.io" {
-  token = "{{- range $i,$e := (onepassword "uieqxph7m5frpjro5yshwgwb6i" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "infra-personal") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+  token = "{{ range (onepassword "uieqxph7m5frpjro5yshwgwb6i" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "infra-personal") (eq .section.label "User Tokens") }}
+        {{- .value }}
     {{- end }}
 {{- end }}"
 }

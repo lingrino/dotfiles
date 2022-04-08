@@ -1,13 +1,9 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
-PASSPHRASE='{{ range $i,$e := (onepassword "ec4vextgtbefrgkl7jnvrjig6u" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "passphrase") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+PASSPHRASE='{{ range (onepassword "ec4vextgtbefrgkl7jnvrjig6u" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "passphrase") }}
+        {{- .value }}
     {{- end }}
 {{- end }}'
 
@@ -18,13 +14,9 @@ fi
 gpg --import-ownertrust <<< "E2DEF4C1BA7A0C57BD66CE88B9648AAD7B9F176F:6:"
 
 {{- if .work }}
-PASSPHRASE='{{ range $i,$e := (onepassword "4tp6cwncdbhdfieelujx5bouji" "gbn3qqaiareuxog5caebzs6aba").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "passphrase") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+PASSPHRASE='{{ range (onepassword "4tp6cwncdbhdfieelujx5bouji" "gbn3qqaiareuxog5caebzs6aba").fields }}
+    {{- if and (eq .label "passphrase") }}
+        {{- .value }}
     {{- end }}
 {{- end }}'
 

@@ -1,22 +1,14 @@
 machine api.heroku.com
   login sean@lingrino.com
-  password {{ range $i,$e := (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "laptop") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+  password {{ range (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "laptop") (eq .section.label "API Keys") }}
+        {{- .value }}
     {{- end }}
 {{- end }}
 machine git.heroku.com
   login sean@lingrino.com
-  password {{ range $i,$e := (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "laptop") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+  password {{ range (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "laptop") (eq .section.label "API Keys") }}
+        {{- .value }}
     {{- end }}
 {{- end }}

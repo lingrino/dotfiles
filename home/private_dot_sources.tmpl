@@ -1,11 +1,6 @@
 #!/usr/bin/env zsh
 
 ################################
-### 1Password                ###
-################################
-alias ops='eval $(op signin my)'
-
-################################
 ### aws                      ###
 ################################
 {{- if .work }}
@@ -162,13 +157,9 @@ alias b='brew'
 alias buu='brew update && brew upgrade'
 
 export HOMEBREW_NO_ENV_HINTS=true
-export HOMEBREW_GITHUB_API_TOKEN={{ range $i,$e := (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "PAT - homebrew") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+export HOMEBREW_GITHUB_API_TOKEN={{ range (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "PAT - homebrew") (eq .section.label "Personal Access Tokens") }}
+        {{- .value }}
     {{- end }}
 {{- end }}
 

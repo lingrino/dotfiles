@@ -1,9 +1,5 @@
-access-token: "{{ range $i,$e := (onepassword "id3ey2jqpzdklc3jxbum3v5o3e" "mah5a5g5yrs2ehge3zqebu3iwa").details.sections }}
-    {{- if (hasKey $e "fields") }}
-        {{- range $j,$f := $e.fields }}
-            {{- if (eq (dig "t" "" $f) "local") }}
-                {{- $f.v }}
-            {{- end }}
-        {{- end }}
+access-token: "{{ range (onepassword "id3ey2jqpzdklc3jxbum3v5o3e" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "local") (eq .section.label "PERSONAL ACCESS TOKENS") }}
+        {{- .value }}
     {{- end }}
 {{- end }}"
