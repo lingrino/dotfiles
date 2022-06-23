@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+# this script triggers the sudo password prompt and fills in the password
+# from 1password so that it doesn't need to be typed manually later on.
+
+{{- if .work }}
+sudopass='{{ range (onepassword "nszxiyoltvfdxm2v7bixx3clie" "gbn3qqaiareuxog5caebzs6aba").fields }}
+    {{- if and (eq .label "password") (eq .purpose "PASSWORD") }}
+        {{- .value }}
+    {{- end }}
+{{- end }}'
+{{- else if eq .machine "mac" }}
+sudopass='{{ range (onepassword "ivoz42ziclbu65brepnk5ao2ka" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
+    {{- if and (eq .label "password") (eq .purpose "PASSWORD") }}
+        {{- .value }}
+    {{- end }}
+{{- end }}'
+{{- end }}
+
+echo "$sudopass" | sudo -S true
