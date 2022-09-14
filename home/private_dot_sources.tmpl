@@ -145,9 +145,6 @@ _prepath "${GOPATH}/bin"
 export GOPRIVATE="github.com/loomhq/*"
 {{- end }}
 
-# https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck
-go install golang.org/x/vuln/cmd/govulncheck@latest
-
 ################################
 ### gpg                      ###
 ################################
