@@ -1,14 +1,6 @@
 machine api.heroku.com
   login sean@lingrino.com
-  password {{ range (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "laptop") (eq .section.label "API Keys") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}
+  password {{ (onepasswordRead "op://personal/6pmlloqnuna5xfadxu3wdqa3nm/apikeys/laptop") }}
 machine git.heroku.com
   login sean@lingrino.com
-  password {{ range (onepassword "6pmlloqnuna5xfadxu3wdqa3nm" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "laptop") (eq .section.label "API Keys") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}
+  password {{ (onepasswordRead "op://personal/6pmlloqnuna5xfadxu3wdqa3nm/apikeys/laptop") }}

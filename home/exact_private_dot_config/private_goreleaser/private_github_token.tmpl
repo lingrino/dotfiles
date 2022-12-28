@@ -1,5 +1,1 @@
-{{ range (onepassword "j36hdync2fb6jpk4afv4s6snpi" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "PAT - goreleaser") (eq .section.label "Personal Access Tokens") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}
+{{ (onepasswordRead "op://personal/j36hdync2fb6jpk4afv4s6snpi/apikeys/goreleaser") }}

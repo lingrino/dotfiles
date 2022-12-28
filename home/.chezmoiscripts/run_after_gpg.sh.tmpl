@@ -1,11 +1,7 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
-PASSPHRASE='{{ range (onepassword "ec4vextgtbefrgkl7jnvrjig6u" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "passphrase") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}'
+PASSPHRASE='{{ (onepasswordRead "op://personal/cylnjjo75gsoscskjegll5bizu/password") }}'
 
 OUTPUT_IMPORT=$(gpg --import --batch --passphrase "${PASSPHRASE}" ~/.gpg/personal.key 2>&1)
 if [[ ${OUTPUT_IMPORT} == *"secret keys imported: 1"* ]]; then
@@ -14,11 +10,7 @@ fi
 gpg --import-ownertrust <<< "E2DEF4C1BA7A0C57BD66CE88B9648AAD7B9F176F:6:"
 
 {{- if .work }}
-PASSPHRASE='{{ range (onepassword "4tp6cwncdbhdfieelujx5bouji" "gbn3qqaiareuxog5caebzs6aba").fields }}
-    {{- if and (eq .label "passphrase") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}'
+PASSPHRASE='{{ (onepasswordRead "op://loom/t5krneh57k7ssnpi4hlw56lr6u/password") }}'
 
 OUTPUT_IMPORT=$(gpg --import --batch --passphrase "${PASSPHRASE}" ~/.gpg/work.key 2>&1)
 if [[ ${OUTPUT_IMPORT} == *"secret keys imported: 1"* ]]; then

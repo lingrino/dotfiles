@@ -1,10 +1,2 @@
-account_id = "{{ range (onepassword "vitahigjlffkxfmn5yb64xd7zq" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "Account ID") (eq .section.label "API Tokens") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}"
-api_token = "{{ range (onepassword "vitahigjlffkxfmn5yb64xd7zq" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "wrangler-local") (eq .section.label "API Tokens") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}"
+account_id = "{{ (onepasswordRead "op://personal/vitahigjlffkxfmn5yb64xd7zq/accountid") }}"
+api_token = "{{ (onepasswordRead "op://personal/vitahigjlffkxfmn5yb64xd7zq/apikeys/wrangler-local") }}"

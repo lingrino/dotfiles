@@ -1,5 +1,1 @@
-access-token: "{{ range (onepassword "id3ey2jqpzdklc3jxbum3v5o3e" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "local") (eq .section.label "PERSONAL ACCESS TOKENS") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}"
+access-token: "{{ (onepasswordRead "op://personal/id3ey2jqpzdklc3jxbum3v5o3e/apikeys/local") }}"

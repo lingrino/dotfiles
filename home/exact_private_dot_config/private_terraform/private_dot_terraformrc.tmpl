@@ -3,18 +3,10 @@ plugin_cache_dir = "{{ .chezmoi.homeDir }}/.terraform.d/plugincache"
 
 {{ if .work -}}
 credentials "app.terraform.io" {
-  token = "{{ range (onepassword "uieqxph7m5frpjro5yshwgwb6i" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "work-laptop") (eq .section.label "User Tokens") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}"
+  token = "{{ (onepasswordRead "op://personal/uieqxph7m5frpjro5yshwgwb6i/apikeys/work") }}"
 }
 {{- else }}
 credentials "app.terraform.io" {
-  token = "{{ range (onepassword "uieqxph7m5frpjro5yshwgwb6i" "mah5a5g5yrs2ehge3zqebu3iwa").fields }}
-    {{- if and (eq .label "infra-personal") (eq .section.label "User Tokens") }}
-        {{- .value }}
-    {{- end }}
-{{- end }}"
+  token = "{{ (onepasswordRead "op://personal/uieqxph7m5frpjro5yshwgwb6i/apikeys/personal") }}"
 }
 {{- end }}
