@@ -1,8 +1,4 @@
 # https://github.com/BurntSushi/ripgrep/blob/HEAD/GUIDE.md#configuration-file
 
-# limit long lines
---max-columns=150
---max-columns-preview
-
 # ignore case unless uppercase
 --smart-case
