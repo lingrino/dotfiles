@@ -34,11 +34,13 @@ projects/*
 .Brewfile.lock.json
 .cargo/*
 !.cargo/config.toml
+.colima
 .config/chezmoi
 .config/gh/hosts.yml
 .config/iterm2/
 .config/op
 .docker/*
+!.docker/config.json
 .fly/*
 .gnupg/*
 !.gnupg/gpg-agent.conf
@@ -46,6 +48,7 @@ projects/*
 .iterm2
 .iterm2_shell_integration.zsh
 .kube/*
+.lima
 .npm
 .npm-global-modules/*
 .op/*
