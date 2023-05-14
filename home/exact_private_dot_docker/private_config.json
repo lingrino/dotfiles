@@ -1,3 +1,5 @@
 {
-    "credsStore": "ecr-login"
+    "auths": {},
+    "credsStore": "ecr-login",
+    "currentContext": "colima"
 }

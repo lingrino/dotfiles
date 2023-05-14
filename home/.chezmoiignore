@@ -34,7 +34,7 @@ projects/*
 .Brewfile.lock.json
 .cargo/*
 !.cargo/config.toml
-.colima
+.colima/*
 .config/chezmoi
 .config/gh/hosts.yml
 .config/iterm2/
@@ -62,6 +62,7 @@ projects/*
 !.terraform.d/plugincache
 .terraform.d/plugincache/*
 .vscode/
+.warp/*
 .wrangler/version.toml
 .zcompdump
 .zsh_history

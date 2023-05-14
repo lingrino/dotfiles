@@ -1,4 +1,6 @@
-{{- if .work -}}
+Include ~/.colima/ssh_config
+
+{{ if .work -}}
 IdentityFile ~/.ssh/work
 {{- end }}
 IdentityFile ~/.ssh/personal
