@@ -34,13 +34,14 @@ projects/*
 .Brewfile.lock.json
 .cargo/*
 !.cargo/config.toml
-.colima/*
 .config/chezmoi
 .config/gh/hosts.yml
 .config/iterm2/
 .config/op
 .docker/*
 !.docker/config.json
+.ecr/log/
+.ecr/cache.json
 .fly/*
 .gnupg/*
 !.gnupg/gpg-agent.conf
@@ -70,7 +71,9 @@ projects/*
 
 {{- if .work }}
 # work
+.certs
 .loom
 .loomctl
+.nvm
 .saml2aws
 {{- end }}

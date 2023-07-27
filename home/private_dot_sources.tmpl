@@ -171,6 +171,13 @@ alias kc='aws eks update-kubeconfig --name'
 _prepath "{{ .chezmoi.homeDir }}/.npm-global-modules/bin"
 
 ################################
+### nvm                      ###
+################################
+export NVM_DIR="{{ .chezmoi.homeDir }}/.nvm"
+[ -s "{{ .brewprefix }}/opt/nvm/nvm.sh" ] && \. "{{ .brewprefix }}/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "{{ .brewprefix }}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "{{ .brewprefix }}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+################################
 ### os                       ###
 ################################
 alias o='open'

@@ -1,5 +1,15 @@
 {
-    "auths": {},
-    "credsStore": "ecr-login",
-    "currentContext": "colima"
+  "auths": {
+    "717232957798.dkr.ecr.us-west-2.amazonaws.com": {}
+  },
+  "credHelpers": {
+    "717232957798.dkr.ecr.us-west-2.amazonaws.com": "ecr-login"
+  },
+  "credsStore": "osxkeychain",
+  "currentContext": "desktop-linux",
+  "plugins": {
+    "-x-cli-hints": {
+      "enabled": "false"
+    }
+  }
 }
