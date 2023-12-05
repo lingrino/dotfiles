@@ -2,10 +2,10 @@
   "auths": {
     "717232957798.dkr.ecr.us-west-2.amazonaws.com": {}
   },
+  "credsStore": "osxkeychain",
   "credHelpers": {
     "717232957798.dkr.ecr.us-west-2.amazonaws.com": "ecr-login"
   },
-  "credsStore": "osxkeychain",
   "currentContext": "desktop-linux",
   "plugins": {
     "-x-cli-hints": {

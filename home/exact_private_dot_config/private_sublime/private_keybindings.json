@@ -1,4 +1,0 @@
-[
-  { "keys": ["super+shift+l"], "command": "find_all_under" },
-  { "keys": ["super+shift+e"], "command": "toggle_side_bar" }
-]

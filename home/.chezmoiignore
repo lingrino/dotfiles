@@ -29,9 +29,10 @@ go/*
 projects/*
 
 # tools
-.ansible
 .aws/credentials
 .Brewfile.lock.json
+.bundle
+.cisco
 .cargo/*
 !.cargo/config.toml
 .config/chezmoi
@@ -42,14 +43,12 @@ projects/*
 !.docker/config.json
 .ecr/log/
 .ecr/cache.json
-.fly/*
 .gnupg/*
 !.gnupg/gpg-agent.conf
 !.gnupg/gpg.conf
 .iterm2
 .iterm2_shell_integration.zsh
 .kube/*
-.lima
 .npm
 .npm-global-modules/*
 .op/*
@@ -57,24 +56,18 @@ projects/*
 .psql_history
 .python_history
 .rustup/*
-.serverless
-.serverlessrc
 .terraform.d/*
 !.terraform.d/plugincache
 .terraform.d/plugincache/*
 .vscode/
-.warp/*
-.wrangler/version.toml
 .zcompdump
 .zsh_history
 .zsh_sessions/
 
 {{- if .work }}
 # work
-.certs
-.loom
-.loomctl
 .nvm
 .pnpm-state
 .saml2aws
+.vpn
 {{- end }}

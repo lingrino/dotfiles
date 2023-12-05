@@ -41,14 +41,8 @@ alias cms='chezmoi status'
 alias cmu='chezmoi unmanaged'
 
 ################################
-### ctop                     ###
-################################
-alias dtop='ctop'
-
-################################
 ### dot                      ###
 ################################
-alias cm='chezmoi'
 alias dot='chezmoi apply'
 
 ################################
@@ -67,15 +61,10 @@ alias dust='dust -r'
 ### editor                   ###
 ################################
 export EDITOR='code'
-export EDITOR_FAST='subl'
-export GIT_EDITOR='subl --wait'
+export GIT_EDITOR='code --wait'
 
 e() {
     "$EDITOR" "${1:-.}"
-}
-
-ee() {
-    "$EDITOR_FAST" "${1:-.}"
 }
 
 ################################
@@ -180,8 +169,6 @@ export NVM_DIR="{{ .chezmoi.homeDir }}/.nvm"
 ################################
 ### os                       ###
 ################################
-alias o='open'
-
 alias reload='source ~/.zshrc && clear'
 
 alias ..="cd .."
@@ -197,11 +184,19 @@ alias .........="cd ../../../../../../../.."
     chmod +x "$@"
 }
 
+o() {
+    if [ -z "$1" ]; then
+        open .
+    else
+        open "$@"
+    fi
+}
+
 ################################
 ### postgres                 ###
 ################################
 {{- if .work }}
-_prepath "{{ .brewprefix }}/opt/postgresql@15/bin"
+_prepath "{{ .brewprefix }}/opt/postgresql@16/bin"
 {{- end }}
 
 ################################
@@ -278,14 +273,7 @@ alias tfd='terraform destroy'
 
 # Shorten terraform init & apply/plan
 alias tfip='tfi && tfp'
-alias tgip='tgi && tgp'
 alias tfia='tfi && tfa'
-alias tgia='tgi && tga'
-
-################################
-### vault                    ###
-################################
-alias v='vault'
 
 ################################
 ### viddy                    ###

@@ -10,7 +10,7 @@ fi
 gpg --import-ownertrust <<< "E2DEF4C1BA7A0C57BD66CE88B9648AAD7B9F176F:6:"
 
 {{- if .work }}
-PASSPHRASE='{{ (onepasswordRead "op://loom/t5krneh57k7ssnpi4hlw56lr6u/password") }}'
+PASSPHRASE='{{ (onepasswordRead "op://atlassian/hruupu7h62bqyvquyd6bn5ty2i/password") }}'
 
 OUTPUT_IMPORT=$(gpg --import --batch --passphrase "${PASSPHRASE}" ~/.gpg/work.key 2>&1)
 if [[ ${OUTPUT_IMPORT} == *"secret keys imported: 1"* ]]; then
