@@ -32,16 +32,21 @@
   status = auto
   branch = auto
   ui = true
-[commit]
-  gpgsign = true
 [core]
   excludesfile = ~/.gitignore
   editor = $GIT_EDITOR
+  pager = delta
   untrackedCache = true
 [credential]
   helper = osxkeychain
 [difftool]
   prompt = false
+[delta]
+  syntax-theme = Nord
+  plus-style = syntax "#425630"
+  minus-style = syntax "#773D42"
+  plus-emph-style = syntax "#A3BE8C"
+  minus-emph-style = syntax "#BF616A"
 [fetch]
   prune = true
 [help]
@@ -59,8 +64,6 @@
 [push]
   default = simple
   followTags = true
-[tag]
-  gpgsign = true
 [user]
   name = Sean Lingren
   email = sean@lingrino.com
