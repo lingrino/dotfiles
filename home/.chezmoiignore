@@ -43,9 +43,6 @@ projects/*
 !.docker/config.json
 .ecr/log/
 .ecr/cache.json
-.gnupg/*
-!.gnupg/gpg-agent.conf
-!.gnupg/gpg.conf
 .iterm2
 .iterm2_shell_integration.zsh
 .kube/*
