@@ -27,6 +27,6 @@ EOF
 sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
 
 # computer names
-sudo scutil --set HostName {{ .machine }}
+sudo scutil --set HostName {{ .machine }}.local
 sudo scutil --set ComputerName {{ .machine }}
 sudo scutil --set LocalHostName {{ .machine }}
