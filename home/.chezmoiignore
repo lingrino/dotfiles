@@ -47,7 +47,7 @@ projects/*
 .iterm2_shell_integration.zsh
 .kube/*
 .npm
-.npm-global-modules/*
+.npmrc
 .op/*
 .proxyman*
 .psql_history
@@ -63,6 +63,7 @@ projects/*
 
 {{- if .work }}
 # work
+.certs/*
 .nvm
 .pnpm-state
 .saml2aws

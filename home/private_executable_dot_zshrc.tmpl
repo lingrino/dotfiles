@@ -35,14 +35,20 @@ done
 # Add our completions to fpath
 fpath=({{ .brewprefix }}/share/zsh/completions/src $fpath)
 
-# This line initializes the completion system
-autoload -U +X compinit && compinit
-
 # This line lets zsh use bash completions
 autoload -U +X bashcompinit && bashcompinit
 
+# This line initializes the completion system
+autoload -U +X compinit && compinit
+
+# load aws completions
+complete -C '{{ .brewprefix }}/bin/aws_completer' aws
+
 # We don't need this variable anymore
 unset config_files
+
+# load fzf-tab
+source {{ .chezmoi.homeDir }}/.local/bin/fzf-tab/fzf-tab.plugin.zsh
 
 # Load autosuggestions and syntax-highlighting
 # Syntax-highlighting must be loaded at the end
