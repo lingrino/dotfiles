@@ -68,25 +68,25 @@ e() {
 }
 
 ################################
-### exa                      ###
+### eza                      ###
 ################################
-if exa &>/dev/null; then
+if eza &>/dev/null; then
     # List all
-    alias l="exa -abghl"
-    alias la="exa -abghl"
+    alias l="eza -abghl"
+    alias la="eza -abghl"
 
     # List visible in table
-    alias ll="exa -bghl"
+    alias ll="eza -bghl"
 
     # Normal ls
-    alias ls="exa"
+    alias ls="eza"
 
     # List tree with optional depth
     lt() {
         if [ -z "$1" ]; then
-            exa -bghlT
+            eza -bghlT
         else
-            exa -bghlT -L "$1"
+            eza -bghlT -L "$1"
         fi
     }
 fi
