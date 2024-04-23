@@ -64,6 +64,8 @@ projects/*
 {{- if .work }}
 # work
 .certs/*
+.config/atlassian/*
+dash.sqlite3
 .nvm
 .pnpm-state
 .saml2aws

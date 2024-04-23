@@ -271,6 +271,13 @@ alias tfia='tfi && tfa'
 alias watch='viddy'
 
 ################################
+### wok                      ###
+################################
+{{- if .work }}
+_prepath "/opt/atlassian/bin"
+{{- end }}
+
+################################
 ### zoxide                   ###
 ################################
 eval "$(zoxide init zsh --cmd j)"
