@@ -63,11 +63,17 @@ projects/*
 
 {{- if .work }}
 # work
+.atlas-packages-cli
 .certs/*
 .config/atlassian/*
+.config/pip/*
 dash.sqlite3
+.gem
+.gemrc
+.netrc
 .nvm
 .pnpm-state
 .saml2aws
 .vpn
+.yarnrc.yml
 {{- end }}
