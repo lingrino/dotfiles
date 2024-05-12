@@ -32,6 +32,8 @@
   status = auto
   branch = auto
   ui = true
+[commit]
+  gpgSign = true
 [core]
   excludesfile = ~/.gitignore
   editor = $GIT_EDITOR
@@ -49,6 +51,10 @@
   minus-emph-style = syntax "#BF616A"
 [fetch]
   prune = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [help]
   autocorrect = 1
 [init]
@@ -67,6 +73,7 @@
 [user]
   name = Sean Lingren
   email = sean@lingren.com
+  signingkey = {{ (onepasswordRead "op://personal/orpgiu3243p2sjr5wbetoxtj4y/publickey") }}
 {{- if .work }}
 [url "git@github.com:loomhq"]
   insteadOf = https://github.com/loomhq
