@@ -3,7 +3,7 @@
 [cargo-new]
 vcs = "none"
 name = "Sean Lingren"
-email = "sean@lingrino.com"
+email = "sean@lingren.com"
 
 [alias]
 b = "build"

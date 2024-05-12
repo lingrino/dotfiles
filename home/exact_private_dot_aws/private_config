@@ -1,29 +1,29 @@
 # This file is manually updated with my account information
 
 [profile me]
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
+mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
 
 [profile audit]
 source_profile=me
 role_arn=arn:aws:iam::418875065733:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
+mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
 
 [profile auth]
 source_profile=me
 role_arn=arn:aws:iam::230833635140:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
+mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
 
 [profile dev]
 source_profile=me
 role_arn=arn:aws:iam::038361916180:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
+mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
 
 [profile prod]
 source_profile=me
 role_arn=arn:aws:iam::840856573771:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
+mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
 
 [profile root]
 source_profile=me
 role_arn=arn:aws:iam::241223443698:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingrino.com
+mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
