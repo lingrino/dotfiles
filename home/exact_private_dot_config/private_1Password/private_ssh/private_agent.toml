@@ -1,0 +1,11 @@
+{{ if .work -}}
+[[ssh-keys]]
+item = "work"
+vault = "Private"
+account = "Lingren"
+{{- end }}
+
+[[ssh-keys]]
+item = "personal"
+vault = "Private"
+account = "Lingren"
