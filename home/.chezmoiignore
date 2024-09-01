@@ -38,6 +38,7 @@ projects/*
 !.cargo/config.toml
 .config/chezmoi
 .config/gh/hosts.yml
+.config/github-copilot/hosts.json
 .config/iterm2/
 .config/op
 .config/zed/*

@@ -1,6 +1,11 @@
 #!/usr/bin/env zsh
 
 ################################
+### anthropic                ###
+################################
+export ANTHROPIC_API_KEY={{ (onepasswordRead "op://personal/x27zb7ynr4h3sn6pjez3zcksdm/apikeys/local") }}
+
+################################
 ### aws                      ###
 ################################
 {{- if .work }}
@@ -155,6 +160,11 @@ alias kc='aws eks update-kubeconfig --name'
 export NVM_DIR="{{ .chezmoi.homeDir }}/.nvm"
 [ -s "{{ .brewprefix }}/opt/nvm/nvm.sh" ] && \. "{{ .brewprefix }}/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "{{ .brewprefix }}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "{{ .brewprefix }}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+################################
+### openai                   ###
+################################
+export OPENAI_API_KEY={{ (onepasswordRead "op://personal/fwp4w56lrpwmyq7rryotjmfmju/apikeys/local") }}
 
 ################################
 ### os                       ###
