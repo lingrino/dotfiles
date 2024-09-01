@@ -7,8 +7,9 @@
 // from the command palette.
 [
   {
-    "context": "Pane",
+    "context": "Editor",
     "bindings": {
+      "cmd-0": "pane::ActivateLastItem",
       "cmd-1": ["pane::ActivateItem", 0],
       "cmd-2": ["pane::ActivateItem", 1],
       "cmd-3": ["pane::ActivateItem", 2],
@@ -23,13 +24,9 @@
     }
   },
   {
-    "context": "Workspace",
-    "bindings": {}
-  },
-  {
-    "context": "Editor",
+    "context": "ProjectPanel",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "cmd-enter": "project_panel::Open"
     }
   }
 ]
