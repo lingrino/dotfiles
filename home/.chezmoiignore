@@ -29,6 +29,7 @@ go/*
 projects/*
 
 # tools
+.aws/cli/cache
 .aws/credentials
 .Brewfile.lock.json
 .bundle
@@ -39,6 +40,9 @@ projects/*
 .config/gh/hosts.yml
 .config/iterm2/
 .config/op
+.config/zed/*
+!.config/zed/keymap.json
+!.config/zed/settings.json
 .docker/*
 !.docker/config.json
 .ecr/log/
@@ -70,6 +74,8 @@ projects/*
 dash.sqlite3
 .gem
 .gemrc
+jig.db
+.mutagen
 .netrc
 .nvm
 .pnpm-state
