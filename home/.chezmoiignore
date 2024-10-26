@@ -81,6 +81,7 @@ jig.db
 .nvm
 .pnpm-state
 .saml2aws
+.secureConnect
 .vpn
 .yarnrc.yml
 {{- end }}
