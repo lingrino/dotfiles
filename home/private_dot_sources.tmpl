@@ -143,6 +143,13 @@ export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_GITHUB_API_TOKEN={{ (onepasswordRead "op://personal/j36hdync2fb6jpk4afv4s6snpi/apikeys/homebrew") }}
 
 ################################
+### journal                  ###
+################################
+je() {
+    gh workflow run --repo lingrino/website --ref main journal.yml --field entry="$(date -I) $1"
+}
+
+################################
 ### kdash                    ###
 ################################
 alias kd='kdash'

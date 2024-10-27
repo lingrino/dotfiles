@@ -75,6 +75,7 @@ projects/*
 dash.sqlite3
 .gem
 .gemrc
+.gk
 jig.db
 .mutagen
 .netrc
