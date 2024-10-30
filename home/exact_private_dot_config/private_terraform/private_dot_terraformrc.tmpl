@@ -1,6 +1,12 @@
 # https://www.terraform.io/docs/cli/config/config-file.html
 plugin_cache_dir = "{{ .chezmoi.homeDir }}/.terraform.d/plugincache"
 
+{{ if .work -}}
+credentials "app.terraform.io" {
+  token = "{{ (onepasswordRead "op://personal/43t6n5k4bfgubhz7iehchdvgcu/terraformcloudtokens/work") }}"
+}
+{{- else }}
 credentials "app.terraform.io" {
   token = "{{ (onepasswordRead "op://personal/43t6n5k4bfgubhz7iehchdvgcu/terraformcloudtokens/local") }}"
 }
+{{- end }}

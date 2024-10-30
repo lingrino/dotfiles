@@ -1,10 +1,5 @@
 #!/usr/bin/env zsh
 
-# Load ghostty shell integration first
-if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
-    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
-fi
-
 # Helper functions for managing path. Prevents duplicates.
 typeset -U path  # No duplicates
 path=()

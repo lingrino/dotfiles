@@ -45,7 +45,6 @@ projects/*
 !.config/zed/keymap.json
 !.config/zed/settings.json
 .docker/*
-!.docker/config.json
 .ecr/log/
 .ecr/cache.json
 .iterm2
