@@ -69,6 +69,7 @@ cask '1password-cli'
 cask 'alfred'
 cask 'arc'
 cask 'aws-vault'
+cask 'claude'
 cask 'cleanshot'
 cask 'copilot'
 cask 'docker'
@@ -96,18 +97,23 @@ mas 'Things', id: 904280696
 
 {{ if .work -}}
 # work
+tap 'atlassian/lanyard', 'git@bitbucket.org:atlassian/lanyard-tap.git'
 tap 'loomhq/tap'
+tap 'mutagen-io/mutagen'
 
 brew 'container-structure-test'
 brew 'docker-credential-helper-ecr'
 brew 'hostess'
 brew 'loomhq/tap/jig'
 brew 'loomhq/tap/loomctl'
+brew 'loomhq/tap/mutagen-compose@0.17'
 brew 'mkcert'
+brew 'mutagen-io/mutagen/mutagen@0.17'
 brew 'nss'
 brew 'nvm'
 brew 'postgresql@16'
 brew 'saml2aws'
 
+cask 'atlassian/lanyard/lanyard'
 cask 'yubico-yubikey-manager'
 {{- end }}

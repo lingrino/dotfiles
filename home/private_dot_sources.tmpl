@@ -192,7 +192,6 @@ if [ -s "{{ .brewprefix }}/opt/nvm/nvm.sh" ]; then
   for cmd in $nvm_cmds ; do
     alias $cmd="unalias $nvm_cmds && unset nvm_cmds && . "{{ .brewprefix }}/opt/nvm/nvm.sh" --no-use && load-nvmrc && $cmd"
   done
-  [ -s "{{ .brewprefix }}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "{{ .brewprefix }}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
 
@@ -316,10 +315,11 @@ alias tfia='tfi && tfa'
 alias watch='viddy'
 
 ################################
-### wok                      ###
+### work                     ###
 ################################
 {{- if .work }}
 _prepath "/opt/atlassian/bin"
+export LOOM_ROOT_DIR="{{ .chezmoi.homeDir }}/projects/work/loom"
 {{- end }}
 
 ################################
