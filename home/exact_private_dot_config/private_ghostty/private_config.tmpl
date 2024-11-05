@@ -1,0 +1,19 @@
+# run `ghostty +show-config --default --docs` to see options
+
+auto-update = download
+command = {{ .brewprefix }}/bin/zsh
+copy-on-select = true
+cursor-style = bar
+cursor-style-blink = false
+font-family = Berkeley Mono Variable
+macos-non-native-fullscreen = true
+macos-option-as-alt = true
+macos-titlebar-style = tabs
+macos-window-shadow = true
+window-height = 40
+window-width = 160
+quit-after-last-window-closed = true
+
+# send escape sequences mapped to begining and end of line
+keybind = cmd+left=esc:[H
+keybind = cmd+right=esc:[F

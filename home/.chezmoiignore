@@ -39,7 +39,6 @@ projects/*
 .config/chezmoi
 .config/gh/hosts.yml
 .config/github-copilot/hosts.json
-.config/iterm2/
 .config/op
 .config/zed/*
 !.config/zed/keymap.json
@@ -47,8 +46,6 @@ projects/*
 .docker/*
 .ecr/log/
 .ecr/cache.json
-.iterm2
-.iterm2_shell_integration.zsh
 .kube/*
 .npm
 .npmrc
@@ -72,6 +69,7 @@ projects/*
 .config/atlassian/*
 .config/pip/*
 dash.sqlite3
+.datadog-agent
 .gem
 .gemrc
 .gk
