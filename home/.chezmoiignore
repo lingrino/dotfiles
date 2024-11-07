@@ -76,7 +76,6 @@ dash.sqlite3
 jig.db
 .mutagen
 .netrc
-.nvm
 .pnpm-state
 .saml2aws
 .secureConnect
