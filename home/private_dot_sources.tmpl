@@ -8,10 +8,10 @@ export ANTHROPIC_API_KEY={{ (onepasswordRead "op://personal/x27zb7ynr4h3sn6pjez3
 ################################
 ### aws                      ###
 ################################
-{{- if .work }}
+{{ if .work }}
 export AWS_PROFILE="saml"
 export AWS_REGION="us-west-2"
-{{- end }}
+{{- end -}}
 
 export AWS_VAULT_BACKEND=keychain
 export AWS_VAULT_KEYCHAIN_NAME=login
@@ -290,10 +290,10 @@ alias tfia='tfi && tfa'
 ################################
 alias watch='viddy'
 
+{{- if .work }}
 ################################
 ### work                     ###
 ################################
-{{- if .work }}
 _prepath "/opt/atlassian/bin"
 export LOOM_ROOT_DIR="{{ .chezmoi.homeDir }}/projects/work/loom"
 {{- end }}
