@@ -6,7 +6,7 @@ set -euo pipefail
 
 {{- if .work }}
 sudopass='{{ (onepasswordRead "op://atlassian/s665r235ct6w7nb4f5yyjmzoki/password") }}'
-{{- else if eq .machine "mac" }}
+{{- else }}
 sudopass='{{ (onepasswordRead "op://personal/ivoz42ziclbu65brepnk5ao2ka/password") }}'
 {{- end }}
 
