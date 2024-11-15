@@ -2,6 +2,7 @@
 ### machine information      ###
 ################################
 {{- $machine   := ""    -}}
+{{- $personal  := false -}}
 {{- $work      := false -}}
 {{- $headless  := false -}}
 {{- $transient := false -}}
@@ -16,6 +17,8 @@
 
 {{- if eq $machine "work" -}}
 {{-    $work = true -}}
+{{- else }}
+{{-    $personal = true -}}
 {{- end }}
 
 ################################
@@ -23,6 +26,7 @@
 ################################
 data:
   machine:   {{ $machine }}
+  personal:  {{ $personal }}
   work:      {{ $work }}
   headless:  {{ $headless }}
   transient: {{ $transient }}

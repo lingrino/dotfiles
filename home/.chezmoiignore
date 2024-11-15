@@ -46,6 +46,7 @@ projects/*
 .docker/*
 .ecr/log/
 .ecr/cache.json
+.gk
 .kube/*
 .npm
 .npmrc

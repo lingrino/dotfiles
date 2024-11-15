@@ -89,8 +89,23 @@ cask 'vlc'
 cask 'zed'
 cask 'zoom'
 
+mas '1Password for Safari', id: 1569813296
+mas 'Hush', id: 1544743900
 mas 'Peek', id: 1554235898
+mas 'Save to Matter', id: 1548677272
 mas 'Things', id: 904280696
+mas 'Wipr', id: 1662217862
+
+{{ if .personal -}}
+# personal
+mas 'Remote Desktop', id: 409907375
+mas 'Screens 5', id: 1663047912
+{{- end }}
+
+{{ if eq .machine "mini" -}}
+# mini
+cask 'arq'
+{{- end }}
 
 {{ if .work -}}
 # work

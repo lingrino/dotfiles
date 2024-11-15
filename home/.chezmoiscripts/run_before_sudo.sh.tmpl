@@ -1,13 +1,7 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
-# this script triggers the sudo password prompt and fills in the password
-# from 1password so that it doesn't need to be typed manually later on.
-
-{{- if .work }}
-sudopass='{{ (onepasswordRead "op://atlassian/s665r235ct6w7nb4f5yyjmzoki/password") }}'
-{{- else }}
-sudopass='{{ (onepasswordRead "op://personal/ivoz42ziclbu65brepnk5ao2ka/password") }}'
-{{- end }}
-
-echo "$sudopass" | sudo -S true
+sudo tee /etc/pam.d/sudo_local >/dev/null <<EOF
+# enable touchid for sudo
+auth sufficient pam_tid.so
+EOF
