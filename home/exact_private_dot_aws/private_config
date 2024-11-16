@@ -1,29 +1,28 @@
-# This file is manually updated with my account information
-
-[profile me]
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
+[sso-session lingrino]
+sso_region = us-west-2
+sso_start_url = https://lingrino.awsapps.com/start/
 
 [profile audit]
-source_profile=me
-role_arn=arn:aws:iam::418875065733:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
+sso_session = lingrino
+sso_account_id = 418875065733
+sso_role_name = admin
 
 [profile auth]
-source_profile=me
-role_arn=arn:aws:iam::230833635140:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
+sso_session = lingrino
+sso_account_id = 230833635140
+sso_role_name = admin
 
 [profile dev]
-source_profile=me
-role_arn=arn:aws:iam::038361916180:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
+sso_session = lingrino
+sso_account_id = 038361916180
+sso_role_name = admin
 
 [profile prod]
-source_profile=me
-role_arn=arn:aws:iam::840856573771:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
+sso_session = lingrino
+sso_account_id = 840856573771
+sso_role_name = admin
 
 [profile root]
-source_profile=me
-role_arn=arn:aws:iam::241223443698:role/Admin
-mfa_serial=arn:aws:iam::230833635140:mfa/sean@lingren.com
+sso_session = lingrino
+sso_account_id = 241223443698
+sso_role_name = admin
