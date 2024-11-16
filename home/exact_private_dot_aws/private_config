@@ -25,4 +25,4 @@ sso_role_name = admin
 [profile root]
 sso_session = lingrino
 sso_account_id = 241223443698
-sso_role_name = admin
+sso_role_name = root-admin
