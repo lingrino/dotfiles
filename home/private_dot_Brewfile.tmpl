@@ -84,7 +84,6 @@ cask 'proxyman'
 cask 'slack'
 cask 'spotify'
 cask 'tableplus'
-cask 'tailscale'
 cask 'visual-studio-code'
 cask 'vlc'
 cask 'zed'
@@ -107,7 +106,10 @@ mas 'Screens 5', id: 1663047912
 
 {{ if eq .machine "mini" -}}
 # mini
+brew 'tailscale'
 cask 'arq'
+{{ else }}
+cask 'tailscale'
 {{- end }}
 
 {{ if .work -}}

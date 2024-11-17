@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+{{ if eq .machine "mini" }}
+# https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS
+
+sudo tailscaled install-system-daemon
+tailscale up --ssh --accept-routes --advertise-exit-node
+{{ end }}
