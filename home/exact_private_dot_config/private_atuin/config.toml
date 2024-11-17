@@ -1,0 +1,24 @@
+# https://docs.atuin.sh/configuration/config/
+
+# run the command on enter
+enter_accept = true
+
+# regex patterns to filter out from history
+# https://rustexp.lpil.uk
+# https://docs.rs/regex/latest/regex/#syntax
+history_filter = [
+    "^\\\\.*$",
+    "^export.*(?i)(key|secret|token).*$",
+    "^(.|\n)*(?i)(authorization:| bearer )(.|\n)*$",
+]
+
+[stats]
+
+[keys]
+
+[sync]
+records = true
+
+[preview]
+
+[daemon]

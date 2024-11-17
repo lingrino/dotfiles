@@ -5,6 +5,13 @@
 ################################
 export ANTHROPIC_API_KEY={{ (onepasswordRead "op://personal/x27zb7ynr4h3sn6pjez3zcksdm/apikeys/local") }}
 
+{{ if .personal -}}
+################################
+### atuin                    ###
+################################
+eval "$(atuin init zsh)"
+{{- end }}
+
 ################################
 ### aws                      ###
 ################################
@@ -108,21 +115,15 @@ alias find='fd'
 ################################
 eval "$(fnm env --use-on-cd --corepack-enabled --resolve-engines --version-file-strategy=recursive --shell=zsh)"
 
+{{ if .work -}}
 ################################
 ### fzf                      ###
 ################################
 # Use fd instead of find
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# I run the below two commands instead of adding them
-# manually using $(brew --prefix)/opt/fzf/install utility
-
-# Add completions if in interactive mode
-[[ $- == *i* ]] && source "{{ .brewprefix }}/opt/fzf/shell/completion.zsh" 2>/dev/null
-
-# Add keybindings
-source "{{ .brewprefix }}/opt/fzf/shell/key-bindings.zsh"
+source <(fzf --zsh)
+{{- end }}
 
 ################################
 ### ghostty                  ###
@@ -288,6 +289,11 @@ alias tfip='tfi && tfp'
 alias tfia='tfi && tfa'
 
 ################################
+### tflint                   ###
+################################
+export TFLINT_PLUGIN_DIR="{{ .chezmoi.homeDir }}/.config/tflint/plugins"
+
+################################
 ### viddy                    ###
 ################################
 alias watch='viddy'
@@ -364,6 +370,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 ### Custom Keybindings   ###
 ############################
 
+{{ if .work -}}
+# Use atuin keybindings for personal
 # This make the up/down keys search through history and only
 # match anything that's already been typed in the terminal
 # https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
@@ -373,6 +381,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+{{- end }}
 
 # Make cmd+right/left go to beginning and end of lines.
 # You must also set your terminal emulator to send these

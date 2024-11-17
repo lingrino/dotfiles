@@ -30,6 +30,7 @@ projects/*
 
 # tools
 .aws/cli/cache
+.aws/sso/cache
 .aws/credentials
 .Brewfile.lock.json
 .bundle
@@ -40,6 +41,7 @@ projects/*
 .config/gh/hosts.yml
 .config/github-copilot/hosts.json
 .config/op
+.config/tflint/plugins/*
 .config/zed/*
 !.config/zed/keymap.json
 !.config/zed/settings.json
