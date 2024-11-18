@@ -99,7 +99,6 @@ mas 'Wipr', id: 1662217862
 {{ if .personal -}}
 # personal
 brew 'atuin'
-
 mas 'Remote Desktop', id: 409907375
 mas 'Screens 5', id: 1663047912
 {{- end }}
@@ -107,6 +106,7 @@ mas 'Screens 5', id: 1663047912
 {{ if eq .machine "mini" -}}
 # mini
 brew 'tailscale'
+cask 'screens-connect'
 cask 'arq'
 {{ else }}
 cask 'tailscale'
