@@ -3,7 +3,7 @@ plugin_cache_dir = "{{ .chezmoi.homeDir }}/.terraform.d/plugincache"
 
 {{ if .work -}}
 credentials "app.terraform.io" {
-  token = "{{ (onepasswordRead "op://personal/tudynwwyqjzqjbw32qdcgmyaf4/terraformcloudtokens/local") }}"
+  token = "{{ (onepasswordRead "op://atlassian/tudynwwyqjzqjbw32qdcgmyaf4/terraformcloudtokens/local") }}"
 }
 {{- else }}
 credentials "app.terraform.io" {
