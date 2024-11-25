@@ -7,7 +7,7 @@
   co = checkout
   db = "!f() { git branch -vv | grep ': gone]'| grep -v \"*\" | awk '{ print $1; }' | xargs git branch -D; }; f"
   df = diff
-  dm = "!for pr in $(gh search prs --review-requested=@me --state=open --app=dependabot --json url -q '.[].url'); do gh pr review "${pr}" --approve && gh pr merge "${pr}" --squash --auto; done"
+  dm = "!for pr in $(gh search prs --review-requested=@me --state=open --app=dependabot --archived=false --json url -q '.[].url'); do gh pr review "${pr}" --approve && gh pr merge "${pr}" --squash --auto; done"
   lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ms = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git db
   nb = "!f() { git checkout -b ${1} && git push --set-upstream origin ${1}:${1}; }; f"
