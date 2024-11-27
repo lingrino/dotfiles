@@ -18,9 +18,9 @@ eval "$(atuin init zsh)"
 {{ if .work }}
 export AWS_PROFILE="saml"
 export AWS_REGION="us-west-2"
-{{- else }}
+{{ else }}
 export AWS_REGION="us-west-2"
-{{- end -}}
+{{- end }}
 
 export AWS_VAULT_BACKEND=keychain
 export AWS_VAULT_KEYCHAIN_NAME=login
