@@ -180,6 +180,11 @@ alias k='kubectl'
 alias kc='aws eks update-kubeconfig --name'
 
 ################################
+### lmstudio                 ###
+################################
+_prepath "{{ .chezmoi.homeDir }}/.cache/lm-studio/bin"
+
+################################
 ### openai                   ###
 ################################
 export OPENAI_API_KEY={{ (onepasswordRead "op://personal/fwp4w56lrpwmyq7rryotjmfmju/apikeys/local") }}
