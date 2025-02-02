@@ -39,7 +39,7 @@ projects/*
 !.cargo/config.toml
 .config/chezmoi
 .config/gh/hosts.yml
-.config/github-copilot/hosts.json
+.config/github-copilot/*
 .config/op
 .config/tflint/plugins/*
 .config/zed/*
@@ -57,6 +57,7 @@ projects/*
 .psql_history
 .python_history
 .rustup/*
+.terminfo
 .terraform.d/*
 !.terraform.d/plugincache
 .terraform.d/plugincache/*
