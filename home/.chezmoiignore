@@ -37,6 +37,8 @@ projects/*
 .cisco
 .cargo/*
 !.cargo/config.toml
+.claude.json
+.claude/statsig/*
 .config/chezmoi
 .config/gh/hosts.yml
 .config/github-copilot/*
@@ -45,6 +47,8 @@ projects/*
 .config/zed/*
 !.config/zed/keymap.json
 !.config/zed/settings.json
+.cursor/argv.json
+.cursor/extensions/extensions.json
 .docker/*
 .ecr/log/
 .ecr/cache.json
