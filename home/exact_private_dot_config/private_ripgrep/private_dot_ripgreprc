@@ -2,3 +2,10 @@
 
 # ignore case unless uppercase
 --smart-case
+
+# print max 100 columns
+--max-columns=100
+--max-columns-preview
+
+# exclude svg images
+--glob=!*.svg
