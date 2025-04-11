@@ -15,24 +15,7 @@ eval "$(atuin init zsh)"
 ################################
 ### aws                      ###
 ################################
-{{ if .work }}
-export AWS_PROFILE="saml"
 export AWS_REGION="us-west-2"
-{{ else }}
-export AWS_REGION="us-west-2"
-{{- end }}
-
-export AWS_VAULT_BACKEND=keychain
-export AWS_VAULT_KEYCHAIN_NAME=login
-
-alias av='aws-vault'
-
-# avx -> aws-vault export
-# Takes in a profile name and exports the generated keys
-avx() {
-    unset AWS_VAULT
-    aws-vault exec --duration=1h "$1"
-}
 
 ################################
 ### bat                      ###

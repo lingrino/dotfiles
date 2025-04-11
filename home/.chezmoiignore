@@ -85,7 +85,6 @@ jig.db
 .mutagen
 .netrc
 .pnpm-state
-.saml2aws
 .secureConnect
 .vpn
 .yarnrc.yml
