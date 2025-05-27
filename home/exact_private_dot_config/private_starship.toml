@@ -24,7 +24,7 @@ $character
 add_newline = true
 
 # abort commands that take longer than 100ms
-command_timeout = 100
+command_timeout = 300
 
 [cmd_duration]
 min_time = 300

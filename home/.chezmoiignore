@@ -30,7 +30,7 @@ projects/*
 
 # tools
 .aws/cli/cache
-.aws/sso/cache
+.aws/sso
 .aws/credentials
 .Brewfile.lock.json
 .bundle
@@ -38,7 +38,10 @@ projects/*
 .cargo/*
 !.cargo/config.toml
 .claude.json
-.claude/statsig/*
+.claude/ide
+.claude/projects
+.claude/statsig
+.claude/todos
 .config/chezmoi
 .config/gh/hosts.yml
 .config/github-copilot/*
@@ -48,7 +51,7 @@ projects/*
 !.config/zed/keymap.json
 !.config/zed/settings.json
 .cursor/argv.json
-.cursor/extensions/*
+.cursor/extensions
 .docker/*
 .ecr/log/
 .ecr/cache.json
