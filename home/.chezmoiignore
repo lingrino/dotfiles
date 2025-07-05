@@ -27,6 +27,7 @@ Zoom/
 # folders
 go/*
 projects/*
+OrbStack/
 
 # tools
 .aws/cli/cache
@@ -61,6 +62,7 @@ projects/*
 .npm
 .npmrc
 .op/*
+.orbstack/*
 .proxyman*
 .psql_history
 .python_history
