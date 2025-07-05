@@ -62,8 +62,8 @@ alias dust='dust -r'
 ################################
 ### editor                   ###
 ################################
-export EDITOR='code'
-export GIT_EDITOR='code --wait'
+export EDITOR='cursor'
+export GIT_EDITOR='cursor --wait'
 
 e() {
     "$EDITOR" "${1:-.}"
@@ -345,7 +345,6 @@ setopt PUSHDMINUS # Use `-` instead of `+` to go back directories
 ################################
 ### Dircolors                ###
 ################################
-# https://www.nordtheme.com/docs/ports/dircolors/installation
 test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
 
 ################################

@@ -38,6 +38,7 @@ projects/*
 .cargo/*
 !.cargo/config.toml
 .claude.json
+.claude.json.*
 .claude/ide
 .claude/projects
 .claude/statsig

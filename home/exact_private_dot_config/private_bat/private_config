@@ -1,5 +1,2 @@
-# Use the nord theme
---theme="Nord"
-
 # Show line numbers and git changes
 --style="numbers,changes"
