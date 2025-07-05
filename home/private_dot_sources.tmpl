@@ -3,6 +3,8 @@
 ################################
 ### anthropic                ###
 ################################
+alias c='claude'
+
 export ANTHROPIC_API_KEY={{ (onepasswordRead "op://personal/x27zb7ynr4h3sn6pjez3zcksdm/apikeys/local") }}
 
 {{ if .personal -}}
@@ -234,8 +236,6 @@ alias rgh='rg --hidden'
 ################################
 export CARGO_HOME="{{ .chezmoi.homeDir }}/.cargo"
 export RUSTUP_HOME="{{ .chezmoi.homeDir }}/.rustup"
-
-alias c='cargo'
 
 _prepath "{{ .chezmoi.homeDir }}/.cargo/bin"
 
