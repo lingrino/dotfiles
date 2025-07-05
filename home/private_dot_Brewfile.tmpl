@@ -1,7 +1,6 @@
 cask_args appdir: '/Applications'
 
 tap 'golangci/tap'
-tap 'goreleaser/tap'
 tap 'hashicorp/tap'
 tap 'kdash-rs/kdash'
 tap 'lingrino/tap'
@@ -26,7 +25,7 @@ brew 'git-lfs'
 brew 'git'
 brew 'go'
 brew 'golangci/tap/golangci-lint'
-brew 'goreleaser/tap/goreleaser'
+brew 'goreleaser'
 brew 'govulncheck'
 brew 'gping'
 brew 'hadolint'
@@ -84,6 +83,7 @@ cask 'medis'
 cask 'mimestream'
 cask 'multitouch'
 cask 'opal-composer'
+cask 'orbstack'
 cask 'proxyman'
 cask 'slack'
 cask 'tableplus'
@@ -112,7 +112,7 @@ mas 'Screens 5', id: 1663047912
 brew 'tailscale'
 cask 'screens-connect'
 cask 'arq'
-{{ else }}
+{{ else -}}
 cask 'tailscale'
 {{- end }}
 
