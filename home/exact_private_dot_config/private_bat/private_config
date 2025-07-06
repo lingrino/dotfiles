@@ -1,2 +1,5 @@
+# theme
+--theme="Monokai Pro (Filter Spectrum)"
+
 # Show line numbers and git changes
 --style="numbers,changes"

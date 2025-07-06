@@ -343,20 +343,26 @@ setopt AUTO_PUSHD # Keep a stack of directories you cd into
 setopt PUSHDMINUS # Use `-` instead of `+` to go back directories
 
 ################################
-### Dircolors                ###
+### Shell Tool Colors        ###
 ################################
+# dircolors
 test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
 
-################################
-### Colored Man Pages        ###
-################################
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
+# grep
+export GREP_OPTIONS='--color=auto'
+
+# ls
+# export CLICOLOR=1
+# export LSCOLORS=gxfxexdxcxegedabagacad
+
+# man pages
+export LESS_TERMCAP_mb=$'\E[1;35m'
+export LESS_TERMCAP_md=$'\E[1;36m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_so=$'\E[1;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+export LESS_TERMCAP_us=$'\E[1;32m'
 
 ############################
 ### Custom Keybindings   ###
