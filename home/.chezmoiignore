@@ -96,8 +96,10 @@ jig.db
 .mutagen
 .nvm
 .netrc
+.nemo
 .orbit
 .pnpm-state
+.rovodev
 .secureConnect
 .vpn
 .yarnrc
