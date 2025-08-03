@@ -67,22 +67,18 @@ brew 'zsh'
 cask '1password'
 cask '1password-cli'
 cask 'alfred'
-cask 'chatgpt'
 cask 'claude'
 cask 'cleanshot'
-cask 'copilot-money'
 cask 'cursor'
 cask 'ghostty'
 cask 'google-chrome'
 cask 'headlamp'
 cask 'itsycal'
 cask 'loom'
-cask 'lm-studio'
 cask 'medis'
 cask 'mimestream'
 cask 'multitouch'
 cask 'opal-composer'
-cask 'orbstack'
 cask 'proxyman'
 cask 'slack'
 cask 'tableplus'
@@ -91,18 +87,21 @@ cask 'vlc'
 cask 'zed'
 cask 'zoom'
 
-mas '1Password for Safari', id: 1569813296
-mas 'Bear', id: 1091189122
-mas 'Hush', id: 1544743900
-mas 'Peek', id: 1554235898
-mas 'Things', id: 904280696
-mas 'Wipr', id: 1662217862
-
 {{ if .personal -}}
 # personal
 brew 'atuin'
+
+cask 'chatgpt'
+cask 'copilot-money'
+cask 'orbstack'
+
+mas '1Password for Safari', id: 1569813296
+mas 'Hush', id: 1544743900
+mas 'Peek', id: 1554235898
 mas 'Remote Desktop', id: 409907375
 mas 'Screens 5', id: 1663047912
+mas 'Things', id: 904280696
+mas 'Wipr', id: 1662217862
 {{- end }}
 
 {{ if eq .machine "mini" -}}
@@ -110,7 +109,7 @@ mas 'Screens 5', id: 1663047912
 brew 'tailscale'
 cask 'screens-connect'
 cask 'arq'
-{{ else -}}
+{{ else if .personal -}}
 cask 'tailscale-app'
 {{- end }}
 
@@ -132,5 +131,7 @@ brew 'nss'
 brew 'postgresql@16'
 
 cask 'atlassian/lanyard/lanyard'
+cask 'docker-desktop'
+cask 'spotify'
 cask 'yubico-yubikey-manager'
 {{- end }}

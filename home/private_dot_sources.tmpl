@@ -1,11 +1,13 @@
 #!/usr/bin/env zsh
 
+{{ if .personal -}}
 ################################
 ### anthropic                ###
 ################################
 alias c='claude'
 
 export ANTHROPIC_API_KEY={{ (onepasswordRead "op://personal/x27zb7ynr4h3sn6pjez3zcksdm/apikeys/local") }}
+{{- end }}
 
 {{ if .personal -}}
 ################################
@@ -163,11 +165,6 @@ alias ktop='kdash'
 ################################
 alias k='kubectl'
 alias kc='aws eks update-kubeconfig --name'
-
-################################
-### lmstudio                 ###
-################################
-_prepath "{{ .chezmoi.homeDir }}/.cache/lm-studio/bin"
 
 ################################
 ### openai                   ###

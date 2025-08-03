@@ -78,20 +78,29 @@ OrbStack/
 
 {{- if .work }}
 # work
+.almd
 .atlas-packages-cli
 .certs/*
-.config/atlassian/*
-.config/pip/*
+.cloudflared
+.config/atlassian
+.config/atlassian-cli
+.config/pip
 dash.sqlite3
 .datadog-agent
 .gem
 .gemrc
+.gittrace
 .gk
 jig.db
+.lanyard.db
+.loomctl
 .mutagen
+.nvm
 .netrc
+.orbit
 .pnpm-state
 .secureConnect
 .vpn
+.yarnrc
 .yarnrc.yml
 {{- end }}
