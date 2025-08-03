@@ -84,6 +84,7 @@ OrbStack/
 .config/atlassian
 .config/atlassian-cli
 .config/pip
+.config/uv/uv.toml
 dash.sqlite3
 .datadog-agent
 .gem
