@@ -52,8 +52,7 @@ OrbStack/
 .config/zed/*
 !.config/zed/keymap.json
 !.config/zed/settings.json
-.cursor/argv.json
-.cursor/extensions
+.cursor/*
 .docker/*
 .ecr/log/
 .ecr/cache.json

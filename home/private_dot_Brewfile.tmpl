@@ -115,10 +115,12 @@ cask 'tailscale-app'
 
 {{ if .work -}}
 # work
+tap 'atlassian/homebrew-acli'
 tap 'atlassian/lanyard', 'git@bitbucket.org:atlassian/lanyard-tap.git'
 tap 'loomhq/tap'
 tap 'mutagen-io/mutagen'
 
+brew 'acli'
 brew 'container-structure-test'
 brew 'docker-credential-helper-ecr'
 brew 'hostess'
