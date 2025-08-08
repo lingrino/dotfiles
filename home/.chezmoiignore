@@ -78,6 +78,7 @@ OrbStack/
 {{- if .work }}
 # work
 .almd
+.atlas-ml
 .atlas-packages-cli
 .certs/*
 .cloudflared
@@ -87,6 +88,7 @@ OrbStack/
 .config/uv/uv.toml
 dash.sqlite3
 .datadog-agent
+.electron-gyp
 .gem
 .gemrc
 .gittrace
@@ -103,6 +105,7 @@ jig.db
 .rovodev
 .secureConnect
 .vpn
+.yarn
 .yarnrc
 .yarnrc.yml
 {{- end }}
