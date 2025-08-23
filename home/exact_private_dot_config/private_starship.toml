@@ -23,8 +23,8 @@ $character
 # Print a new line at the start of the prompt
 add_newline = true
 
-# abort commands that take longer than 500ms
-command_timeout = 500
+# abort commands that take longer than 1s
+command_timeout = 1000
 
 [cmd_duration]
 min_time = 300
