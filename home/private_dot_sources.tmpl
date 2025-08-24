@@ -152,7 +152,7 @@ export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
 ### journal                  ###
 ################################
 je() {
-    gh workflow run --repo lingrino/website --ref main journal.yml --field entry="$(date -I) $1"
+    gh workflow run --repo lingrino/website --ref main journal.yml --field entry="$1"
 }
 
 ################################
