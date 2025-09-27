@@ -41,6 +41,7 @@ OrbStack/
 .claude.json
 .claude.json.*
 .claude/ide
+.claude/plugins
 .claude/projects
 .claude/shell-snapshots
 .claude/statsig

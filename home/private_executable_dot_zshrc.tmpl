@@ -21,6 +21,7 @@ _postpath() {
 _prepath /bin /sbin /usr/bin /usr/sbin
 _prepath /usr/local/bin /usr/local/sbin
 _prepath {{ .brewprefix }}/bin
+_prepath {{ .chezmoi.homeDir }}/.local/bin
 
 # Set config_files to every file in the zsh folder ending in .zsh
 typeset -U config_files
