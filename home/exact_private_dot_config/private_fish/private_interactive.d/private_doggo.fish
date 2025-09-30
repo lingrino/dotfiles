@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-alias loc='scc'
+alias dig='doggo'

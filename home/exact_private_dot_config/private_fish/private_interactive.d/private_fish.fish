@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-alias find='fd'
+set -g fish_greeting

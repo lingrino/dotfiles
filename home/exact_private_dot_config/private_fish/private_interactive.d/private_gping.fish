@@ -1,3 +1,3 @@
 #!/usr/bin/env fish
 
-alias cat='bat'
+alias ping='gping'

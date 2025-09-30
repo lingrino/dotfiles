@@ -42,6 +42,7 @@ OrbStack/
 .claude.json.*
 .claude/*
 .config/chezmoi
+.config/fish/fish_variables
 .config/gh/hosts.yml
 .config/github-copilot/*
 .config/op
