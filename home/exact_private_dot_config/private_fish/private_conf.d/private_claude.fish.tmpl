@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+{{ if .personal -}}
+set -gx ANTHROPIC_API_KEY {{ (onepasswordRead "op://personal/x27zb7ynr4h3sn6pjez3zcksdm/apikeys/local") }}
+abbr -a c claude
+{{- end }}

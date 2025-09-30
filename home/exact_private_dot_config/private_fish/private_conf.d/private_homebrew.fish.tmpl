@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+set -gx HOMEBREW_NO_ENV_HINTS true
+set -gx HOMEBREW_GITHUB_API_TOKEN {{ (onepasswordRead "op://personal/j36hdync2fb6jpk4afv4s6snpi/apikeys/homebrew") }}
+set -gx HOMEBREW_DOWNLOAD_CONCURRENCY auto
+
+abbr -a b brew
+abbr -a buu 'brew update && brew upgrade'

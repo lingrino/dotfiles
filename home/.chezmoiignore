@@ -40,12 +40,7 @@ OrbStack/
 !.cargo/config.toml
 .claude.json
 .claude.json.*
-.claude/ide
-.claude/plugins
-.claude/projects
-.claude/shell-snapshots
-.claude/statsig
-.claude/todos
+.claude/*
 .config/chezmoi
 .config/gh/hosts.yml
 .config/github-copilot/*

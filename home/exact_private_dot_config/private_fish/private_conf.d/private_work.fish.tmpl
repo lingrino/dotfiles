@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+{{- if .work }}
+abbr -a c 'acli rovodev run'
+set -gx LOOM_ROOT_DIR {{ .chezmoi.homeDir }}/projects/work/loom
+{{- end }}
