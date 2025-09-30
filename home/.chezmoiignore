@@ -69,9 +69,6 @@ OrbStack/
 !.terraform.d/plugincache
 .terraform.d/plugincache/*
 .vscode/
-.zcompdump
-.zsh_history
-.zsh_sessions/
 
 {{- if .work }}
 # work
