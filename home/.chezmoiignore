@@ -1,8 +1,6 @@
-# repo files
-fonts/
-
 # builtin
-.cache/
+.cache/*
+!.cache/terraform
 .CFUserTextEncoding
 .cups
 .DS_Store
@@ -21,7 +19,6 @@ Movies/
 Music/
 Pictures/
 Public/
-Zoom/
 
 # folders
 go/*
@@ -30,11 +27,8 @@ OrbStack/
 
 # tools
 .aws/cli/cache
-.aws/sso
+.aws/sso/cache
 .aws/credentials
-.Brewfile.lock.json
-.bundle
-.cisco
 .cargo/*
 !.cargo/config.toml
 .claude.json
@@ -43,7 +37,6 @@ OrbStack/
 .config/chezmoi
 .config/fish/fish_variables
 .config/gh/hosts.yml
-.config/github-copilot/*
 .config/op
 .config/tflint/plugins/*
 .config/zed/*
@@ -51,22 +44,14 @@ OrbStack/
 !.config/zed/settings.json
 .cursor/*
 .docker/*
-.ecr/log/
-.ecr/cache.json
 .gk
 .kube/*
 .npm
-.npmrc
-.op/*
 .orbstack/*
 .proxyman*
 .psql_history
 .python_history
 .rustup/*
-.terminfo
-.terraform.d/*
-!.terraform.d/plugincache
-.terraform.d/plugincache/*
 .vscode/
 
 {{- if .work }}
@@ -91,7 +76,6 @@ jig.db
 .lanyard.db
 .loomctl
 .mutagen
-.nvm
 .netrc
 .nemo
 .orbit

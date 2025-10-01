@@ -1,5 +1,5 @@
-# https://www.terraform.io/docs/cli/config/config-file.html
-plugin_cache_dir = "{{ .chezmoi.homeDir }}/.terraform.d/plugincache"
+# https://developer.hashicorp.com/terraform/cli/config/config-file
+plugin_cache_dir = "{{ .chezmoi.homeDir }}/.cache/terraform"
 
 {{ if .work -}}
 credentials "app.terraform.io" {
