@@ -6,7 +6,6 @@ fonts/
 .CFUserTextEncoding
 .cups
 .DS_Store
-.lesshst
 .local
 .ssh/known_hosts
 .ssh/sockets
