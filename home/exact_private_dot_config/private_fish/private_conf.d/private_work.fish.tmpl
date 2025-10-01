@@ -1,0 +1,5 @@
+{{- if .work }}
+#!/usr/bin/env fish
+
+set -gx LOOM_ROOT_DIR {{ .chezmoi.homeDir }}/projects/work/loom
+{{- end }}

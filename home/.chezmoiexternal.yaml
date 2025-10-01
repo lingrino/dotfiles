@@ -1,3 +1,0 @@
-.local/bin/fzf-tab:
-  type: git-repo
-  url: https://github.com/Aloxaf/fzf-tab

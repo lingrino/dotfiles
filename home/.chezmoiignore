@@ -6,7 +6,6 @@ fonts/
 .CFUserTextEncoding
 .cups
 .DS_Store
-.lesshst
 .local
 .ssh/known_hosts
 .ssh/sockets
@@ -40,13 +39,9 @@ OrbStack/
 !.cargo/config.toml
 .claude.json
 .claude.json.*
-.claude/ide
-.claude/plugins
-.claude/projects
-.claude/shell-snapshots
-.claude/statsig
-.claude/todos
+.claude/*
 .config/chezmoi
+.config/fish/fish_variables
 .config/gh/hosts.yml
 .config/github-copilot/*
 .config/op
@@ -73,9 +68,6 @@ OrbStack/
 !.terraform.d/plugincache
 .terraform.d/plugincache/*
 .vscode/
-.zcompdump
-.zsh_history
-.zsh_sessions/
 
 {{- if .work }}
 # work

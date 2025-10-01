@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+set -gx GOPATH {{ .chezmoi.homeDir }}/go
+set -gx GOBIN $GOPATH/bin
+
+{{- if .work }}
+set -gx GOPRIVATE "github.com/loomhq/*"
+{{- end }}

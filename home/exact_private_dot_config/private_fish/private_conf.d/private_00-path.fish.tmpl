@@ -1,0 +1,27 @@
+#!/usr/bin/env fish
+
+# system paths
+fish_add_path --path --prepend /bin /sbin /usr/bin /usr/sbin
+fish_add_path --path --prepend /usr/local/bin /usr/local/sbin
+
+# homebrew
+fish_add_path --path --prepend {{ .brewprefix }}/bin
+
+# go
+fish_add_path --path --prepend {{ .chezmoi.homeDir }}/go/bin
+
+# cargo/rust
+fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.cargo/bin
+
+# ghostty
+if set -q GHOSTTY_BIN_DIR
+    fish_add_path --path --prepend $GHOSTTY_BIN_DIR
+end
+
+# home local bin
+fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.local/bin
+
+{{- if .work }}
+# work
+fish_add_path --path --prepend /opt/atlassian/bin
+{{- end }}
