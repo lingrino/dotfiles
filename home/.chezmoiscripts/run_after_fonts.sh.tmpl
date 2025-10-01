@@ -4,5 +4,5 @@ set -euo pipefail
 # cannot hash a whole directory with templates. instead keep a manual list.
 # fonts: consolas,hack,mono,usgraphics
 
-sudo cp {{ .chezmoi.sourceDir }}/fonts/**/*.TTF ~/Library/Fonts
-sudo chmod 0660 ~/Library/Fonts/*.TTF
+sudo cp {{ .chezmoi.sourceDir }}/fonts/**/*.TTF {{ .chezmoi.homeDir }}/Library/Fonts
+sudo chmod 0660 {{ .chezmoi.homeDir }}/Library/Fonts/*.TTF

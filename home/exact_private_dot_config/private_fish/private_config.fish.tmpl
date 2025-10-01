@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # source interactive configs
-for file in ~/.config/fish/interactive.d/*.fish
+for file in {{ .chezmoi.homeDir }}/.config/fish/interactive.d/*.fish
     source $file
 end
 

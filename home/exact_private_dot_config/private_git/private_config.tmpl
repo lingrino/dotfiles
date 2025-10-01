@@ -35,7 +35,7 @@
 [commit]
   gpgSign = true
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = {{ .chezmoi.homeDir }}/.config/git/ignore
   editor = $GIT_EDITOR
   pager = delta
   fsmonitor = true
@@ -79,5 +79,5 @@
 [url "git@github.com:loomhq"]
   insteadOf = https://github.com/loomhq
 [includeIf "gitdir:{{ .chezmoi.homeDir }}/projects/work/"]
-  path = ~/.gitconfig-work
+  path = {{ .chezmoi.homeDir }}/.config/git/config-work
 {{- end }}
