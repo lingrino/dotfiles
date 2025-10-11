@@ -9,6 +9,7 @@ enter_accept = true
 history_filter = [
     "^\\\\.*$",
     "^export.*(?i)(key|secret|token).*$",
+    "^set.*(?i)(key|secret|token).*$",
     "^(.|\n)*(?i)(authorization:| bearer )(.|\n)*$",
 ]
 

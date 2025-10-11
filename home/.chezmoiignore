@@ -34,6 +34,7 @@ OrbStack/
 .claude.json
 .claude.json.*
 .claude/*
+.codex/
 .config/chezmoi
 .config/fish/fish_variables
 .config/gh/hosts.yml
@@ -52,6 +53,7 @@ OrbStack/
 .psql_history
 .python_history
 .rustup/*
+.terraform.d/
 .vscode/
 
 {{- if .work }}
