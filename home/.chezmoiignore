@@ -1,6 +1,5 @@
 # builtin
 .cache/*
-!.cache/terraform
 .CFUserTextEncoding
 .cups
 .DS_Store
@@ -26,6 +25,7 @@ projects/*
 OrbStack/
 
 # tools
+.atlas
 .aws/cli/cache
 .aws/sso/cache
 .aws/credentials
