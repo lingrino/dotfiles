@@ -40,9 +40,6 @@ OrbStack/
 .config/gh/hosts.yml
 .config/op
 .config/tflint/plugins/*
-.config/zed/*
-!.config/zed/keymap.json
-!.config/zed/settings.json
 .cursor/*
 .docker/*
 .gk
