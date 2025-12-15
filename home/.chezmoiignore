@@ -37,6 +37,7 @@ OrbStack/
 .codex/
 .config/chezmoi
 .config/fish/fish_variables
+.config/fish/completions/*
 .config/gh/hosts.yml
 .config/op
 .config/tflint/plugins/*
