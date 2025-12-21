@@ -4,6 +4,3 @@
 for file in {{ .chezmoi.homeDir }}/.config/fish/interactive.d/*.fish
     source $file
 end
-
-# init starship prompt
-starship init fish | source

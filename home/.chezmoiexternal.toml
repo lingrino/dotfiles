@@ -1,0 +1,13 @@
+# hydro prompt
+# https://github.com/jorgebucaran/hydro
+[".config/fish/conf.d/hydro.fish"]
+type = "file"
+url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/conf.d/hydro.fish"
+
+[".config/fish/functions/fish_prompt.fish"]
+type = "file"
+url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_prompt.fish"
+
+[".config/fish/functions/fish_mode_prompt.fish"]
+type = "file"
+url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_mode_prompt.fish"
