@@ -41,6 +41,7 @@ OrbStack/
 .config/gh/hosts.yml
 .config/op
 .config/tflint/plugins/*
+.config/zed/
 .cursor/*
 .docker/*
 .gk

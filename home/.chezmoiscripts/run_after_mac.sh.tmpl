@@ -28,6 +28,9 @@ EOF
 
 # dns - https://1.1.1.1/dns/
 sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+{{ if eq .machine "mini" -}}
+sudo networksetup -setdnsservers Ethernet 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+{{- end }}
 
 # computer names
 sudo scutil --set HostName {{ .machine }}.local
