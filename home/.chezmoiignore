@@ -26,6 +26,7 @@ OrbStack/
 
 # tools
 .atlas
+.atuin/logs/*
 .aws/cli/cache
 .aws/sso/cache
 .aws/credentials
