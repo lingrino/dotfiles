@@ -37,15 +37,13 @@
 [core]
   excludesfile = {{ .chezmoi.homeDir }}/.config/git/ignore
   editor = $GIT_EDITOR
-  pager = delta
+  pager = hunk pager
   fsmonitor = true
   untrackedCache = true
 [credential]
   helper = osxkeychain
 [difftool]
   prompt = false
-[delta]
-  syntax-theme = "Monokai Pro (Filter Spectrum)"
 [fetch]
   prune = true
 [gpg]
@@ -56,8 +54,6 @@
   autocorrect = 1
 [init]
   defaultBranch = main
-[interactive]
-  diffFilter = delta --color-only
 [merge]
   conflictstyle = zdiff3
 [mergetool]
