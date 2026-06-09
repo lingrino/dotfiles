@@ -47,6 +47,7 @@ OrbStack/
 .cursor/*
 .docker/*
 .gk
+.homebrew/trust.json
 .kube/*
 .npm
 .orbstack/*
