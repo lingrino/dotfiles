@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+export PATH="{{ .brewprefix }}/opt/rustup/bin:${PATH}"
+
+OUTPUT_DEFAULT=$(rustup default stable 2>&1)
+if [[ ${OUTPUT_DEFAULT} == *" installed"* ]]; then
+    echo "rust: initialized"
+fi
+
+OUTPUT_UPDATE=$(rustup update 2>&1)
+if [[ ${OUTPUT_UPDATE} == *"updated"* ]]; then
+    echo "rust: updated"
+fi

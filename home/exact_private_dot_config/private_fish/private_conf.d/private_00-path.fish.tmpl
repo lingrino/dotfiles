@@ -13,6 +13,9 @@ fish_add_path --path --prepend {{ .chezmoi.homeDir }}/go/bin
 # cargo/rust
 fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.cargo/bin
 
+# bun
+fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.bun/bin
+
 # ghostty
 if set -q GHOSTTY_BIN_DIR
     fish_add_path --path --prepend $GHOSTTY_BIN_DIR

@@ -30,6 +30,7 @@ OrbStack/
 .aws/cli/cache
 .aws/sso/cache
 .aws/credentials
+.bun/*
 .cargo/*
 !.cargo/config.toml
 .claude.json
@@ -42,6 +43,7 @@ OrbStack/
 .config/gh/hosts.yml
 .config/hunk/state.json
 .config/op
+.config/qmd/index.yml
 .config/tflint/plugins/*
 .config/zed/
 .cursor/*
