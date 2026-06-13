@@ -1,5 +1,3 @@
-{{ if .personal -}}
 #!/usr/bin/env fish
 
 abbr -a c claude
-{{- end }}

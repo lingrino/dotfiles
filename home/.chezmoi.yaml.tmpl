@@ -1,35 +1,13 @@
 ################################
 ### machine information      ###
 ################################
-{{- $machine   := ""    -}}
-{{- $personal  := false -}}
-{{- $work      := false -}}
-{{- $headless  := false -}}
-{{- $transient := false -}}
-
-{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "vagrant" "vscode") -}}
-{{-    $machine   = .chezmoi.hostname -}}
-{{-    $headless  = true -}}
-{{-    $transient = true -}}
-{{- else }}
-{{-    $machine = promptString "machine name (eg: work)" -}}
-{{- end -}}
-
-{{- if eq $machine "work" -}}
-{{-    $work = true -}}
-{{- else }}
-{{-    $personal = true -}}
-{{- end }}
+{{- $machine := promptString "machine name (eg: mini)" -}}
 
 ################################
 ### chezmoi data             ###
 ################################
 data:
-  machine:   {{ $machine }}
-  personal:  {{ $personal }}
-  work:      {{ $work }}
-  headless:  {{ $headless }}
-  transient: {{ $transient }}
+  machine: {{ $machine }}
 
 {{- if eq .chezmoi.os "darwin" }}
   {{- if eq .chezmoi.arch "arm64" }}

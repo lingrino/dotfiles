@@ -73,37 +73,3 @@ OrbStack/
 .config/fish/functions/restic.fish
 .config/restic
 {{- end }}
-
-{{- if .work }}
-# work
-.almd
-.atlas-ml
-.atlas-packages-cli
-.certs/*
-.cloudflared
-.config/atlassian
-.config/atlassian-cli
-.config/pip
-.config/uv/uv.toml
-dash.sqlite3
-.datadog-agent
-.electron-gyp
-.gem
-.gemrc
-.gittrace
-.gk
-jig.db
-.lanyard.db
-.loomctl
-.mutagen
-.netrc
-.nemo
-.orbit
-.pnpm-state
-.rovodev
-.secureConnect
-.vpn
-.yarn
-.yarnrc
-.yarnrc.yml
-{{- end }}

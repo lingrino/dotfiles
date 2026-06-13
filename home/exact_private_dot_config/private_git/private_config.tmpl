@@ -79,9 +79,3 @@
 {{- else }}
   signingkey = {{ (onepasswordRead "op://dotfiles/ndby2ffbeplg6yk3sls2g4yxiq/publickey") }}
 {{- end }}
-{{- if .work }}
-[url "git@github.com:loomhq"]
-  insteadOf = https://github.com/loomhq
-[includeIf "gitdir:{{ .chezmoi.homeDir }}/projects/work/"]
-  path = {{ .chezmoi.homeDir }}/.config/git/config-work
-{{- end }}

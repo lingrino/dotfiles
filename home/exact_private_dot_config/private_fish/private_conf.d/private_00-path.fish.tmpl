@@ -23,8 +23,3 @@ end
 
 # home local bin
 fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.local/bin
-
-{{- if .work }}
-# work
-fish_add_path --path --prepend /opt/atlassian/bin
-{{- end }}

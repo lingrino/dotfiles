@@ -1,5 +1,3 @@
-{{ if .personal -}}
 #!/usr/bin/env fish
 
 atuin init fish | source
-{{- end }}

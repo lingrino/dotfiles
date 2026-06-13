@@ -22,16 +22,14 @@ Files in `home/` use chezmoi's special prefixes:
 
 ### Machine Types
 
-Configuration is templated based on machine type (set on first `chezmoi init`):
+Configuration is templated on the machine name (set on first `chezmoi init`):
 - **personal** - Personal machines with full personal apps
-- **work** - Work machine with additional work-specific tools
-- **headless/transient** - Codespaces, remote containers, etc.
-- **mini** - Headless mac mini (machine name "mini", also `personal: true`); see below
+- **mini** - Headless mac mini; see below
+
+Templates gate on the machine name directly (e.g. `{{ if eq .machine "mini" }}`).
 
 Template variables defined in `.chezmoi.yaml.tmpl`:
-- `.machine` - Machine name (e.g., "work", "personal", "mini")
-- `.personal`, `.work` - Boolean flags
-- `.headless`, `.transient` - Boolean flags for CI/container environments
+- `.machine` - Machine name (e.g., "personal", "mini")
 - `.brewprefix` - Homebrew path (`/opt/homebrew` on ARM, `/usr/local` on Intel)
 
 ### Directory Structure
@@ -43,7 +41,7 @@ home/
 ├── .chezmoiscripts/            # Pre/post-apply hooks
 ├── exact_private_dot_config/   # → ~/.config/
 │   ├── private_fish/           # Fish shell (conf.d/, functions/, interactive.d/)
-│   ├── private_git/            # Git config with work-specific includes
+│   ├── private_git/            # Git config
 │   ├── private_ghostty/        # Terminal emulator
 │   ├── private_homebrew/       # Brewfile.tmpl
 │   └── ...
@@ -100,11 +98,5 @@ Fish config in `private_fish/`:
 - `completions/` - Command completions (managed via .chezmoiignore - generated at runtime)
 
 ### Git Configuration
-
-Uses conditional includes for work-specific config:
-```
-[includeIf "gitdir:~/projects/work/"]
-  path = ~/.config/git/config-work
-```
 
 Commits are signed via 1Password SSH keys (gpg.format = ssh).
