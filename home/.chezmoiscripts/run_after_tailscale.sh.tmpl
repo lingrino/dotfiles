@@ -2,7 +2,7 @@
 {{ if eq .machine "mini" }}
 # https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS
 
-if ! pgrep -x tailscaled >/dev/null; then
+if ! ps axo comm | grep -q '[t]ailscaled'; then
     sudo tailscaled install-system-daemon
 fi
 

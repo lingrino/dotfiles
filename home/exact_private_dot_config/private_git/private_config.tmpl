@@ -74,8 +74,8 @@
 [user]
   name = Sean Lingren
   email = sean@lingren.com
-{{- if eq .machine "mini" }}
-  signingkey = {{ (onepasswordRead "op://dotfiles/nter4ocqmjaf3mxg67ifnjovxm/publickey") }}
-{{- else }}
-  signingkey = {{ (onepasswordRead "op://dotfiles/ndby2ffbeplg6yk3sls2g4yxiq/publickey") }}
+{{- if eq .machine "personal" }}
+  signingkey = {{ (onepasswordRead "op://dotfiles/personal/publickey") }}
+{{- else if eq .machine "mini" }}
+  signingkey = {{ (onepasswordRead "op://dotfiles/mini/publickey") }}
 {{- end }}
