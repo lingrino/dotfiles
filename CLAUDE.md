@@ -71,11 +71,11 @@ Secrets are pulled from 1Password using chezmoi's `onepasswordRead` function in 
 
 Used for: Git signing key, Terraform credentials, API tokens.
 
-On the mini, `op` runs in service-account mode (`onepassword.mode: service` in
+All machines run `op` in service-account mode (`onepassword.mode: service` in
 the chezmoi config, token read from `~/.config/op/service-account-token` into
 `OP_SERVICE_ACCOUNT_TOKEN` by fish). The service account can only read the
-`dotfiles` vault, so mini templates must not reference other vaults — reads
-from `op://personal/...` are gated off the mini.
+`dotfiles` vault, so every `op://...` reference must target the `dotfiles`
+vault — reads from other vaults (e.g. `op://personal/...`) will fail.
 
 ### Mac Mini (Headless)
 
