@@ -7,20 +7,27 @@ theme = Monokai Pro Spectrum
 auto-update = download
 command = {{ .brewprefix }}/bin/fish
 copy-on-select = clipboard
+
+# text
 cursor-style = bar
 cursor-style-blink = false
 font-family = Berkeley Mono Variable
-macos-non-native-fullscreen = true
+
+# window
+window-height = 45
+window-width = 160
 macos-option-as-alt = true
 macos-titlebar-style = tabs
-macos-window-shadow = true
-window-height = 40
-window-width = 160
+macos-non-native-fullscreen = true
 quit-after-last-window-closed = true
+scrollback-limit = 500000000
+
+# shell
+shell-integration-features = sudo,ssh-env,ssh-terminfo
+
+# shift+enter adds a new line
+keybind = shift+enter=text:\n
 
 # send escape sequences mapped to begining and end of line
 keybind = cmd+left=esc:[H
 keybind = cmd+right=esc:[F
-
-# shift+enter adds a new line
-keybind = shift+enter=text:\n
