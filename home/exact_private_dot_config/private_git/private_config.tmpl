@@ -49,7 +49,11 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
+{{- if eq .machine "mini" }}
+  allowedSignersFile = ~/.ssh/allowed_signers
+{{- else }}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
 [help]
   autocorrect = 1
 [init]
@@ -70,7 +74,11 @@
 [user]
   name = Sean Lingren
   email = sean@lingren.com
-  signingkey = {{ (onepasswordRead "op://personal/orpgiu3243p2sjr5wbetoxtj4y/publickey") }}
+{{- if eq .machine "mini" }}
+  signingkey = {{ (onepasswordRead "op://dotfiles/nter4ocqmjaf3mxg67ifnjovxm/publickey") }}
+{{- else }}
+  signingkey = {{ (onepasswordRead "op://dotfiles/ndby2ffbeplg6yk3sls2g4yxiq/publickey") }}
+{{- end }}
 {{- if .work }}
 [url "git@github.com:loomhq"]
   insteadOf = https://github.com/loomhq

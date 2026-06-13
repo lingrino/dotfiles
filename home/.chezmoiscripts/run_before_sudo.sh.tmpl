@@ -5,3 +5,12 @@ sudo tee /etc/pam.d/sudo_local >/dev/null <<EOF
 # enable touchid for sudo
 auth sufficient pam_tid.so
 EOF
+
+# passwordless sudo
+{{ if eq .machine "mini" }}
+SUDOERS_TMP=$(mktemp)
+echo "{{ .chezmoi.username }} ALL=(ALL) NOPASSWD: ALL" >"${SUDOERS_TMP}"
+sudo visudo -cqf "${SUDOERS_TMP}"
+sudo install -m 0440 -o root -g wheel "${SUDOERS_TMP}" /etc/sudoers.d/{{ .chezmoi.username }}
+rm -f "${SUDOERS_TMP}"
+{{ end -}}

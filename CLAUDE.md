@@ -26,6 +26,7 @@ Configuration is templated based on machine type (set on first `chezmoi init`):
 - **personal** - Personal machines with full personal apps
 - **work** - Work machine with additional work-specific tools
 - **headless/transient** - Codespaces, remote containers, etc.
+- **mini** - Headless mac mini (machine name "mini", also `personal: true`); see below
 
 Template variables defined in `.chezmoi.yaml.tmpl`:
 - `.machine` - Machine name (e.g., "work", "personal", "mini")
@@ -54,12 +55,14 @@ home/
 
 Ordered by `run_before_` or `run_after_` prefix:
 - `run_before_checks.sh` - Validates no unmanaged files exist
-- `run_before_sudo.sh.tmpl` - Enables Touch ID for sudo
+- `run_before_sudo.sh.tmpl` - Enables Touch ID for sudo (and passwordless sudo on mini)
 - `run_after_brew.sh` - Updates Homebrew and installs from Brewfile
 - `run_after_fonts.sh.tmpl` - Registers custom fonts
 - `run_after_mac.sh.tmpl` - macOS defaults (keyboard, DNS, hostname)
 - `run_after_rust.sh` - Updates Rust toolchain
 - `run_after_shells.sh.tmpl` - Adds Fish to /etc/shells
+- `run_after_tailscale.sh.tmpl` - Tailscale daemon + `tailscale up` (mini only)
+- `run_onchange_after_restic.sh.tmpl` - Restic backup launchd agent (mini only)
 
 ### 1Password Integration
 
@@ -69,6 +72,24 @@ Secrets are pulled from 1Password using chezmoi's `onepasswordRead` function in 
 ```
 
 Used for: Git signing key, Terraform credentials, API tokens.
+
+On the mini, `op` runs in service-account mode (`onepassword.mode: service` in
+the chezmoi config, token read from `~/.config/op/service-account-token` into
+`OP_SERVICE_ACCOUNT_TOKEN` by fish). The service account can only read the
+`dotfiles` vault, so mini templates must not reference other vaults — reads
+from `op://personal/...` are gated off the mini.
+
+### Mac Mini (Headless)
+
+The mini has no interactive auth, so it diverges from the laptops:
+- Passwordless sudo (`/etc/sudoers.d/lingrino`, installed by `run_before_sudo`)
+- SSH auth and commit signing use the on-disk `~/.ssh/mini` key instead of the
+  1Password agent; signature verification uses `~/.ssh/allowed_signers`
+- No API-key env vars (ANTHROPIC/OPENAI/HOMEBREW tokens) and no Terraform creds
+- Slimmer cask/mas set in the Brewfile (`eq .machine "mini"` gating)
+- Hourly restic backups of `~/Documents` and the Photos library to S3 via a
+  launchd agent; credentials render from `op://dotfiles/restic` into
+  `~/.config/restic/env`; the `restic` fish function wraps the env file
 
 ### Fish Shell Organization
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-alias dot='chezmoi apply'
+alias dot='chezmoi update'
 
 abbr -a cm chezmoi
 abbr -a cma 'chezmoi apply'

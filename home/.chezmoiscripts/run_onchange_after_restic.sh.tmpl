@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+{{ if eq .machine "mini" }}
+set -euo pipefail
+
+PLIST="{{ .chezmoi.homeDir }}/Library/LaunchAgents/com.lingrino.restic-backup.plist"
+
+mkdir -p "$(dirname "${PLIST}")"
+tee "${PLIST}" >/dev/null <<'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.lingrino.restic-backup</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>{{ .chezmoi.homeDir }}/.config/restic/backup.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+  </array>
+  <key>StandardOutPath</key>
+  <string>{{ .chezmoi.homeDir }}/Library/Logs/restic-backup.log</string>
+  <key>StandardErrorPath</key>
+  <string>{{ .chezmoi.homeDir }}/Library/Logs/restic-backup.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>{{ .brewprefix }}/bin:/usr/bin:/bin</string>
+  </dict>
+</dict>
+</plist>
+EOF
+
+launchctl bootout "gui/$(id -u)/com.lingrino.restic-backup" 2>/dev/null || true
+launchctl bootstrap "gui/$(id -u)" "${PLIST}"
+{{ end }}

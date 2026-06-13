@@ -2,6 +2,9 @@
 {{ if eq .machine "mini" }}
 # https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS
 
-sudo tailscaled install-system-daemon
+if ! pgrep -x tailscaled >/dev/null; then
+    sudo tailscaled install-system-daemon
+fi
+
 tailscale up --ssh --accept-routes --advertise-exit-node
 {{ end }}

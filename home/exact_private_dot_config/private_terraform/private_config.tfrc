@@ -1,0 +1,2 @@
+# https://developer.hashicorp.com/terraform/cli/config/config-file
+plugin_cache_dir = "{{ .chezmoi.homeDir }}/.cache/terraform"

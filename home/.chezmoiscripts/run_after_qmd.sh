@@ -6,7 +6,7 @@ export PATH="${HOME}/.bun/bin:${PATH}"
 # name|path|context
 COLLECTIONS="
 notes|${HOME}/Documents/notes|personal notes
-content|${HOME}/projects/content-archive|web archive of all journal link entries
+content|${HOME}/Documents/content|web archive of all journal link entries
 "
 
 EXISTING=$(qmd collection list 2>&1 || true)
