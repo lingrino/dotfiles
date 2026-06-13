@@ -5,6 +5,7 @@ tap 'hashicorp/tap', trusted: true
 tap 'kdash-rs/kdash', trusted: true
 tap 'lingrino/tap', trusted: true
 tap 'modem-dev/tap', trusted: true
+tap 'terraform-linters/tap', trusted: true
 
 brew 'atlas'
 brew 'atuin'
@@ -65,7 +66,6 @@ brew 'shfmt'
 brew 'sqlite'
 brew 'tailscale'
 brew 'terraform-ls'
-brew 'tflint'
 brew 'trafilatura'
 brew 'tree'
 brew 'ty'
@@ -96,6 +96,7 @@ cask 'lingrino/tap/glen'
 cask 'lingrino/tap/vaku'
 cask 'orbstack'
 cask 'proxyman'
+cask 'terraform-linters/tap/tflint'
 cask 'vlc'
 cask 'zed'
 cask 'zoom'
