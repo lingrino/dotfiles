@@ -60,15 +60,7 @@ OrbStack/
 .terraform.d/
 .vscode/
 
-{{- if eq .machine "mini" }}
-# mini
-.nix-channels
-.nix-defexpr
-.nix-profile
-.ssh/age*
-.ssh/agent
-.ssh/mini*
-{{- else }}
+{{- if ne .machine "mini" }}
 # mini-only files
 .config/fish/functions/restic.fish
 .config/restic
