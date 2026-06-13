@@ -99,4 +99,4 @@ Fish config in `private_fish/`:
 
 ### Git Configuration
 
-Commits are signed via 1Password SSH keys (gpg.format = ssh).
+Commits are signed via 1Password SSH keys (gpg.format = ssh)
