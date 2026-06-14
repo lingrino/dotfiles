@@ -57,6 +57,7 @@ OrbStack/
 .psql_history
 .python_history
 .rustup/*
+.terminfo
 .terraform.d/
 .vscode/
 
