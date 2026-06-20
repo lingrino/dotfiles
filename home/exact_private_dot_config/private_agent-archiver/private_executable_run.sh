@@ -46,4 +46,13 @@ eval "$(printf '%s' "${secret_json}" | jq -r 'to_entries[] | "export \(.key)=\(.
 unset secret_json
 
 # Hand off to the archive script with the populated environment.
-exec bash "${ARCHIVE_SCRIPT}"
+#
+# Use /bin/bash explicitly (not the brew bash on PATH). The archive script and
+# its children read ~/Documents, which is TCC-protected, so the launchd job
+# needs Full Disk Access. TCC attributes a child's access to its responsible
+# process (the interpreter launchd started), and grants are keyed to that
+# binary's path. /bin/bash is a stable, unversioned system path, so a one-time
+# Full Disk Access grant for it survives Homebrew upgrades; exec'ing the brew
+# bash would re-break the grant on every version bump (its path is versioned).
+# archive.sh is POSIX/bash-3.2 compatible, so 3.2.57 runs it correctly.
+exec /bin/bash "${ARCHIVE_SCRIPT}"
