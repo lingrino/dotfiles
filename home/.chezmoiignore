@@ -65,4 +65,5 @@ OrbStack/
 # mini-only files
 .config/fish/functions/restic.fish
 .config/restic
+.config/agent-archiver
 {{- end }}
