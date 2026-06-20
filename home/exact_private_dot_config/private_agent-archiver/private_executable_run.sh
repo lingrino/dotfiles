@@ -49,19 +49,11 @@ unset secret_json
 #
 # ~/Documents is TCC-protected, so the headless launchd job needs Full Disk
 # Access to read the content tree. TCC keys grants to the interpreter binary's
-# path, so everything that touches ~/Documents must run under the SAME granted
-# interpreter. We use /bin/bash: a stable, unversioned system path, so the
-# one-time FDA grant survives Homebrew upgrades (the brew bash path is
-# versioned and would re-break the grant on every bump). archive.sh is
-# POSIX/bash-3.2 compatible, so 3.2.57 runs it correctly.
-#
-# Two places pick the interpreter, and both must land on /bin/bash:
-#   1. This exec, for the main process.
-#   2. archive.sh re-execs itself per worker via xargs ("$0" --worker), which
-#      goes through its own `#!/usr/bin/env bash` shebang. `env bash` honors
-#      PATH, so the system dirs must precede Homebrew or the worker resolves to
-#      the ungranted brew bash and dies with "Operation not permitted". The
-#      only command this reorders is bash itself; agent-archiver/jq/aws are
-#      Homebrew-only and still resolve further down PATH.
-export PATH="/usr/bin:/bin:/opt/homebrew/bin"
-exec /bin/bash "${ARCHIVE_SCRIPT}"
+# path, and everything that touches ~/Documents must run under the SAME granted
+# interpreter: the launchd plist runs this script under the Homebrew bash, this
+# exec stays on it, and archive.sh re-execs itself per worker via its
+# `#!/usr/bin/env bash` shebang, which resolves to it through the normal
+# Homebrew-first PATH. So Full Disk Access must be granted to the Homebrew bash
+# (`brew --prefix`/bin/bash). NOTE: that path is versioned, so the grant breaks
+# after `brew upgrade bash` and must be re-applied in System Settings.
+exec bash "${ARCHIVE_SCRIPT}"

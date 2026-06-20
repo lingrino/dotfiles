@@ -14,7 +14,7 @@ tee "${PLIST}" >/dev/null <<'EOF'
   <string>com.lingrino.agent-archiver</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/bash</string>
+    <string>{{ .brewprefix }}/bin/bash</string>
     <string>{{ .chezmoi.homeDir }}/.config/agent-archiver/run.sh</string>
   </array>
   <key>StartCalendarInterval</key>
