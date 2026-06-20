@@ -47,12 +47,21 @@ unset secret_json
 
 # Hand off to the archive script with the populated environment.
 #
-# Use /bin/bash explicitly (not the brew bash on PATH). The archive script and
-# its children read ~/Documents, which is TCC-protected, so the launchd job
-# needs Full Disk Access. TCC attributes a child's access to its responsible
-# process (the interpreter launchd started), and grants are keyed to that
-# binary's path. /bin/bash is a stable, unversioned system path, so a one-time
-# Full Disk Access grant for it survives Homebrew upgrades; exec'ing the brew
-# bash would re-break the grant on every version bump (its path is versioned).
-# archive.sh is POSIX/bash-3.2 compatible, so 3.2.57 runs it correctly.
+# ~/Documents is TCC-protected, so the headless launchd job needs Full Disk
+# Access to read the content tree. TCC keys grants to the interpreter binary's
+# path, so everything that touches ~/Documents must run under the SAME granted
+# interpreter. We use /bin/bash: a stable, unversioned system path, so the
+# one-time FDA grant survives Homebrew upgrades (the brew bash path is
+# versioned and would re-break the grant on every bump). archive.sh is
+# POSIX/bash-3.2 compatible, so 3.2.57 runs it correctly.
+#
+# Two places pick the interpreter, and both must land on /bin/bash:
+#   1. This exec, for the main process.
+#   2. archive.sh re-execs itself per worker via xargs ("$0" --worker), which
+#      goes through its own `#!/usr/bin/env bash` shebang. `env bash` honors
+#      PATH, so the system dirs must precede Homebrew or the worker resolves to
+#      the ungranted brew bash and dies with "Operation not permitted". The
+#      only command this reorders is bash itself; agent-archiver/jq/aws are
+#      Homebrew-only and still resolve further down PATH.
+export PATH="/usr/bin:/bin:/opt/homebrew/bin"
 exec /bin/bash "${ARCHIVE_SCRIPT}"
