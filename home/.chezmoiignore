@@ -43,6 +43,7 @@ OrbStack/
 .config/gh/hosts.yml
 .config/hunk/state.json
 .config/op
+.config/osxphotos
 .config/qmd/index.yml
 .config/tflint/plugins/*
 .config/zed/
