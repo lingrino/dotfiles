@@ -1,7 +1,1 @@
-{{- if eq .machine "personal" }}
-{{-   include "exact_private_dot_config/private_homebrew/Brewfile_personal" -}}
-{{- else if eq .machine "mini" }}
-{{-   include "exact_private_dot_config/private_homebrew/Brewfile_mini" -}}
-{{- else if eq .machine "work" }}
-{{-   include "exact_private_dot_config/private_homebrew/Brewfile_work" -}}
-{{- end -}}
+{{- include (printf "exact_private_dot_config/private_homebrew/Brewfile_%s" .machine) -}}

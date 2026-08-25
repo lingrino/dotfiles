@@ -49,7 +49,7 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
-  allowedSignersFile = ~/.ssh/allowed_signers
+  allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 [help]
   autocorrect = 1
 [init]
@@ -71,11 +71,11 @@
   name = Sean Lingren
   email = sean@lingren.com
 {{- if eq .machine "mini" }}
-  signingkey = ~/.ssh/mini.pub
+  signingkey = {{ .chezmoi.homeDir }}/.ssh/mini.pub
 {{- else }}
-  signingkey = ~/.ssh/personal.pub
+  signingkey = {{ .chezmoi.homeDir }}/.ssh/personal.pub
 {{- end }}
 {{- if eq .machine "work" }}
-[includeIf "gitdir:~/projects/work/"]
-  path = ~/.config/git/config-work
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/projects/work/"]
+  path = {{ .chezmoi.homeDir }}/.config/git/config-work
 {{- end }}
