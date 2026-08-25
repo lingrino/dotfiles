@@ -1,11 +1,12 @@
 Include {{ .chezmoi.homeDir }}/.orbstack/ssh/config
 
 Host *
-{{- if eq .machine "mini" }}
   AddKeysToAgent yes
   UseKeychain yes
   IdentitiesOnly yes
-  IdentityFile ~/.ssh/mini
+{{- if eq .machine "work" }}
+  IdentityFile ~/.ssh/personal
+  IdentityFile ~/.ssh/work
 {{- else }}
-  IdentityAgent "{{ .chezmoi.homeDir }}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityFile ~/.ssh/{{ .machine }}
 {{- end }}

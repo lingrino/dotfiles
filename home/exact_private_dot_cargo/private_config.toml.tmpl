@@ -3,7 +3,11 @@
 [cargo-new]
 vcs = "none"
 name = "Sean Lingren"
+{{- if eq .machine "work" }}
+email = "sean@pierre.co"
+{{- else }}
 email = "sean@lingren.com"
+{{- end }}
 
 [alias]
 b = "build"

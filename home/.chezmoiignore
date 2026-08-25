@@ -68,3 +68,7 @@ OrbStack/
 .config/restic
 .config/agent-archiver
 {{- end }}
+
+{{ if eq .machine "work" -}}
+.osquery/
+{{- end }}

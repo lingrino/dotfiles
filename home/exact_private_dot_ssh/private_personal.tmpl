@@ -1,0 +1,3 @@
+{{- if or (eq .machine "personal") (eq .machine "work") -}}
+{{- (onepasswordRead "op://dotfiles/personal/privatekey?ssh-format=openssh") -}}
+{{- end -}}

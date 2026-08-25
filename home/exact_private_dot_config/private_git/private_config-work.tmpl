@@ -1,0 +1,7 @@
+{{- if eq .machine "work" -}}
+[user]
+  email = sean@pierre.co
+  signingkey = ~/.ssh/work.pub
+[core]
+  sshCommand = ssh -i ~/.ssh/work -o IdentitiesOnly=yes
+{{- end -}}

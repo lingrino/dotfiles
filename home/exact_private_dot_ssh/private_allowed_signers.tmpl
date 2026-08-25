@@ -1,5 +1,8 @@
-{{- if eq .machine "personal" }}
-sean@lingren.com {{ (onepasswordRead "op://dotfiles/personal/publickey") }}
-{{- else if eq .machine "mini" }}
+{{- if eq .machine "mini" -}}
 sean@lingren.com {{ (onepasswordRead "op://dotfiles/mini/publickey") }}
+{{- else -}}
+sean@lingren.com {{ (onepasswordRead "op://dotfiles/personal/publickey") }}
+{{- if eq .machine "work" }}
+sean@pierre.co {{ (onepasswordRead "op://dotfiles/work/publickey") }}
 {{- end }}
+{{- end -}}

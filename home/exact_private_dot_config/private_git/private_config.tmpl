@@ -9,7 +9,7 @@
   df = diff
   lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ms = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git db
-  nb = "!f() { git checkout -b ${1} && git push --set-upstream origin ${1}:${1}; }; f"
+  nb = "!f() { b=sean/${1}; git checkout -b $b && git push --set-upstream origin $b:$b; }; f"
   pc = "!gh pr create --web"
   pv = "!gh pr view --web"
   ps = push
@@ -49,11 +49,7 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
-{{- if eq .machine "mini" }}
   allowedSignersFile = ~/.ssh/allowed_signers
-{{- else }}
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-{{- end }}
 [help]
   autocorrect = 1
 [init]
@@ -74,8 +70,12 @@
 [user]
   name = Sean Lingren
   email = sean@lingren.com
-{{- if eq .machine "personal" }}
-  signingkey = {{ (onepasswordRead "op://dotfiles/personal/publickey") }}
-{{- else if eq .machine "mini" }}
-  signingkey = {{ (onepasswordRead "op://dotfiles/mini/publickey") }}
+{{- if eq .machine "mini" }}
+  signingkey = ~/.ssh/mini.pub
+{{- else }}
+  signingkey = ~/.ssh/personal.pub
+{{- end }}
+{{- if eq .machine "work" }}
+[includeIf "gitdir:~/projects/work/"]
+  path = ~/.config/git/config-work
 {{- end }}
