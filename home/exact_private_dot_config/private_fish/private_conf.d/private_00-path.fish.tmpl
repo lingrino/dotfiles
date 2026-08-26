@@ -5,7 +5,11 @@ fish_add_path --path --prepend /bin /sbin /usr/bin /usr/sbin
 fish_add_path --path --prepend /usr/local/bin /usr/local/sbin
 
 # homebrew
-fish_add_path --path --prepend {{ .brewprefix }}/bin
+fish_add_path --path --prepend --move {{ .brewprefix }}/bin
+
+# proto
+set -gx PROTO_HOME {{ .chezmoi.homeDir }}/.proto
+fish_add_path --path --prepend --move $PROTO_HOME/shims $PROTO_HOME/bin
 
 # google cloud sdk
 fish_add_path --path --prepend {{ .brewprefix }}/share/google-cloud-sdk/bin

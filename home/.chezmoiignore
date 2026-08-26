@@ -4,6 +4,7 @@
 .cups
 .DS_Store
 .local
+.ssh/agent
 .ssh/known_hosts
 .ssh/sockets
 .Trash/
@@ -43,6 +44,7 @@ OrbStack/
 .config/gh/hosts.yml
 .config/hunk/state.json
 .config/op
+.config/openlogi
 .config/osxphotos
 .config/qmd/index.yml
 .config/tflint/plugins/*
@@ -55,6 +57,7 @@ OrbStack/
 .npm
 .orbstack/*
 .proxyman*
+.proto/*
 .psql_history
 .python_history
 .rustup/*
