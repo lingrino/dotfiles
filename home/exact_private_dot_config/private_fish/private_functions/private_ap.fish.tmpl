@@ -1,0 +1,17 @@
+{{- if eq .machine "work" -}}
+function ap --description 'choose and export an AWS profile'
+    set -l profile (aws configure list-profiles | fzf --prompt 'Choose active AWS profile: ')
+    or return
+
+    if not aws sts get-caller-identity --profile $profile >/dev/null 2>&1
+        aws sso login --profile $profile
+        or return
+
+        aws sts get-caller-identity --profile $profile >/dev/null
+        or return
+    end
+
+    set -eg AWS_PROFILE
+    set -Ux AWS_PROFILE $profile
+end
+{{- end }}

@@ -11,3 +11,9 @@ url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_
 [".config/fish/functions/fish_mode_prompt.fish"]
 type = "file"
 url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_mode_prompt.fish"
+
+# kube-ps1 prompt
+# https://github.com/jonmosco/kube-ps1
+[".config/fish/conf.d/kube-ps1.fish"]
+type = "file"
+url = "https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.fish"

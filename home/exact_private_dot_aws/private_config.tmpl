@@ -1,3 +1,6 @@
+{{- if eq .machine "work" -}}
+{{ onepasswordRead "op://dotfiles/aws-work/notesPlain" }}
+{{- else -}}
 [sso-session lingrino]
 sso_region = us-west-2
 sso_start_url = https://lingrino.awsapps.com/start/
@@ -26,3 +29,4 @@ sso_role_name = admin
 sso_session = lingrino
 sso_account_id = 241223443698
 sso_role_name = root-admin
+{{- end }}

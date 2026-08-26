@@ -7,6 +7,9 @@ fish_add_path --path --prepend /usr/local/bin /usr/local/sbin
 # homebrew
 fish_add_path --path --prepend {{ .brewprefix }}/bin
 
+# google cloud sdk
+fish_add_path --path --prepend {{ .brewprefix }}/share/google-cloud-sdk/bin
+
 # go
 fish_add_path --path --prepend {{ .chezmoi.homeDir }}/go/bin
 
