@@ -54,6 +54,7 @@ OrbStack/
 .gk
 .homebrew/trust.json*
 .kube/*
+.moon/*
 .npm
 .orbstack/*
 .proxyman*

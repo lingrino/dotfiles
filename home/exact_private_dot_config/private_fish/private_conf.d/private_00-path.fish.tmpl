@@ -4,6 +4,9 @@
 fish_add_path --path --prepend /bin /sbin /usr/bin /usr/sbin
 fish_add_path --path --prepend /usr/local/bin /usr/local/sbin
 
+# orbstack
+fish_add_path --path --prepend --move {{ .chezmoi.homeDir }}/.orbstack/bin
+
 # homebrew
 fish_add_path --path --prepend --move {{ .brewprefix }}/bin
 
