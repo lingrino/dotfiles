@@ -41,6 +41,7 @@ OrbStack/
 .config/chezmoi
 .config/fish/fish_variables
 .config/fish/completions/*
+.config/gcloud/*
 .config/gh/hosts.yml
 .config/hunk/state.json
 .config/op
