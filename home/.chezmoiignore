@@ -24,6 +24,7 @@ Public/
 go/*
 projects/*
 OrbStack/
+.worktrees/
 
 # tools
 .atlas
@@ -75,5 +76,9 @@ OrbStack/
 {{- end }}
 
 {{ if eq .machine "work" -}}
+.config/planetscale/*
+.mysql_history
 .osquery/
+{{- else }}
+.config/planetscale/
 {{- end }}
