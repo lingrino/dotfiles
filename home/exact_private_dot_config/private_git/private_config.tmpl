@@ -5,7 +5,7 @@
   cl = clone
   cm = commit
   co = checkout
-  db = "!f() { git branch -vv | grep ': gone]'| grep -v \"*\" | awk '{ print $1; }' | xargs git branch -D; }; f"
+  db = "!f() { git branch --no-color -vv | grep ': gone]' | grep -v '^[*+]' | awk '{ print $1; }' | while IFS= read -r branch; do git branch -D -- \"$branch\" || exit; done; }; f"
   df = diff
   lg = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ms = !git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git pull && git db
