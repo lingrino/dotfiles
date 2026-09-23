@@ -21,6 +21,7 @@ fish_add_path --path --prepend {{ .brewprefix }}/share/google-cloud-sdk/bin
 fish_add_path --path --prepend {{ .chezmoi.homeDir }}/go/bin
 
 # cargo/rust
+fish_add_path --path --prepend {{ .brewprefix }}/opt/rustup/bin
 fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.cargo/bin
 
 # bun
