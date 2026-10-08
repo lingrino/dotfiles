@@ -3,7 +3,9 @@
 .CFUserTextEncoding
 .cups
 .DS_Store
-.local
+.local/*
+!.local/bin
+.local/bin/*
 .ssh/agent
 .ssh/known_hosts
 .ssh/sockets
@@ -27,6 +29,7 @@ OrbStack/
 .worktrees/
 
 # tools
+.agents/*
 .atlas
 .atuin/logs/*
 .aws/cli/cache
@@ -76,9 +79,16 @@ OrbStack/
 {{- end }}
 
 {{ if eq .machine "work" -}}
+.config/configstore/update-notifier-@pandacss/
+.config/mintlify/anonymous-id
 .config/planetscale/*
+.config/stripe/telemetry_id
+.gnupg/
+.gsutil/
+.mintlify/
 .mysql_history
 .osquery/
+.pulumi/
 {{- else }}
 .config/planetscale/
 {{- end }}
