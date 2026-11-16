@@ -5,4 +5,5 @@ if type -q eza
     alias la='eza -abghl'
     alias ll='eza -bghl'
     alias ls='eza'
+    alias tree='eza --tree'
 end

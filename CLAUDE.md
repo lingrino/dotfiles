@@ -42,7 +42,6 @@ home/
 ├── exact_private_dot_config/   # → ~/.config/
 │   ├── private_fish/           # Fish shell (conf.d/, functions/, interactive.d/)
 │   ├── private_git/            # Git config
-│   ├── private_ghostty/        # Terminal emulator
 │   ├── private_homebrew/       # Brewfile.tmpl
 │   └── ...
 ├── exact_private_dot_ssh/      # SSH config with 1Password agent

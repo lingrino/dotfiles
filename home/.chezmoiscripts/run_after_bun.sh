@@ -2,7 +2,6 @@
 set -euo pipefail
 
 PACKAGES="
-@tobilu/qmd
 @stripe/link-cli
 "
 

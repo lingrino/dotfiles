@@ -30,7 +30,6 @@ OrbStack/
 
 # tools
 .agents/*
-.atlas
 .atuin/logs/*
 .aws/cli/cache
 .aws/sso/cache
@@ -47,11 +46,9 @@ OrbStack/
 .config/fish/completions/*
 .config/gcloud/*
 .config/gh/hosts.yml
-.config/hunk/state.json
 .config/op
 .config/openlogi
 .config/osxphotos
-.config/qmd/index.yml
 .config/tflint/plugins/*
 .config/zed/
 .cursor/*
@@ -60,9 +57,7 @@ OrbStack/
 .homebrew/trust.json*
 .kube/*
 .moon/*
-.npm
 .orbstack/*
-.proxyman*
 .proto/*
 .psql_history
 .python_history
@@ -91,4 +86,5 @@ OrbStack/
 .pulumi/
 {{- else }}
 .config/planetscale/
+.kube
 {{- end }}

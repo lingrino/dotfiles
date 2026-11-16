@@ -12,6 +12,7 @@ set -g hydro_color_pwd cyan
 set -g hydro_color_git magenta
 set -g hydro_color_prompt green
 set -g hydro_color_duration yellow
+{{- if eq .machine "work" }}
 
 # kube-ps1 configuration
 set -g KUBE_PS1_SYMBOL_ENABLE false
@@ -22,16 +23,19 @@ set -g KUBE_PS1_CTX_COLOR 60A5FA
 set -g KUBE_PS1_NS_COLOR 60A5FA
 set -g KUBE_PS1_HIDE_IF_NOCONTEXT true
 set -g KUBE_PS1_CLUSTER_FUNCTION _hydro_kube_context
+{{- end }}
 
 # print newline before prompt
 function _hydro_newline --on-event fish_postexec
     echo
 end
+{{- if eq .machine "work" }}
 
 function _hydro_kube_context --description 'shorten the kubernetes context'
     string replace -r \
         '^arn:aws:eks:[^:]+:[^:]+:cluster/' '' -- $argv[1]
 end
+{{- end }}
 
 function _hydro_cloud_prompt --description 'show the active aws profile and kubernetes context'
     set -l segments
@@ -42,11 +46,13 @@ function _hydro_cloud_prompt --description 'show the active aws profile and kube
     if test -n "$aws_profile"
         set -a segments (set_color FF9900)$aws_profile
     end
+{{- if eq .machine "work" }}
 
     if functions -q kube_ps1
         set -l kube_prompt (kube_ps1)
         test -n "$kube_prompt"; and set -a segments $kube_prompt
     end
+{{- end }}
 
     if test (count $segments) -gt 0
         printf '%s' (string join (set_color brblack)' │ ' $segments)
