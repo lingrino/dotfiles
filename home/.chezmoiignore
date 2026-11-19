@@ -65,7 +65,6 @@ OrbStack/
 .config/op
 .config/openlogi
 .config/osxphotos
-.config/tflint/plugins/*
 .config/zed/*
 .docker/*
 .homebrew/trust.json*
