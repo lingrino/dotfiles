@@ -60,7 +60,11 @@ function _hydro_cloud_prompt --description 'show the active aws profile and kube
     end
 end
 
-# Keep cloud context on Hydro's first row instead of Fish's input-row right prompt.
+# Hydro's functions/fish_prompt.fish, extended to keep cloud context on Hydro's
+# first row instead of Fish's input-row right prompt. Hydro's own copy is not
+# downloaded (this one would shadow it anyway), so when Renovate bumps hydro in
+# .chezmoiexternal.toml, diff upstream's functions/fish_prompt.fish and port
+# any changes here. The single-line branch is upstream's prompt verbatim.
 function fish_prompt --description 'hydro with cloud context'
     set -l status_lines (string split '\\n' -- "$_hydro_status")
 

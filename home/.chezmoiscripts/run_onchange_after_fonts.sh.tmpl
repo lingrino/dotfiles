@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+# Installs every .ttf and .otf in fonts/ into ~/Library/Fonts. The hashes below
+# make chezmoi rerun this script whenever a font is added, removed or changed.
+{{- range (glob (joinPath .chezmoi.sourceDir "fonts/*/*")) }}
+{{-   if regexMatch "(?i)\\.(otf|ttf)$" . }}
+# {{ base . }} {{ include . | sha256sum }}
+{{-   end }}
+{{- end }}
+
+FONTS_DIR='{{ .chezmoi.homeDir }}/Library/Fonts'
+mkdir -p "${FONTS_DIR}"
+
+# install unlinks the existing file first, which also replaces copies that an
+# older version of this script left owned by root
+find '{{ .chezmoi.sourceDir }}/fonts' -type f \( -iname '*.ttf' -o -iname '*.otf' \) \
+    -exec install -m 0644 {} "${FONTS_DIR}/" \;
+
+echo "fonts: installed"

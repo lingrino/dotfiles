@@ -1,10 +1,16 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
-sudo tee /etc/pam.d/sudo_local >/dev/null <<EOF
+# enable touchid for sudo. sudo only runs when the file needs changing.
+PAM_LOCAL=$(cat <<EOF
 # enable touchid for sudo
 auth sufficient pam_tid.so
 EOF
+)
+if [ "$(cat /etc/pam.d/sudo_local 2>/dev/null || true)" != "${PAM_LOCAL}" ]; then
+    printf '%s\n' "${PAM_LOCAL}" | sudo tee /etc/pam.d/sudo_local >/dev/null
+    echo "sudo: enabled touchid"
+fi
 
 # passwordless sudo
 {{ if eq .machine "mini" }}

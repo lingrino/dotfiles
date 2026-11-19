@@ -9,6 +9,7 @@ fish_add_path --path --prepend --move {{ .chezmoi.homeDir }}/.orbstack/bin
 
 # homebrew
 fish_add_path --path --prepend --move {{ .brewprefix }}/bin
+{{- if eq .machine "work" }}
 
 # proto
 set -gx PROTO_HOME {{ .chezmoi.homeDir }}/.proto
@@ -16,6 +17,7 @@ fish_add_path --path --prepend --move $PROTO_HOME/shims $PROTO_HOME/bin
 
 # google cloud sdk
 fish_add_path --path --prepend {{ .brewprefix }}/share/google-cloud-sdk/bin
+{{- end }}
 
 # go
 fish_add_path --path --prepend {{ .chezmoi.homeDir }}/go/bin

@@ -1,16 +1,12 @@
-# hydro prompt
+# Externals are pinned to a commit. Renovate opens a PR when the branch named in
+# each "renovate:" comment moves (see renovate.json).
+
+# hydro prompt (fish_prompt itself is inlined in conf.d/hydro-config.fish)
 # https://github.com/jorgebucaran/hydro
 [".config/fish/conf.d/hydro.fish"]
 type = "file"
-url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/conf.d/hydro.fish"
-
-[".config/fish/functions/fish_prompt.fish"]
-type = "file"
-url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_prompt.fish"
-
-[".config/fish/functions/fish_mode_prompt.fish"]
-type = "file"
-url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_mode_prompt.fish"
+# renovate: branch=main
+url = "https://raw.githubusercontent.com/jorgebucaran/hydro/f130b55ee3eaf099eccf588e2a62e5447068d120/conf.d/hydro.fish"
 
 {{- if eq .machine "work" }}
 
@@ -18,5 +14,6 @@ url = "https://raw.githubusercontent.com/jorgebucaran/hydro/main/functions/fish_
 # https://github.com/jonmosco/kube-ps1
 [".config/fish/conf.d/kube-ps1.fish"]
 type = "file"
-url = "https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.fish"
+# renovate: branch=master
+url = "https://raw.githubusercontent.com/jonmosco/kube-ps1/7aaaeee5eaa29f920acd850ea63839d9f87b8ac5/kube-ps1.fish"
 {{- end }}

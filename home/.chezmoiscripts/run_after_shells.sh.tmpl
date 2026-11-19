@@ -3,7 +3,8 @@ set -euo pipefail
 
 FISH_SHELL="{{ .brewprefix }}/bin/fish"
 
-sudo tee /etc/shells >/dev/null <<EOF
+# sudo only runs when /etc/shells needs changing
+SHELLS=$(cat <<EOF
 # List of acceptable shells for chpass(1).
 # Ftpd will not allow users to connect who are not using
 # one of these shells.
@@ -17,6 +18,11 @@ sudo tee /etc/shells >/dev/null <<EOF
 /bin/zsh
 ${FISH_SHELL}
 EOF
+)
+if [ "$(cat /etc/shells)" != "${SHELLS}" ]; then
+    printf '%s\n' "${SHELLS}" | sudo tee /etc/shells >/dev/null
+    echo "shells: updated /etc/shells"
+fi
 
 CURRENT_SHELL=$(id -P "{{ .chezmoi.username }}" | cut -d: -f10)
 if [ "${CURRENT_SHELL}" != "${FISH_SHELL}" ]; then

@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
-sudo rm -rf /Applications/GarageBand.app
-sudo rm -rf /Applications/iMovie.app
-sudo rm -rf /Applications/Keynote.app
-sudo rm -rf /Applications/Numbers.app
-sudo rm -rf /Applications/Pages.app
+# Remove preinstalled Apple apps. sudo only runs when one is present.
+for APP in GarageBand iMovie Keynote Numbers Pages; do
+    if [ -e "/Applications/${APP}.app" ]; then
+        sudo rm -rf "/Applications/${APP}.app"
+        echo "remove: ${APP}"
+    fi
+done
