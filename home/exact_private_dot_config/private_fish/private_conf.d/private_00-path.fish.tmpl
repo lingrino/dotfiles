@@ -1,33 +1,33 @@
 #!/usr/bin/env fish
 
-# system paths
-fish_add_path --path --prepend /bin /sbin /usr/bin /usr/sbin
-fish_add_path --path --prepend /usr/local/bin /usr/local/sbin
+set -l prepend (path filter -d -- \
+    {{ .chezmoi.homeDir }}/.local/bin \
+    {{ .chezmoi.homeDir }}/.bun/bin \
+    {{ .chezmoi.homeDir }}/.cargo/bin \
+    {{ .brewprefix }}/opt/rustup/bin \
+    {{ .chezmoi.homeDir }}/go/bin \
+{{- if eq .machine "work" }}
+    {{ .brewprefix }}/share/google-cloud-sdk/bin \
+    {{ .chezmoi.homeDir }}/.proto/shims \
+    {{ .chezmoi.homeDir }}/.proto/bin \
+{{- end }}
+    {{ .brewprefix }}/bin \
+    {{ .chezmoi.homeDir }}/.orbstack/bin)
 
-# orbstack
-fish_add_path --path --prepend --move {{ .chezmoi.homeDir }}/.orbstack/bin
+set -l system
+for dir in /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin
+    contains -- $dir $PATH; or set -a system $dir
+end
+set -q system[1]; and set system (path filter -d -- $system)
 
-# homebrew
-fish_add_path --path --prepend --move {{ .brewprefix }}/bin
+set -l rest $PATH
+for dir in $prepend
+    set -l i (contains -i -- $dir $rest); and set -e rest[$i]
+end
+
+set -gx PATH $prepend $system $rest
 {{- if eq .machine "work" }}
 
 # proto
 set -gx PROTO_HOME {{ .chezmoi.homeDir }}/.proto
-fish_add_path --path --prepend --move $PROTO_HOME/shims $PROTO_HOME/bin
-
-# google cloud sdk
-fish_add_path --path --prepend {{ .brewprefix }}/share/google-cloud-sdk/bin
 {{- end }}
-
-# go
-fish_add_path --path --prepend {{ .chezmoi.homeDir }}/go/bin
-
-# cargo/rust
-fish_add_path --path --prepend {{ .brewprefix }}/opt/rustup/bin
-fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.cargo/bin
-
-# bun
-fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.bun/bin
-
-# home local bin
-fish_add_path --path --prepend {{ .chezmoi.homeDir }}/.local/bin

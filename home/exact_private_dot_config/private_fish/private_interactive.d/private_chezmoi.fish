@@ -1,6 +1,8 @@
 #!/usr/bin/env fish
 
-alias dot='chezmoi update'
+function dot --wraps='chezmoi update' --description 'alias dot=chezmoi update'
+    chezmoi update $argv
+end
 
 abbr -a cm chezmoi
 abbr -a cma 'chezmoi apply'
