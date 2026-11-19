@@ -1,3 +1,5 @@
 #!/usr/bin/env fish
 
-alias dig='doggo'
+function dig --wraps=doggo --description 'alias dig=doggo'
+    doggo $argv
+end

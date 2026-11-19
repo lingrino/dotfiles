@@ -1,3 +1,5 @@
 #!/usr/bin/env fish
 
-alias find='fd'
+function find --wraps=fd --description 'alias find=fd'
+    fd $argv
+end

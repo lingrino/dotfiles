@@ -11,19 +11,5 @@
     "prConcurrentLimit": 100,
     "reviewers": [
         "lingrino"
-    ],
-    "customManagers": [
-        {
-            "customType": "regex",
-            "description": "chezmoi externals pinned to a GitHub commit",
-            "managerFilePatterns": [
-                "/(^|/)\\.chezmoiexternal\\.toml$/"
-            ],
-            "matchStrings": [
-                "# renovate: branch=(?<currentValue>\\S+)\\s+url = \"https://raw\\.githubusercontent\\.com/(?<depName>[^/]+/[^/]+)/(?<currentDigest>[0-9a-f]{40})/"
-            ],
-            "datasourceTemplate": "git-refs",
-            "packageNameTemplate": "https://github.com/{{{depName}}}"
-        }
     ]
 }

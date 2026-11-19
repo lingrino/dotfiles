@@ -1,3 +1,5 @@
 #!/usr/bin/env fish
 
-alias top='btm'
+function top --wraps=btm --description 'alias top=btm'
+    btm $argv
+end

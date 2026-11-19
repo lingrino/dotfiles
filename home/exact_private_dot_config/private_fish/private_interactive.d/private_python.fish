@@ -1,5 +1,11 @@
 #!/usr/bin/env fish
 
 abbr -a p python
-alias python='python3'
-alias pip='pip3'
+
+function python --wraps=python3 --description 'alias python=python3'
+    python3 $argv
+end
+
+function pip --wraps=pip3 --description 'alias pip=pip3'
+    pip3 $argv
+end

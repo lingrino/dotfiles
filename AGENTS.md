@@ -26,7 +26,7 @@ Files in `home/` use chezmoi's special prefixes:
 
 Configuration is templated on the machine name (prompted on first `chezmoi init`):
 - **personal** - Personal laptop with the full set of personal apps
-- **work** - Work laptop; the only machine with kube tools (kubectl, kubectx, helm, kustomize, kube-ps1), proto/moon, gcloud, and work AWS/git config
+- **work** - Work laptop; the only machine with kube tools (kubectl, kubectx, helm, kustomize) and the prompt's kube context, proto/moon, gcloud, and work AWS/git config
 - **mini** - Headless mac mini; see below
 
 Templates gate on the machine name directly (e.g. `{{ if eq .machine "mini" }}`).
@@ -40,7 +40,6 @@ Template variables defined in `.chezmoi.yaml.tmpl`:
 ```
 home/
 ├── .chezmoi.yaml.tmpl          # Chezmoi config and machine prompt
-├── .chezmoiexternal.toml       # Third-party files (hydro, kube-ps1) pinned to commits
 ├── .chezmoiignore              # Files to ignore (templated per machine)
 ├── .chezmoiscripts/            # Pre/post-apply hooks
 ├── exact_private_dot_config/   # → ~/.config/
@@ -90,16 +89,11 @@ content changes.
 - `run_onchange_after_restic.sh.tmpl` - Restic backup launchd agent (mini only)
 - `run_onchange_after_agent-archiver.sh.tmpl` - Daily agent-archiver launchd agent (mini only)
 
-### Externals and Renovate
+### Prompt
 
-`.chezmoiexternal.toml` pins each external to a commit SHA in its URL. A
-`# renovate: branch=<name>` comment above each URL lets the custom manager in
-`renovate.json` open a PR when that upstream branch moves. Changing the URL is
-what makes chezmoi download the new version.
-
-Only hydro's `conf.d/hydro.fish` is downloaded. Its `fish_prompt` is inlined (and
-extended) in `conf.d/hydro-config.fish`, so a hydro bump means checking
-upstream's `functions/fish_prompt.fish` for changes to port by hand.
+The prompt in `interactive.d/prompt.fish` is a trimmed fork of hydro, with the
+kube context from kube-ps1 folded in on work machines. There are no chezmoi
+externals; third-party shell code is copied in and maintained here.
 
 ### 1Password Integration
 
@@ -137,6 +131,16 @@ Fish config in `private_fish/`:
 - `interactive.d/` - Aliases and interactive-only config (sourced from config.fish)
 - `functions/` - Fish functions (autoloaded)
 - `completions/` - Command completions (ignored; generated at runtime)
+
+Shell startup and per-command latency are kept low on purpose:
+- Define aliases as plain functions (what `alias` would generate); `alias` is
+  a slow script function.
+- Load tool init scripts with `__cached_init <tool> init fish ...` (defined in
+  config.fish) instead of `<tool> init fish | source`; it caches the output
+  in `~/.cache/fish/init` until the binary changes.
+- Don't spawn processes at startup, on `cd`, or on every prompt/command in the
+  foreground; run them in the background (see `atuin.fish`, `zoxide.fish`,
+  `prompt.fish`).
 
 ### Git Configuration
 

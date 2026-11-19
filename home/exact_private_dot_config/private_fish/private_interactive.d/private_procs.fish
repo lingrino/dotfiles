@@ -1,3 +1,5 @@
 #!/usr/bin/env fish
 
-alias ps='procs'
+function ps --wraps=procs --description 'alias ps=procs'
+    procs $argv
+end

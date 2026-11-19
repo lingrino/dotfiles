@@ -1,3 +1,5 @@
 #!/usr/bin/env fish
 
-alias cat='bat'
+function cat --wraps=bat --description 'alias cat=bat'
+    bat $argv
+end
