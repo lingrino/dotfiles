@@ -1,7 +1,5 @@
-{{- if eq .machine "work" -}}
 #!/usr/bin/env fish
 
 abbr -a k kubectl
 abbr -a kc kubectx
 abbr -a kn kubens
-{{ end -}}

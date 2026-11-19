@@ -1,3 +1,1 @@
-{{- if eq .machine "work" -}}
-{{- (onepasswordRead "op://dotfiles/work/publickey") -}}
-{{- end -}}
+{{- onepasswordRead "op://dotfiles/work/publickey" -}}

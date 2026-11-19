@@ -1,7 +1,7 @@
-{{- if eq .machine "work" -}}
 [user]
   email = sean@pierre.co
   signingkey = {{ .chezmoi.homeDir }}/.ssh/work.pub
 [core]
   sshCommand = ssh -i {{ .chezmoi.homeDir }}/.ssh/work -o IdentitiesOnly=yes
-{{- end -}}
+  # the work repos are large enough for the fsmonitor daemon to pay for itself
+  fsmonitor = true

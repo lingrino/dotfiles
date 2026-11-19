@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -euo pipefail
 
 # Remove preinstalled Apple apps. sudo only runs when one is present.

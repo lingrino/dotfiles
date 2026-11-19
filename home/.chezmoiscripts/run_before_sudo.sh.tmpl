@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -euo pipefail
 
 # enable touchid for sudo. sudo only runs when the file needs changing.
@@ -11,12 +11,19 @@ if [ "$(cat /etc/pam.d/sudo_local 2>/dev/null || true)" != "${PAM_LOCAL}" ]; the
     printf '%s\n' "${PAM_LOCAL}" | sudo tee /etc/pam.d/sudo_local >/dev/null
     echo "sudo: enabled touchid"
 fi
+{{- if eq .machine "mini" }}
 
-# passwordless sudo
-{{ if eq .machine "mini" }}
-SUDOERS_TMP=$(mktemp)
-echo "{{ .chezmoi.username }} ALL=(ALL) NOPASSWD: ALL" >"${SUDOERS_TMP}"
-sudo visudo -cqf "${SUDOERS_TMP}"
-sudo install -m 0440 -o root -g wheel "${SUDOERS_TMP}" /etc/sudoers.d/{{ .chezmoi.username }}
-rm -f "${SUDOERS_TMP}"
-{{ end -}}
+# passwordless sudo. Only root can read the sudoers file, so drift is detected
+# from its size, mode and owner, and sudo only runs when one of those is off.
+SUDOERS_FILE="/etc/sudoers.d/{{ .chezmoi.username }}"
+SUDOERS_RULE="{{ .chezmoi.username }} ALL=(ALL) NOPASSWD: ALL"
+SUDOERS_WANT="$((${#SUDOERS_RULE} + 1)) -r--r----- root:wheel"
+if [ "$(/usr/bin/stat -f '%z %Sp %Su:%Sg' "${SUDOERS_FILE}" 2>/dev/null || true)" != "${SUDOERS_WANT}" ]; then
+    SUDOERS_TMP=$(mktemp)
+    echo "${SUDOERS_RULE}" >"${SUDOERS_TMP}"
+    sudo visudo -cqf "${SUDOERS_TMP}"
+    sudo install -m 0440 -o root -g wheel "${SUDOERS_TMP}" "${SUDOERS_FILE}"
+    rm -f "${SUDOERS_TMP}"
+    echo "sudo: enabled passwordless sudo"
+fi
+{{- end }}

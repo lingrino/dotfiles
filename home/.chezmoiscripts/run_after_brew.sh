@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -euo pipefail
 
 brew update 2>&1 | sed -e '/^==> Updating Homebrew\.\.\.$/d' -e '/^Already up-to-date\.$/d'

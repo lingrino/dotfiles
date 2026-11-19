@@ -1,4 +1,5 @@
 #!/usr/bin/env fish
 
-set -gx EDITOR zed
-set -gx GIT_EDITOR "zed --wait"
+# --wait so that anything that blocks on the editor (git, chezmoi edit, fish's
+# edit-command-buffer) gets the saved file back
+set -gx EDITOR "zed --wait"

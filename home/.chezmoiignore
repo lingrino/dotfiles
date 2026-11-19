@@ -1,5 +1,7 @@
 # builtin
 .cache/*
+!.cache/terraform
+.cache/terraform/*
 .CFUserTextEncoding
 .cups
 .DS_Store
@@ -16,11 +18,25 @@ Applications/
 Desktop/
 Documents/
 Downloads/
-Library/
 Movies/
 Music/
 Pictures/
 Public/
+
+# ~/Library is unmanaged apart from the files un-ignored here
+Library/*
+!Library/Fonts
+Library/Fonts/*
+!Library/Fonts/Berkeley*.otf
+!Library/KeyBindings
+Library/KeyBindings/*
+!Library/KeyBindings/DefaultKeyBinding.dict
+Library/LaunchAgents/*
+{{- if eq .machine "mini" }}
+!Library/LaunchAgents
+!Library/LaunchAgents/com.lingrino.agent-archiver.plist
+!Library/LaunchAgents/com.lingrino.restic-backup.plist
+{{- end }}
 
 # folders
 go/*
@@ -50,7 +66,7 @@ OrbStack/
 .config/openlogi
 .config/osxphotos
 .config/tflint/plugins/*
-.config/zed/
+.config/zed/*
 .docker/*
 .homebrew/trust.json*
 .kube/*
@@ -63,16 +79,38 @@ OrbStack/
 .terminfo
 .terraform.d/
 .tflint.d/
-.vscode/
 
+# machine-specific files: a file that only exists on some machines is ignored
+# here on the others, instead of being wrapped in a template conditional
 {{- if ne .machine "mini" }}
-# mini-only files
+.chezmoiscripts/agent-archiver.sh
+.chezmoiscripts/restic.sh
+.chezmoiscripts/tailscale.sh
+.config/agent-archiver
 .config/fish/functions/restic.fish
 .config/restic
-.config/agent-archiver
+.ssh/mini
+.ssh/mini.pub
+{{- else }}
+.ssh/personal
+.ssh/personal.pub
 {{- end }}
+{{- if ne .machine "work" }}
+.config/fish/functions/ap.fish
+.config/fish/interactive.d/kubernetes.fish
+.config/gcloud/
+.config/git/config-work
+.config/planetscale/
+.kube
+.moon
+.proto
+.ssh/work
+.ssh/work.pub
+{{- else }}
+.config/fish/conf.d/aws.fish
+.config/fish/functions/sme.fish
 
-{{ if eq .machine "work" -}}
+# work-only tools
 .config/configstore/update-notifier-@pandacss/
 .config/gcloud/*
 .config/mintlify/anonymous-id
@@ -86,10 +124,4 @@ OrbStack/
 .osquery/
 .proto/*
 .pulumi/
-{{- else }}
-.config/gcloud/
-.config/planetscale/
-.kube
-.moon
-.proto
 {{- end }}

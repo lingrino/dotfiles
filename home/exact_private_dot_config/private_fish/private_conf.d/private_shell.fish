@@ -1,11 +1,5 @@
 #!/usr/bin/env fish
 
-# terminal
-set -gx TERM xterm-256color
-
-# grep
-set -gx GREP_OPTIONS --color=auto
-
 # man pages colors
 set -gx LESS_TERMCAP_mb \e'[1;35m'
 set -gx LESS_TERMCAP_md \e'[1;36m'

@@ -1,3 +1,1 @@
-{{- if eq .machine "mini" -}}
-{{- (onepasswordRead "op://dotfiles/mini/privatekey?ssh-format=openssh") -}}
-{{- end -}}
+{{- onepasswordRead "op://dotfiles/mini/privatekey?ssh-format=openssh" -}}

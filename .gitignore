@@ -1,1 +1,4 @@
-home/fonts/usgraphics/*
+# Berkeley Mono is licensed: download it from https://usgraphics.com and put the
+# font files here by hand. Only .keep is tracked.
+home/private_Library/private_Fonts/*
+!home/private_Library/private_Fonts/.keep

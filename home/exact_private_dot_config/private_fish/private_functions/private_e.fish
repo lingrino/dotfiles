@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 
-function e --description 'open editor at path. defaults to current directory.'
+function e --description 'open zed at path. defaults to current directory.'
     if test (count $argv) -eq 0
-        $EDITOR .
+        zed .
     else
-        $EDITOR $argv[1]
+        zed $argv[1]
     end
 end

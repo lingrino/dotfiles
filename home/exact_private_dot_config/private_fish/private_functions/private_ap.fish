@@ -1,4 +1,5 @@
-{{- if eq .machine "work" -}}
+#!/usr/bin/env fish
+
 function ap --description 'choose and export an AWS profile'
     set -l profile (aws configure list-profiles | fzf --prompt 'Choose active AWS profile: ')
     or return
@@ -14,4 +15,3 @@ function ap --description 'choose and export an AWS profile'
     set -eg AWS_PROFILE
     set -Ux AWS_PROFILE $profile
 end
-{{- end }}

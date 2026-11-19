@@ -13,13 +13,5 @@ history_filter = [
     "^(.|\n)*(?i)(authorization:| bearer )(.|\n)*$",
 ]
 
-[stats]
-
-[keys]
-
 [sync]
 records = true
-
-[preview]
-
-[daemon]

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -euo pipefail
 
 # doc on available options
@@ -8,20 +8,6 @@ set -euo pipefail
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write -g KeyRepeat 2
 defaults write -g InitialKeyRepeat 12
-
-mkdir -p '{{ .chezmoi.homeDir }}/Library/KeyBindings'
-tee {{ .chezmoi.homeDir }}/Library/KeyBindings/DefaultKeyBinding.dict >/dev/null <<EOF
-{
-  "\UF729"  = moveToBeginningOfLine:; // home
-  "\UF72B"  = moveToEndOfLine:; // end
-  "$\UF729" = moveToBeginningOfLineAndModifySelection:; // shift-home
-  "$\UF72B" = moveToEndOfLineAndModifySelection:; // shift-end
-  "^\UF729" = moveToBeginningOfDocument:; // ctrl-home
-  "^\UF72B" = moveToEndOfDocument:; // ctrl-end
-  "^$\UF729" = moveToBeginningOfDocumentAndModifySelection:; // ctrl-shift-home
-  "^$\UF72B" = moveToEndOfDocumentAndModifySelection:; // ctrl-shift-end
-}
-EOF
 
 # The settings below need sudo to change but not to read, so each one is only
 # set (with sudo) when it differs from what we want.

@@ -27,21 +27,13 @@
   tags = tag -l
 [apply]
   whitespace = nowarn
-[color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = true
 [commit]
   gpgSign = true
 [core]
   excludesfile = {{ .chezmoi.homeDir }}/.config/git/ignore
-  editor = $GIT_EDITOR
+  editor = zed --wait
   pager = delta
-  fsmonitor = true
   untrackedCache = true
-[credential]
-  helper = osxkeychain
 [delta]
   navigate = true
 [difftool]
@@ -53,7 +45,7 @@
 [gpg "ssh"]
   allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 [help]
-  autocorrect = 1
+  autocorrect = prompt
 [init]
   defaultBranch = main
 [interactive]
@@ -62,14 +54,9 @@
   conflictstyle = zdiff3
 [mergetool]
   keepBackup = false
-[pack]
-  useSparse = true
-[protocol]
-  version = 2
 [pull]
   rebase = false
 [push]
-  default = simple
   followTags = true
 [user]
   name = Sean Lingren
