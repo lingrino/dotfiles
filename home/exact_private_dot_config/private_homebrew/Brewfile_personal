@@ -1,5 +1,6 @@
 cask_args appdir: '/Applications'
 
+tap 'anthropics/tap', trusted: true
 tap 'hashicorp/tap', trusted: true
 tap 'lingrino/tap', trusted: true
 tap 'RhetTbull/osxphotos', trusted: true
@@ -53,6 +54,7 @@ brew 'zoxide'
 
 cask '1password'
 cask '1password-cli'
+cask 'anthropics/tap/ant'
 cask 'chatgpt'
 cask 'claude'
 cask 'cleanshot'
